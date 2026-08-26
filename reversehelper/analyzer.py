@@ -81,3 +81,81 @@ class ReverseHelperAnalyzer:
             raise AnalysisError(f"Analysis failed: {exc}") from exc
         finally:
             parser.close()
+
+    def analyze_quick(self, path: str | Path) -> dict[str, Any]:
+        """Run structural triage without strings, crypto constants or code-cave scanning."""
+        return self._analyze_partial(path, "quick")
+
+    def analyze_module(self, path: str | Path, module: str) -> dict[str, Any]:
+        """Run one supported analysis module and its parsing prerequisites."""
+        if module not in {"anomaly", "imports", "strings"}:
+            raise AnalysisError(f"Unsupported analysis module: {module}")
+        return self._analyze_partial(path, module)
+
+    def _analyze_partial(self, path: str | Path, mode: str) -> dict[str, Any]:
+        try:
+            parser = PEParser(path)
+        except (OSError, PEFormatError, ValueError) as exc:
+            raise AnalysisError(str(exc)) from exc
+
+        try:
+            result = parser.parse()
+            modules: list[str]
+
+            if mode == "strings":
+                strings = extract_strings(
+                    parser.data,
+                    minimum=self.minimum_string_length,
+                    maximum=self.maximum_strings,
+                )
+                annotate_string_locations(
+                    strings,
+                    result["sections"],
+                    result["basic"]["image_base"],
+                    result["basic"]["size_of_headers"],
+                )
+                result["strings"] = strings
+                modules = ["strings"]
+            elif mode == "imports":
+                modules = ["imports"]
+            else:
+                packing = detect_packing(
+                    parser.pe,
+                    result["sections"],
+                    result["basic"]["entry_point_rva"],
+                    result["import_count"],
+                    result["basic"]["file_size"],
+                )
+                result["packing"] = packing
+                modules = ["anomaly"]
+                if mode == "quick":
+                    result["entry_point_analysis"] = analyze_entry_point(
+                        parser.data,
+                        result["basic"],
+                        result["sections"],
+                    )
+                    result["risk"] = calculate_risk(
+                        result["suspicious_imports"],
+                        {},
+                        packing,
+                        result["parser_warnings"],
+                    )
+                    modules = ["pe", "sections", "imports", "exports", "entry", "anomaly"]
+
+            result.update(
+                {
+                    "schema_version": "1.1",
+                    "tool": {"name": "ReverseHelper", "version": __version__},
+                    "analyzed_at_utc": datetime.now(timezone.utc).isoformat(),
+                    "analysis_mode": mode,
+                    "analysis_modules": modules,
+                    "analysis_scope": "Static PE triage; the target was read but never executed.",
+                }
+            )
+            return result
+        except AnalysisError:
+            raise
+        except Exception as exc:
+            raise AnalysisError(f"Analysis failed: {exc}") from exc
+        finally:
+            parser.close()

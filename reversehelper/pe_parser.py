@@ -62,9 +62,17 @@ def _timestamp(value: int) -> str | None:
 class PEParser:
     def __init__(self, path: str | Path):
         self.path = Path(path).expanduser().resolve()
-        if not self.path.is_file():
+        if not self.path.exists():
             raise PEFormatError(f"Input file does not exist: {self.path}")
-        self.data = self.path.read_bytes()
+        if self.path.is_dir():
+            raise PEFormatError(f"Input path is a directory, not a PE file: {self.path}")
+        if not self.path.is_file():
+            raise PEFormatError(f"Input path is not a regular file: {self.path}")
+        try:
+            self.data = self.path.read_bytes()
+        except OSError as exc:
+            detail = exc.strerror or str(exc)
+            raise PEFormatError(f"Could not read input file: {self.path} ({detail})") from exc
         if len(self.data) < 2 or self.data[:2] != b"MZ":
             raise PEFormatError("Input is not a PE file: missing MZ signature")
         try:

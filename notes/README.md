@@ -4,4 +4,5 @@
 
 ## 2026
 
+- [2026-08-26 — ReverseHelper 统一 CLI、分析模式与版本发布](2026/2026-08-26-unified-cli.md)
 - [2026-08-26 — ReverseHelper v1.0 MVP](2026/2026-08-26-reversehelper-v1.md)
