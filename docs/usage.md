@@ -261,6 +261,29 @@ python -m pip install -r requirements.txt
 
 如果使用 `.venv`，先确认命令中的 Python 来自 `.venv\Scripts\python.exe`。
 
+### 安装成功后 PowerShell 仍无法识别 `reversehelper`
+
+如果 `pip` 显示 `Successfully installed reversehelper`，但同时警告 `reversehelper.exe` 所在的 `Scripts` 目录不在 `PATH`，说明程序已经安装，PowerShell 只是找不到命令入口。
+
+先查看当前 Python 的用户脚本目录：
+
+```powershell
+python -c "import sysconfig; print(sysconfig.get_path('scripts', scheme='nt_user'))"
+```
+
+将输出的目录永久加入当前用户的 `PATH`：
+
+1. 按 `Win + R`，输入 `sysdm.cpl`。
+2. 选择“高级 → 环境变量”。
+3. 在“用户变量”中编辑 `Path`，新建一项并粘贴上一步的输出。
+4. 关闭并重新打开 PowerShell，然后验证：
+
+```powershell
+reversehelper --help
+```
+
+如果按本文档推荐的 `.venv` 方式安装，每次使用前激活 `.venv` 即可，不需要手动修改 `PATH`。
+
 ### 报告目录无法写入
 
 换到当前用户有权限的目录，例如项目内的 `reports`，不要写入 Windows 系统目录。
