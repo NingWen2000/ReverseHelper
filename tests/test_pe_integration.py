@@ -13,4 +13,6 @@ def test_analyzes_python_executable_without_running_target():
     assert result["basic"]["number_of_sections"] > 0
     assert len(result["hashes"]["sha256"]) == 64
     assert result["sections"]
+    assert result["entry_point_analysis"]["file_offset"] == result["basic"]["entry_point_offset"]
+    assert all("rva" in item and "va" in item and "section" in item for item in result["strings"]["items"])
     assert result["analysis_scope"].startswith("Static PE triage")

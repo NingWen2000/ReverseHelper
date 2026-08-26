@@ -9,6 +9,8 @@ from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
 
+from .version import __version__
+
 
 def _hex(value: int | None) -> str:
     return "N/A" if value is None else f"0x{value:X}"
@@ -22,7 +24,7 @@ def print_analysis(result: dict[str, Any], console: Console | None = None) -> No
 
     console.print(
         Panel.fit(
-            "[bold cyan]ReverseHelper[/bold cyan] [dim]v1.0.0[/dim]\n"
+            f"[bold cyan]ReverseHelper[/bold cyan] [dim]v{__version__}[/dim]\n"
             "[dim]Static Windows PE triage - target is never executed[/dim]",
             border_style="cyan",
         )
@@ -36,12 +38,29 @@ def print_analysis(result: dict[str, Any], console: Console | None = None) -> No
         ("Type", basic["file_type"]),
         ("Architecture", basic["architecture"]),
         ("ImageBase", _hex(basic["image_base"])),
-        ("EntryPoint", f"RVA {_hex(basic['entry_point_rva'])} / VA {_hex(basic['entry_point_va'])}"),
+        (
+            "EntryPoint",
+            f"RVA {_hex(basic['entry_point_rva'])} / VA {_hex(basic['entry_point_va'])} / "
+            f"RAW {_hex(basic['entry_point_offset'])}",
+        ),
         ("Subsystem", basic["subsystem"]),
         ("SHA-256", result["hashes"]["sha256"]),
     ):
         overview.add_row(label, str(value))
     console.print(overview)
+
+    entry = result.get("entry_point_analysis")
+    if entry and (entry["pattern"] or entry["indicators"]):
+        details = [f"Bytes: {entry['bytes_hex']}"]
+        if entry["pattern"]:
+            details.append(f"Pattern: {entry['pattern']}")
+        if entry["control_transfer_target_va"] is not None:
+            details.append(
+                f"First transfer: RVA {_hex(entry['control_transfer_target_rva'])} / "
+                f"VA {_hex(entry['control_transfer_target_va'])}"
+            )
+        details.extend(item["evidence"] for item in entry["indicators"])
+        console.print(Panel("\n".join(details), title="Entry-point review", border_style="yellow"))
 
     sections = Table(title="Sections", border_style="blue")
     sections.add_column("Name")
@@ -66,6 +85,27 @@ def print_analysis(result: dict[str, Any], console: Console | None = None) -> No
         )
     console.print(sections)
 
+    caves = result.get("code_caves", [])
+    if caves:
+        cave_table = Table(title="Executable-section padding (manual review)", border_style="yellow")
+        cave_table.add_column("Section")
+        cave_table.add_column("File", justify="right")
+        cave_table.add_column("RVA", justify="right")
+        cave_table.add_column("VA", justify="right")
+        cave_table.add_column("Size", justify="right")
+        cave_table.add_column("Fill")
+        for cave in caves[:10]:
+            cave_table.add_row(
+                cave["section"],
+                _hex(cave["file_offset"]),
+                _hex(cave["rva"]),
+                _hex(cave["va"]),
+                _hex(cave["size"]),
+                cave["fill_byte"],
+            )
+        console.print(cave_table)
+        console.print("[dim]Padding is only a patch candidate; verify references and mapped size before use.[/dim]")
+
     imported_libraries = len(result["imports"])
     console.print(
         f"\n[bold]Imports:[/bold] {result['import_count']} functions from {imported_libraries} libraries / "
@@ -84,11 +124,17 @@ def print_analysis(result: dict[str, Any], console: Console | None = None) -> No
     interesting = result["strings"]["interesting"]
     if interesting:
         string_table = Table(title=f"Interesting strings ({len(interesting)})", border_style="yellow")
-        string_table.add_column("Offset", justify="right")
+        string_table.add_column("File / RVA", justify="right")
+        string_table.add_column("Section")
         string_table.add_column("Type")
         string_table.add_column("Value", overflow="fold", max_width=90)
         for item in interesting[:30]:
-            string_table.add_row(_hex(item["offset"]), ",".join(item["categories"]), item["value"][:300])
+            string_table.add_row(
+                f"{_hex(item['offset'])} / {_hex(item.get('rva'))}",
+                item.get("section") or "overlay",
+                ",".join(item["categories"]),
+                item["value"][:300],
+            )
         console.print(string_table)
         if len(interesting) > 30:
             console.print(f"[dim]Showing 30 of {len(interesting)} interesting strings. Reports contain up to 100.[/dim]")

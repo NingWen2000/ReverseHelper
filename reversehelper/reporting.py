@@ -43,8 +43,31 @@ def markdown_report(result: dict[str, Any]) -> str:
         f"| ImageBase | {_hex(basic['image_base'])} |",
         f"| EntryPoint RVA | {_hex(basic['entry_point_rva'])} |",
         f"| EntryPoint VA | {_hex(basic['entry_point_va'])} |",
+        f"| EntryPoint file offset | {_hex(basic.get('entry_point_offset'))} |",
         f"| Subsystem | {_md_escape(basic['subsystem'])} |",
         f"| Compile time | {basic['compile_time_utc'] or 'Unavailable'} |",
+    ]
+
+    entry = result.get("entry_point_analysis")
+    if entry:
+        lines += [
+            "",
+            "## Entry-point review",
+            "",
+            f"- **Section:** `{_md_escape(entry['section'] or 'outside mapped sections')}`",
+            f"- **File offset:** {_hex(entry['file_offset'])}",
+            f"- **Bytes:** `{entry['bytes_hex']}`",
+            f"- **Recognized pattern:** `{entry['pattern'] or 'none'}`",
+        ]
+        if entry["control_transfer_target_rva"] is not None:
+            lines.append(
+                f"- **First transfer target:** RVA {_hex(entry['control_transfer_target_rva'])} / "
+                f"VA {_hex(entry['control_transfer_target_va'])}"
+            )
+        for item in entry["indicators"]:
+            lines.append(f"- **{item['type']}:** {_md_escape(item['evidence'])}")
+
+    lines += [
         "",
         "## Sections",
         "",
@@ -63,6 +86,25 @@ def markdown_report(result: dict[str, Any]) -> str:
             f"{_hex(section['raw_size'])} | {section['permissions']} | {section['entropy']:.3f} | "
             f"{', '.join(flags) or '-'} |"
         )
+
+    lines += ["", "## Executable-section padding", ""]
+    caves = result.get("code_caves", [])
+    if caves:
+        lines += [
+            "| Section | File offset | RVA | VA | Size | Fill |",
+            "|---|---:|---:|---:|---:|---|",
+        ]
+        for cave in caves:
+            lines.append(
+                f"| `{_md_escape(cave['section'])}` | {_hex(cave['file_offset'])} | {_hex(cave['rva'])} | "
+                f"{_hex(cave['va'])} | {_hex(cave['size'])} | `{cave['fill_byte']}` |"
+            )
+        lines += [
+            "",
+            "These runs are padding candidates, not automatically safe code caves. Check references and section mapping before patching.",
+        ]
+    else:
+        lines.append("No 00/CC run of at least 32 bytes was found in executable sections.")
 
     lines += ["", "## Imports", ""]
     if result["imports"]:
@@ -87,15 +129,40 @@ def markdown_report(result: dict[str, Any]) -> str:
     lines += ["", "## Interesting strings", ""]
     interesting = result["strings"]["interesting"]
     if interesting:
-        lines += ["| Offset | Encoding | Categories | Value |", "|---:|---|---|---|"]
+        lines += [
+            "| File offset | RVA | VA | Section | Encoding | Categories | Value |",
+            "|---:|---:|---:|---|---|---|---|",
+        ]
         for item in interesting[:100]:
             value = item["value"][:160]
             lines.append(
-                f"| {_hex(item['offset'])} | {item['encoding']} | {', '.join(item['categories'])} | "
+                f"| {_hex(item['offset'])} | {_hex(item.get('rva'))} | {_hex(item.get('va'))} | "
+                f"{_md_escape(item.get('section') or 'overlay')} | {item['encoding']} | "
+                f"{', '.join(item['categories'])} | "
                 f"`{_md_escape(value)}` |"
             )
     else:
         lines.append("No strings matched the built-in triage rules.")
+
+    lines += ["", "## Extracted strings", ""]
+    extracted = result["strings"]["items"]
+    if extracted:
+        lines += [
+            "| File offset | RVA | VA | Section | Encoding | Value |",
+            "|---:|---:|---:|---|---|---|",
+        ]
+        for item in extracted[:100]:
+            value = item["value"][:160]
+            lines.append(
+                f"| {_hex(item['offset'])} | {_hex(item.get('rva'))} | {_hex(item.get('va'))} | "
+                f"{_md_escape(item.get('section') or 'overlay')} | {item['encoding']} | "
+                f"`{_md_escape(value)}` |"
+            )
+        if len(extracted) > 100:
+            lines.append("")
+            lines.append(f"Showing 100 of {len(extracted)} extracted strings; JSON contains the retained set.")
+    else:
+        lines.append("No strings met the configured minimum length.")
 
     lines += ["", "## Packing indicators", ""]
     if result["packing"]["indicators"]:
