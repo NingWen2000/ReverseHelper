@@ -115,7 +115,7 @@ ReverseHelper/
 └── screenshots/             # README 展示资源
 ```
 
-核心设计说明见 [`docs/design.md`](docs/design.md)，已验证的分析示例见 [`docs/analysis-example.md`](docs/analysis-example.md)。
+第一次使用建议阅读 [`docs/usage.md`](docs/usage.md)。核心设计说明见 [`docs/design.md`](docs/design.md)，已验证的分析示例见 [`docs/analysis-example.md`](docs/analysis-example.md)。
 
 ## 测试
 
