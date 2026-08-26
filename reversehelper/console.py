@@ -170,6 +170,108 @@ def print_analysis(result: dict[str, Any], console: Console | None = None) -> No
     console.print(Panel(summary, border_style=risk_color.split()[-1]))
 
 
+def print_quick_analysis(result: dict[str, Any], console: Console | None = None) -> None:
+    console = console or Console()
+    basic = result["basic"]
+    packing = result["packing"]
+    risk = result["risk"]
+
+    console.print(
+        Panel.fit(
+            f"[bold cyan]ReverseHelper[/bold cyan] [dim]v{__version__}[/dim]\n"
+            "[dim]Quick structural PE triage - strings, crypto and code caves skipped[/dim]",
+            border_style="cyan",
+        )
+    )
+    overview = Table(title="Quick analysis", show_header=False, border_style="blue")
+    overview.add_column("Field", style="bold")
+    overview.add_column("Value")
+    overview.add_row("File", f"{basic['file_name']} ({basic['file_size']} bytes)")
+    overview.add_row("Type", basic["file_type"])
+    overview.add_row("Architecture", basic["architecture"])
+    overview.add_row("EntryPoint", f"RVA {_hex(basic['entry_point_rva'])} / VA {_hex(basic['entry_point_va'])}")
+    overview.add_row("Sections", str(len(result["sections"])))
+    overview.add_row("Imports / Exports", f"{result['import_count']} / {result['export_count']}")
+    overview.add_row("Packing verdict", packing["verdict"])
+    overview.add_row("Structural risk", f"{risk['score']}/10 {risk['level']}")
+    overview.add_row("SHA-256", result["hashes"]["sha256"])
+    console.print(overview)
+
+    if packing["indicators"]:
+        indicators = Table(title="Packing/anomaly indicators", border_style="yellow")
+        indicators.add_column("Severity")
+        indicators.add_column("Type")
+        indicators.add_column("Evidence", overflow="fold")
+        for item in packing["indicators"]:
+            indicators.add_row(item["severity"], item["type"], item["evidence"])
+        console.print(indicators)
+    else:
+        console.print("[green]No obvious packing indicators detected.[/green]")
+
+
+def print_module_analysis(result: dict[str, Any], module: str, console: Console | None = None) -> None:
+    console = console or Console()
+    console.print(
+        Panel.fit(
+            f"[bold cyan]ReverseHelper[/bold cyan] [dim]v{__version__}[/dim]\n"
+            f"[dim]Single-module analysis: {module} - target is never executed[/dim]",
+            border_style="cyan",
+        )
+    )
+
+    if module == "imports":
+        imports = Table(title=f"Imports ({result['import_count']})", border_style="blue")
+        imports.add_column("DLL")
+        imports.add_column("API")
+        imports.add_column("IAT", justify="right")
+        imports.add_column("Rule match")
+        for library in result["imports"]:
+            for item in library["functions"]:
+                rule = item.get("category", "-") if item["suspicious"] else "-"
+                imports.add_row(library["dll"], item["name"], _hex(item["iat_address"]), rule)
+        console.print(imports)
+        return
+
+    if module == "strings":
+        strings = result["strings"]
+        table = Table(title=f"Extracted strings ({strings['count']})", border_style="blue")
+        table.add_column("File / RVA", justify="right")
+        table.add_column("Section")
+        table.add_column("Encoding")
+        table.add_column("Categories")
+        table.add_column("Value", overflow="fold", max_width=90)
+        for item in strings["items"][:100]:
+            table.add_row(
+                f"{_hex(item['offset'])} / {_hex(item.get('rva'))}",
+                item.get("section") or "overlay",
+                item["encoding"],
+                ",".join(item["categories"]) or "-",
+                item["value"][:300],
+            )
+        console.print(table)
+        if strings["count"] > 100:
+            console.print(f"[dim]Showing 100 of {strings['count']} retained strings.[/dim]")
+        return
+
+    packing = result["packing"]
+    console.print(
+        f"[bold]Verdict:[/bold] {packing['verdict']}  "
+        f"[bold]Confidence:[/bold] {packing['confidence_score']}/10"
+    )
+    if packing["possible_packers"]:
+        console.print(f"[bold]Possible packers:[/bold] {', '.join(packing['possible_packers'])}")
+    if packing["indicators"]:
+        indicators = Table(title="Packing/anomaly indicators", border_style="yellow")
+        indicators.add_column("Severity")
+        indicators.add_column("Type")
+        indicators.add_column("Evidence", overflow="fold")
+        for item in packing["indicators"]:
+            indicators.add_row(item["severity"], item["type"], item["evidence"])
+        console.print(indicators)
+    else:
+        console.print("[green]No obvious packing indicators detected.[/green]")
+
+
 def print_written_reports(paths: list[Any], console: Console | None = None) -> None:
     console = console or Console()
     console.print("\n[bold green]Reports written:[/bold green]")

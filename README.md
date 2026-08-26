@@ -8,6 +8,15 @@ ReverseHelper 是我在学习 Windows PE、Ghidra 和 x32dbg 时写的静态初�
 
 项目只读取目标文件，不会执行它。
 
+## 版本下载
+
+| 版本 | 下载 | 说明 |
+|---|---|---|
+| **[v0.0.2](https://github.com/NingWen2000/ReverseHelper/archive/refs/tags/v0.0.2.zip)** | [Release 说明](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.0.2) | 快速模式、单模块分析、清晰错误与 CLI 测试 |
+| **[v0.0.1](https://github.com/NingWen2000/ReverseHelper/archive/refs/tags/v0.0.1.zip)** | [Release](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.0.1) | 本轮 CLI 模式扩展之前的保留基线 |
+
+点击版本号会直接下载对应源码 ZIP。详细差异和每个命令的用法见 [更新日志](CHANGELOG.md)。
+
 ## 目前能做什么
 
 - 解析 PE 基础信息、节区、IAT/EAT 和 Overlay
@@ -38,6 +47,20 @@ python -m pip install -e .
 
 ```powershell
 reversehelper .\sample.exe
+```
+
+快速结构初筛（跳过字符串、密码学常量和代码洞扫描）：
+
+```powershell
+reversehelper .\sample.exe --quick
+```
+
+只运行并显示一个模块：
+
+```powershell
+reversehelper .\sample.exe --only anomaly
+reversehelper .\sample.exe --only strings
+reversehelper .\sample.exe --only imports
 ```
 
 生成 Markdown、JSON 和 HTML 报告：

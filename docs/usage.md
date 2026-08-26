@@ -68,7 +68,33 @@ python main.py .\samples\hello.exe
 6. 密码学常量；
 7. `0–10` 的可解释风险分数。
 
-## 3. 生成报告
+## 3. 选择分析模式
+
+默认命令运行完整分析：
+
+```powershell
+reversehelper .\samples\hello.exe
+```
+
+需要先快速查看 PE 结构、入口点、导入/导出和加壳异常时，使用：
+
+```powershell
+reversehelper .\samples\hello.exe --quick
+```
+
+快速模式不会运行完整字符串、密码学常量和代码洞扫描，因此其中的结构风险分数不能与完整分析分数直接比较。
+
+只检查一个模块时，使用：
+
+```powershell
+reversehelper .\samples\hello.exe --only anomaly
+reversehelper .\samples\hello.exe --only strings
+reversehelper .\samples\hello.exe --only imports
+```
+
+`--quick` 和 `--only` 不能同时使用。部分分析模式不生成完整报告；需要报告时使用默认完整分析命令配合报告参数，避免把未运行的模块误写成“未发现”。
+
+## 4. 生成报告
 
 一次生成 Markdown、JSON、HTML 三种报告：
 
@@ -109,7 +135,7 @@ reversehelper .\samples\hello.exe --html .\reports\hello.html
 reversehelper .\samples\hello.exe --report --quiet
 ```
 
-## 4. 字符串参数
+## 5. 字符串参数
 
 默认提取长度至少为 4 的 ASCII 和 UTF-16LE 字符串，并最多保留 2000 条。
 
@@ -123,7 +149,7 @@ reversehelper .\samples\hello.exe --min-string-length 6 --max-strings 5000
 reversehelper --help
 ```
 
-## 5. 如何阅读结果
+## 6. 如何阅读结果
 
 ### ImageBase、RVA、VA 与 RAW
 
@@ -164,7 +190,7 @@ Entropy 越接近 8，字节分布越随机。压缩、加密或加壳数据常�
 
 报告中的 `Risk explanation` 会列出每一项加分原因。正常程序也可能因为调试、网络或动态加载能力得到分数。
 
-## 6. 配合 Ghidra 使用
+## 7. 配合 Ghidra 使用
 
 建议先用 ReverseHelper 初筛，再导入 Ghidra：
 
@@ -193,7 +219,7 @@ Ghidra 查看交叉引用、反编译代码和调用关系
 
 `AutoRename.py` 会修改 Ghidra 工程。第一次运行前建议先保存工程快照，所有自动生成的函数名都应人工检查。
 
-## 7. 推荐练习流程
+## 8. 推荐练习流程
 
 第一次练习可以准备三个自己有权分析的文件：
 
@@ -211,7 +237,7 @@ Ghidra 交叉引用证据
 假设被证实或修正的原因
 ```
 
-## 8. 常见错误
+## 9. 常见错误
 
 ### `missing MZ signature`
 
@@ -243,7 +269,7 @@ python -m pip install -r requirements.txt
 
 程序可能在运行时解密字符串、使用不同编码、内联算法，或者根本不包含内置签名。此时应在 Ghidra 中查看数据引用、解密循环和调用方，不能把“未命中”理解为“不存在”。
 
-## 9. 安全与隐私
+## 10. 安全与隐私
 
 - 不要运行来源未知的 EXE；ReverseHelper 自身不需要运行分析目标。
 - 对疑似恶意文件使用隔离虚拟机，并保持快照。
