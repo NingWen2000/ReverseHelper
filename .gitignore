@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+dist/
+build/
+.idea/
+.vscode/
+
+# Generated reports and local analysis targets
+reports/*
+!reports/.gitkeep
+samples/*
+!samples/README.md
+*.exe
+*.dll
+*.sys
+*.bin
+*.dmp
+
+# Local secrets and OS noise
+.env
+.env.*
+!.env.example
+Thumbs.db
+.DS_Store
