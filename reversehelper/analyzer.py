@@ -7,10 +7,14 @@ from pathlib import Path
 from typing import Any
 
 from . import crypto_analyzer
+from .addressing import annotate_string_locations
+from .code_cave_analyzer import find_code_caves
+from .entry_analyzer import analyze_entry_point
 from .packer_detector import detect_packing
 from .pe_parser import PEFormatError, PEParser
 from .risk import calculate_risk
 from .string_analyzer import extract_strings
+from .version import __version__
 
 
 class AnalysisError(RuntimeError):
@@ -35,6 +39,18 @@ class ReverseHelperAnalyzer:
                 minimum=self.minimum_string_length,
                 maximum=self.maximum_strings,
             )
+            annotate_string_locations(
+                strings,
+                result["sections"],
+                result["basic"]["image_base"],
+                result["basic"]["size_of_headers"],
+            )
+            entry_point = analyze_entry_point(parser.data, result["basic"], result["sections"])
+            code_caves = find_code_caves(
+                parser.data,
+                result["sections"],
+                result["basic"]["image_base"],
+            )
             crypto = crypto_analyzer.find_crypto_constants(parser.data)
             packing = detect_packing(
                 parser.pe,
@@ -46,10 +62,12 @@ class ReverseHelperAnalyzer:
             risk = calculate_risk(result["suspicious_imports"], strings, packing, result["parser_warnings"])
             result.update(
                 {
-                    "schema_version": "1.0",
-                    "tool": {"name": "ReverseHelper", "version": "1.0.0"},
+                    "schema_version": "1.1",
+                    "tool": {"name": "ReverseHelper", "version": __version__},
                     "analyzed_at_utc": datetime.now(timezone.utc).isoformat(),
                     "strings": strings,
+                    "entry_point_analysis": entry_point,
+                    "code_caves": code_caves,
                     "crypto_constants": crypto,
                     "packing": packing,
                     "risk": risk,

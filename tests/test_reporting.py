@@ -34,7 +34,7 @@ def sample_result():
         ],
         "imports": [],
         "suspicious_imports": [],
-        "strings": {"interesting": []},
+        "strings": {"interesting": [], "items": []},
         "packing": {"verdict": "no-obvious-indicators", "indicators": []},
         "crypto_constants": [],
         "risk": {"level": "LOW", "score": 0, "maximum": 10, "reasons": [], "disclaimer": "Triage only."},
@@ -47,6 +47,22 @@ def test_markdown_and_html_are_standalone():
     rendered = html_report(result)
     assert "<!doctype html>" in rendered.lower()
     assert "demo.exe" in rendered
+
+
+def test_markdown_includes_string_address_mapping():
+    result = sample_result()
+    item = {
+        "offset": 0x408,
+        "rva": 0x1008,
+        "va": 0x401008,
+        "section": ".text",
+        "encoding": "ASCII",
+        "categories": [],
+        "value": "decoded text",
+    }
+    result["strings"]["items"] = [item]
+    report = markdown_report(result)
+    assert "| 0x408 | 0x1008 | 0x401008 | .text | ASCII | `decoded text` |" in report
 
 
 def test_report_bundle_writes_all_formats(tmp_path):

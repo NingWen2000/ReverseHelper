@@ -26,3 +26,5 @@ python main.py .\.venv\Scripts\python.exe --report reports
 ```
 
 会在本地 `reports` 目录生成同名的 Markdown、JSON 与 HTML 文件。报告默认被 Git 忽略，避免意外公开分析目标中的路径、字符串或其他信息。
+
+另一个更贴近手工逆向流程的记录见 [PatchMe 第 20 章案例](cases/patchme-ch20.md)。该案例展示了入口字节和地址映射如何缩短 Ghidra 定位过程，同时保留尚未完成动态验证的部分。
