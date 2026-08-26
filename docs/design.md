@@ -15,7 +15,9 @@ ReverseHelper 负责 PE 文件的静态初筛，目的是把人工逆向前最�
   │    ├─ Imports + 可疑 API 规则
   │    └─ Exports
   ├─ 原始字节扫描
-  │    ├─ ASCII / UTF-16LE
+  │    ├─ EntryPoint 字节与简单入口桩
+  │    ├─ ASCII / UTF-16LE + RAW/RVA/VA 映射
+  │    ├─ 可执行节 00/CC 填充区
   │    └─ Crypto constants
   ├─ 加壳与结构异常启发式
   ├─ 可解释风险评分
@@ -28,6 +30,9 @@ ReverseHelper 负责 PE 文件的静态初筛，目的是把人工逆向前最�
 
 - `pe_parser.py`：文件校验、PE Header、哈希、导入导出与节区的统一解析。
 - `section_analyzer.py`：RVA 到 RAW 转换、节区权限和 Shannon Entropy。
+- `addressing.py`：把文件偏移映射为节区、RVA 和 VA。
+- `entry_analyzer.py`：读取入口字节，识别少量明确的相对跳转/紧凑解密桩。
+- `code_cave_analyzer.py`：列出可执行节的长填充区，交给人工确认是否能用于补丁。
 - `import_analyzer.py`：IAT/EAT 解析及 Windows API 分类规则。
 - `string_analyzer.py`：ASCII/UTF-16LE 提取和可疑内容分类。
 - `crypto_analyzer.py`：已知常量的精确字节匹配。
@@ -57,4 +62,4 @@ ReverseHelper 负责 PE 文件的静态初筛，目的是把人工逆向前最�
 
 ## 扩展方式
 
-新增检测规则时，优先返回：规则标识、严重度、具体证据和权重。新增输出端只应消费分析结果字典，不应重复解析 PE。若未来引入 YARA、Capstone 或图分析，应作为可选依赖，避免让基础安装变重。
+新增检测规则时，优先返回规则标识和可复查证据。入口检查刻意不引入完整反汇编器：只识别字节边界明确的模式，并把地址交给 Ghidra 继续确认。若未来引入 YARA、Capstone 或图分析，应作为可选依赖，避免让基础安装变重。
