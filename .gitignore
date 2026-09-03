@@ -1,15 +1,29 @@
 __pycache__/
 *.py[cod]
-*.egg-info/
+
+.venv/
+venv/
+env/
+
 .pytest_cache/
 .coverage
 htmlcov/
-.venv/
-venv/
-dist/
+.mypy_cache/
+.ruff_cache/
+
 build/
+dist/
+*.egg-info/
+
+*.log
+*.tmp
+*.bak
+*.swp
+
 .idea/
 .vscode/
+*.code-workspace
+*.iml
 
 # Generated reports and local analysis targets
 reports/*

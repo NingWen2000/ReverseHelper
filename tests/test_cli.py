@@ -18,12 +18,12 @@ def test_help_describes_target_and_examples(capsys):
     assert "--only anomaly" in output
 
 
-def test_version_is_v0_0_2(capsys):
+def test_version_is_v0_1_0(capsys):
     with pytest.raises(SystemExit) as exc_info:
         cli.main(["--version"])
 
     assert exc_info.value.code == 0
-    assert capsys.readouterr().out.strip() == "ReverseHelper 0.0.2"
+    assert capsys.readouterr().out.strip() == "ReverseHelper 0.1.0"
 
 
 def test_missing_target_shows_usage_without_traceback(capsys):
@@ -64,6 +64,10 @@ def test_default_command_runs_complete_analyzer_for_path_with_spaces(tmp_path, m
         (["--only", "anomaly"], ("module", "anomaly"), ("module", "anomaly")),
         (["--only", "strings"], ("module", "strings"), ("module", "strings")),
         (["--only", "imports"], ("module", "imports"), ("module", "imports")),
+        (["--only", "antidebug"], ("module", "antidebug"), ("module", "antidebug")),
+        (["--only", "validation"], ("module", "validation"), ("module", "validation")),
+        (["--only", "crypto"], ("module", "crypto"), ("module", "crypto")),
+        (["--only", "targets"], ("module", "targets"), ("module", "targets")),
     ],
 )
 def test_analysis_mode_dispatch(tmp_path, monkeypatch, arguments, expected_call, expected_print):
@@ -155,3 +159,50 @@ def test_unreadable_file_is_a_clean_cli_error(tmp_path, monkeypatch, capsys):
     error = capsys.readouterr().err
     assert "Could not read input file" in error
     assert "Traceback" not in error
+
+
+def test_x64dbg_export_uses_ranked_targets_and_module_rva(tmp_path, monkeypatch):
+    target = tmp_path / "challenge.exe"
+    target.write_bytes(b"MZ")
+    output = tmp_path / "challenge.x64dbg"
+
+    class RecordingAnalyzer:
+        def __init__(self, minimum_string_length, maximum_strings):
+            pass
+
+        def analyze(self, path):
+            return {
+                "basic": {"file_name": "challenge.exe", "architecture": "x86-64"},
+                "reverse_targets": [
+                    {
+                        "category": "validation",
+                        "rva": 0x1820,
+                        "va": 0x140001820,
+                        "file_offset": 0xC20,
+                        "section": ".text",
+                        "priority": "high",
+                        "reason": "Comparator result controls a branch.",
+                        "recommended_action": "Inspect both paths.",
+                        "finding_ids": ["validation-branch"],
+                    }
+                ],
+            }
+
+    monkeypatch.setattr(cli, "ReverseHelperAnalyzer", RecordingAnalyzer)
+
+    assert cli.main([str(target), "--quiet", "--x64dbg-script", str(output)]) == 0
+    script = output.read_text(encoding="utf-8")
+    assert "challenge.exe:$1820" in script
+    assert "140001820" not in script
+
+
+def test_x64dbg_export_rejects_incompatible_modes_and_suffix(capsys):
+    with pytest.raises(SystemExit) as quick_error:
+        cli.main(["sample.exe", "--quick", "--x64dbg-script", "breakpoints.txt"])
+    assert quick_error.value.code == 2
+    assert "requires default analysis or --only targets" in capsys.readouterr().err
+
+    with pytest.raises(SystemExit) as suffix_error:
+        cli.main(["sample.exe", "--x64dbg-script", "breakpoints.bin"])
+    assert suffix_error.value.code == 2
+    assert "must end in .txt or .x64dbg" in capsys.readouterr().err

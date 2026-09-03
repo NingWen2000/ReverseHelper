@@ -16,6 +16,91 @@ def _hex(value: int | None) -> str:
     return "N/A" if value is None else f"0x{value:X}"
 
 
+def _print_finding_group(
+    result: dict[str, Any],
+    categories: set[str],
+    title: str,
+    console: Console,
+    limit: int = 8,
+) -> None:
+    confidence_order = {"high": 0, "medium": 1, "low": 2}
+    findings = [
+        finding
+        for finding in result.get("findings", [])
+        if finding["category"] in categories and finding["confidence"] in {"high", "medium"}
+    ]
+    findings.sort(
+        key=lambda item: (
+            confidence_order[item["confidence"]],
+            item["rva"] is None,
+            item["rva"] or 0,
+        )
+    )
+    if not findings:
+        return
+
+    table = Table(title=title, border_style="magenta")
+    table.add_column("Confidence")
+    table.add_column("RVA", justify="right")
+    table.add_column("Section")
+    table.add_column("Candidate", overflow="fold", max_width=72)
+    for finding in findings[:limit]:
+        table.add_row(
+            finding["confidence"].upper(),
+            _hex(finding["rva"]),
+            finding.get("section") or "-",
+            finding["title"],
+        )
+    console.print(table)
+    if len(findings) > limit:
+        console.print(f"[dim]Showing {limit} of {len(findings)} candidates; reports contain all findings.[/dim]")
+
+
+def _print_reverse_guidance(result: dict[str, Any], console: Console) -> None:
+    targets = [
+        target
+        for target in result.get("reverse_targets", [])
+        if target["priority"] in {"high", "medium"}
+    ]
+    if targets:
+        table = Table(title="Recommended Reverse Targets", border_style="cyan")
+        table.add_column("Priority")
+        table.add_column("RVA", justify="right")
+        table.add_column("Category")
+        table.add_column("Reason", overflow="fold", max_width=70)
+        for target in targets[:10]:
+            table.add_row(
+                target["priority"].upper(),
+                _hex(target["rva"]),
+                target["category"],
+                target["reason"],
+            )
+        console.print(table)
+        if len(targets) > 10:
+            console.print(f"[dim]Showing 10 of {len(targets)} HIGH/MEDIUM targets.[/dim]")
+
+    questions = result.get("unresolved_questions", [])
+    if questions:
+        table = Table(title="Unresolved Questions", border_style="yellow")
+        table.add_column("RVA", justify="right")
+        table.add_column("Question", overflow="fold", max_width=84)
+        for item in questions[:8]:
+            table.add_row(_hex(item["related_rva"]), item["question"])
+        console.print(table)
+        if len(questions) > 8:
+            console.print(f"[dim]Showing 8 of {len(questions)} unresolved questions.[/dim]")
+
+    warnings = result.get("analysis_warnings", [])
+    if warnings:
+        table = Table(title="Analysis Warnings", border_style="yellow")
+        table.add_column("Module")
+        table.add_column("Error")
+        table.add_column("Reason", overflow="fold", max_width=80)
+        for warning in warnings:
+            table.add_row(warning["module"], warning["error_type"], warning["reason"])
+        console.print(table)
+
+
 def print_analysis(result: dict[str, Any], console: Console | None = None) -> None:
     console = console or Console()
     basic = result["basic"]
@@ -154,6 +239,11 @@ def print_analysis(result: dict[str, Any], console: Console | None = None) -> No
             )
         console.print(crypto)
 
+    _print_finding_group(result, {"anti-debug"}, "Anti-Debug Findings", console)
+    _print_finding_group(result, {"crypto"}, "Crypto Candidates", console)
+    _print_finding_group(result, {"validation", "input"}, "Validation Candidates", console)
+    _print_reverse_guidance(result, console)
+
     packing = result["packing"]
     if packing["indicators"]:
         console.print("\n[bold]Packing/anomaly indicators[/bold]")
@@ -167,6 +257,8 @@ def print_analysis(result: dict[str, Any], console: Console | None = None) -> No
     summary.append("Risk score  ", style="bold")
     summary.append(f"{risk['score']}/10  {risk['level']}", style=risk_color)
     summary.append("\nTriage only - verify findings manually in Ghidra/x64dbg.", style="dim")
+    if result.get("debugger_export_notice"):
+        summary.append(f"\n{result['debugger_export_notice']}", style="dim")
     console.print(Panel(summary, border_style=risk_color.split()[-1]))
 
 
@@ -218,6 +310,23 @@ def print_module_analysis(result: dict[str, Any], module: str, console: Console 
             border_style="cyan",
         )
     )
+
+    if module in {"antidebug", "validation", "crypto", "targets"}:
+        console.print(
+            f"[bold]Decoded instructions:[/bold] {result.get('disassembly', {}).get('instruction_count', 0)}"
+        )
+        categories = {
+            "antidebug": {"anti-debug"},
+            "validation": {"validation", "input"},
+            "crypto": {"crypto"},
+            "targets": {"anti-debug", "crypto", "validation", "input", "control-flow", "entry"},
+        }[module]
+        _print_finding_group(result, categories, f"{module.title()} Findings", console, limit=12)
+        if module == "targets":
+            _print_reverse_guidance(result, console)
+        elif result.get("analysis_warnings"):
+            _print_reverse_guidance(result, console)
+        return
 
     if module == "imports":
         imports = Table(title=f"Imports ({result['import_count']})", border_style="blue")
@@ -277,3 +386,9 @@ def print_written_reports(paths: list[Any], console: Console | None = None) -> N
     console.print("\n[bold green]Reports written:[/bold green]")
     for path in paths:
         console.print(f"  - {path}")
+
+
+def print_x64dbg_script(path: Any, console: Console | None = None) -> None:
+    console = console or Console()
+    console.print(f"\n[bold green]x64dbg script written:[/bold green] {path}")
+    console.print("[dim]Breakpoints are suggested analysis targets, not guaranteed solution points.[/dim]")

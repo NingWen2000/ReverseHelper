@@ -8,6 +8,8 @@ ReverseHelper 是我在学习 Windows PE、Ghidra 和 x32dbg 时写的静态初�
 
 项目只读取目标文件，不会执行它。
 
+当前源码版本为 v0.1.0。安装包和源码包用于通过 GitHub Releases 单独分发，不保存在源码树中。历史版本如下：
+
 ## 版本下载
 
 | 版本 | 下载 | 说明 |
@@ -25,9 +27,13 @@ ReverseHelper 是我在学习 Windows PE、Ghidra 和 x32dbg 时写的静态初�
 - 为字符串标注文件偏移、RVA、VA 和所属节区
 - 列出可执行节中的连续 `00`/`CC` 填充区，辅助人工寻找代码洞
 - 检查 RWX、高熵、异常入口点、少量导入和常见壳节名
-- 匹配 AES、TEA、MD5、CRC 常量
+- 使用 Capstone 在 PE raw section 边界内反汇编 x86/x64，并区分 direct/indirect CALL、JMP、Jcc 和 RET
+- 组合导入、指令和分支上下文，生成保守的 Anti-Debug、Validation 和 Input Findings
+- 在已有 AES、TEA、MD5、CRC 常量检测上，为 TEA/XTEA/XXTEA/RC4 候选补充指令证据
+- 将 Findings 排序、合并为可追溯的 ReverseTarget，并给出静态问题、动态问题和下一步操作
 - 输出终端摘要以及 Markdown、JSON、HTML 报告
-- 提供四个可独立运行的 Ghidra 脚本
+- 导出基于 `module:$RVA` 的 x64dbg/x32dbg 建议断点脚本
+- 提供五个可独立运行的 Ghidra 脚本，包括 Findings/Targets 导入脚本
 
 这些检测都是分析线索。`LOW` 不代表文件安全，RWX 或某个 API 也不能单独证明加壳或恶意。
 
@@ -49,7 +55,7 @@ python -m pip install -e .
 reversehelper .\sample.exe
 ```
 
-快速结构初筛（跳过字符串、密码学常量和代码洞扫描）：
+快速结构初筛（跳过字符串、密码学常量、代码洞和指令级分析）：
 
 ```powershell
 reversehelper .\sample.exe --quick
@@ -61,6 +67,10 @@ reversehelper .\sample.exe --quick
 reversehelper .\sample.exe --only anomaly
 reversehelper .\sample.exe --only strings
 reversehelper .\sample.exe --only imports
+reversehelper .\sample.exe --only antidebug
+reversehelper .\sample.exe --only validation
+reversehelper .\sample.exe --only crypto
+reversehelper .\sample.exe --only targets
 ```
 
 生成 Markdown、JSON 和 HTML 报告：
@@ -68,6 +78,14 @@ reversehelper .\sample.exe --only imports
 ```powershell
 reversehelper .\sample.exe --report .\reports
 ```
+
+同时生成 ASLR 安全的 x64dbg/x32dbg 建议断点：
+
+```powershell
+reversehelper .\sample.exe --report .\reports --x64dbg-script .\reports\sample.x64dbg
+```
+
+脚本只包含带 RVA 的 HIGH/MEDIUM ReverseTarget。断点是分析建议，不是保证命中的解题位置；加载脚本前仍需确认模块名和目标文件身份。
 
 不安装命令行入口也可以：
 
@@ -108,7 +126,7 @@ File offset 0x408 / RVA 0x1008 / VA 0x401008 / .text
 
 在 Ghidra 中按 `G` 后输入 `00401008`。如果 ASLR 或重定位改变了运行时基址，优先使用 RVA，并加上调试器里实际模块基址。
 
-仓库的 [Ghidra 脚本说明](scripts/README.md) 包含安装和行为边界。`AutoRename.py` 会改动当前工程，运行前建议保存快照。
+仓库的 [Ghidra 脚本说明](scripts/README.md) 包含安装和行为边界。`ImportReverseHelperFindings.py` 默认只添加 Comment；`AutoRename.py` 会改动当前工程，运行前建议保存快照。
 
 ## 项目布局
 
@@ -117,7 +135,6 @@ reversehelper/   Python 分析器
 scripts/         Ghidra 脚本
 tests/           单元测试与 PE 集成测试
 docs/cases/      真实样本分析记录，不存放二进制
-notes/           开发和验证笔记
 samples/         样本管理说明
 ```
 
@@ -132,10 +149,12 @@ python -m pytest
 
 ## 已知限制
 
-- 不反汇编任意指令；入口桩识别只是少量明确字节模式
+- 当前只做线性反汇编和局部连续语义检查，不构建完整 CFG、SSA、污点或符号执行
 - 不自动脱壳，也不修复 dump 后的导入表
-- 可疑 API、字符串规则和风险分数只用于安排人工分析顺序
-- Ghidra 脚本仍需要继续积累不同版本下的实机验证
+- 编译器运行库中的真实比较或间接调用也可能成为候选，需要人工区分用户逻辑与 CRT 代码
+- Input/Validation 之间仅做局部证据组织，不恢复完整参数或跨函数数据流
+- 可疑 API、字符串规则、风险分数和 Target Priority 只用于安排人工分析顺序
+- Ghidra Findings 导入脚本已有自动测试，但 v0.1.0 本地验证环境未安装 Ghidra，尚未完成该版本的实机导入验证
 
 欢迎提交带样本哈希、复现步骤和预期结果的 Issue。请不要上传无权公开的二进制、比赛 Flag、凭据或个人数据。
 

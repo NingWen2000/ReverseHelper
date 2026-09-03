@@ -11,10 +11,10 @@
 - 一个合法获得、允许分析的 Windows PE 文件
 - 可选：Ghidra，用于继续检查反编译结果和交叉引用
 
-打开 PowerShell，进入项目目录：
+打开 PowerShell，进入解压或克隆后的项目目录。下列 `<project-root>` 表示该目录：
 
 ```powershell
-cd C:\Users\你的用户名\Desktop\ReverseHelper
+cd <project-root>
 ```
 
 项目已经有 `.venv` 时，可以直接激活：
@@ -65,8 +65,10 @@ python main.py .\samples\hello.exe
 3. Import/Export 数量与规则匹配的 API；
 4. URL、命令、凭据、调试、网络、CTF 等字符串；
 5. 加壳或结构异常信号；
-6. 密码学常量；
-7. `0–10` 的可解释风险分数。
+6. 密码学常量和指令证据；
+7. Anti-Debug、Crypto、Validation、Input 等统一 Findings；
+8. HIGH/MEDIUM ReverseTarget、静态/动态问题和建议操作；
+9. `0–10` 的可解释风险分数。
 
 ## 3. 选择分析模式
 
@@ -82,7 +84,7 @@ reversehelper .\samples\hello.exe
 reversehelper .\samples\hello.exe --quick
 ```
 
-快速模式不会运行完整字符串、密码学常量和代码洞扫描，因此其中的结构风险分数不能与完整分析分数直接比较。
+快速模式不会运行完整字符串、密码学常量、代码洞扫描或 Capstone 指令分析，因此其中的结构风险分数不能与完整分析分数直接比较。
 
 只检查一个模块时，使用：
 
@@ -90,6 +92,10 @@ reversehelper .\samples\hello.exe --quick
 reversehelper .\samples\hello.exe --only anomaly
 reversehelper .\samples\hello.exe --only strings
 reversehelper .\samples\hello.exe --only imports
+reversehelper .\samples\hello.exe --only antidebug
+reversehelper .\samples\hello.exe --only validation
+reversehelper .\samples\hello.exe --only crypto
+reversehelper .\samples\hello.exe --only targets
 ```
 
 `--quick` 和 `--only` 不能同时使用。部分分析模式不生成完整报告；需要报告时使用默认完整分析命令配合报告参数，避免把未运行的模块误写成“未发现”。
@@ -115,6 +121,8 @@ reports/
 - JSON：适合后续脚本处理、批量比较和前端开发。
 - HTML：浏览器直接打开，适合演示和截图。
 
+v0.1.0 的完整报告使用 Schema 1.2，并在保留旧字段的同时增加 `findings`、`reverse_targets`、`analysis_path`、`unresolved_questions`、`control_transfers` 和 `analysis_warnings`。JSON 消费方应忽略未知字段，以兼容后续小版本扩展。
+
 指定输出目录：
 
 ```powershell
@@ -134,6 +142,14 @@ reversehelper .\samples\hello.exe --html .\reports\hello.html
 ```powershell
 reversehelper .\samples\hello.exe --report --quiet
 ```
+
+生成建议断点脚本：
+
+```powershell
+reversehelper .\samples\hello.exe --x64dbg-script .\reports\hello.x64dbg
+```
+
+输出使用 `模块名:$RVA`，不会把 Preferred ImageBase 硬编码成运行时地址。没有 RVA 或优先级为 LOW 的目标不会生成断点。该文件可用于 x64dbg 或 x32dbg，但它只表达“建议观察这里”，不保证断点就是最终验证逻辑。
 
 ## 5. 字符串参数
 
@@ -190,6 +206,12 @@ Entropy 越接近 8，字节分布越随机。压缩、加密或加壳数据常�
 
 报告中的 `Risk explanation` 会列出每一项加分原因。正常程序也可能因为调试、网络或动态加载能力得到分数。
 
+### Finding、ReverseTarget 与 Priority
+
+Finding 保存触发证据、置信度、严重度和地址。ReverseTarget 将同一 RVA 或很近的同类 Finding 保守合并，并通过 `finding_ids` 保留来源。Target Priority 表示逆向价值，不等于 Risk Score 或漏洞严重度；例如低严重度的验证分支仍可能是 HIGH priority。
+
+`unresolved_questions` 明确列出静态分析不能证明的内容，例如间接调用的运行时目标、比较参数或密码学候选的输入输出。报告不会猜测这些答案。
+
 ## 7. 配合 Ghidra 使用
 
 建议先用 ReverseHelper 初筛，再导入 Ghidra：
@@ -214,8 +236,11 @@ Ghidra 查看交叉引用、反编译代码和调用关系
 
 1. `FindSuspiciousStrings.py`：给可疑字符串添加 Plate Comment；
 2. `FindCryptoConstants.py`：查找常见密码学常量；
-3. `AutoRename.py`：根据高信号 API 重命名默认函数名；
-4. `ExportAnalysisReport.py`：导出当前 Ghidra 分析摘要。
+3. `ImportReverseHelperFindings.py`：导入完整 JSON 报告，校验文件身份和地址范围后添加 Comment；
+4. `AutoRename.py`：根据高信号 API 重命名默认函数名；
+5. `ExportAnalysisReport.py`：导出当前 Ghidra 分析摘要。
+
+运行 `ImportReverseHelperFindings.py` 时选择 ReverseHelper 生成的 JSON。脚本默认不改函数名；只有显式传入高置信重命名选项时才会做保守 Rename。v0.1.0 的自动测试覆盖身份不匹配、RVA 重定位和越界拒绝；验证环境未安装 Ghidra，因此没有把自动测试描述成实机验证。
 
 `AutoRename.py` 会修改 Ghidra 工程。第一次运行前建议先保存工程快照，所有自动生成的函数名都应人工检查。
 
@@ -299,4 +324,4 @@ reversehelper --help
 - 不要把 Flag、比赛私有附件、真实恶意样本、Cookie、Token、密码或个人目录报告上传到公开仓库。
 - `samples` 和 `reports` 中的本地内容默认被 `.gitignore` 排除，但提交前仍应检查 `git status`。
 
-遇到误报时，先记录触发规则和人工验证证据，再考虑调整阈值。工具的价值不在于给出一个绝对答案，而在于让下一步逆向分析更快、更有方向。
+遇到误报时，先记录触发规则和人工验证证据，再考虑调整阈值。

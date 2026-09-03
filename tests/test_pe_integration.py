@@ -6,7 +6,12 @@ import pytest
 from reversehelper import ReverseHelperAnalyzer
 
 
-@pytest.mark.skipif(Path(sys.executable).read_bytes()[:2] != b"MZ", reason="integration target is not a Windows PE")
+pytestmark = pytest.mark.skipif(
+    Path(sys.executable).read_bytes()[:2] != b"MZ",
+    reason="integration target is not a Windows PE",
+)
+
+
 def test_analyzes_python_executable_without_running_target():
     result = ReverseHelperAnalyzer(maximum_strings=250).analyze(sys.executable)
     assert result["basic"]["file_name"]
@@ -18,7 +23,6 @@ def test_analyzes_python_executable_without_running_target():
     assert result["analysis_scope"].startswith("Static PE triage")
 
 
-@pytest.mark.skipif(Path(sys.executable).read_bytes()[:2] != b"MZ", reason="integration target is not a Windows PE")
 def test_quick_analysis_skips_expensive_modules():
     result = ReverseHelperAnalyzer(maximum_strings=250).analyze_quick(sys.executable)
 
@@ -32,7 +36,6 @@ def test_quick_analysis_skips_expensive_modules():
     assert "code_caves" not in result
 
 
-@pytest.mark.skipif(Path(sys.executable).read_bytes()[:2] != b"MZ", reason="integration target is not a Windows PE")
 @pytest.mark.parametrize(
     ("module", "expected_key"),
     [("anomaly", "packing"), ("strings", "strings"), ("imports", "imports")],

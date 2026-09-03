@@ -1,6 +1,35 @@
 # ReverseHelper 更新日志
 
-ReverseHelper 在 `0.0.x` 阶段仍处于早期开发期。版本号用于区分可下载、可复现的功能快照；默认分析仍然只读取目标 PE，不会执行它。
+ReverseHelper 仍处于早期开发期。版本号用于区分可下载、可复现的功能快照；默认分析仍然只读取目标 PE，不会执行它。
+
+## v0.1.0 — 2026-08-28
+
+v0.1.0 将 PE 结构初筛扩展为“证据 → Finding → ReverseTarget → 动态问题”的静态逆向工作流，并保持默认只读静态分析边界。
+
+### 新增
+
+- Capstone x86/x64 反汇编，严格限制在 PE section 的实际 raw bytes 范围内。
+- direct/indirect CALL、JMP、Jcc、RET 分类，以及 x64 RIP-relative pointer slot 记录。
+- Anti-Debug Analyzer：组合 API、PEB/BeingDebugged/NtGlobalFlag、INT3/ICEBP/RDTSC 和条件分支上下文。
+- Crypto Analyzer 2.0：保留旧常量结果，为 TEA-family 与 RC4 候选增加指令证据。
+- Validation/Input Analyzer：定位 comparator/input 调用点，并保守关联返回值、TEST/CMP 和 Jcc。
+- 统一 Finding、ReverseTarget、分析路径和未决问题；`finding_ids` 保留排序原因。
+- `--only antidebug/validation/crypto/targets` 与 `--x64dbg-script`。
+- `ImportReverseHelperFindings.py`，默认将 Findings/Targets 作为 Ghidra Comment 导入。
+
+### 兼容性
+
+- 默认命令、`--quick`、旧 `--only` 模块、报告参数和退出码保持兼容。
+- JSON Schema 从 1.1 增至 1.2；旧字段不删除，只追加指令级结果字段。
+- quick 模式不进入 Capstone 指令分析，仍用于快速结构初筛。
+- Risk Score 与 ReverseTarget Priority 保持独立。
+
+### 质量与边界
+
+- 单个可选分析模块失败会写入 `analysis_warnings`，不会使其他模块丢失结果。
+- Anti-Debug、Validation 和 Input 共用一次 Capstone detail 与导入调用解析。
+- 启发式结果使用 Candidate/Possible 等保守措辞；间接目标、运行时参数和 buffer 不会被猜测。
+- 完整验证记录见 [v0.1.0 Phase 6 validation](docs/phase6-validation.md)，发布说明见 [v0.1.0 release notes](docs/releases/v0.1.0.md)。
 
 ## v0.0.2 — 2026-08-26
 

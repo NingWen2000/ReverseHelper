@@ -70,3 +70,81 @@ def test_report_bundle_writes_all_formats(tmp_path):
     assert {path.suffix for path in paths} == {".md", ".json", ".html"}
     payload = json.loads(next(path for path in paths if path.suffix == ".json").read_text(encoding="utf-8"))
     assert payload["basic"]["file_name"] == "demo.exe"
+
+
+def test_reports_include_findings_targets_guidance_questions_and_warnings():
+    result = sample_result()
+    result.update(
+        {
+            "schema_version": "1.2",
+            "findings": [
+                {
+                    "id": "validation-branch",
+                    "category": "validation",
+                    "title": "Possible Validation Site",
+                    "rva": 0x1820,
+                    "va": 0x401820,
+                    "file_offset": 0xC20,
+                    "section": ".text",
+                    "severity": "low",
+                    "confidence": "high",
+                    "evidence": ["Comparator: memcmp", "Branch: JNE"],
+                    "reason": "The comparator result controls a conditional branch.",
+                    "recommended_action": "Inspect both branch targets.",
+                }
+            ],
+            "reverse_targets": [
+                {
+                    "category": "validation",
+                    "rva": 0x1820,
+                    "va": 0x401820,
+                    "file_offset": 0xC20,
+                    "section": ".text",
+                    "priority": "high",
+                    "reason": "The comparator result controls a conditional branch.",
+                    "recommended_action": "Inspect both branch targets.",
+                    "finding_ids": ["validation-branch"],
+                }
+            ],
+            "analysis_path": [
+                {
+                    "where": "RVA 0x1820 (preferred VA 0x401820)",
+                    "rva": 0x1820,
+                    "category": "validation",
+                    "priority": "high",
+                    "why": "The comparator result controls a conditional branch.",
+                    "static_question": "What prepares the buffers?",
+                    "dynamic_question": "What are the runtime buffers?",
+                    "recommended_action": "Inspect the caller and break before memcmp.",
+                    "finding_ids": ["validation-branch"],
+                }
+            ],
+            "unresolved_questions": [
+                {
+                    "question": "What values are compared?",
+                    "why_unresolved": "The buffers are runtime values.",
+                    "related_rva": 0x1820,
+                    "suggested_dynamic_observation": "Record both arguments before memcmp.",
+                    "finding_ids": ["validation-branch"],
+                }
+            ],
+            "analysis_warnings": [
+                {"module": "anti-debug", "error_type": "RuntimeError", "reason": "module failed"}
+            ],
+            "debugger_export_notice": (
+                "Breakpoints are suggested analysis targets, not guaranteed solution points."
+            ),
+        }
+    )
+
+    markdown = markdown_report(result)
+    rendered_html = html_report(result)
+
+    assert "## Findings" in markdown
+    assert "## Recommended Reverse Targets" in markdown
+    assert "**Static Question:** What prepares the buffers?" in markdown
+    assert "**Dynamic Question:** What are the runtime buffers?" in markdown
+    assert "## Unresolved Questions" in markdown
+    assert "## Analysis Warnings" in markdown
+    assert "validation-branch" in rendered_html
+    assert "module failed" in rendered_html
