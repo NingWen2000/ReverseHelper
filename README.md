@@ -98,10 +98,6 @@ First transfer RVA 0x10E9 / VA 0x4010E9
 
 完整推理、地址换算、解密循环和仍待动态验证的补丁候选记录在 [PatchMe 第 20 章案例](docs/cases/patchme-ch20.md)。仓库不重新分发该样本，案例末尾列出了作者的官方来源。
 
-## 更多逆向练习
-
-- [very simple keycheck：从输入变量追到 ECX](docs/cases/very-simple-keycheck.md)：Crackmes.one 难度 1 的 Windows x64 练习，记录 DIE 初筛、Ghidra 参数恢复偏差、汇编数据流和原程序验证。
-
 ## 报告怎么接到 Ghidra
 
 假设报告里某个字符串显示：
@@ -146,4 +142,3 @@ python -m pytest
 ## License
 
 [MIT License](LICENSE)
-
