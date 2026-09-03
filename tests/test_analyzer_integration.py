@@ -1,10 +1,12 @@
 import sys
 from pathlib import Path
+from unittest.mock import Mock
 
 import pytest
 
 import reversehelper.analyzer as analyzer_module
 from reversehelper import ReverseHelperAnalyzer
+from reversehelper.findings import Finding
 
 
 pytestmark = pytest.mark.skipif(
@@ -50,6 +52,25 @@ def test_optional_analyzer_failure_becomes_warning_and_other_modules_continue(mo
 
     monkeypatch.setattr(analyzer_module.anti_debug_analyzer, "analyze_anti_debug", fail_anti_debug)
 
+    # The Python executable's comparator calls vary between builds. Use a fixed
+    # result to verify that later analyzers still run and their findings survive.
+    validation_finding = Finding(
+        id="validation-after-failure",
+        category="validation",
+        title="Synthetic validation result",
+        rva=None,
+        va=None,
+        file_offset=None,
+        section=None,
+        severity="info",
+        confidence="low",
+        evidence=("Synthetic result for failure isolation",),
+        reason="Verify validation continues after an anti-debug error",
+        recommended_action="No action required for this synthetic finding",
+    )
+    validation = Mock(return_value=[validation_finding])
+    monkeypatch.setattr(analyzer_module.validation_analyzer, "analyze_validation", validation)
+
     result = ReverseHelperAnalyzer(maximum_strings=50).analyze(sys.executable)
 
     warning = next(item for item in result["analysis_warnings"] if item["module"] == "anti-debug")
@@ -58,7 +79,8 @@ def test_optional_analyzer_failure_becomes_warning_and_other_modules_continue(mo
         "error_type": "RuntimeError",
         "reason": "synthetic anti-debug failure",
     }
-    assert "validation" in {finding["category"] for finding in result["findings"]}
+    validation.assert_called_once()
+    assert validation_finding.to_dict() in result["findings"]
     assert "risk" in result
 
 

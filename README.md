@@ -8,12 +8,13 @@ ReverseHelper 是我在学习 Windows PE、Ghidra 和 x32dbg 时写的静态初�
 
 项目只读取目标文件，不会执行它。
 
-当前源码版本为 v0.1.0。安装包和源码包用于通过 GitHub Releases 单独分发，不保存在源码树中。历史版本如下：
+当前版本为 v0.1.0。源码 ZIP 和发布说明见下表；发布文件通过 GitHub Releases 单独分发，不保存在源码树中。
 
 ## 版本下载
 
 | 版本 | 下载 | 说明 |
 |---|---|---|
+| **[v0.1.0](https://github.com/NingWen2000/ReverseHelper/archive/refs/tags/v0.1.0.zip)** | [Release 说明](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.1.0) | 当前版本：指令级分析、Findings / ReverseTarget、Ghidra 导入与 x64dbg 断点导出 |
 | **[v0.0.2](https://github.com/NingWen2000/ReverseHelper/archive/refs/tags/v0.0.2.zip)** | [Release 说明](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.0.2) | 快速模式、单模块分析、清晰错误与 CLI 测试 |
 | **[v0.0.1](https://github.com/NingWen2000/ReverseHelper/archive/refs/tags/v0.0.1.zip)** | [Release](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.0.1) | 本轮 CLI 模式扩展之前的保留基线 |
 
