@@ -15,10 +15,10 @@ ReverseHelper — Offline-first static reverse engineering workbench for CTF com
 - 一个合法获得、允许分析的 Windows PE 文件
 - 可选：Ghidra，用于继续检查反编译结果和交叉引用
 
-打开 PowerShell，进入项目目录：
+打开 PowerShell，进入解压或克隆后的项目目录。下列 `<project-root>` 表示该目录：
 
 ```powershell
-cd C:\Users\你的用户名\Desktop\ReverseHelper
+cd <project-root>
 ```
 
 项目已经有 `.venv` 时，可以直接激活：
@@ -340,4 +340,4 @@ reversehelper --help
 - 不要把 Flag、比赛私有附件、真实恶意样本、Cookie、Token、密码或个人目录报告上传到公开仓库。
 - `samples` 和 `reports` 中的本地内容默认被 `.gitignore` 排除，但提交前仍应检查 `git status`。
 
-遇到误报时，先记录触发规则和人工验证证据，再考虑调整阈值。工具的价值不在于给出一个绝对答案，而在于让下一步逆向分析更快、更有方向。
+遇到误报时，先记录触发规则和人工验证证据，再考虑调整阈值。

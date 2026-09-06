@@ -53,7 +53,7 @@ Deep 由用户主动请求，追加跨函数数据流、CFG、表使用关系、
   └─ Rich 终端 / Markdown / JSON / HTML / x64dbg script
 ```
 
-`reversehelper.analyzer.ReverseHelperAnalyzer` 是唯一的高层入口。各分析模块返回只包含 JSON 可序列化类型的字典，报告层不接触 `pefile.PE` 对象，因此后续可以比较容易地增加 Web/TUI 前端。
+`reversehelper.analyzer.ReverseHelperAnalyzer` 是高层入口，负责汇总分析结果，并把 `Finding` 和 `ReverseTarget` 转成 JSON 可序列化的字典。报告层只读取汇总结果，不接触 `pefile.PE` 对象。
 
 ## 模块职责
 
