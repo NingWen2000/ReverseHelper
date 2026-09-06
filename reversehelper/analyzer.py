@@ -227,6 +227,11 @@ class ReverseHelperAnalyzer:
             def analyze_strings() -> dict[str, Any]:
                 strings = extract_strings(
                     parser.data,
+                    minimum=self.minimum_string_length,
+                    maximum=self.maximum_strings,
+                )
+                annotate_string_locations(
+                    strings,
                     result["sections"],
                     result["basic"]["image_base"],
                     result["basic"]["size_of_headers"],

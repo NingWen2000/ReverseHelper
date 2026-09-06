@@ -41,6 +41,8 @@ def test_legacy_complete_analysis_preserves_existing_results():
     ):
         assert key in result
     assert result["disassembly"]["instruction_count"] > 0
+    assert result["strings"]["count"] > 0
+    assert not any(warning["module"] == "strings" for warning in result["analysis_warnings"])
     assert all(target["finding_ids"] for target in result["reverse_targets"])
 
 
