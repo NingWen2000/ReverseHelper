@@ -1,0 +1,1616 @@
+{
+  "schema_version": "reversehelper-public-ctf-results-3",
+  "dataset": "public-ctf-v0.3-phase-2.6",
+  "ground_truth_frozen_at": "2026-09-04",
+  "run_at_utc": "2026-09-06T08:59:16.945712+00:00",
+  "tool": {
+    "version": "0.2.0b1",
+    "source_hash": "adf02d37df6bf193bd7d99e5ee5ffc447694b57371281e3edac444302517860d"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 198 Stepping 2, GenuineIntel"
+  },
+  "configuration": {
+    "mode": "quick",
+    "network": "not used by runner",
+    "sample_execution": false
+  },
+  "metrics": {
+    "challenge_count": 31,
+    "completed_count": 30,
+    "failed_count": 1,
+    "ranking_eligible_count": 30,
+    "top_1_accuracy": 0.5666666666666667,
+    "top_3_accuracy": 0.6,
+    "top_5_accuracy": 0.6,
+    "start_here_accuracy": 0.4666666666666667,
+    "start_here_emitted_count": 14,
+    "start_here_precision": 1.0,
+    "validation": {
+      "tp": 8,
+      "fp": 3,
+      "fn": 14,
+      "precision": 0.7272727272727273,
+      "recall": 0.36363636363636365,
+      "f1": 0.4848484848484849
+    },
+    "strings": {
+      "relevant_total": 26,
+      "relevant_hits": 16,
+      "relevant_recall": 0.6153846153846154,
+      "adjudicated_precision": 0.9411764705882353,
+      "known_noise_promotions": 1,
+      "unadjudicated_promotions": 423
+    },
+    "data_flow": {
+      "input_sources": 47,
+      "static_slices": 8,
+      "flow_linked_validations": 7,
+      "static_flow_breaks": 3
+    },
+    "function_boundary": {
+      "adjudicated_starts": 55,
+      "recovered_starts": 46,
+      "start_recall": 0.8363636363636363,
+      "distribution": {
+        "CONFIRMED": 1581,
+        "LIKELY": 2411,
+        "HEURISTIC": 579
+      }
+    },
+    "static_slice": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 14,
+      "confirmed": 1,
+      "likely": 6,
+      "partial": 4,
+      "unresolved": 144,
+      "precision": 1.0,
+      "recall": 0.36363636363636365,
+      "complete": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 16,
+        "precision": 1.0,
+        "recall": 0.2727272727272727
+      },
+      "actionable": {
+        "tp": 8,
+        "fp": 0,
+        "fn": 14,
+        "precision": 1.0,
+        "recall": 0.36363636363636365
+      }
+    },
+    "algorithms": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "on_slice_tp": 1,
+      "on_slice_fp": 0,
+      "adjudicated_samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "on_slice_precision": 1.0,
+      "per_algorithm": {
+        "CRC32": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "XOR": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      }
+    },
+    "control_flow": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "on_slice_tp": 0,
+      "on_slice_fp": 0,
+      "dispatcher_correct": 1,
+      "dispatcher_total": 1,
+      "state_exact": 1,
+      "state_same_base": 0,
+      "state_wrong": 0,
+      "state_unknown": 0,
+      "adjudicated_samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "on_slice_precision": null,
+      "dispatcher_accuracy": 1.0,
+      "per_kind": {
+        "INDIRECT_DISPATCH": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      }
+    },
+    "decompiler_assistance": {
+      "role_tp": 3,
+      "role_fp": 0,
+      "role_fn": 0,
+      "rename_tp": 2,
+      "rename_fp": 0,
+      "adjudicated_samples": 2,
+      "type": {
+        "EXACT": 1,
+        "COMPATIBLE": 0,
+        "WRONG": 0,
+        "UNKNOWN": 0
+      },
+      "role_precision": 1.0,
+      "role_recall": 1.0,
+      "rename_precision": 1.0
+    },
+    "packed_visibility": {
+      "expected_packed": 6,
+      "detected_packed": 2,
+      "recall": 0.3333333333333333,
+      "tp": 2,
+      "tn": 24,
+      "fp": 0,
+      "fn": 4,
+      "accuracy": 0.8666666666666667
+    },
+    "median_quick_elapsed_ms": 294.65999999999997,
+    "p90_quick_elapsed_ms": 1462.05,
+    "max_quick_elapsed_ms": 2333.45,
+    "median_analysis_elapsed_ms": 294.65999999999997,
+    "p90_analysis_elapsed_ms": 1462.05,
+    "max_analysis_elapsed_ms": 2333.45
+  },
+  "metrics_by_tier": {
+    "A": {
+      "challenge_count": 8,
+      "completed_count": 7,
+      "failed_count": 1,
+      "ranking_eligible_count": 7,
+      "top_1_accuracy": 1.0,
+      "top_3_accuracy": 1.0,
+      "top_5_accuracy": 1.0,
+      "start_here_accuracy": 0.8571428571428571,
+      "start_here_emitted_count": 6,
+      "start_here_precision": 1.0,
+      "validation": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 3,
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1": 0.5714285714285715
+      },
+      "strings": {
+        "relevant_total": 12,
+        "relevant_hits": 9,
+        "relevant_recall": 0.75,
+        "adjudicated_precision": 0.9,
+        "known_noise_promotions": 1,
+        "unadjudicated_promotions": 52
+      },
+      "data_flow": {
+        "input_sources": 8,
+        "static_slices": 4,
+        "flow_linked_validations": 3,
+        "static_flow_breaks": 0
+      },
+      "function_boundary": {
+        "adjudicated_starts": 10,
+        "recovered_starts": 10,
+        "start_recall": 1.0,
+        "distribution": {
+          "CONFIRMED": 227,
+          "LIKELY": 510,
+          "HEURISTIC": 233
+        }
+      },
+      "static_slice": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 2,
+        "confirmed": 1,
+        "likely": 2,
+        "partial": 1,
+        "unresolved": 41,
+        "precision": 1.0,
+        "recall": 0.6,
+        "complete": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 3,
+          "precision": 1.0,
+          "recall": 0.4
+        },
+        "actionable": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 2,
+          "precision": 1.0,
+          "recall": 0.6
+        }
+      },
+      "algorithms": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 1,
+        "on_slice_fp": 0,
+        "adjudicated_samples": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "on_slice_precision": 1.0,
+        "per_algorithm": {
+          "CRC32": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "XOR": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          }
+        }
+      },
+      "control_flow": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 0,
+        "on_slice_fp": 0,
+        "dispatcher_correct": 0,
+        "dispatcher_total": 0,
+        "state_exact": 0,
+        "state_same_base": 0,
+        "state_wrong": 0,
+        "state_unknown": 0,
+        "adjudicated_samples": 0,
+        "precision": null,
+        "recall": null,
+        "on_slice_precision": null,
+        "dispatcher_accuracy": null,
+        "per_kind": {}
+      },
+      "decompiler_assistance": {
+        "role_tp": 1,
+        "role_fp": 0,
+        "role_fn": 0,
+        "rename_tp": 1,
+        "rename_fp": 0,
+        "adjudicated_samples": 1,
+        "type": {
+          "EXACT": 0,
+          "COMPATIBLE": 0,
+          "WRONG": 0,
+          "UNKNOWN": 0
+        },
+        "role_precision": 1.0,
+        "role_recall": 1.0,
+        "rename_precision": 1.0
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null,
+        "tp": 0,
+        "tn": 7,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": 1.0
+      },
+      "median_quick_elapsed_ms": 234.79,
+      "p90_quick_elapsed_ms": 313.17,
+      "max_quick_elapsed_ms": 1094.13,
+      "median_analysis_elapsed_ms": 234.79,
+      "p90_analysis_elapsed_ms": 313.17,
+      "max_analysis_elapsed_ms": 1094.13
+    },
+    "B": {
+      "challenge_count": 10,
+      "completed_count": 10,
+      "failed_count": 0,
+      "ranking_eligible_count": 10,
+      "top_1_accuracy": 0.7,
+      "top_3_accuracy": 0.7,
+      "top_5_accuracy": 0.7,
+      "start_here_accuracy": 0.4,
+      "start_here_emitted_count": 4,
+      "start_here_precision": 1.0,
+      "validation": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 8,
+        "precision": 1.0,
+        "recall": 0.42857142857142855,
+        "f1": 0.6
+      },
+      "strings": {
+        "relevant_total": 11,
+        "relevant_hits": 4,
+        "relevant_recall": 0.36363636363636365,
+        "adjudicated_precision": 1.0,
+        "known_noise_promotions": 0,
+        "unadjudicated_promotions": 211
+      },
+      "data_flow": {
+        "input_sources": 28,
+        "static_slices": 4,
+        "flow_linked_validations": 4,
+        "static_flow_breaks": 2
+      },
+      "function_boundary": {
+        "adjudicated_starts": 23,
+        "recovered_starts": 21,
+        "start_recall": 0.9130434782608695,
+        "distribution": {
+          "CONFIRMED": 589,
+          "LIKELY": 750,
+          "HEURISTIC": 115
+        }
+      },
+      "static_slice": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 9,
+        "confirmed": 0,
+        "likely": 4,
+        "partial": 2,
+        "unresolved": 51,
+        "precision": 1.0,
+        "recall": 0.35714285714285715,
+        "complete": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 10,
+          "precision": 1.0,
+          "recall": 0.2857142857142857
+        },
+        "actionable": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 9,
+          "precision": 1.0,
+          "recall": 0.35714285714285715
+        }
+      },
+      "algorithms": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 0,
+        "on_slice_fp": 0,
+        "adjudicated_samples": 0,
+        "precision": null,
+        "recall": null,
+        "on_slice_precision": null,
+        "per_algorithm": {}
+      },
+      "control_flow": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 0,
+        "on_slice_fp": 0,
+        "dispatcher_correct": 0,
+        "dispatcher_total": 0,
+        "state_exact": 0,
+        "state_same_base": 0,
+        "state_wrong": 0,
+        "state_unknown": 0,
+        "adjudicated_samples": 0,
+        "precision": null,
+        "recall": null,
+        "on_slice_precision": null,
+        "dispatcher_accuracy": null,
+        "per_kind": {}
+      },
+      "decompiler_assistance": {
+        "role_tp": 0,
+        "role_fp": 0,
+        "role_fn": 0,
+        "rename_tp": 0,
+        "rename_fp": 0,
+        "adjudicated_samples": 0,
+        "type": {
+          "EXACT": 0,
+          "COMPATIBLE": 0,
+          "WRONG": 0,
+          "UNKNOWN": 0
+        },
+        "role_precision": null,
+        "role_recall": null,
+        "rename_precision": null
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null,
+        "tp": 0,
+        "tn": 10,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": 1.0
+      },
+      "median_quick_elapsed_ms": 493.21999999999997,
+      "p90_quick_elapsed_ms": 1462.05,
+      "max_quick_elapsed_ms": 2203.28,
+      "median_analysis_elapsed_ms": 493.21999999999997,
+      "p90_analysis_elapsed_ms": 1462.05,
+      "max_analysis_elapsed_ms": 2203.28
+    },
+    "C": {
+      "challenge_count": 13,
+      "completed_count": 13,
+      "failed_count": 0,
+      "ranking_eligible_count": 13,
+      "top_1_accuracy": 0.23076923076923078,
+      "top_3_accuracy": 0.3076923076923077,
+      "top_5_accuracy": 0.3076923076923077,
+      "start_here_accuracy": 0.3076923076923077,
+      "start_here_emitted_count": 4,
+      "start_here_precision": 1.0,
+      "validation": {
+        "tp": 0,
+        "fp": 3,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      },
+      "strings": {
+        "relevant_total": 3,
+        "relevant_hits": 3,
+        "relevant_recall": 1.0,
+        "adjudicated_precision": 1.0,
+        "known_noise_promotions": 0,
+        "unadjudicated_promotions": 160
+      },
+      "data_flow": {
+        "input_sources": 11,
+        "static_slices": 0,
+        "flow_linked_validations": 0,
+        "static_flow_breaks": 1
+      },
+      "function_boundary": {
+        "adjudicated_starts": 22,
+        "recovered_starts": 15,
+        "start_recall": 0.6818181818181818,
+        "distribution": {
+          "CONFIRMED": 765,
+          "LIKELY": 1151,
+          "HEURISTIC": 231
+        }
+      },
+      "static_slice": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "confirmed": 0,
+        "likely": 0,
+        "partial": 1,
+        "unresolved": 52,
+        "precision": null,
+        "recall": 0.0,
+        "complete": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "precision": null,
+          "recall": 0.0
+        },
+        "actionable": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "precision": null,
+          "recall": 0.0
+        }
+      },
+      "algorithms": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 0,
+        "on_slice_fp": 0,
+        "adjudicated_samples": 0,
+        "precision": null,
+        "recall": null,
+        "on_slice_precision": null,
+        "per_algorithm": {}
+      },
+      "control_flow": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 0,
+        "on_slice_fp": 0,
+        "dispatcher_correct": 1,
+        "dispatcher_total": 1,
+        "state_exact": 1,
+        "state_same_base": 0,
+        "state_wrong": 0,
+        "state_unknown": 0,
+        "adjudicated_samples": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "on_slice_precision": null,
+        "dispatcher_accuracy": 1.0,
+        "per_kind": {
+          "INDIRECT_DISPATCH": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          }
+        }
+      },
+      "decompiler_assistance": {
+        "role_tp": 2,
+        "role_fp": 0,
+        "role_fn": 0,
+        "rename_tp": 1,
+        "rename_fp": 0,
+        "adjudicated_samples": 1,
+        "type": {
+          "EXACT": 1,
+          "COMPATIBLE": 0,
+          "WRONG": 0,
+          "UNKNOWN": 0
+        },
+        "role_precision": 1.0,
+        "role_recall": 1.0,
+        "rename_precision": 1.0
+      },
+      "packed_visibility": {
+        "expected_packed": 6,
+        "detected_packed": 2,
+        "recall": 0.3333333333333333,
+        "tp": 2,
+        "tn": 7,
+        "fp": 0,
+        "fn": 4,
+        "accuracy": 0.6923076923076923
+      },
+      "median_quick_elapsed_ms": 759.83,
+      "p90_quick_elapsed_ms": 1240.88,
+      "max_quick_elapsed_ms": 2333.45,
+      "median_analysis_elapsed_ms": 759.83,
+      "p90_analysis_elapsed_ms": 1240.88,
+      "max_analysis_elapsed_ms": 2333.45
+    }
+  },
+  "metrics_by_static_visibility": {
+    "FULLY_VISIBLE": {
+      "challenge_count": 20,
+      "completed_count": 20,
+      "failed_count": 0,
+      "ranking_eligible_count": 20,
+      "top_1_accuracy": 0.75,
+      "top_3_accuracy": 0.75,
+      "top_5_accuracy": 0.75,
+      "start_here_accuracy": 0.55,
+      "start_here_emitted_count": 11,
+      "start_here_precision": 1.0,
+      "validation": {
+        "tp": 8,
+        "fp": 2,
+        "fn": 10,
+        "precision": 0.8,
+        "recall": 0.4444444444444444,
+        "f1": 0.5714285714285714
+      },
+      "strings": {
+        "relevant_total": 23,
+        "relevant_hits": 15,
+        "relevant_recall": 0.6521739130434783,
+        "adjudicated_precision": 0.9375,
+        "known_noise_promotions": 1,
+        "unadjudicated_promotions": 296
+      },
+      "data_flow": {
+        "input_sources": 35,
+        "static_slices": 8,
+        "flow_linked_validations": 7,
+        "static_flow_breaks": 2
+      },
+      "function_boundary": {
+        "adjudicated_starts": 39,
+        "recovered_starts": 35,
+        "start_recall": 0.8974358974358975,
+        "distribution": {
+          "CONFIRMED": 1581,
+          "LIKELY": 1561,
+          "HEURISTIC": 304
+        }
+      },
+      "static_slice": {
+        "tp": 8,
+        "fp": 0,
+        "fn": 10,
+        "confirmed": 1,
+        "likely": 6,
+        "partial": 3,
+        "unresolved": 129,
+        "precision": 1.0,
+        "recall": 0.4444444444444444,
+        "complete": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 12,
+          "precision": 1.0,
+          "recall": 0.3333333333333333
+        },
+        "actionable": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 10,
+          "precision": 1.0,
+          "recall": 0.4444444444444444
+        }
+      },
+      "algorithms": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 1,
+        "on_slice_fp": 0,
+        "adjudicated_samples": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "on_slice_precision": 1.0,
+        "per_algorithm": {
+          "CRC32": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          },
+          "XOR": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          }
+        }
+      },
+      "control_flow": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 0,
+        "on_slice_fp": 0,
+        "dispatcher_correct": 0,
+        "dispatcher_total": 0,
+        "state_exact": 0,
+        "state_same_base": 0,
+        "state_wrong": 0,
+        "state_unknown": 0,
+        "adjudicated_samples": 0,
+        "precision": null,
+        "recall": null,
+        "on_slice_precision": null,
+        "dispatcher_accuracy": null,
+        "per_kind": {}
+      },
+      "decompiler_assistance": {
+        "role_tp": 1,
+        "role_fp": 0,
+        "role_fn": 0,
+        "rename_tp": 1,
+        "rename_fp": 0,
+        "adjudicated_samples": 1,
+        "type": {
+          "EXACT": 0,
+          "COMPATIBLE": 0,
+          "WRONG": 0,
+          "UNKNOWN": 0
+        },
+        "role_precision": 1.0,
+        "role_recall": 1.0,
+        "rename_precision": 1.0
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null,
+        "tp": 0,
+        "tn": 20,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": 1.0
+      },
+      "median_quick_elapsed_ms": 275.945,
+      "p90_quick_elapsed_ms": 1462.05,
+      "max_quick_elapsed_ms": 2333.45,
+      "median_analysis_elapsed_ms": 275.945,
+      "p90_analysis_elapsed_ms": 1462.05,
+      "max_analysis_elapsed_ms": 2333.45
+    },
+    "PARTIALLY_VISIBLE": {
+      "challenge_count": 4,
+      "completed_count": 4,
+      "failed_count": 0,
+      "ranking_eligible_count": 4,
+      "top_1_accuracy": 0.25,
+      "top_3_accuracy": 0.25,
+      "top_5_accuracy": 0.25,
+      "start_here_accuracy": 0.25,
+      "start_here_emitted_count": 1,
+      "start_here_precision": 1.0,
+      "validation": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      },
+      "strings": {
+        "relevant_total": 2,
+        "relevant_hits": 0,
+        "relevant_recall": 0.0,
+        "adjudicated_precision": null,
+        "known_noise_promotions": 0,
+        "unadjudicated_promotions": 74
+      },
+      "data_flow": {
+        "input_sources": 10,
+        "static_slices": 0,
+        "flow_linked_validations": 0,
+        "static_flow_breaks": 1
+      },
+      "function_boundary": {
+        "adjudicated_starts": 9,
+        "recovered_starts": 7,
+        "start_recall": 0.7777777777777778,
+        "distribution": {
+          "CONFIRMED": 0,
+          "LIKELY": 330,
+          "HEURISTIC": 211
+        }
+      },
+      "static_slice": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "confirmed": 0,
+        "likely": 0,
+        "partial": 1,
+        "unresolved": 8,
+        "precision": null,
+        "recall": 0.0,
+        "complete": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "precision": null,
+          "recall": 0.0
+        },
+        "actionable": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "precision": null,
+          "recall": 0.0
+        }
+      },
+      "algorithms": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 0,
+        "on_slice_fp": 0,
+        "adjudicated_samples": 0,
+        "precision": null,
+        "recall": null,
+        "on_slice_precision": null,
+        "per_algorithm": {}
+      },
+      "control_flow": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 0,
+        "on_slice_fp": 0,
+        "dispatcher_correct": 1,
+        "dispatcher_total": 1,
+        "state_exact": 1,
+        "state_same_base": 0,
+        "state_wrong": 0,
+        "state_unknown": 0,
+        "adjudicated_samples": 1,
+        "precision": 1.0,
+        "recall": 1.0,
+        "on_slice_precision": null,
+        "dispatcher_accuracy": 1.0,
+        "per_kind": {
+          "INDIRECT_DISPATCH": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 0
+          }
+        }
+      },
+      "decompiler_assistance": {
+        "role_tp": 2,
+        "role_fp": 0,
+        "role_fn": 0,
+        "rename_tp": 1,
+        "rename_fp": 0,
+        "adjudicated_samples": 1,
+        "type": {
+          "EXACT": 1,
+          "COMPATIBLE": 0,
+          "WRONG": 0,
+          "UNKNOWN": 0
+        },
+        "role_precision": 1.0,
+        "role_recall": 1.0,
+        "rename_precision": 1.0
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null,
+        "tp": 0,
+        "tn": 4,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": 1.0
+      },
+      "median_quick_elapsed_ms": 438.73,
+      "p90_quick_elapsed_ms": 759.83,
+      "max_quick_elapsed_ms": 1304.41,
+      "median_analysis_elapsed_ms": 438.73,
+      "p90_analysis_elapsed_ms": 759.83,
+      "max_analysis_elapsed_ms": 1304.41
+    },
+    "PACKED_OR_TRANSFORMED": {
+      "challenge_count": 6,
+      "completed_count": 6,
+      "failed_count": 0,
+      "ranking_eligible_count": 6,
+      "top_1_accuracy": 0.16666666666666666,
+      "top_3_accuracy": 0.3333333333333333,
+      "top_5_accuracy": 0.3333333333333333,
+      "start_here_accuracy": 0.3333333333333333,
+      "start_here_emitted_count": 2,
+      "start_here_precision": 1.0,
+      "validation": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "f1": null
+      },
+      "strings": {
+        "relevant_total": 1,
+        "relevant_hits": 1,
+        "relevant_recall": 1.0,
+        "adjudicated_precision": 1.0,
+        "known_noise_promotions": 0,
+        "unadjudicated_promotions": 53
+      },
+      "data_flow": {
+        "input_sources": 2,
+        "static_slices": 0,
+        "flow_linked_validations": 0,
+        "static_flow_breaks": 0
+      },
+      "function_boundary": {
+        "adjudicated_starts": 7,
+        "recovered_starts": 4,
+        "start_recall": 0.5714285714285714,
+        "distribution": {
+          "CONFIRMED": 0,
+          "LIKELY": 520,
+          "HEURISTIC": 64
+        }
+      },
+      "static_slice": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "confirmed": 0,
+        "likely": 0,
+        "partial": 0,
+        "unresolved": 7,
+        "precision": null,
+        "recall": 0.0,
+        "complete": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0
+        },
+        "actionable": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0
+        }
+      },
+      "algorithms": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 0,
+        "on_slice_fp": 0,
+        "adjudicated_samples": 0,
+        "precision": null,
+        "recall": null,
+        "on_slice_precision": null,
+        "per_algorithm": {}
+      },
+      "control_flow": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 0,
+        "on_slice_fp": 0,
+        "dispatcher_correct": 0,
+        "dispatcher_total": 0,
+        "state_exact": 0,
+        "state_same_base": 0,
+        "state_wrong": 0,
+        "state_unknown": 0,
+        "adjudicated_samples": 0,
+        "precision": null,
+        "recall": null,
+        "on_slice_precision": null,
+        "dispatcher_accuracy": null,
+        "per_kind": {}
+      },
+      "decompiler_assistance": {
+        "role_tp": 0,
+        "role_fp": 0,
+        "role_fn": 0,
+        "rename_tp": 0,
+        "rename_fp": 0,
+        "adjudicated_samples": 0,
+        "type": {
+          "EXACT": 0,
+          "COMPATIBLE": 0,
+          "WRONG": 0,
+          "UNKNOWN": 0
+        },
+        "role_precision": null,
+        "role_recall": null,
+        "rename_precision": null
+      },
+      "packed_visibility": {
+        "expected_packed": 6,
+        "detected_packed": 2,
+        "recall": 0.3333333333333333,
+        "tp": 2,
+        "tn": 0,
+        "fp": 0,
+        "fn": 4,
+        "accuracy": 0.3333333333333333
+      },
+      "median_quick_elapsed_ms": 756.51,
+      "p90_quick_elapsed_ms": 1082.92,
+      "max_quick_elapsed_ms": 2248.95,
+      "median_analysis_elapsed_ms": 756.51,
+      "p90_analysis_elapsed_ms": 1082.92,
+      "max_analysis_elapsed_ms": 2248.95
+    },
+    "UNKNOWN": {
+      "challenge_count": 1,
+      "completed_count": 0,
+      "failed_count": 1,
+      "ranking_eligible_count": 0,
+      "top_1_accuracy": null,
+      "top_3_accuracy": null,
+      "top_5_accuracy": null,
+      "start_here_accuracy": null,
+      "start_here_emitted_count": 0,
+      "start_here_precision": null,
+      "validation": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "strings": {
+        "relevant_total": 0,
+        "relevant_hits": 0,
+        "relevant_recall": null,
+        "adjudicated_precision": null,
+        "known_noise_promotions": 0,
+        "unadjudicated_promotions": 0
+      },
+      "data_flow": {
+        "input_sources": 0,
+        "static_slices": 0,
+        "flow_linked_validations": 0,
+        "static_flow_breaks": 0
+      },
+      "function_boundary": {
+        "adjudicated_starts": 0,
+        "recovered_starts": 0,
+        "start_recall": null,
+        "distribution": {
+          "CONFIRMED": 0,
+          "LIKELY": 0,
+          "HEURISTIC": 0
+        }
+      },
+      "static_slice": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "confirmed": 0,
+        "likely": 0,
+        "partial": 0,
+        "unresolved": 0,
+        "precision": null,
+        "recall": null,
+        "complete": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null
+        },
+        "actionable": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null
+        }
+      },
+      "algorithms": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 0,
+        "on_slice_fp": 0,
+        "adjudicated_samples": 0,
+        "precision": null,
+        "recall": null,
+        "on_slice_precision": null,
+        "per_algorithm": {}
+      },
+      "control_flow": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "on_slice_tp": 0,
+        "on_slice_fp": 0,
+        "dispatcher_correct": 0,
+        "dispatcher_total": 0,
+        "state_exact": 0,
+        "state_same_base": 0,
+        "state_wrong": 0,
+        "state_unknown": 0,
+        "adjudicated_samples": 0,
+        "precision": null,
+        "recall": null,
+        "on_slice_precision": null,
+        "dispatcher_accuracy": null,
+        "per_kind": {}
+      },
+      "decompiler_assistance": {
+        "role_tp": 0,
+        "role_fp": 0,
+        "role_fn": 0,
+        "rename_tp": 0,
+        "rename_fp": 0,
+        "adjudicated_samples": 0,
+        "type": {
+          "EXACT": 0,
+          "COMPATIBLE": 0,
+          "WRONG": 0,
+          "UNKNOWN": 0
+        },
+        "role_precision": null,
+        "role_recall": null,
+        "rename_precision": null
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null,
+        "tp": 0,
+        "tn": 0,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": null
+      },
+      "median_quick_elapsed_ms": null,
+      "p90_quick_elapsed_ms": null,
+      "max_quick_elapsed_ms": null,
+      "median_analysis_elapsed_ms": null,
+      "p90_analysis_elapsed_ms": null,
+      "max_analysis_elapsed_ms": null
+    }
+  },
+  "metrics_static_visible": {
+    "challenge_count": 24,
+    "completed_count": 24,
+    "failed_count": 0,
+    "ranking_eligible_count": 24,
+    "top_1_accuracy": 0.6666666666666666,
+    "top_3_accuracy": 0.6666666666666666,
+    "top_5_accuracy": 0.6666666666666666,
+    "start_here_accuracy": 0.5,
+    "start_here_emitted_count": 12,
+    "start_here_precision": 1.0,
+    "validation": {
+      "tp": 8,
+      "fp": 3,
+      "fn": 13,
+      "precision": 0.7272727272727273,
+      "recall": 0.38095238095238093,
+      "f1": 0.5
+    },
+    "strings": {
+      "relevant_total": 25,
+      "relevant_hits": 15,
+      "relevant_recall": 0.6,
+      "adjudicated_precision": 0.9375,
+      "known_noise_promotions": 1,
+      "unadjudicated_promotions": 370
+    },
+    "data_flow": {
+      "input_sources": 45,
+      "static_slices": 8,
+      "flow_linked_validations": 7,
+      "static_flow_breaks": 3
+    },
+    "function_boundary": {
+      "adjudicated_starts": 48,
+      "recovered_starts": 42,
+      "start_recall": 0.875,
+      "distribution": {
+        "CONFIRMED": 1581,
+        "LIKELY": 1891,
+        "HEURISTIC": 515
+      }
+    },
+    "static_slice": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 13,
+      "confirmed": 1,
+      "likely": 6,
+      "partial": 4,
+      "unresolved": 137,
+      "precision": 1.0,
+      "recall": 0.38095238095238093,
+      "complete": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 15,
+        "precision": 1.0,
+        "recall": 0.2857142857142857
+      },
+      "actionable": {
+        "tp": 8,
+        "fp": 0,
+        "fn": 13,
+        "precision": 1.0,
+        "recall": 0.38095238095238093
+      }
+    },
+    "algorithms": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "on_slice_tp": 1,
+      "on_slice_fp": 0,
+      "adjudicated_samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "on_slice_precision": 1.0,
+      "per_algorithm": {
+        "CRC32": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "XOR": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      }
+    },
+    "control_flow": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "on_slice_tp": 0,
+      "on_slice_fp": 0,
+      "dispatcher_correct": 1,
+      "dispatcher_total": 1,
+      "state_exact": 1,
+      "state_same_base": 0,
+      "state_wrong": 0,
+      "state_unknown": 0,
+      "adjudicated_samples": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "on_slice_precision": null,
+      "dispatcher_accuracy": 1.0,
+      "per_kind": {
+        "INDIRECT_DISPATCH": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      }
+    },
+    "decompiler_assistance": {
+      "role_tp": 3,
+      "role_fp": 0,
+      "role_fn": 0,
+      "rename_tp": 2,
+      "rename_fp": 0,
+      "adjudicated_samples": 2,
+      "type": {
+        "EXACT": 1,
+        "COMPATIBLE": 0,
+        "WRONG": 0,
+        "UNKNOWN": 0
+      },
+      "role_precision": 1.0,
+      "role_recall": 1.0,
+      "rename_precision": 1.0
+    },
+    "packed_visibility": {
+      "expected_packed": 0,
+      "detected_packed": 0,
+      "recall": null,
+      "tp": 0,
+      "tn": 24,
+      "fp": 0,
+      "fn": 0,
+      "accuracy": 1.0
+    },
+    "median_quick_elapsed_ms": 275.945,
+    "p90_quick_elapsed_ms": 1347.46,
+    "max_quick_elapsed_ms": 2333.45,
+    "median_analysis_elapsed_ms": 275.945,
+    "p90_analysis_elapsed_ms": 1347.46,
+    "max_analysis_elapsed_ms": 2333.45
+  },
+  "manifest_coverage": {
+    "total_slots": 40,
+    "available": 31,
+    "pending": 9,
+    "pending_records": [
+      {
+        "challenge_id": "pending-user-02",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-03",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-04",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-05",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-06",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-07",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-08",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-09",
+        "tier": "C",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-10",
+        "tier": "C",
+        "availability": "pending-user-sample"
+      }
+    ],
+    "review_status": {
+      "SINGLE_REVIEW": 27,
+      "DOUBLE_REVIEW": 0,
+      "OFFICIAL_WP_CONFIRMED": 4
+    },
+    "static_visibility": {
+      "FULLY_VISIBLE": 20,
+      "PARTIALLY_VISIBLE": 4,
+      "PACKED_OR_TRANSFORMED": 6,
+      "UNKNOWN": 1
+    }
+  },
+  "failure_categories": {
+    "NO_STRING_SIGNAL": 1,
+    "FUNCTION_BOUNDARY_FAILURE": 0,
+    "INDIRECT_CALL": 0,
+    "INPUT_FLOW_MISSING": 2,
+    "OPTIMIZED_COMPARE": 0,
+    "STATIC_LINK_NOISE": 0,
+    "CRT_NOISE": 0,
+    "PACKED": 5,
+    "OBFUSCATED": 1,
+    "RANKING_WEIGHT_ERROR": 1,
+    "PARSER_FAILURE": 1,
+    "OTHER": 2
+  },
+  "records": [
+    {
+      "challenge_id": "flareon2015-02",
+      "tier": "A",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2015-04",
+      "tier": "C",
+      "status": "ok",
+      "static_visibility": "PACKED_OR_TRANSFORMED",
+      "failure_category": "PACKED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2015-05",
+      "tier": "B",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2015-08",
+      "tier": "C",
+      "status": "ok",
+      "static_visibility": "PACKED_OR_TRANSFORMED",
+      "failure_category": "PACKED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2015-09",
+      "tier": "B",
+      "status": "ok",
+      "static_visibility": "PARTIALLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2015-10",
+      "tier": "C",
+      "status": "ok",
+      "static_visibility": "PACKED_OR_TRANSFORMED",
+      "failure_category": "PACKED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2015-11",
+      "tier": "C",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": "INPUT_FLOW_MISSING",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2016-01",
+      "tier": "A",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2016-03",
+      "tier": "B",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2016-04",
+      "tier": "B",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": "NO_STRING_SIGNAL",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2016-05",
+      "tier": "C",
+      "status": "ok",
+      "static_visibility": "PARTIALLY_VISIBLE",
+      "failure_category": "INPUT_FLOW_MISSING",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2016-06",
+      "tier": "C",
+      "status": "ok",
+      "static_visibility": "PACKED_OR_TRANSFORMED",
+      "failure_category": "PACKED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2016-08",
+      "tier": "C",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2017-02",
+      "tier": "A",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2017-03",
+      "tier": "B",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2017-04",
+      "tier": "B",
+      "status": "ok",
+      "static_visibility": "PARTIALLY_VISIBLE",
+      "failure_category": "OBFUSCATED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2017-06",
+      "tier": "C",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": "RANKING_WEIGHT_ERROR",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2018-07",
+      "tier": "C",
+      "status": "ok",
+      "static_visibility": "PARTIALLY_VISIBLE",
+      "failure_category": "PACKED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2018-09",
+      "tier": "C",
+      "status": "ok",
+      "static_visibility": "PACKED_OR_TRANSFORMED",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2018-10",
+      "tier": "B",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-00",
+      "tier": "A",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-01",
+      "tier": "A",
+      "status": "error",
+      "static_visibility": "UNKNOWN",
+      "failure_category": "PARSER_FAILURE",
+      "top_5_hit": null
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-02",
+      "tier": "A",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-03",
+      "tier": "A",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-04",
+      "tier": "B",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-05",
+      "tier": "C",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-06",
+      "tier": "C",
+      "status": "ok",
+      "static_visibility": "PACKED_OR_TRANSFORMED",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "aviv-re-challenge-01",
+      "tier": "B",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "replay-level-01",
+      "tier": "B",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": "OTHER",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "replay-level-02",
+      "tier": "C",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": "OTHER",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "xorkey-crackme",
+      "tier": "A",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    }
+  ]
+}

@@ -1,0 +1,553 @@
+{
+  "schema_version": "reversehelper-public-ctf-results-2",
+  "dataset": "public-ctf-v0.2-phase-2.5",
+  "ground_truth_frozen_at": "2026-09-04",
+  "run_at_utc": "2026-09-04T09:31:08.768764+00:00",
+  "tool": {
+    "version": "0.1.0",
+    "source_hash": "54a802ece08f849e2c0e2d84bb0123dad94f533a958cc84da6c89a6f77b049e4"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 198 Stepping 2, GenuineIntel"
+  },
+  "configuration": {
+    "mode": "quick",
+    "network": "not used by runner",
+    "sample_execution": false
+  },
+  "metrics": {
+    "challenge_count": 30,
+    "completed_count": 29,
+    "failed_count": 1,
+    "ranking_eligible_count": 29,
+    "top_1_accuracy": 0.4482758620689655,
+    "top_3_accuracy": 0.5172413793103449,
+    "top_5_accuracy": 0.5172413793103449,
+    "start_here_accuracy": 0.3448275862068966,
+    "start_here_emitted_count": 11,
+    "start_here_precision": 0.9090909090909091,
+    "validation": {
+      "tp": 3,
+      "fp": 3,
+      "fn": 18,
+      "precision": 0.5,
+      "recall": 0.14285714285714285,
+      "f1": 0.22222222222222224
+    },
+    "strings": {
+      "relevant_total": 25,
+      "relevant_hits": 15,
+      "relevant_recall": 0.6,
+      "adjudicated_precision": 1.0,
+      "known_noise_promotions": 0,
+      "unadjudicated_promotions": 414
+    },
+    "data_flow": {
+      "input_sources": 40,
+      "static_slices": 1,
+      "flow_linked_validations": 1
+    },
+    "function_boundary": {
+      "adjudicated_starts": 54,
+      "recovered_starts": 42,
+      "start_recall": 0.7777777777777778,
+      "distribution": {
+        "CONFIRMED": 1581,
+        "LIKELY": 2340,
+        "HEURISTIC": 577
+      }
+    },
+    "static_slice": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 20,
+      "confirmed": 0,
+      "likely": 1,
+      "partial": 0,
+      "unresolved": 142,
+      "precision": 1.0,
+      "recall": 0.047619047619047616
+    },
+    "packed_visibility": {
+      "expected_packed": 6,
+      "detected_packed": 2,
+      "recall": 0.3333333333333333
+    },
+    "median_quick_elapsed_ms": 172.32,
+    "p90_quick_elapsed_ms": 1150.29,
+    "max_quick_elapsed_ms": 1973.61
+  },
+  "metrics_by_tier": {
+    "A": {
+      "challenge_count": 7,
+      "completed_count": 6,
+      "failed_count": 1,
+      "ranking_eligible_count": 6,
+      "top_1_accuracy": 0.8333333333333334,
+      "top_3_accuracy": 0.8333333333333334,
+      "top_5_accuracy": 0.8333333333333334,
+      "start_here_accuracy": 0.6666666666666666,
+      "start_here_emitted_count": 5,
+      "start_here_precision": 0.8,
+      "validation": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 3,
+        "precision": 1.0,
+        "recall": 0.25,
+        "f1": 0.4
+      },
+      "strings": {
+        "relevant_total": 11,
+        "relevant_hits": 8,
+        "relevant_recall": 0.7272727272727273,
+        "adjudicated_precision": 1.0,
+        "known_noise_promotions": 0,
+        "unadjudicated_promotions": 46
+      },
+      "data_flow": {
+        "input_sources": 6,
+        "static_slices": 1,
+        "flow_linked_validations": 1
+      },
+      "function_boundary": {
+        "adjudicated_starts": 9,
+        "recovered_starts": 9,
+        "start_recall": 1.0,
+        "distribution": {
+          "CONFIRMED": 227,
+          "LIKELY": 442,
+          "HEURISTIC": 230
+        }
+      },
+      "static_slice": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 3,
+        "confirmed": 0,
+        "likely": 1,
+        "partial": 0,
+        "unresolved": 40,
+        "precision": 1.0,
+        "recall": 0.25
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null
+      },
+      "median_quick_elapsed_ms": 142.005,
+      "p90_quick_elapsed_ms": 172.32,
+      "max_quick_elapsed_ms": 727.41
+    },
+    "B": {
+      "challenge_count": 10,
+      "completed_count": 10,
+      "failed_count": 0,
+      "ranking_eligible_count": 10,
+      "top_1_accuracy": 0.5,
+      "top_3_accuracy": 0.6,
+      "top_5_accuracy": 0.6,
+      "start_here_accuracy": 0.2,
+      "start_here_emitted_count": 2,
+      "start_here_precision": 1.0,
+      "validation": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 12,
+        "precision": 1.0,
+        "recall": 0.14285714285714285,
+        "f1": 0.25
+      },
+      "strings": {
+        "relevant_total": 11,
+        "relevant_hits": 4,
+        "relevant_recall": 0.36363636363636365,
+        "adjudicated_precision": 1.0,
+        "known_noise_promotions": 0,
+        "unadjudicated_promotions": 208
+      },
+      "data_flow": {
+        "input_sources": 14,
+        "static_slices": 0,
+        "flow_linked_validations": 0
+      },
+      "function_boundary": {
+        "adjudicated_starts": 23,
+        "recovered_starts": 18,
+        "start_recall": 0.782608695652174,
+        "distribution": {
+          "CONFIRMED": 589,
+          "LIKELY": 747,
+          "HEURISTIC": 116
+        }
+      },
+      "static_slice": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 14,
+        "confirmed": 0,
+        "likely": 0,
+        "partial": 0,
+        "unresolved": 51,
+        "precision": null,
+        "recall": 0.0
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null
+      },
+      "median_quick_elapsed_ms": 398.255,
+      "p90_quick_elapsed_ms": 1098.91,
+      "max_quick_elapsed_ms": 1742.9
+    },
+    "C": {
+      "challenge_count": 13,
+      "completed_count": 13,
+      "failed_count": 0,
+      "ranking_eligible_count": 13,
+      "top_1_accuracy": 0.23076923076923078,
+      "top_3_accuracy": 0.3076923076923077,
+      "top_5_accuracy": 0.3076923076923077,
+      "start_here_accuracy": 0.3076923076923077,
+      "start_here_emitted_count": 4,
+      "start_here_precision": 1.0,
+      "validation": {
+        "tp": 0,
+        "fp": 3,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": null
+      },
+      "strings": {
+        "relevant_total": 3,
+        "relevant_hits": 3,
+        "relevant_recall": 1.0,
+        "adjudicated_precision": 1.0,
+        "known_noise_promotions": 0,
+        "unadjudicated_promotions": 160
+      },
+      "data_flow": {
+        "input_sources": 20,
+        "static_slices": 0,
+        "flow_linked_validations": 0
+      },
+      "function_boundary": {
+        "adjudicated_starts": 22,
+        "recovered_starts": 15,
+        "start_recall": 0.6818181818181818,
+        "distribution": {
+          "CONFIRMED": 765,
+          "LIKELY": 1151,
+          "HEURISTIC": 231
+        }
+      },
+      "static_slice": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "confirmed": 0,
+        "likely": 0,
+        "partial": 0,
+        "unresolved": 51,
+        "precision": null,
+        "recall": 0.0
+      },
+      "packed_visibility": {
+        "expected_packed": 6,
+        "detected_packed": 2,
+        "recall": 0.3333333333333333
+      },
+      "median_quick_elapsed_ms": 461.84,
+      "p90_quick_elapsed_ms": 1150.29,
+      "max_quick_elapsed_ms": 1973.61
+    }
+  },
+  "manifest_coverage": {
+    "total_slots": 40,
+    "available": 30,
+    "pending": 10,
+    "pending_records": [
+      {
+        "challenge_id": "pending-user-01",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-02",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-03",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-04",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-05",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-06",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-07",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-08",
+        "tier": "A",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-09",
+        "tier": "C",
+        "availability": "pending-user-sample"
+      },
+      {
+        "challenge_id": "pending-user-10",
+        "tier": "C",
+        "availability": "pending-user-sample"
+      }
+    ]
+  },
+  "failure_categories": {
+    "NO_STRING_SIGNAL": 1,
+    "FUNCTION_BOUNDARY_FAILURE": 1,
+    "INDIRECT_CALL": 0,
+    "INPUT_FLOW_MISSING": 2,
+    "OPTIMIZED_COMPARE": 1,
+    "STATIC_LINK_NOISE": 0,
+    "CRT_NOISE": 0,
+    "PACKED": 5,
+    "OBFUSCATED": 1,
+    "RANKING_WEIGHT_ERROR": 1,
+    "PARSER_FAILURE": 1,
+    "OTHER": 2
+  },
+  "records": [
+    {
+      "challenge_id": "flareon2015-02",
+      "tier": "A",
+      "status": "ok",
+      "failure_category": "FUNCTION_BOUNDARY_FAILURE",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2015-04",
+      "tier": "C",
+      "status": "ok",
+      "failure_category": "PACKED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2015-05",
+      "tier": "B",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2015-08",
+      "tier": "C",
+      "status": "ok",
+      "failure_category": "PACKED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2015-09",
+      "tier": "B",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2015-10",
+      "tier": "C",
+      "status": "ok",
+      "failure_category": "PACKED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2015-11",
+      "tier": "C",
+      "status": "ok",
+      "failure_category": "INPUT_FLOW_MISSING",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2016-01",
+      "tier": "A",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2016-03",
+      "tier": "B",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2016-04",
+      "tier": "B",
+      "status": "ok",
+      "failure_category": "NO_STRING_SIGNAL",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2016-05",
+      "tier": "C",
+      "status": "ok",
+      "failure_category": "INPUT_FLOW_MISSING",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2016-06",
+      "tier": "C",
+      "status": "ok",
+      "failure_category": "PACKED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2016-08",
+      "tier": "C",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2017-02",
+      "tier": "A",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2017-03",
+      "tier": "B",
+      "status": "ok",
+      "failure_category": "OPTIMIZED_COMPARE",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2017-04",
+      "tier": "B",
+      "status": "ok",
+      "failure_category": "OBFUSCATED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2017-06",
+      "tier": "C",
+      "status": "ok",
+      "failure_category": "RANKING_WEIGHT_ERROR",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2018-07",
+      "tier": "C",
+      "status": "ok",
+      "failure_category": "PACKED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2018-09",
+      "tier": "C",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2018-10",
+      "tier": "B",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-00",
+      "tier": "A",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-01",
+      "tier": "A",
+      "status": "error",
+      "failure_category": "PARSER_FAILURE",
+      "top_5_hit": null
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-02",
+      "tier": "A",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-03",
+      "tier": "A",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-04",
+      "tier": "B",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-05",
+      "tier": "C",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "reverse-engineering-ctfs-06",
+      "tier": "C",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "aviv-re-challenge-01",
+      "tier": "B",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "replay-level-01",
+      "tier": "B",
+      "status": "ok",
+      "failure_category": "OTHER",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "replay-level-02",
+      "tier": "C",
+      "status": "ok",
+      "failure_category": "OTHER",
+      "top_5_hit": false
+    }
+  ]
+}

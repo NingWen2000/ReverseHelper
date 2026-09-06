@@ -1,0 +1,168 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 8832,
+      "va": 4203136,
+      "function": "FUN_402280",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x2351; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 9536,
+      "va": 4203840,
+      "function": "FUN_402540",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x2280; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x2609; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 10256,
+      "va": 4204560,
+      "function": "FUN_402810",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x2540; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x2A93; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 12448,
+      "va": 4206752,
+      "function": "FUN_4030A0",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x2810; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x3142; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 7696,
+      "va": 4202000,
+      "function": "FUN_401E10",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 29,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code; Sensitive API is called here; purpose is unproven.; Independent evidence families: api, strings"
+    },
+    {
+      "rva": 5456,
+      "va": 4199760,
+      "function": "FUN_401550",
+      "type": "INPUT",
+      "score": 22,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x30A0; argument linkage unknown; Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 7616,
+      "va": 4201920,
+      "function": "FUN_401DC0",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 15,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code"
+    },
+    {
+      "rva": 4832,
+      "va": 4199136,
+      "function": "FUN_4012E0",
+      "type": "PACKING",
+      "score": 10,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Structural packing indicators justify reviewing the entry point; packing is not proven."
+    },
+    {
+      "rva": 4928,
+      "va": 4199232,
+      "function": "FUN_401340",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 33100,
+      "va": 4227404,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    }
+  ],
+  "first_critical_function_rank": null,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "ranking_eligible": true,
+  "start_here_rva": 8832,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 4,
+    "fn": 0,
+    "predicted_function_rvas": [
+      8832,
+      9536,
+      10256,
+      12448
+    ],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 1,
+    "matched_noise_values": [
+      "Mingw runtime failure"
+    ],
+    "promoted_total": 11,
+    "unadjudicated_promotions": 10
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": []
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0
+  },
+  "packed_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 119.11,
+  "instruction_count": 3844,
+  "input_source_count": 1,
+  "static_slice_count": 0,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 135.36,
+  "challenge_id": "reverse-engineering-ctfs-00",
+  "name": "Let it cook",
+  "split": "evaluation",
+  "tier": "A",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "binary_size_bytes": 51355,
+  "failure_category": "OTHER"
+}

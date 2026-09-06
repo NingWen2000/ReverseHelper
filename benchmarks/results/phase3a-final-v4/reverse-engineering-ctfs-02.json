@@ -1,0 +1,221 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 5216,
+      "va": 4199520,
+      "function": "_main",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 46,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code; Retained symbol identifies _main as a program-level entry controller; Independent evidence families: entry, strings"
+    },
+    {
+      "rva": 5264,
+      "va": 4199568,
+      "function": "__setargv",
+      "type": "INPUT",
+      "score": 22,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x2FE0; argument linkage unknown; Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 9344,
+      "va": 4203648,
+      "function": "FUN_402480",
+      "type": "COMPARE",
+      "score": 20,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x21C0; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x2549; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 10064,
+      "va": 4204368,
+      "function": "FUN_402750",
+      "type": "COMPARE",
+      "score": 20,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x2480; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x29D3; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 8640,
+      "va": 4202944,
+      "function": "FUN_4021C0",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x2291; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 7504,
+      "va": 4201808,
+      "function": "FUN_401D50",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 33092,
+      "va": 4227396,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    }
+  ],
+  "first_critical_function_rank": 1,
+  "top_1_hit": true,
+  "top_3_hit": true,
+  "top_5_hit": true,
+  "ranking_eligible": true,
+  "start_here_rva": 5216,
+  "start_here_hit": true,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 2,
+    "relevant_hits": 1,
+    "matched_relevant_values": [
+      "This is not the flag"
+    ],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 6,
+    "unadjudicated_promotions": 5
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 74,
+      "LIKELY": 14,
+      "HEURISTIC": 1
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 12,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 0,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 156.21,
+  "instruction_count": 3443,
+  "input_source_count": 1,
+  "static_slice_count": 0,
+  "static_flow_break_count": 0,
+  "algorithms": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 7,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "per_algorithm": {},
+    "predictions": [
+      {
+        "id": "algorithm-00001490-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 5264,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001490-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 5264,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001970-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 6512,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00002150-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 8528,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000021C0-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 8640,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003530-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 13616,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003600-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 13824,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      }
+    ]
+  },
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 181.58,
+  "challenge_id": "reverse-engineering-ctfs-02",
+  "name": "Peek-a-boo",
+  "split": "evaluation",
+  "tier": "A",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "FULLY_VISIBLE",
+  "binary_size_bytes": 40782,
+  "failure_category": null
+}

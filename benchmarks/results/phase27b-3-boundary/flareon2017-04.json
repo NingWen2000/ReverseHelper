@@ -1,0 +1,292 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 10550,
+      "va": 16787766,
+      "function": "FUN_1002936",
+      "type": "INPUT",
+      "score": 30,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven; Sensitive API is called here; purpose is unproven.; Independent evidence families: api, input"
+    },
+    {
+      "rva": 8616,
+      "va": 16785832,
+      "function": "FUN_10021A8",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 9300,
+      "va": 16786516,
+      "function": "FUN_1002454",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 24421,
+      "va": 16801637,
+      "function": "FUN_1005F65",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 26483,
+      "va": 16803699,
+      "function": "FUN_1006773",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 8319,
+      "va": 16785535,
+      "function": "FUN_100207F",
+      "type": "COMPARE",
+      "score": 12,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x214F"
+    },
+    {
+      "rva": 10837,
+      "va": 16788053,
+      "function": "FUN_1002A55",
+      "type": "COMPARE",
+      "score": 12,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x2A93"
+    },
+    {
+      "rva": 22539,
+      "va": 16799755,
+      "function": "FUN_100580B",
+      "type": "COMPARE",
+      "score": 12,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x589F"
+    },
+    {
+      "rva": 22712,
+      "va": 16799928,
+      "function": "FUN_10058B8",
+      "type": "COMPARE",
+      "score": 12,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x592A"
+    },
+    {
+      "rva": 80384,
+      "va": 16857600,
+      "function": null,
+      "type": "PACKING",
+      "score": 10,
+      "confidence": "low",
+      "target_kind": "code_location",
+      "reason": "Structural packing indicators justify reviewing the entry point; packing is not proven."
+    },
+    {
+      "rva": 13355,
+      "va": 16790571,
+      "function": "FUN_100342B",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x207F; argument linkage unknown"
+    },
+    {
+      "rva": 14650,
+      "va": 16791866,
+      "function": "FUN_100393A",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 14686,
+      "va": 16791902,
+      "function": "FUN_100395E",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 17765,
+      "va": 16794981,
+      "function": "FUN_1004565",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x2A55; argument linkage unknown"
+    },
+    {
+      "rva": 19711,
+      "va": 16796927,
+      "function": "FUN_1004CFF",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x2A55; argument linkage unknown"
+    },
+    {
+      "rva": 20142,
+      "va": 16797358,
+      "function": "FUN_1004EAE",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x2A55; argument linkage unknown"
+    },
+    {
+      "rva": 20857,
+      "va": 16798073,
+      "function": "FUN_1005179",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x2A55; argument linkage unknown"
+    },
+    {
+      "rva": 22860,
+      "va": 16800076,
+      "function": "FUN_100594C",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x580B; argument linkage unknown"
+    },
+    {
+      "rva": 28886,
+      "va": 16806102,
+      "function": "FUN_10070D6",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 29379,
+      "va": 16806595,
+      "function": "FUN_10072C3",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    }
+  ],
+  "first_critical_function_rank": null,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "ranking_eligible": true,
+  "start_here_rva": null,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 47,
+    "unadjudicated_promotions": 47
+  },
+  "function_boundary": {
+    "adjudicated_starts": 3,
+    "recovered_starts": 1,
+    "missed_start_rvas": [
+      80384,
+      84908
+    ],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 89,
+      "HEURISTIC": 11
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 3,
+    "unresolved": 4,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 3,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 1160.21,
+  "instruction_count": 27403,
+  "input_source_count": 5,
+  "static_slice_count": 0,
+  "static_flow_break_count": 3,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 1381.85,
+  "challenge_id": "flareon2017-04",
+  "name": "notepad",
+  "split": "evaluation",
+  "tier": "B",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "PARTIALLY_VISIBLE",
+  "binary_size_bytes": 76288,
+  "failure_category": "OBFUSCATED"
+}

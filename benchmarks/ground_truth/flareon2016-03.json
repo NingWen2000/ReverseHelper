@@ -1,0 +1,90 @@
+{
+  "schema_version": "reversehelper-ground-truth-1",
+  "challenge_id": "flareon2016-03",
+  "ground_truth": {
+    "status": "frozen-single-review",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Public solution evidence plus independent static address verification; ReverseHelper output was not consulted.",
+    "review_limitations": [
+      "Single-review baseline; addresses with no documented end use exact start matching.",
+      "No flag or solution secret is stored."
+    ],
+    "sources": [
+      {
+        "url": "https://services.google.com/fh/files/misc/challenge3-solution.pdf",
+        "kind": "official-solution"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 10144,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "CRT call target independently traced to challenge main; official solution documents password hash there",
+        "source_url": "https://services.google.com/fh/files/misc/challenge3-solution.pdf"
+      }
+    ],
+    "validation_functions": [
+      {
+        "start_rva": 10144,
+        "end_rva_exclusive": null
+      }
+    ],
+    "validation_sites": [
+      {
+        "function_rva": 10144,
+        "status": "confirmed"
+      }
+    ],
+    "relevant_strings": [
+      {
+        "value": "password",
+        "match": "contains",
+        "expected_priority": [
+          "HIGH",
+          "MEDIUM"
+        ]
+      },
+      {
+        "value": "extraspecial",
+        "match": "contains",
+        "expected_priority": [
+          "HIGH",
+          "MEDIUM"
+        ]
+      }
+    ],
+    "irrelevant_strings": [
+      {
+        "value": "invalid parameter",
+        "match": "contains",
+        "reason": "runtime/platform diagnostic or API text is not challenge validation evidence by itself"
+      }
+    ],
+    "techniques": [
+      "command-line input",
+      "hash comparison"
+    ],
+    "notes": [
+      "Difficulty is intentionally not normalized from challenge order."
+    ],
+    "review_status": "SINGLE_REVIEW",
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "FULLY_VISIBLE",
+    "input_sources_ground_truth": [
+      "expected command-line/password input in RVA 0x27A0; detected ReadConsole/ReadFile sources belong to RVA 0x5C78"
+    ],
+    "static_slice_ground_truth": [
+      {
+        "validation_sink_rva": 10144,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "expected command-line/password input in RVA 0x27A0; detected ReadConsole/ReadFile sources belong to RVA 0x5C78",
+        "first_failed_edge": "the actual argv/input object is not discovered in the validation controller",
+        "ground_truth_evidence": "official solution documents password hashing in challenge main"
+      }
+    ]
+  }
+}

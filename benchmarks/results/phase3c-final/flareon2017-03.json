@@ -1,0 +1,163 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 4096,
+      "va": 4198400,
+      "function": "FUN_401000",
+      "type": "PACKING",
+      "score": 46,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code; Structural packing indicators justify reviewing the entry point; packing is not proven.; Sensitive API is called here; purpose is unproven.; Independent evidence families: api, packing, strings"
+    },
+    {
+      "rva": 4385,
+      "va": 4198689,
+      "function": "FUN_401121",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    }
+  ],
+  "first_critical_function_rank": 1,
+  "top_1_hit": true,
+  "top_3_hit": true,
+  "top_5_hit": true,
+  "ranking_eligible": true,
+  "start_here_rva": 4096,
+  "start_here_hit": true,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 2,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 3,
+    "unadjudicated_promotions": 3
+  },
+  "function_boundary": {
+    "adjudicated_starts": 3,
+    "recovered_starts": 3,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 3,
+      "HEURISTIC": 0
+    }
+  },
+  "static_slice": {
+    "predicted": 1,
+    "tp": 1,
+    "fp": 0,
+    "fn": 1,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 1,
+    "unresolved": 0,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "matched_truth_rvas": [
+        4582
+      ]
+    },
+    "flow_breaks": 1,
+    "flow_break_target_rvas": [
+      4582
+    ]
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "NonExecutableCodeSection",
+      "reason": "A PE CODE section lacking the EXECUTE bit was decoded because it is .text or contains the entry point; section permissions remain suspicious."
+    }
+  ],
+  "quick_elapsed_ms": 20.09,
+  "instruction_count": 409,
+  "input_source_count": 1,
+  "static_slice_count": 0,
+  "static_flow_break_count": 1,
+  "algorithms": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "per_algorithm": {},
+    "predictions": [
+      {
+        "id": "algorithm-00001000-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 4096,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      }
+    ]
+  },
+  "control_flow": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "unadjudicated_predictions": 0,
+    "dispatcher_correct": 0,
+    "dispatcher_total": 0,
+    "state_exact": 0,
+    "state_same_base": 0,
+    "state_wrong": 0,
+    "state_unknown": 0,
+    "per_kind": {},
+    "predictions": []
+  },
+  "decompiler_assistance": {
+    "adjudicated": false,
+    "role_tp": 0,
+    "role_fp": 0,
+    "role_fn": 0,
+    "rename_tp": 0,
+    "rename_fp": 0,
+    "type": {
+      "EXACT": 0,
+      "COMPATIBLE": 0,
+      "WRONG": 0,
+      "UNKNOWN": 0
+    },
+    "unadjudicated_predictions": 5
+  },
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 26.78,
+  "challenge_id": "flareon2017-03",
+  "name": "greek_to_me",
+  "split": "evaluation",
+  "tier": "B",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "FULLY_VISIBLE",
+  "binary_size_bytes": 2048,
+  "failure_category": null
+}

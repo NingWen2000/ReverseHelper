@@ -1,0 +1,627 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 12067,
+      "va": 4206371,
+      "function": null,
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "code_location",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 14992,
+      "va": 4209296,
+      "function": "FUN_403A90",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0xF9C7; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 36626,
+      "va": 4230930,
+      "function": "FUN_408F12",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x93CD; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 45060,
+      "va": 4239364,
+      "function": "FUN_40B004",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0xB070; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 47493,
+      "va": 4241797,
+      "function": "FUN_40B985",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0xBBB9; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 49627,
+      "va": 4243931,
+      "function": "FUN_40C1DB",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0xC22D; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 54535,
+      "va": 4248839,
+      "function": "FUN_40D507",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0xD590; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 55635,
+      "va": 4249939,
+      "function": "FUN_40D953",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0xE2A7; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 8032,
+      "va": 4202336,
+      "function": "FUN_401F60",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 14,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code"
+    },
+    {
+      "rva": 12294,
+      "va": 4206598,
+      "function": "FUN_403006",
+      "type": "PACKING",
+      "score": 10,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Structural packing indicators justify reviewing the entry point; packing is not proven."
+    },
+    {
+      "rva": 11503,
+      "va": 4205807,
+      "function": "FUN_402CEF",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x3A90; argument linkage unknown"
+    },
+    {
+      "rva": 12304,
+      "va": 4206608,
+      "function": "FUN_403010",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 12672,
+      "va": 4206976,
+      "function": "FUN_403180",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 22073,
+      "va": 4216377,
+      "function": "FUN_405639",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 22357,
+      "va": 4216661,
+      "function": "FUN_405755",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 24969,
+      "va": 4219273,
+      "function": "FUN_406189",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 33094,
+      "va": 4227398,
+      "function": "FUN_408146",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0xB004; argument linkage unknown"
+    },
+    {
+      "rva": 33258,
+      "va": 4227562,
+      "function": "FUN_4081EA",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0xB004; argument linkage unknown"
+    },
+    {
+      "rva": 35124,
+      "va": 4229428,
+      "function": "FUN_408934",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 36387,
+      "va": 4230691,
+      "function": "FUN_408E23",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x8F12; argument linkage unknown"
+    }
+  ],
+  "first_critical_function_rank": null,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "ranking_eligible": true,
+  "start_here_rva": null,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 59,
+    "unadjudicated_promotions": 59
+  },
+  "function_boundary": {
+    "adjudicated_starts": 3,
+    "recovered_starts": 2,
+    "missed_start_rvas": [
+      6809
+    ],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 316,
+      "HEURISTIC": 26
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 8,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 0,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "strings",
+      "error_type": "BudgetLimit",
+      "reason": "String count or byte scan budget reached; unscanned strings remain unknown."
+    },
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    },
+    {
+      "module": "algorithm-recognition",
+      "error_type": "BudgetLimit",
+      "reason": "Algorithm analysis truncated; unexamined functions or instructions remain unknown."
+    }
+  ],
+  "quick_elapsed_ms": 900.89,
+  "instruction_count": 21346,
+  "input_source_count": 1,
+  "static_slice_count": 0,
+  "static_flow_break_count": 0,
+  "algorithms": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 45,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "per_algorithm": {},
+    "predictions": [
+      {
+        "id": "algorithm-00007486-rc4",
+        "algorithm": "RC4",
+        "function_rva": 29830,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000D953-rc4",
+        "algorithm": "RC4",
+        "function_rva": 55635,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001170-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 4464,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001170-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 4464,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000015D0-custom_word_transform",
+        "algorithm": "CUSTOM_WORD_TRANSFORM",
+        "function_rva": 5584,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000015D0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 5584,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00002040-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 8256,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00002870-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 10352,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00002870-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 10352,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00002AC0-custom_word_transform",
+        "algorithm": "CUSTOM_WORD_TRANSFORM",
+        "function_rva": 10944,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00002AC0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 10944,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003320-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 13088,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003320-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 13088,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000040B7-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 16567,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00004E00-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 19968,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00004E00-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 19968,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000051DC-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 20956,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00005E40-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 24128,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00005F7F-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 24447,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00005F7F-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 24447,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00007486-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 29830,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00007866-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 30822,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00007AB1-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 31409,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00007AB1-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 31409,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00008F12-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 36626,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00008F12-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 36626,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00009D7F-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 40319,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00009D7F-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 40319,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00009FE7-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 40935,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00009FE7-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 40935,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000A520-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 42272,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000A520-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 42272,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000AA92-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 43666,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000AA92-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 43666,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000B004-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 45060,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000B870-single_xor",
+        "algorithm": "SINGLE_XOR",
+        "function_rva": 47216,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000C0CB-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 49355,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000C9B2-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 51634,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000CC0F-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 52239,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000CD80-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 52608,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000CD80-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 52608,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000D3D0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 54224,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000D5B7-single_xor",
+        "algorithm": "SINGLE_XOR",
+        "function_rva": 54711,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000D953-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 55635,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000EFD0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 61392,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      }
+    ]
+  },
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 1031.52,
+  "challenge_id": "flareon2015-11",
+  "name": "CryptoGraph",
+  "split": "development",
+  "tier": "C",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "FULLY_VISIBLE",
+  "binary_size_bytes": 215040,
+  "failure_category": "INPUT_FLOW_MISSING"
+}

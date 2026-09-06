@@ -1,0 +1,67 @@
+{
+  "schema_version": "reversehelper-ground-truth-1",
+  "challenge_id": "flareon2015-11",
+  "ground_truth": {
+    "status": "frozen-single-review",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Public solution evidence plus independent static address verification; ReverseHelper output was not consulted.",
+    "review_limitations": [
+      "Single-review baseline; addresses with no documented end use exact start matching.",
+      "No flag or solution secret is stored."
+    ],
+    "sources": [
+      {
+        "url": "https://unhere.com/2015/09/10/flare-on-challenge-2015-11/",
+        "kind": "trusted-public-writeup"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 6416,
+        "end_rva_exclusive": null,
+        "role": "TRANSFORM",
+        "evidence": "documented main decryption controller",
+        "source_url": "https://unhere.com/2015/09/10/flare-on-challenge-2015-11/"
+      },
+      {
+        "start_rva": 6809,
+        "end_rva_exclusive": null,
+        "role": "TRANSFORM",
+        "evidence": "decrypt-image routine",
+        "source_url": "https://unhere.com/2015/09/10/flare-on-challenge-2015-11/"
+      },
+      {
+        "start_rva": 7008,
+        "end_rva_exclusive": null,
+        "role": "KEY_TABLE",
+        "evidence": "key-selection routine",
+        "source_url": "https://unhere.com/2015/09/10/flare-on-challenge-2015-11/"
+      }
+    ],
+    "validation_functions": [],
+    "validation_sites": [],
+    "relevant_strings": [],
+    "irrelevant_strings": [
+      {
+        "value": "CreateFile failed",
+        "match": "contains",
+        "reason": "runtime/platform diagnostic or API text is not challenge validation evidence by itself"
+      }
+    ],
+    "techniques": [
+      "encryption",
+      "image transformation"
+    ],
+    "notes": [
+      "Difficulty is intentionally not normalized from challenge order."
+    ],
+    "review_status": "SINGLE_REVIEW",
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "FULLY_VISIBLE",
+    "input_sources_ground_truth": [],
+    "static_slice_ground_truth": []
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "schema_version": "reversehelper-ground-truth-1",
+  "challenge_id": "flareon2015-02",
+  "ground_truth": {
+    "status": "frozen-single-review",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Public solution evidence plus independent static address verification; ReverseHelper output was not consulted.",
+    "review_limitations": [
+      "Single-review baseline; addresses with no documented end use exact start matching.",
+      "No flag or solution secret is stored."
+    ],
+    "sources": [
+      {
+        "url": "https://richeyward.com/posts/flareon/02/02-very_success/",
+        "kind": "trusted-public-writeup"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 4096,
+        "end_rva_exclusive": null,
+        "role": "INPUT",
+        "evidence": "program controller and input path",
+        "source_url": "https://richeyward.com/posts/flareon/02/02-very_success/"
+      },
+      {
+        "start_rva": 4228,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "comparison helper called before outcome branch",
+        "source_url": "https://richeyward.com/posts/flareon/02/02-very_success/"
+      }
+    ],
+    "validation_functions": [
+      {
+        "start_rva": 4096,
+        "end_rva_exclusive": null
+      },
+      {
+        "start_rva": 4228,
+        "end_rva_exclusive": null
+      }
+    ],
+    "validation_sites": [
+      {
+        "function_rva": 4096,
+        "status": "confirmed"
+      },
+      {
+        "function_rva": 4228,
+        "status": "confirmed"
+      }
+    ],
+    "relevant_strings": [
+      {
+        "value": "success",
+        "match": "contains",
+        "expected_priority": [
+          "HIGH",
+          "MEDIUM"
+        ]
+      },
+      {
+        "value": "wrong",
+        "match": "contains",
+        "expected_priority": [
+          "HIGH",
+          "MEDIUM"
+        ]
+      }
+    ],
+    "irrelevant_strings": [
+      {
+        "value": "GetStdHandle",
+        "match": "contains",
+        "reason": "runtime/platform diagnostic or API text is not challenge validation evidence by itself"
+      }
+    ],
+    "techniques": [
+      "console input",
+      "custom comparison"
+    ],
+    "notes": [
+      "Difficulty is intentionally not normalized from challenge order."
+    ],
+    "review_status": "SINGLE_REVIEW",
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "FULLY_VISIBLE",
+    "input_sources_ground_truth": [
+      "ReadFile at RVA 0x1001 writes a global buffer",
+      "ReadFile global buffer propagated from RVA 0x1001"
+    ],
+    "static_slice_ground_truth": [
+      {
+        "validation_sink_rva": 4096,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "ReadFile at RVA 0x1001 writes a global buffer",
+        "first_failed_edge": "ground-truth function lead 0x1000 is represented as 0x1001, so the source/sink function identity does not match",
+        "ground_truth_evidence": "public solution plus independent static verification: program controller and input path"
+      },
+      {
+        "validation_sink_rva": 4228,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "ReadFile global buffer propagated from RVA 0x1001",
+        "first_failed_edge": "source-reachable helper contains comparisons but no supported static-linked CompareSite is emitted",
+        "ground_truth_evidence": "comparison helper called before outcome branch"
+      }
+    ]
+  }
+}

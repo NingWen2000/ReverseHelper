@@ -1,0 +1,117 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 4944,
+      "va": 4199248,
+      "function": "_main",
+      "type": "COMPARE",
+      "score": 20,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x19B0; References CTF-related text in executable code; Retained symbol identifies _main as a program-level entry controller; Independent evidence families: comparison, entry, strings"
+    },
+    {
+      "rva": 8112,
+      "va": 4202416,
+      "function": "___write_memory.part.0",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    }
+  ],
+  "first_critical_function_rank": 1,
+  "top_1_hit": true,
+  "top_3_hit": true,
+  "top_5_hit": true,
+  "ranking_eligible": true,
+  "start_here_rva": null,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "predicted_function_rvas": [
+      4944
+    ],
+    "matched_truth_rvas": [
+      4944
+    ]
+  },
+  "strings": {
+    "ground_truth_relevant": 3,
+    "relevant_hits": 3,
+    "matched_relevant_values": [
+      "your_password",
+      "Wrong!",
+      "didn't match any saved password"
+    ],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 15,
+    "unadjudicated_promotions": 12
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 66,
+      "LIKELY": 0,
+      "HEURISTIC": 0
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 4,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 0,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 65.65,
+  "instruction_count": 1651,
+  "input_source_count": 0,
+  "static_slice_count": 0,
+  "static_flow_break_count": 0,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 77.08,
+  "challenge_id": "aviv-re-challenge-01",
+  "name": "Reverse Engineering Challenge 1",
+  "split": "evaluation",
+  "tier": "B",
+  "packed_expected": false,
+  "review_status": "OFFICIAL_WP_CONFIRMED",
+  "static_visibility": "FULLY_VISIBLE",
+  "binary_size_bytes": 34569,
+  "failure_category": null
+}

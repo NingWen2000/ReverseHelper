@@ -1,0 +1,63 @@
+{
+  "schema_version": "reversehelper-ground-truth-1",
+  "challenge_id": "flareon2016-06",
+  "ground_truth": {
+    "status": "frozen-single-review",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Public solution evidence plus independent static address verification; ReverseHelper output was not consulted.",
+    "review_limitations": [
+      "Single-review baseline; addresses with no documented end use exact start matching.",
+      "No flag or solution secret is stored."
+    ],
+    "sources": [
+      {
+        "url": "https://services.google.com/fh/files/misc/challenge6-solution.pdf",
+        "kind": "official-solution"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 11048,
+        "end_rva_exclusive": null,
+        "role": "PACKING",
+        "evidence": "py2exe native entry; actual validation is in PYTHONSCRIPT resource",
+        "source_url": "https://services.google.com/fh/files/misc/challenge6-solution.pdf"
+      }
+    ],
+    "validation_functions": [],
+    "validation_sites": [],
+    "relevant_strings": [
+      {
+        "value": "PYTHONSCRIPT",
+        "match": "contains",
+        "expected_priority": [
+          "HIGH",
+          "MEDIUM"
+        ]
+      }
+    ],
+    "irrelevant_strings": [
+      {
+        "value": "invalid parameter",
+        "match": "contains",
+        "reason": "runtime/platform diagnostic or API text is not challenge validation evidence by itself"
+      }
+    ],
+    "techniques": [
+      "py2exe",
+      "resource extraction",
+      "Python bytecode"
+    ],
+    "notes": [
+      "Difficulty is intentionally not normalized from challenge order."
+    ],
+    "review_status": "SINGLE_REVIEW",
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "PACKED_OR_TRANSFORMED",
+    "input_sources_ground_truth": [],
+    "static_slice_ground_truth": []
+  }
+}

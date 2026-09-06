@@ -1,0 +1,794 @@
+{
+  "schema_version": "reversehelper-public-ctf-results-3",
+  "dataset": "public-ctf-v0.3-phase-2.6",
+  "ground_truth_frozen_at": "2026-09-04",
+  "run_at_utc": "2026-09-04T09:58:06.800271+00:00",
+  "tool": {
+    "version": "0.1.0",
+    "source_hash": "54a802ece08f849e2c0e2d84bb0123dad94f533a958cc84da6c89a6f77b049e4"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 198 Stepping 2, GenuineIntel"
+  },
+  "configuration": {
+    "mode": "quick",
+    "network": "not used by runner",
+    "sample_execution": false
+  },
+  "metrics": {
+    "challenge_count": 1,
+    "completed_count": 1,
+    "failed_count": 0,
+    "ranking_eligible_count": 1,
+    "top_1_accuracy": 1.0,
+    "top_3_accuracy": 1.0,
+    "top_5_accuracy": 1.0,
+    "start_here_accuracy": 1.0,
+    "start_here_emitted_count": 1,
+    "start_here_precision": 1.0,
+    "validation": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "strings": {
+      "relevant_total": 1,
+      "relevant_hits": 1,
+      "relevant_recall": 1.0,
+      "adjudicated_precision": 0.5,
+      "known_noise_promotions": 1,
+      "unadjudicated_promotions": 6
+    },
+    "data_flow": {
+      "input_sources": 2,
+      "static_slices": 0,
+      "flow_linked_validations": 0
+    },
+    "function_boundary": {
+      "adjudicated_starts": 1,
+      "recovered_starts": 1,
+      "start_recall": 1.0,
+      "distribution": {
+        "CONFIRMED": 0,
+        "LIKELY": 68,
+        "HEURISTIC": 4
+      }
+    },
+    "static_slice": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "confirmed": 0,
+      "likely": 0,
+      "partial": 0,
+      "unresolved": 2,
+      "precision": null,
+      "recall": 0.0,
+      "complete": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0
+      },
+      "actionable": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0
+      }
+    },
+    "packed_visibility": {
+      "expected_packed": 0,
+      "detected_packed": 0,
+      "recall": null,
+      "tp": 0,
+      "tn": 1,
+      "fp": 0,
+      "fn": 0,
+      "accuracy": 1.0
+    },
+    "median_quick_elapsed_ms": 66.9,
+    "p90_quick_elapsed_ms": 66.9,
+    "max_quick_elapsed_ms": 66.9
+  },
+  "metrics_by_tier": {
+    "A": {
+      "challenge_count": 1,
+      "completed_count": 1,
+      "failed_count": 0,
+      "ranking_eligible_count": 1,
+      "top_1_accuracy": 1.0,
+      "top_3_accuracy": 1.0,
+      "top_5_accuracy": 1.0,
+      "start_here_accuracy": 1.0,
+      "start_here_emitted_count": 1,
+      "start_here_precision": 1.0,
+      "validation": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "strings": {
+        "relevant_total": 1,
+        "relevant_hits": 1,
+        "relevant_recall": 1.0,
+        "adjudicated_precision": 0.5,
+        "known_noise_promotions": 1,
+        "unadjudicated_promotions": 6
+      },
+      "data_flow": {
+        "input_sources": 2,
+        "static_slices": 0,
+        "flow_linked_validations": 0
+      },
+      "function_boundary": {
+        "adjudicated_starts": 1,
+        "recovered_starts": 1,
+        "start_recall": 1.0,
+        "distribution": {
+          "CONFIRMED": 0,
+          "LIKELY": 68,
+          "HEURISTIC": 4
+        }
+      },
+      "static_slice": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "confirmed": 0,
+        "likely": 0,
+        "partial": 0,
+        "unresolved": 2,
+        "precision": null,
+        "recall": 0.0,
+        "complete": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0
+        },
+        "actionable": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0
+        }
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null,
+        "tp": 0,
+        "tn": 1,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": 1.0
+      },
+      "median_quick_elapsed_ms": 66.9,
+      "p90_quick_elapsed_ms": 66.9,
+      "max_quick_elapsed_ms": 66.9
+    },
+    "B": {
+      "challenge_count": 0,
+      "completed_count": 0,
+      "failed_count": 0,
+      "ranking_eligible_count": 0,
+      "top_1_accuracy": null,
+      "top_3_accuracy": null,
+      "top_5_accuracy": null,
+      "start_here_accuracy": null,
+      "start_here_emitted_count": 0,
+      "start_here_precision": null,
+      "validation": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "strings": {
+        "relevant_total": 0,
+        "relevant_hits": 0,
+        "relevant_recall": null,
+        "adjudicated_precision": null,
+        "known_noise_promotions": 0,
+        "unadjudicated_promotions": 0
+      },
+      "data_flow": {
+        "input_sources": 0,
+        "static_slices": 0,
+        "flow_linked_validations": 0
+      },
+      "function_boundary": {
+        "adjudicated_starts": 0,
+        "recovered_starts": 0,
+        "start_recall": null,
+        "distribution": {
+          "CONFIRMED": 0,
+          "LIKELY": 0,
+          "HEURISTIC": 0
+        }
+      },
+      "static_slice": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "confirmed": 0,
+        "likely": 0,
+        "partial": 0,
+        "unresolved": 0,
+        "precision": null,
+        "recall": null,
+        "complete": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null
+        },
+        "actionable": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null
+        }
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null,
+        "tp": 0,
+        "tn": 0,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": null
+      },
+      "median_quick_elapsed_ms": null,
+      "p90_quick_elapsed_ms": null,
+      "max_quick_elapsed_ms": null
+    },
+    "C": {
+      "challenge_count": 0,
+      "completed_count": 0,
+      "failed_count": 0,
+      "ranking_eligible_count": 0,
+      "top_1_accuracy": null,
+      "top_3_accuracy": null,
+      "top_5_accuracy": null,
+      "start_here_accuracy": null,
+      "start_here_emitted_count": 0,
+      "start_here_precision": null,
+      "validation": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "strings": {
+        "relevant_total": 0,
+        "relevant_hits": 0,
+        "relevant_recall": null,
+        "adjudicated_precision": null,
+        "known_noise_promotions": 0,
+        "unadjudicated_promotions": 0
+      },
+      "data_flow": {
+        "input_sources": 0,
+        "static_slices": 0,
+        "flow_linked_validations": 0
+      },
+      "function_boundary": {
+        "adjudicated_starts": 0,
+        "recovered_starts": 0,
+        "start_recall": null,
+        "distribution": {
+          "CONFIRMED": 0,
+          "LIKELY": 0,
+          "HEURISTIC": 0
+        }
+      },
+      "static_slice": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "confirmed": 0,
+        "likely": 0,
+        "partial": 0,
+        "unresolved": 0,
+        "precision": null,
+        "recall": null,
+        "complete": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null
+        },
+        "actionable": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null
+        }
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null,
+        "tp": 0,
+        "tn": 0,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": null
+      },
+      "median_quick_elapsed_ms": null,
+      "p90_quick_elapsed_ms": null,
+      "max_quick_elapsed_ms": null
+    }
+  },
+  "metrics_by_static_visibility": {
+    "FULLY_VISIBLE": {
+      "challenge_count": 1,
+      "completed_count": 1,
+      "failed_count": 0,
+      "ranking_eligible_count": 1,
+      "top_1_accuracy": 1.0,
+      "top_3_accuracy": 1.0,
+      "top_5_accuracy": 1.0,
+      "start_here_accuracy": 1.0,
+      "start_here_emitted_count": 1,
+      "start_here_precision": 1.0,
+      "validation": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "strings": {
+        "relevant_total": 1,
+        "relevant_hits": 1,
+        "relevant_recall": 1.0,
+        "adjudicated_precision": 0.5,
+        "known_noise_promotions": 1,
+        "unadjudicated_promotions": 6
+      },
+      "data_flow": {
+        "input_sources": 2,
+        "static_slices": 0,
+        "flow_linked_validations": 0
+      },
+      "function_boundary": {
+        "adjudicated_starts": 1,
+        "recovered_starts": 1,
+        "start_recall": 1.0,
+        "distribution": {
+          "CONFIRMED": 0,
+          "LIKELY": 68,
+          "HEURISTIC": 4
+        }
+      },
+      "static_slice": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "confirmed": 0,
+        "likely": 0,
+        "partial": 0,
+        "unresolved": 2,
+        "precision": null,
+        "recall": 0.0,
+        "complete": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0
+        },
+        "actionable": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": null,
+          "recall": 0.0
+        }
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null,
+        "tp": 0,
+        "tn": 1,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": 1.0
+      },
+      "median_quick_elapsed_ms": 66.9,
+      "p90_quick_elapsed_ms": 66.9,
+      "max_quick_elapsed_ms": 66.9
+    },
+    "PARTIALLY_VISIBLE": {
+      "challenge_count": 0,
+      "completed_count": 0,
+      "failed_count": 0,
+      "ranking_eligible_count": 0,
+      "top_1_accuracy": null,
+      "top_3_accuracy": null,
+      "top_5_accuracy": null,
+      "start_here_accuracy": null,
+      "start_here_emitted_count": 0,
+      "start_here_precision": null,
+      "validation": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "strings": {
+        "relevant_total": 0,
+        "relevant_hits": 0,
+        "relevant_recall": null,
+        "adjudicated_precision": null,
+        "known_noise_promotions": 0,
+        "unadjudicated_promotions": 0
+      },
+      "data_flow": {
+        "input_sources": 0,
+        "static_slices": 0,
+        "flow_linked_validations": 0
+      },
+      "function_boundary": {
+        "adjudicated_starts": 0,
+        "recovered_starts": 0,
+        "start_recall": null,
+        "distribution": {
+          "CONFIRMED": 0,
+          "LIKELY": 0,
+          "HEURISTIC": 0
+        }
+      },
+      "static_slice": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "confirmed": 0,
+        "likely": 0,
+        "partial": 0,
+        "unresolved": 0,
+        "precision": null,
+        "recall": null,
+        "complete": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null
+        },
+        "actionable": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null
+        }
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null,
+        "tp": 0,
+        "tn": 0,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": null
+      },
+      "median_quick_elapsed_ms": null,
+      "p90_quick_elapsed_ms": null,
+      "max_quick_elapsed_ms": null
+    },
+    "PACKED_OR_TRANSFORMED": {
+      "challenge_count": 0,
+      "completed_count": 0,
+      "failed_count": 0,
+      "ranking_eligible_count": 0,
+      "top_1_accuracy": null,
+      "top_3_accuracy": null,
+      "top_5_accuracy": null,
+      "start_here_accuracy": null,
+      "start_here_emitted_count": 0,
+      "start_here_precision": null,
+      "validation": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "strings": {
+        "relevant_total": 0,
+        "relevant_hits": 0,
+        "relevant_recall": null,
+        "adjudicated_precision": null,
+        "known_noise_promotions": 0,
+        "unadjudicated_promotions": 0
+      },
+      "data_flow": {
+        "input_sources": 0,
+        "static_slices": 0,
+        "flow_linked_validations": 0
+      },
+      "function_boundary": {
+        "adjudicated_starts": 0,
+        "recovered_starts": 0,
+        "start_recall": null,
+        "distribution": {
+          "CONFIRMED": 0,
+          "LIKELY": 0,
+          "HEURISTIC": 0
+        }
+      },
+      "static_slice": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "confirmed": 0,
+        "likely": 0,
+        "partial": 0,
+        "unresolved": 0,
+        "precision": null,
+        "recall": null,
+        "complete": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null
+        },
+        "actionable": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null
+        }
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null,
+        "tp": 0,
+        "tn": 0,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": null
+      },
+      "median_quick_elapsed_ms": null,
+      "p90_quick_elapsed_ms": null,
+      "max_quick_elapsed_ms": null
+    },
+    "UNKNOWN": {
+      "challenge_count": 0,
+      "completed_count": 0,
+      "failed_count": 0,
+      "ranking_eligible_count": 0,
+      "top_1_accuracy": null,
+      "top_3_accuracy": null,
+      "top_5_accuracy": null,
+      "start_here_accuracy": null,
+      "start_here_emitted_count": 0,
+      "start_here_precision": null,
+      "validation": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "strings": {
+        "relevant_total": 0,
+        "relevant_hits": 0,
+        "relevant_recall": null,
+        "adjudicated_precision": null,
+        "known_noise_promotions": 0,
+        "unadjudicated_promotions": 0
+      },
+      "data_flow": {
+        "input_sources": 0,
+        "static_slices": 0,
+        "flow_linked_validations": 0
+      },
+      "function_boundary": {
+        "adjudicated_starts": 0,
+        "recovered_starts": 0,
+        "start_recall": null,
+        "distribution": {
+          "CONFIRMED": 0,
+          "LIKELY": 0,
+          "HEURISTIC": 0
+        }
+      },
+      "static_slice": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "confirmed": 0,
+        "likely": 0,
+        "partial": 0,
+        "unresolved": 0,
+        "precision": null,
+        "recall": null,
+        "complete": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null
+        },
+        "actionable": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "precision": null,
+          "recall": null
+        }
+      },
+      "packed_visibility": {
+        "expected_packed": 0,
+        "detected_packed": 0,
+        "recall": null,
+        "tp": 0,
+        "tn": 0,
+        "fp": 0,
+        "fn": 0,
+        "accuracy": null
+      },
+      "median_quick_elapsed_ms": null,
+      "p90_quick_elapsed_ms": null,
+      "max_quick_elapsed_ms": null
+    }
+  },
+  "metrics_static_visible": {
+    "challenge_count": 1,
+    "completed_count": 1,
+    "failed_count": 0,
+    "ranking_eligible_count": 1,
+    "top_1_accuracy": 1.0,
+    "top_3_accuracy": 1.0,
+    "top_5_accuracy": 1.0,
+    "start_here_accuracy": 1.0,
+    "start_here_emitted_count": 1,
+    "start_here_precision": 1.0,
+    "validation": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "strings": {
+      "relevant_total": 1,
+      "relevant_hits": 1,
+      "relevant_recall": 1.0,
+      "adjudicated_precision": 0.5,
+      "known_noise_promotions": 1,
+      "unadjudicated_promotions": 6
+    },
+    "data_flow": {
+      "input_sources": 2,
+      "static_slices": 0,
+      "flow_linked_validations": 0
+    },
+    "function_boundary": {
+      "adjudicated_starts": 1,
+      "recovered_starts": 1,
+      "start_recall": 1.0,
+      "distribution": {
+        "CONFIRMED": 0,
+        "LIKELY": 68,
+        "HEURISTIC": 4
+      }
+    },
+    "static_slice": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "confirmed": 0,
+      "likely": 0,
+      "partial": 0,
+      "unresolved": 2,
+      "precision": null,
+      "recall": 0.0,
+      "complete": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0
+      },
+      "actionable": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0
+      }
+    },
+    "packed_visibility": {
+      "expected_packed": 0,
+      "detected_packed": 0,
+      "recall": null,
+      "tp": 0,
+      "tn": 1,
+      "fp": 0,
+      "fn": 0,
+      "accuracy": 1.0
+    },
+    "median_quick_elapsed_ms": 66.9,
+    "p90_quick_elapsed_ms": 66.9,
+    "max_quick_elapsed_ms": 66.9
+  },
+  "manifest_coverage": {
+    "total_slots": 1,
+    "available": 1,
+    "pending": 0,
+    "pending_records": [],
+    "review_status": {
+      "SINGLE_REVIEW": 27,
+      "DOUBLE_REVIEW": 0,
+      "OFFICIAL_WP_CONFIRMED": 4
+    },
+    "static_visibility": {
+      "FULLY_VISIBLE": 20,
+      "PARTIALLY_VISIBLE": 4,
+      "PACKED_OR_TRANSFORMED": 6,
+      "UNKNOWN": 1
+    }
+  },
+  "failure_categories": {
+    "NO_STRING_SIGNAL": 0,
+    "FUNCTION_BOUNDARY_FAILURE": 0,
+    "INDIRECT_CALL": 0,
+    "INPUT_FLOW_MISSING": 0,
+    "OPTIMIZED_COMPARE": 0,
+    "STATIC_LINK_NOISE": 0,
+    "CRT_NOISE": 0,
+    "PACKED": 0,
+    "OBFUSCATED": 0,
+    "RANKING_WEIGHT_ERROR": 0,
+    "PARSER_FAILURE": 0,
+    "OTHER": 0
+  },
+  "records": [
+    {
+      "challenge_id": "xorkey-crackme",
+      "tier": "A",
+      "status": "ok",
+      "static_visibility": "FULLY_VISIBLE",
+      "failure_category": null,
+      "top_5_hit": true
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": "reversehelper-ground-truth-2",
+  "challenge_id": "replay-level-02",
+  "ground_truth": {
+    "review_status": "OFFICIAL_WP_CONFIRMED",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Challenge-author walkthrough addresses for the integrity function and caller, checked against the distributed image base.",
+    "sources": [
+      {
+        "url": "https://github.com/SkyPenguinLabs/REplay-Writeups",
+        "kind": "author-writeup"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 528640,
+        "end_rva_exclusive": null,
+        "role": "INTEGRITY",
+        "evidence": "author walkthrough identifies sub_140081100 as SelfHash"
+      },
+      {
+        "start_rva": 527088,
+        "end_rva_exclusive": null,
+        "role": "CONTROLLER",
+        "evidence": "author walkthrough identifies sub_140080AF0 as IntegritySystemCaller"
+      }
+    ],
+    "validation_functions": [],
+    "relevant_strings": [],
+    "irrelevant_strings": [],
+    "techniques": [
+      "self hash",
+      "binary integrity",
+      "threaded caller",
+      "MSVC x64"
+    ],
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "FULLY_VISIBLE",
+    "input_sources_ground_truth": [],
+    "static_slice_ground_truth": []
+  }
+}

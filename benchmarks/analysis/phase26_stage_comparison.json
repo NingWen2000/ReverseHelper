@@ -1,0 +1,290 @@
+{
+  "schema_version": "reversehelper-phase26-stage-comparison-1",
+  "notes": [
+    "All samples were hash-verified and statically read; none was executed.",
+    "The intentionally corrupt PE-like sample remains an expected isolated parser failure.",
+    "Timing variance between repeated runs is reported without claiming a deterministic speed change."
+  ],
+  "stages": [
+    {
+      "stage": "phase26-baseline",
+      "top_1": 0.4666666666666667,
+      "top_3": 0.5333333333333333,
+      "top_5": 0.5333333333333333,
+      "start_here_hit_rate": 0.36666666666666664,
+      "start_here_emitted": 12,
+      "start_here_precision": 0.9166666666666666,
+      "validation": {
+        "tp": 4,
+        "fp": 3,
+        "fn": 18,
+        "precision": 0.5714285714285714,
+        "recall": 0.18181818181818182,
+        "f1": 0.27586206896551724
+      },
+      "complete_slice": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 21,
+        "precision": 1.0,
+        "recall": 0.045454545454545456
+      },
+      "actionable_slice": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 21,
+        "precision": 1.0,
+        "recall": 0.045454545454545456
+      },
+      "static_visible_complete_recall": 0.047619047619047616,
+      "static_visible_actionable_recall": 0.047619047619047616,
+      "function_start_recall": 0.7818181818181819,
+      "packed_visibility_accuracy": 0.8666666666666667,
+      "quick_ms": {
+        "median": 203.465,
+        "p90": 1252.11,
+        "max": 2200.98
+      }
+    },
+    {
+      "stage": "phase26-value-identity",
+      "top_1": 0.4666666666666667,
+      "top_3": 0.5333333333333333,
+      "top_5": 0.5333333333333333,
+      "start_here_hit_rate": 0.36666666666666664,
+      "start_here_emitted": 12,
+      "start_here_precision": 0.9166666666666666,
+      "validation": {
+        "tp": 4,
+        "fp": 3,
+        "fn": 18,
+        "precision": 0.5714285714285714,
+        "recall": 0.18181818181818182,
+        "f1": 0.27586206896551724
+      },
+      "complete_slice": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 20,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "actionable_slice": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 20,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "static_visible_complete_recall": 0.09523809523809523,
+      "static_visible_actionable_recall": 0.09523809523809523,
+      "function_start_recall": 0.7818181818181819,
+      "packed_visibility_accuracy": 0.8666666666666667,
+      "quick_ms": {
+        "median": 162.44,
+        "p90": 1144.18,
+        "max": 1844.41
+      }
+    },
+    {
+      "stage": "phase26-alias",
+      "top_1": 0.4666666666666667,
+      "top_3": 0.5333333333333333,
+      "top_5": 0.5333333333333333,
+      "start_here_hit_rate": 0.36666666666666664,
+      "start_here_emitted": 12,
+      "start_here_precision": 0.9166666666666666,
+      "validation": {
+        "tp": 4,
+        "fp": 3,
+        "fn": 18,
+        "precision": 0.5714285714285714,
+        "recall": 0.18181818181818182,
+        "f1": 0.27586206896551724
+      },
+      "complete_slice": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 20,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "actionable_slice": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 20,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "static_visible_complete_recall": 0.09523809523809523,
+      "static_visible_actionable_recall": 0.09523809523809523,
+      "function_start_recall": 0.7818181818181819,
+      "packed_visibility_accuracy": 0.8666666666666667,
+      "quick_ms": {
+        "median": 190.685,
+        "p90": 1266.56,
+        "max": 2106.83
+      }
+    },
+    {
+      "stage": "phase26-indirect",
+      "top_1": 0.4666666666666667,
+      "top_3": 0.5333333333333333,
+      "top_5": 0.5333333333333333,
+      "start_here_hit_rate": 0.36666666666666664,
+      "start_here_emitted": 12,
+      "start_here_precision": 0.9166666666666666,
+      "validation": {
+        "tp": 4,
+        "fp": 3,
+        "fn": 18,
+        "precision": 0.5714285714285714,
+        "recall": 0.18181818181818182,
+        "f1": 0.27586206896551724
+      },
+      "complete_slice": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 20,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "actionable_slice": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 20,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "static_visible_complete_recall": 0.09523809523809523,
+      "static_visible_actionable_recall": 0.09523809523809523,
+      "function_start_recall": 0.7818181818181819,
+      "packed_visibility_accuracy": 0.8666666666666667,
+      "quick_ms": {
+        "median": 226.81,
+        "p90": 1186.92,
+        "max": 2237.66
+      }
+    },
+    {
+      "stage": "phase26-function-chunk",
+      "top_1": 0.4666666666666667,
+      "top_3": 0.5666666666666667,
+      "top_5": 0.5666666666666667,
+      "start_here_hit_rate": 0.36666666666666664,
+      "start_here_emitted": 12,
+      "start_here_precision": 0.9166666666666666,
+      "validation": {
+        "tp": 4,
+        "fp": 3,
+        "fn": 18,
+        "precision": 0.5714285714285714,
+        "recall": 0.18181818181818182,
+        "f1": 0.27586206896551724
+      },
+      "complete_slice": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 20,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "actionable_slice": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 20,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "static_visible_complete_recall": 0.09523809523809523,
+      "static_visible_actionable_recall": 0.09523809523809523,
+      "function_start_recall": 0.8363636363636363,
+      "packed_visibility_accuracy": 0.8666666666666667,
+      "quick_ms": {
+        "median": 194.45,
+        "p90": 1159.99,
+        "max": 1902.92
+      }
+    },
+    {
+      "stage": "phase26-partial-flow",
+      "top_1": 0.4666666666666667,
+      "top_3": 0.5666666666666667,
+      "top_5": 0.5666666666666667,
+      "start_here_hit_rate": 0.36666666666666664,
+      "start_here_emitted": 13,
+      "start_here_precision": 0.8461538461538461,
+      "validation": {
+        "tp": 4,
+        "fp": 3,
+        "fn": 18,
+        "precision": 0.5714285714285714,
+        "recall": 0.18181818181818182,
+        "f1": 0.27586206896551724
+      },
+      "complete_slice": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 20,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "actionable_slice": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 19,
+        "precision": 1.0,
+        "recall": 0.13636363636363635
+      },
+      "static_visible_complete_recall": 0.09523809523809523,
+      "static_visible_actionable_recall": 0.14285714285714285,
+      "function_start_recall": 0.8363636363636363,
+      "packed_visibility_accuracy": 0.8666666666666667,
+      "quick_ms": {
+        "median": 167.88,
+        "p90": 1322.31,
+        "max": 1893.29
+      }
+    },
+    {
+      "stage": "phase26-final",
+      "top_1": 0.4666666666666667,
+      "top_3": 0.5666666666666667,
+      "top_5": 0.5666666666666667,
+      "start_here_hit_rate": 0.36666666666666664,
+      "start_here_emitted": 13,
+      "start_here_precision": 0.8461538461538461,
+      "validation": {
+        "tp": 4,
+        "fp": 3,
+        "fn": 18,
+        "precision": 0.5714285714285714,
+        "recall": 0.18181818181818182,
+        "f1": 0.27586206896551724
+      },
+      "complete_slice": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 20,
+        "precision": 1.0,
+        "recall": 0.09090909090909091
+      },
+      "actionable_slice": {
+        "tp": 3,
+        "fp": 0,
+        "fn": 19,
+        "precision": 1.0,
+        "recall": 0.13636363636363635
+      },
+      "static_visible_complete_recall": 0.09523809523809523,
+      "static_visible_actionable_recall": 0.14285714285714285,
+      "function_start_recall": 0.8363636363636363,
+      "packed_visibility_accuracy": 0.8666666666666667,
+      "quick_ms": {
+        "median": 212.695,
+        "p90": 1145.96,
+        "max": 2080.94
+      }
+    }
+  ]
+}

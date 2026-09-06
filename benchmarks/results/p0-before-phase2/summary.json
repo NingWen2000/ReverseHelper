@@ -1,0 +1,185 @@
+{
+  "schema_version": "reversehelper-public-ctf-results-1",
+  "dataset": "public-ctf-v0.1",
+  "ground_truth_frozen_at": "2026-09-04",
+  "run_at_utc": "2026-09-04T00:48:02.810821+00:00",
+  "tool": {
+    "version": "0.1.0",
+    "source_hash": "938c8bf8e4270e4fad93d0f4320c2ad8715e9a5f94d7f852183c656c7f4ae577"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 198 Stepping 2, GenuineIntel"
+  },
+  "configuration": {
+    "mode": "quick",
+    "network": "not used by runner",
+    "sample_execution": false
+  },
+  "metrics": {
+    "challenge_count": 20,
+    "completed_count": 20,
+    "failed_count": 0,
+    "top_1_accuracy": 0.3,
+    "top_3_accuracy": 0.4,
+    "top_5_accuracy": 0.4,
+    "start_here_accuracy": 0.3,
+    "validation": {
+      "tp": 2,
+      "fp": 40,
+      "fn": 17,
+      "precision": 0.047619047619047616,
+      "recall": 0.10526315789473684
+    },
+    "strings": {
+      "relevant_total": 12,
+      "relevant_hits": 6,
+      "relevant_recall": 0.5,
+      "known_noise_promotions": 0,
+      "unadjudicated_promotions": 377
+    },
+    "data_flow": {
+      "input_sources": 0,
+      "static_slices": 0,
+      "flow_linked_validations": 0
+    },
+    "median_quick_elapsed_ms": 401.0
+  },
+  "failure_categories": {
+    "NO_STRING_SIGNAL": 1,
+    "FUNCTION_BOUNDARY_FAILURE": 1,
+    "INDIRECT_CALL": 0,
+    "INPUT_FLOW_MISSING": 2,
+    "OPTIMIZED_COMPARE": 1,
+    "STATIC_LINK_NOISE": 0,
+    "CRT_NOISE": 0,
+    "PACKED": 5,
+    "OBFUSCATED": 1,
+    "RANKING_WEIGHT_ERROR": 1,
+    "PARSER_FAILURE": 0,
+    "OTHER": 0
+  },
+  "records": [
+    {
+      "challenge_id": "flareon2015-02",
+      "status": "ok",
+      "failure_category": "OTHER",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2015-04",
+      "status": "ok",
+      "failure_category": "PACKED_OR_OBFUSCATED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2015-05",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2015-08",
+      "status": "ok",
+      "failure_category": "NO_CANDIDATE",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2015-09",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2015-10",
+      "status": "ok",
+      "failure_category": "PACKED_OR_OBFUSCATED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2015-11",
+      "status": "ok",
+      "failure_category": "OTHER",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2016-01",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2016-03",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2016-04",
+      "status": "ok",
+      "failure_category": "OTHER",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2016-05",
+      "status": "ok",
+      "failure_category": "OTHER",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2016-06",
+      "status": "ok",
+      "failure_category": "PACKED_OR_OBFUSCATED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2016-08",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2017-02",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2017-03",
+      "status": "ok",
+      "failure_category": "OTHER",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2017-04",
+      "status": "ok",
+      "failure_category": "PACKED_OR_OBFUSCATED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2017-06",
+      "status": "ok",
+      "failure_category": "OTHER",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2018-07",
+      "status": "ok",
+      "failure_category": "PACKED_OR_OBFUSCATED",
+      "top_5_hit": false
+    },
+    {
+      "challenge_id": "flareon2018-09",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    },
+    {
+      "challenge_id": "flareon2018-10",
+      "status": "ok",
+      "failure_category": null,
+      "top_5_hit": true
+    }
+  ]
+}

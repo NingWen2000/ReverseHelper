@@ -1,0 +1,291 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 4880,
+      "va": 4199184,
+      "function": "FUN_401310",
+      "type": "COMPARE",
+      "score": 20,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x10B0; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x13B3; References CTF-related text in executable code; Independent evidence families: comparison, strings"
+    },
+    {
+      "rva": 5232,
+      "va": 4199536,
+      "function": "FUN_401470",
+      "type": "COMPARE",
+      "score": 20,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1555; Sensitive API is called here; purpose is unproven.; Independent evidence families: api, comparison"
+    },
+    {
+      "rva": 7136,
+      "va": 4201440,
+      "function": "FUN_401BE0",
+      "type": "COMPARE",
+      "score": 20,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1C03; Byte comparison loop has a back edge and iterator progress; Sensitive API is called here; purpose is unproven.; Independent evidence families: api, comparison"
+    },
+    {
+      "rva": 4432,
+      "va": 4198736,
+      "function": "FUN_401150",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x10B0; argument linkage unknown; References CTF-related text in executable code"
+    },
+    {
+      "rva": 10154,
+      "va": 4204458,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 14,
+      "confidence": "low",
+      "target_kind": "code_location",
+      "reason": "References CTF-related text in executable code"
+    },
+    {
+      "rva": 4272,
+      "va": 4198576,
+      "function": "FUN_4010B0",
+      "type": "COMPARE",
+      "score": 12,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1112"
+    },
+    {
+      "rva": 11048,
+      "va": 4205352,
+      "function": "FUN_402B28",
+      "type": "PACKING",
+      "score": 10,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Structural packing indicators justify reviewing the entry point; packing is not proven."
+    },
+    {
+      "rva": 7312,
+      "va": 4201616,
+      "function": "FUN_401C90",
+      "type": "ANTI_DEBUG",
+      "score": 8,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x1BE0; argument linkage unknown; Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 406336,
+      "va": 4600640,
+      "function": null,
+      "type": "KEY_TABLE",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "data",
+      "reason": "Known constant bytes or a direct reference; algorithm use and buffer role are unproven."
+    },
+    {
+      "rva": 1265036,
+      "va": 5459340,
+      "function": null,
+      "type": "KEY_TABLE",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "data",
+      "reason": "Known constant bytes or a direct reference; algorithm use and buffer role are unproven."
+    },
+    {
+      "rva": 1269132,
+      "va": 5463436,
+      "function": null,
+      "type": "KEY_TABLE",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "data",
+      "reason": "Known constant bytes or a direct reference; algorithm use and buffer role are unproven."
+    },
+    {
+      "rva": 2116484,
+      "va": 6310788,
+      "function": null,
+      "type": "KEY_TABLE",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "data",
+      "reason": "Known constant bytes or a direct reference; algorithm use and buffer role are unproven."
+    },
+    {
+      "rva": 6160,
+      "va": 4200464,
+      "function": "FUN_401810",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x1310; argument linkage unknown"
+    },
+    {
+      "rva": 7632,
+      "va": 4201936,
+      "function": "FUN_401DD0",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 8000,
+      "va": 4202304,
+      "function": "FUN_401F40",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 8881,
+      "va": 4203185,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "code_location",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 8912,
+      "va": 4203216,
+      "function": "FUN_4022D0",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 9380,
+      "va": 4203684,
+      "function": "FUN_4024A4",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 11946,
+      "va": 4206250,
+      "function": "FUN_402EAA",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 12154,
+      "va": 4206458,
+      "function": "FUN_402F7A",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    }
+  ],
+  "first_critical_function_rank": 6,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "ranking_eligible": true,
+  "start_here_rva": null,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 1,
+    "relevant_hits": 1,
+    "matched_relevant_values": [
+      "PYTHONSCRIPT"
+    ],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 44,
+    "unadjudicated_promotions": 43
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 58,
+      "HEURISTIC": 10
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 4,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 0,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "strings",
+      "error_type": "BudgetLimit",
+      "reason": "String count or byte scan budget reached; unscanned strings remain unknown."
+    }
+  ],
+  "quick_elapsed_ms": 359.43,
+  "instruction_count": 3356,
+  "input_source_count": 0,
+  "static_slice_count": 0,
+  "static_flow_break_count": 0,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 399.4,
+  "challenge_id": "flareon2016-06",
+  "name": "khaki",
+  "split": "development",
+  "tier": "C",
+  "packed_expected": true,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "PACKED_OR_TRANSFORMED",
+  "binary_size_bytes": 3816918,
+  "failure_category": "PACKED"
+}

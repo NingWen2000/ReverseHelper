@@ -1,0 +1,155 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 308032,
+      "va": 4295275328,
+      "function": null,
+      "type": "KEY_TABLE",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "data",
+      "reason": "Known constant bytes or a direct reference; algorithm use and buffer role are unproven."
+    },
+    {
+      "rva": 5888,
+      "va": 4294973184,
+      "function": "FUN_100001700",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 6880,
+      "va": 4294974176,
+      "function": "FUN_100001AE0",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 7184,
+      "va": 4294974480,
+      "function": "FUN_100001C10",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 7744,
+      "va": 4294975040,
+      "function": "FUN_100001E40",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 7968,
+      "va": 4294975264,
+      "function": "FUN_100001F20",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 8192,
+      "va": 4294975488,
+      "function": "FUN_100002000",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 8416,
+      "va": 4294975712,
+      "function": "FUN_1000020E0",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    }
+  ],
+  "first_critical_function_rank": 3,
+  "top_1_hit": false,
+  "top_3_hit": true,
+  "top_5_hit": true,
+  "ranking_eligible": true,
+  "start_here_rva": null,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 4,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 17,
+    "unadjudicated_promotions": 17
+  },
+  "function_boundary": {
+    "adjudicated_starts": 5,
+    "recovered_starts": 5,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 12,
+      "LIKELY": 1,
+      "HEURISTIC": 0
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 4,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 0
+  },
+  "packed_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    },
+    {
+      "module": "functions",
+      "error_type": "BudgetLimit",
+      "reason": "A function membership walk reached 4096 instructions; remaining membership is unknown."
+    }
+  ],
+  "quick_elapsed_ms": 1054.37,
+  "instruction_count": 32752,
+  "input_source_count": 1,
+  "static_slice_count": 0,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 1279.33,
+  "challenge_id": "flareon2018-10",
+  "name": "golf",
+  "split": "evaluation",
+  "tier": "B",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "binary_size_bytes": 304128,
+  "failure_category": null
+}

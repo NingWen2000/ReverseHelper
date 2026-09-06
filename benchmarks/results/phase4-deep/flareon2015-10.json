@@ -1,0 +1,1793 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 232337,
+      "va": 4426641,
+      "function": "FUN_438B91",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x3284C; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x38C6A; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 146188,
+      "va": 4340492,
+      "function": "FUN_423B0C",
+      "type": "COMPARE",
+      "score": 20,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x23CCB; Contains an input-related API call; user input linkage remains unproven; Byte comparison loop has a back edge and iterator progress; Independent evidence families: comparison, input"
+    },
+    {
+      "rva": 204430,
+      "va": 4398734,
+      "function": "FUN_431E8E",
+      "type": "COMPARE",
+      "score": 20,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x238D0; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x32109; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 18528,
+      "va": 4212832,
+      "function": "FUN_404860",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x4692; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 49248,
+      "va": 4243552,
+      "function": "FUN_40C060",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 49888,
+      "va": 4244192,
+      "function": "FUN_40C2E0",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 109867,
+      "va": 4304171,
+      "function": "FUN_41AD2B",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1AD8A; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 145616,
+      "va": 4339920,
+      "function": "FUN_4238D0",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x31F3F; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 155293,
+      "va": 4349597,
+      "function": null,
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "code_location",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 176195,
+      "va": 4370499,
+      "function": "FUN_42B043",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x2B4BE; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 192014,
+      "va": 4386318,
+      "function": "FUN_42EE0E",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 216696,
+      "va": 4411000,
+      "function": "FUN_434E78",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x350AC; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 218818,
+      "va": 4413122,
+      "function": "FUN_4356C2",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x35714; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 223319,
+      "va": 4417623,
+      "function": "FUN_436857",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x368E0; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 225869,
+      "va": 4420173,
+      "function": "FUN_43724D",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x372B6; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 249692,
+      "va": 4443996,
+      "function": "FUN_43CF5C",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 252083,
+      "va": 4446387,
+      "function": "FUN_43D8B3",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 257152,
+      "va": 4451456,
+      "function": "FUN_43EC80",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 301242,
+      "va": 4495546,
+      "function": "FUN_4498BA",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 354800,
+      "va": 4549104,
+      "function": "FUN_4569F0",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    }
+  ],
+  "first_critical_function_rank": 22,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "ranking_eligible": true,
+  "start_here_rva": null,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "predicted_function_rvas": [
+      232337
+    ],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 2,
+    "unadjudicated_promotions": 2
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 1421,
+      "HEURISTIC": 569
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 18,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 0,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "strings",
+      "error_type": "BudgetLimit",
+      "reason": "String count or byte scan budget reached; unscanned strings remain unknown."
+    },
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    },
+    {
+      "module": "data-flow",
+      "error_type": "TypeError",
+      "reason": "object of type 'NoneType' has no len()"
+    },
+    {
+      "module": "algorithm-recognition",
+      "error_type": "BudgetLimit",
+      "reason": "Algorithm analysis truncated; unexamined functions or instructions remain unknown."
+    },
+    {
+      "module": "control-flow-understanding",
+      "error_type": "BudgetLimit",
+      "reason": "Control-flow analysis truncated; unexamined functions, blocks or targets remain unknown."
+    },
+    {
+      "module": "decompiler-assistance",
+      "error_type": "BudgetLimit",
+      "reason": "Semantic suggestions truncated; lower-ranked suggestions remain outside the Deep output limits."
+    }
+  ],
+  "quick_elapsed_ms": 9659.5,
+  "analysis_elapsed_ms": 9659.5,
+  "instruction_count": 131060,
+  "input_source_count": 17,
+  "static_slice_count": 0,
+  "static_flow_break_count": 0,
+  "algorithms": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 160,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "per_algorithm": {},
+    "predictions": [
+      {
+        "id": "algorithm-00006F07-rc4",
+        "algorithm": "RC4",
+        "function_rva": 28423,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00009B60-rc4",
+        "algorithm": "RC4",
+        "function_rva": 39776,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000F110-rc4",
+        "algorithm": "RC4",
+        "function_rva": 61712,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00012D70-rc4",
+        "algorithm": "RC4",
+        "function_rva": 77168,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00013B70-rc4",
+        "algorithm": "RC4",
+        "function_rva": 80752,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001D459-rc4",
+        "algorithm": "RC4",
+        "function_rva": 119897,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000272C4-rc4",
+        "algorithm": "RC4",
+        "function_rva": 160452,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002D1B9-rc4",
+        "algorithm": "RC4",
+        "function_rva": 184761,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003F81A-rc4",
+        "algorithm": "RC4",
+        "function_rva": 260122,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00048488-rc4",
+        "algorithm": "RC4",
+        "function_rva": 296072,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004A729-rc4",
+        "algorithm": "RC4",
+        "function_rva": 304937,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005CECA-rc4",
+        "algorithm": "RC4",
+        "function_rva": 380618,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001605-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 5637,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001CDE-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 7390,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003093-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 12435,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003093-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 12435,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00004380-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 17280,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00005928-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 22824,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00006009-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 24585,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000066D1-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 26321,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00006F07-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 28423,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00007474-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 29812,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000077B0-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 30640,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000077B0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 30640,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00008B8E-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 35726,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000908C-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 37004,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000096C0-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 38592,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000096C0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 38592,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00009B60-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 39776,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000AF50-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 44880,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000AF50-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 44880,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000B470-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 46192,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000B470-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 46192,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000C060-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 49248,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000C060-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 49248,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000C413-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 50195,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000C833-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 51251,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000E3B0-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 58288,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000E3B0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 58288,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000E8D0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 59600,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000F110-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 61712,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000FE30-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 65072,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000FE30-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 65072,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00011820-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 71712,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00011B90-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 72592,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000129D0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 76240,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00012D70-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 77168,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00013200-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 78336,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00013200-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 78336,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00013B70-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 80752,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00014300-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 82688,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000145E0-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 83424,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000145E0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 83424,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001AD2B-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 109867,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001BECB-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 114379,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001D459-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 119897,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001D71E-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 120606,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001EE80-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 126592,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001EE80-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 126592,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001F563-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 128355,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00021A06-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 137734,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00021A06-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 137734,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00022EED-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 143085,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00023B0C-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 146188,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00023B0C-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 146188,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00025286-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 152198,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00025886-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 153734,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00025F80-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 155520,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00025F80-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 155520,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00026B20-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 158496,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00026B20-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 158496,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000272C4-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 160452,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000276A5-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 161445,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002821F-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 164383,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002821F-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 164383,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00029ED0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 171728,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002A979-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 174457,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002A979-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 174457,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002B043-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 176195,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002B043-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 176195,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002B86D-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 178285,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002B86D-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 178285,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002C5F4-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 181748,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002D1B9-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 184761,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002EE0E-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 192014,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002EE0E-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 192014,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000319E9-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 203241,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000325C3-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 206275,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00033E7F-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 212607,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00033E7F-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 212607,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003410F-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 213263,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003410F-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 213263,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003467F-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 214655,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003467F-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 214655,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00034BEF-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 216047,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00035EA6-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 220838,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00035EA6-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 220838,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00036720-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 223008,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00036CBC-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 224444,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003724D-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 225869,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000387CD-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 231373,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000387CD-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 231373,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00038B91-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 232337,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00039B30-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 236336,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00039B30-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 236336,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003A66C-single_xor",
+        "algorithm": "SINGLE_XOR",
+        "function_rva": 239212,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003A867-single_xor",
+        "algorithm": "SINGLE_XOR",
+        "function_rva": 239719,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003CF5C-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 249692,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003F81A-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 260122,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00040C14-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 265236,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00040C14-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 265236,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000413CA-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 267210,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000413CA-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 267210,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00041C9A-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 269466,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00041C9A-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 269466,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00041F11-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 270097,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004290D-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 272653,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000432F9-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 275193,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00044AC2-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 281282,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00044DDD-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 282077,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00045007-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 282631,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00047555-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 292181,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00048488-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 296072,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004A729-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 304937,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004AAF8-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 305912,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004BFA4-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 311204,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004C56D-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 312685,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004EB60-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 322400,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004EB60-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 322400,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004FE7E-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 327294,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00050078-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 327800,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00050D24-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 331044,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00050D24-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 331044,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00051023-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 331811,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000516DA-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 333530,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00051DD0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 335312,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000584EA-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 361706,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000595BF-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 366015,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005C43F-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 377919,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005C43F-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 377919,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005C93D-rc4_ksa_candidate",
+        "algorithm": "RC4_KSA_CANDIDATE",
+        "function_rva": 379197,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005C93D-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 379197,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005CECA-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 380618,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005D552-rc4_ksa_candidate",
+        "algorithm": "RC4_KSA_CANDIDATE",
+        "function_rva": 382290,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005D552-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 382290,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005D87E-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 383102,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005DA0E-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 383502,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005DA0E-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 383502,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005E0DD-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 385245,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005E40A-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 386058,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005E822-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 387106,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005E822-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 387106,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005ED8D-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 388493,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005F0AC-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 389292,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005F0AC-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 389292,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005F320-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 389920,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005F8AE-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 391342,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005F8AE-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 391342,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005FDA5-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 392613,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00060E10-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 396816,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      }
+    ]
+  },
+  "control_flow": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "unadjudicated_predictions": 26,
+    "dispatcher_correct": 0,
+    "dispatcher_total": 0,
+    "state_exact": 0,
+    "state_same_base": 0,
+    "state_wrong": 0,
+    "state_unknown": 0,
+    "per_kind": {},
+    "predictions": [
+      {
+        "id": "control-flow-00008B8E-jump-table-00008DCD",
+        "kind": "SWITCH",
+        "function_rva": 35726,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-0000FE30-jump-table-000102B9",
+        "kind": "SWITCH",
+        "function_rva": 65072,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-00011820-jump-table-00011A69",
+        "kind": "SWITCH",
+        "function_rva": 71712,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "c"
+        }
+      },
+      {
+        "id": "control-flow-00011820-jump-table-00011A9D",
+        "kind": "SWITCH",
+        "function_rva": 71712,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "c"
+        }
+      },
+      {
+        "id": "control-flow-0001F563-jump-table-0001FA50",
+        "kind": "SWITCH",
+        "function_rva": 128355,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "b"
+        }
+      },
+      {
+        "id": "control-flow-00025F80-jump-table-000261A0",
+        "kind": "SWITCH",
+        "function_rva": 155520,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "c"
+        }
+      },
+      {
+        "id": "control-flow-00028FB0-jump-table-00029115",
+        "kind": "SWITCH",
+        "function_rva": 167856,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-00029ED0-jump-table-00029F8E",
+        "kind": "SWITCH",
+        "function_rva": 171728,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-0002B86D-jump-table-0002B9F7",
+        "kind": "SWITCH",
+        "function_rva": 178285,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-00031428-jump-table-0003160E",
+        "kind": "SWITCH",
+        "function_rva": 201768,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-0003724D-jump-table-000372D6",
+        "kind": "SWITCH",
+        "function_rva": 225869,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-000432F9-jump-table-00043565",
+        "kind": "SWITCH",
+        "function_rva": 275193,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-0004A729-jump-table-0004A825",
+        "kind": "SWITCH",
+        "function_rva": 304937,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-0004AAF8-jump-table-0004AB24",
+        "kind": "SWITCH",
+        "function_rva": 305912,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-0004AAF8-jump-table-0004AE5D",
+        "kind": "SWITCH",
+        "function_rva": 305912,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-0001EE80-jump-table-0001F0C8",
+        "kind": "JUMP_TABLE",
+        "function_rva": 126592,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-0001EE80-state-machine-0001F093",
+        "kind": "STATE_MACHINE",
+        "function_rva": 126592,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": 127123,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-0001F563-state-machine-0001FA43",
+        "kind": "STATE_MACHINE",
+        "function_rva": 128355,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": 129603,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "b"
+        }
+      },
+      {
+        "id": "control-flow-00025F80-jump-table-000261C8",
+        "kind": "JUMP_TABLE",
+        "function_rva": 155520,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-00025F80-state-machine-00026193",
+        "kind": "STATE_MACHINE",
+        "function_rva": 155520,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": 156051,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "c"
+        }
+      },
+      {
+        "id": "control-flow-00025F80-state-machine-00026193",
+        "kind": "STATE_MACHINE",
+        "function_rva": 155520,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": 156051,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-00028FB0-state-machine-000290E7",
+        "kind": "STATE_MACHINE",
+        "function_rva": 167856,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": 168167,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-00029ED0-state-machine-00029F7C",
+        "kind": "STATE_MACHINE",
+        "function_rva": 171728,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": 171900,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-0002B86D-state-machine-0002B9C9",
+        "kind": "STATE_MACHINE",
+        "function_rva": 178285,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": 178633,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-0003724D-state-machine-000372CA",
+        "kind": "STATE_MACHINE",
+        "function_rva": 225869,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": 225994,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-0004DBC4-jump-table-0004DD85",
+        "kind": "SWITCH",
+        "function_rva": 318404,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      }
+    ]
+  },
+  "decompiler_assistance": {
+    "adjudicated": false,
+    "role_tp": 0,
+    "role_fp": 0,
+    "role_fn": 0,
+    "rename_tp": 0,
+    "rename_fp": 0,
+    "type": {
+      "EXACT": 0,
+      "COMPATIBLE": 0,
+      "WRONG": 0,
+      "UNKNOWN": 0
+    },
+    "unadjudicated_predictions": 60
+  },
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 10659.35,
+  "challenge_id": "flareon2015-10",
+  "name": "loader",
+  "split": "development",
+  "tier": "C",
+  "packed_expected": true,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "PACKED_OR_TRANSFORMED",
+  "binary_size_bytes": 3523584,
+  "failure_category": "PACKED"
+}

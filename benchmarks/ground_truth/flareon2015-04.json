@@ -1,0 +1,80 @@
+{
+  "schema_version": "reversehelper-ground-truth-1",
+  "challenge_id": "flareon2015-04",
+  "ground_truth": {
+    "status": "frozen-single-review",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Public solution evidence plus independent static address verification; ReverseHelper output was not consulted.",
+    "review_limitations": [
+      "Single-review baseline; addresses with no documented end use exact start matching.",
+      "No flag or solution secret is stored."
+    ],
+    "sources": [
+      {
+        "url": "https://www.aldeid.com/wiki/The-FLARE-On-Challenge-2015/Challenge-4",
+        "kind": "trusted-public-writeup"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 46144,
+        "end_rva_exclusive": null,
+        "role": "PACKING",
+        "evidence": "packed entry stub",
+        "source_url": "https://www.aldeid.com/wiki/The-FLARE-On-Challenge-2015/Challenge-4"
+      },
+      {
+        "start_rva": 5186,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "unpacked password-check code documented by write-up",
+        "source_url": "https://www.aldeid.com/wiki/The-FLARE-On-Challenge-2015/Challenge-4"
+      }
+    ],
+    "validation_functions": [
+      {
+        "start_rva": 5186,
+        "end_rva_exclusive": null
+      }
+    ],
+    "validation_sites": [
+      {
+        "function_rva": 5186,
+        "status": "confirmed"
+      }
+    ],
+    "relevant_strings": [],
+    "irrelevant_strings": [
+      {
+        "value": "VirtualProtect",
+        "match": "contains",
+        "reason": "runtime/platform diagnostic or API text is not challenge validation evidence by itself"
+      }
+    ],
+    "techniques": [
+      "packing",
+      "runtime unpacking"
+    ],
+    "notes": [
+      "Difficulty is intentionally not normalized from challenge order."
+    ],
+    "review_status": "SINGLE_REVIEW",
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "PACKED_OR_TRANSFORMED",
+    "input_sources_ground_truth": [
+      "not statically recoverable before unpacking"
+    ],
+    "static_slice_ground_truth": [
+      {
+        "validation_sink_rva": 5186,
+        "static_visibility": "PACKED_OR_TRANSFORMED",
+        "input_source": "not statically recoverable before unpacking",
+        "first_failed_edge": "validation code is not reliably present in the original packed static surface",
+        "ground_truth_evidence": "write-up documents validation after runtime unpacking"
+      }
+    ]
+  }
+}

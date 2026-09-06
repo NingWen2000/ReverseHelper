@@ -1,0 +1,563 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 5152,
+      "va": 4199456,
+      "function": "FUN_401420",
+      "type": "INPUT",
+      "score": 52,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x2C30; argument linkage unknown; Contains an input-related API call; user input linkage remains unproven; References both success- and failure-related strings; Independent evidence families: input, strings"
+    },
+    {
+      "rva": 11312,
+      "va": 4205616,
+      "function": "FUN_402C30",
+      "type": "COMPARE",
+      "score": 20,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x14A4; Byte comparison loop has a back edge and iterator progress; Separate comparison successors reference success/failure text"
+    },
+    {
+      "rva": 12368,
+      "va": 4206672,
+      "function": "FUN_403050",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x30EF; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 14654,
+      "va": 4208958,
+      "function": null,
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "code_location",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 14665,
+      "va": 4208969,
+      "function": null,
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "code_location",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 37765,
+      "va": 4232069,
+      "function": "FUN_409385",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x93EB; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 6559,
+      "va": 4200863,
+      "function": "FUN_40199F",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 6849,
+      "va": 4201153,
+      "function": "FUN_401AC1",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 9495,
+      "va": 4203799,
+      "function": "FUN_402517",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 14344,
+      "va": 4208648,
+      "function": "FUN_403808",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 18348,
+      "va": 4212652,
+      "function": "FUN_4047AC",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 23599,
+      "va": 4217903,
+      "function": "FUN_405C2F",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 23878,
+      "va": 4218182,
+      "function": "FUN_405D46",
+      "type": "COMPARE",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop"
+    },
+    {
+      "rva": 53256,
+      "va": 4247560,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    },
+    {
+      "rva": 53392,
+      "va": 4247696,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    },
+    {
+      "rva": 53396,
+      "va": 4247700,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    }
+  ],
+  "first_critical_function_rank": 1,
+  "top_1_hit": true,
+  "top_3_hit": true,
+  "top_5_hit": true,
+  "ranking_eligible": true,
+  "start_here_rva": 5152,
+  "start_here_hit": true,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 3,
+    "relevant_hits": 3,
+    "matched_relevant_values": [
+      "Enter password",
+      "Correct",
+      "Wrong"
+    ],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 28,
+    "unadjudicated_promotions": 25
+  },
+  "function_boundary": {
+    "adjudicated_starts": 2,
+    "recovered_starts": 2,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 392,
+      "HEURISTIC": 226
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 5,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 0,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    },
+    {
+      "module": "algorithm-recognition",
+      "error_type": "BudgetLimit",
+      "reason": "Algorithm analysis truncated; unexamined functions or instructions remain unknown."
+    }
+  ],
+  "quick_elapsed_ms": 774.58,
+  "instruction_count": 17409,
+  "input_source_count": 1,
+  "static_slice_count": 0,
+  "static_flow_break_count": 0,
+  "algorithms": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 42,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "per_algorithm": {},
+    "predictions": [
+      {
+        "id": "algorithm-00005138-rc4",
+        "algorithm": "RC4",
+        "function_rva": 20792,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000021F0-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 8688,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00002517-custom_word_transform",
+        "algorithm": "CUSTOM_WORD_TRANSFORM",
+        "function_rva": 9495,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00002517-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 9495,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00002890-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 10384,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00002F2C-single_xor",
+        "algorithm": "SINGLE_XOR",
+        "function_rva": 12076,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003B73-custom_word_transform",
+        "algorithm": "CUSTOM_WORD_TRANSFORM",
+        "function_rva": 15219,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003B73-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 15219,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003C93-custom_word_transform",
+        "algorithm": "CUSTOM_WORD_TRANSFORM",
+        "function_rva": 15507,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003C93-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 15507,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00004A5D-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 19037,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00004BED-single_xor",
+        "algorithm": "SINGLE_XOR",
+        "function_rva": 19437,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00004C83-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 19587,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00004E5F-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 20063,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00005138-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 20792,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000548D-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 21645,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000582A-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 22570,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000582A-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 22570,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00005A65-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 23141,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00005C2F-custom_word_transform",
+        "algorithm": "CUSTOM_WORD_TRANSFORM",
+        "function_rva": 23599,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00005C2F-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 23599,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000063C6-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 25542,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000647A-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 25722,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00007733-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 30515,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00007C62-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 31842,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00007C62-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 31842,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00007D42-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 32066,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00007D42-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 32066,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000081F9-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 33273,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000085F0-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 34288,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00008C19-single_xor",
+        "algorithm": "SINGLE_XOR",
+        "function_rva": 35865,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00008CD0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 36048,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000090EF-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 37103,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000090EF-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 37103,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00009385-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 37765,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00009464-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 37988,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00009552-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 38226,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000AAAF-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 43695,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000B497-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 46231,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000BC20-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 48160,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000BC20-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 48160,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000C850-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 51280,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      }
+    ]
+  },
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 902.89,
+  "challenge_id": "flareon2016-01",
+  "name": "challenge1",
+  "split": "development",
+  "tier": "A",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "FULLY_VISIBLE",
+  "binary_size_bytes": 79360,
+  "failure_category": null
+}

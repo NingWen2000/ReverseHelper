@@ -1,0 +1,144 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 21760,
+      "va": 4216064,
+      "function": "FUN_405500",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x55A3; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 32917,
+      "va": 4227221,
+      "function": "FUN_408095",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x8464; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 13945,
+      "va": 4208249,
+      "function": null,
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "code_location",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 14145,
+      "va": 4208449,
+      "function": "FUN_403741",
+      "type": "ANTI_DEBUG",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 18818,
+      "va": 4213122,
+      "function": "FUN_404982",
+      "type": "ANTI_DEBUG",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 19937,
+      "va": 4214241,
+      "function": "FUN_404DE1",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 23924,
+      "va": 4218228,
+      "function": "FUN_405D74",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 24335,
+      "va": 4218639,
+      "function": "FUN_405F0F",
+      "type": "ANTI_DEBUG",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 31164,
+      "va": 4225468,
+      "function": "FUN_4079BC",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 40960,
+      "va": 4235264,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    }
+  ],
+  "first_critical_function_rank": null,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "start_here_rva": 21760,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 2,
+    "fn": 1,
+    "predicted_function_rvas": [
+      21760,
+      32917
+    ],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 19,
+    "unadjudicated_promotions": 19
+  },
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 474.79,
+  "instruction_count": 12397,
+  "wall_elapsed_ms": 556.02,
+  "challenge_id": "flareon2016-05",
+  "name": "smokestack",
+  "split": "development",
+  "failure_category": "INPUT_FLOW_MISSING"
+}

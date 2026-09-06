@@ -1,0 +1,111 @@
+{
+  "schema_version": "reversehelper-ground-truth-1",
+  "challenge_id": "flareon2016-05",
+  "ground_truth": {
+    "status": "frozen-single-review",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Public solution evidence plus independent static address verification; ReverseHelper output was not consulted.",
+    "review_limitations": [
+      "Single-review baseline; addresses with no documented end use exact start matching.",
+      "No flag or solution secret is stored."
+    ],
+    "sources": [
+      {
+        "url": "https://services.google.com/fh/files/misc/challenge5-solution.pdf",
+        "kind": "official-solution"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 12080,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "main checks argv length and drives all validation stages",
+        "source_url": "https://services.google.com/fh/files/misc/challenge5-solution.pdf"
+      },
+      {
+        "start_rva": 5648,
+        "end_rva_exclusive": null,
+        "role": "TRANSFORM",
+        "evidence": "official solution identifies VM/validation stage",
+        "source_url": "https://services.google.com/fh/files/misc/challenge5-solution.pdf"
+      }
+    ],
+    "validation_functions": [
+      {
+        "start_rva": 12080,
+        "end_rva_exclusive": null
+      }
+    ],
+    "validation_sites": [
+      {
+        "function_rva": 12080,
+        "status": "confirmed"
+      }
+    ],
+    "relevant_strings": [],
+    "irrelevant_strings": [
+      {
+        "value": "invalid parameter",
+        "match": "contains",
+        "reason": "runtime/platform diagnostic or API text is not challenge validation evidence by itself"
+      }
+    ],
+    "techniques": [
+      "argv input",
+      "virtual machine",
+      "MD5",
+      "RC4"
+    ],
+    "notes": [
+      "Difficulty is intentionally not normalized from challenge order."
+    ],
+    "review_status": "SINGLE_REVIEW",
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "PARTIALLY_VISIBLE",
+    "input_sources_ground_truth": [
+      "argv[1] in RVA 0x2F30"
+    ],
+    "static_slice_ground_truth": [
+      {
+        "validation_sink_rva": 12080,
+        "static_visibility": "PARTIALLY_VISIBLE",
+        "input_source": "argv[1] in RVA 0x2F30",
+        "first_failed_edge": "input reaches helper arguments, but optimized/VM value propagation does not yield a compare sink at the controller",
+        "ground_truth_evidence": "official solution identifies main as the argv and validation-stage controller"
+      }
+    ],
+    "control_flow_ground_truth": [
+      {
+        "kind": "INDIRECT_DISPATCH",
+        "function_rva": 5440,
+        "end_rva_exclusive": null,
+        "dispatcher_rva": 5440,
+        "state_variable": {
+          "kind": "GLOBAL",
+          "rva": 57118,
+          "width": 16
+        },
+        "evidence": "The official solution identifies sub_401540 as the looped VM opcode dispatcher: global word_40DF1E indexes word_40A140, whose opcode then indexes a function table."
+      }
+    ],
+    "decompiler_ground_truth": [
+      {
+        "kind": "FUNCTION_ROLE",
+        "function_rva": 5440,
+        "role": "state_dispatcher",
+        "evidence": "The official solution describes sub_401540 as the opcode/function-table dispatch function."
+      },
+      {
+        "kind": "OBJECT_ROLE",
+        "target": {"kind": "GLOBAL", "rva": 57118},
+        "role": "DISPATCH_STATE",
+        "type": "uint16_t",
+        "evidence": "The official solution names word_40DF1E as g_program_counter and shows WORD loads/stores."
+      }
+    ]
+  }
+}

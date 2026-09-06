@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from heapq import merge
 from collections import Counter
 from typing import Any
 
@@ -43,13 +44,13 @@ def _iter_utf16le(data: bytes, minimum: int):
         yield match.start(), match.group().decode("utf-16le", errors="replace"), "UTF-16LE"
 
 
-def extract_strings(data: bytes, minimum: int = 4, maximum: int = 2000) -> dict[str, Any]:
+def extract_strings(data: bytes, minimum: int = 4, maximum: int = 2000, *, deduplicate: bool = True) -> dict[str, Any]:
     if minimum < 3:
         raise ValueError("minimum string length must be at least 3")
     if maximum < 1:
         raise ValueError("maximum string count must be positive")
 
-    combined = sorted((*_iter_ascii(data, minimum), *_iter_utf16le(data, minimum)), key=lambda item: item[0])
+    combined = merge(_iter_ascii(data, minimum), _iter_utf16le(data, minimum), key=lambda item: item[0])
     strings: list[dict[str, Any]] = []
     seen: set[tuple[str, str]] = set()
     category_counts: Counter[str] = Counter()
@@ -57,8 +58,11 @@ def extract_strings(data: bytes, minimum: int = 4, maximum: int = 2000) -> dict[
 
     for offset, value, encoding in combined:
         key = (encoding, value)
-        if key in seen:
+        if deduplicate and key in seen:
             continue
+        if len(strings) >= maximum:
+            truncated = True
+            break
         seen.add(key)
         categories = classify_string(value)
         category_counts.update(categories)
@@ -71,9 +75,6 @@ def extract_strings(data: bytes, minimum: int = 4, maximum: int = 2000) -> dict[
                 "suspicious": bool(categories),
             }
         )
-        if len(strings) >= maximum:
-            truncated = len(combined) > maximum
-            break
 
     interesting = [item for item in strings if item["suspicious"]]
     return {

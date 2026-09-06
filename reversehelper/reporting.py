@@ -16,7 +16,21 @@ def _md_escape(value: Any) -> str:
     return str(value).replace("|", "\\|").replace("\n", " ")
 
 
+def _target_confidence(result: dict[str, Any], target: dict[str, Any]) -> str:
+    order = {"low": 0, "medium": 1, "high": 2}
+    findings = {finding["id"]: finding for finding in result.get("findings", [])}
+    confidence = [
+        findings[finding_id]["confidence"]
+        for finding_id in target.get("finding_ids", [])
+        if finding_id in findings
+    ]
+    return max(confidence, key=order.get) if confidence else "unknown"
+
+
 def markdown_report(result: dict[str, Any]) -> str:
+    if result.get("analysis_mode") in {"quick", "deep"}:
+        from .challenge_summary import markdown_summary
+        return markdown_summary(result)
     basic = result["basic"]
     risk = result["risk"]
     lines = [
@@ -181,6 +195,91 @@ def markdown_report(result: dict[str, Any]) -> str:
     else:
         lines.append("No built-in constant signatures matched.")
 
+    lines += ["", "## Findings", ""]
+    findings = result.get("findings", [])
+    if findings:
+        for finding in findings:
+            lines += [
+                f"### {_md_escape(finding['title'])}",
+                "",
+                f"- **Category:** `{finding['category']}`",
+                f"- **Confidence / severity:** {finding['confidence'].upper()} / {finding['severity'].upper()}",
+                f"- **Location:** RVA {_hex(finding.get('rva'))} / preferred VA {_hex(finding.get('va'))} / "
+                f"file {_hex(finding.get('file_offset'))} / `{_md_escape(finding.get('section') or '-')}`",
+                f"- **Evidence:** {'; '.join(_md_escape(item) for item in finding['evidence'])}",
+                f"- **Reason:** {_md_escape(finding['reason'])}",
+                f"- **Recommended action:** {_md_escape(finding['recommended_action'])}",
+                "",
+            ]
+    else:
+        lines.append("No instruction-level findings were produced.")
+
+    lines += ["", "## Recommended Reverse Targets", ""]
+    targets = result.get("reverse_targets", [])
+    if targets:
+        lines += [
+            "| Priority | Category | Confidence | RVA | Preferred VA | Evidence sources |",
+            "|---|---|---|---:|---:|---|",
+        ]
+        for target in targets:
+            sources = ", ".join(target.get("finding_ids", [])) or "-"
+            lines.append(
+                f"| {target['priority'].upper()} | `{target['category']}` | "
+                f"{_target_confidence(result, target).upper()} | {_hex(target['rva'])} | "
+                f"{_hex(target.get('va'))} | {_md_escape(sources)} |"
+            )
+        for target in targets:
+            lines += [
+                "",
+                f"- **{target['priority'].upper()} {_hex(target['rva'])} — {target['category']}**",
+                f"  - Reason: {_md_escape(target['reason'])}",
+                f"  - Recommended action: {_md_escape(target['recommended_action'])}",
+            ]
+    else:
+        lines.append("No ranked reverse targets were produced.")
+    if result.get("debugger_export_notice"):
+        lines += ["", f"> {_md_escape(result['debugger_export_notice'])}"]
+
+    lines += ["", "## Suggested Analysis Path", ""]
+    analysis_path = result.get("analysis_path", [])
+    if analysis_path:
+        for item in analysis_path:
+            lines += [
+                f"### {item['priority'].upper()} — {_md_escape(item['where'])} — {item['category']}",
+                "",
+                f"- **Why:** {_md_escape(item['why'])}",
+                f"- **Static Question:** {_md_escape(item['static_question'])}",
+                f"- **Dynamic Question:** {_md_escape(item['dynamic_question'])}",
+                f"- **Recommended Action:** {_md_escape(item['recommended_action'])}",
+                "",
+            ]
+    else:
+        lines.append("No static-to-dynamic analysis path was generated.")
+
+    lines += ["", "## Unresolved Questions", ""]
+    questions = result.get("unresolved_questions", [])
+    if questions:
+        for item in questions:
+            lines += [
+                f"- **{_md_escape(item['question'])}**",
+                f"  - Why unresolved: {_md_escape(item['why_unresolved'])}",
+                f"  - Related RVA: {_hex(item.get('related_rva'))}",
+                f"  - Suggested dynamic observation: {_md_escape(item['suggested_dynamic_observation'])}",
+            ]
+    else:
+        lines.append("No unresolved runtime questions were generated.")
+
+    lines += ["", "## Analysis Warnings", ""]
+    warnings = result.get("analysis_warnings", [])
+    if warnings:
+        for warning in warnings:
+            lines.append(
+                f"- **{_md_escape(warning['module'])} / {_md_escape(warning['error_type'])}:** "
+                f"{_md_escape(warning['reason'])}"
+            )
+    else:
+        lines.append("No optional analysis module failures were recorded.")
+
     lines += [
         "",
         "## Risk explanation",
@@ -203,6 +302,9 @@ def markdown_report(result: dict[str, Any]) -> str:
 
 
 def html_report(result: dict[str, Any]) -> str:
+    if result.get("analysis_mode") in {"quick", "deep"}:
+        from .challenge_summary import html_summary
+        return html_summary(result)
     basic = result["basic"]
     risk = result["risk"]
     markdown = markdown_report(result)
@@ -229,6 +331,23 @@ def html_report(result: dict[str, Any]) -> str:
         f"<li><strong>{html.escape(item['severity'].upper())}</strong> — {html.escape(item['evidence'])}</li>"
         for item in result["packing"]["indicators"]
     ) or "<li>No obvious packing indicators.</li>"
+    target_rows = "".join(
+        "<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>".format(
+            html.escape(target["priority"].upper()),
+            html.escape(target["category"]),
+            _hex(target["rva"]),
+            html.escape(_target_confidence(result, target).upper()),
+        )
+        for target in result.get("reverse_targets", [])[:20]
+    ) or '<tr><td colspan="4">No ranked reverse targets.</td></tr>'
+    warning_items = "".join(
+        "<li><strong>{}</strong> / {}: {}</li>".format(
+            html.escape(warning["module"]),
+            html.escape(warning["error_type"]),
+            html.escape(warning["reason"]),
+        )
+        for warning in result.get("analysis_warnings", [])
+    ) or "<li>No optional analysis module failures.</li>"
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ReverseHelper report — {html.escape(basic['file_name'])}</title>
@@ -250,6 +369,9 @@ th{{color:var(--accent)}}code{{color:var(--warn)}}details{{margin-top:34px}}pre{
 <h2>Sections</h2><table><thead><tr><th>Name</th><th>RVA</th><th>Raw size</th><th>Perms</th><th>Entropy</th></tr></thead><tbody>{section_rows}</tbody></table>
 <h2>Suspicious APIs</h2><table><thead><tr><th>DLL</th><th>API</th><th>Category</th><th>Severity</th></tr></thead><tbody>{api_rows}</tbody></table>
 <h2>Packing/anomaly indicators</h2><div class="card"><ul>{indicators}</ul></div>
+<h2>Recommended Reverse Targets</h2><table><thead><tr><th>Priority</th><th>Category</th><th>RVA</th><th>Confidence</th></tr></thead><tbody>{target_rows}</tbody></table>
+<p class="muted">{html.escape(result.get('debugger_export_notice', ''))}</p>
+<h2>Analysis Warnings</h2><div class="card"><ul>{warning_items}</ul></div>
 <details><summary>Complete Markdown report</summary><pre>{html.escape(markdown)}</pre></details>
 </main></body></html>"""
 
@@ -278,8 +400,12 @@ def write_html(result: dict[str, Any], path: str | Path) -> Path:
 def write_report_bundle(result: dict[str, Any], directory: str | Path) -> list[Path]:
     output = Path(directory)
     stem = Path(result["basic"]["file_name"]).stem + "_report"
-    return [
-        write_markdown(result, output / f"{stem}.md"),
-        write_json(result, output / f"{stem}.json"),
-        write_html(result, output / f"{stem}.html"),
-    ]
+    written = []
+    # JSON last preserves warnings from failed text/HTML renderers.
+    for writer, suffix in ((write_markdown, ".md"), (write_html, ".html"), (write_json, ".json")):
+        try:
+            written.append(writer(result, output / (stem + suffix)))
+        except Exception as error:
+            result.setdefault("analysis_warnings", []).append({"module": "report" + suffix,
+                "error_type": type(error).__name__, "reason": " ".join(str(error).split())[:240]})
+    return written

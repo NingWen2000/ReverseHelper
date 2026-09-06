@@ -1,0 +1,108 @@
+{
+  "schema_version": "reversehelper-ground-truth-1",
+  "challenge_id": "flareon2017-03",
+  "ground_truth": {
+    "status": "frozen-single-review",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Public solution evidence plus independent static address verification; ReverseHelper output was not consulted.",
+    "review_limitations": [
+      "Single-review baseline; addresses with no documented end use exact start matching.",
+      "No flag or solution secret is stored."
+    ],
+    "sources": [
+      {
+        "url": "https://services.google.com/fh/files/misc/flare-on-2017-challenge3.pdf",
+        "kind": "official-solution"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 4096,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "official solution decode loop and branch controller",
+        "source_url": "https://services.google.com/fh/files/misc/flare-on-2017-challenge3.pdf"
+      },
+      {
+        "start_rva": 4385,
+        "end_rva_exclusive": null,
+        "role": "INPUT",
+        "evidence": "socket input routine",
+        "source_url": "https://services.google.com/fh/files/misc/flare-on-2017-challenge3.pdf"
+      },
+      {
+        "start_rva": 4582,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "checksum function",
+        "source_url": "https://services.google.com/fh/files/misc/flare-on-2017-challenge3.pdf"
+      }
+    ],
+    "validation_functions": [
+      {
+        "start_rva": 4096,
+        "end_rva_exclusive": null
+      },
+      {
+        "start_rva": 4582,
+        "end_rva_exclusive": null
+      }
+    ],
+    "validation_sites": [
+      {
+        "function_rva": 4096,
+        "status": "confirmed"
+      },
+      {
+        "function_rva": 4582,
+        "status": "confirmed"
+      }
+    ],
+    "relevant_strings": [],
+    "irrelevant_strings": [
+      {
+        "value": "WSAStartup failed",
+        "match": "contains",
+        "reason": "runtime/platform diagnostic or API text is not challenge validation evidence by itself"
+      },
+      {
+        "value": "bind failed",
+        "match": "contains",
+        "reason": "runtime/platform diagnostic or API text is not challenge validation evidence by itself"
+      }
+    ],
+    "techniques": [
+      "network input",
+      "XOR decode",
+      "checksum"
+    ],
+    "notes": [
+      "Difficulty is intentionally not normalized from challenge order."
+    ],
+    "review_status": "SINGLE_REVIEW",
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "FULLY_VISIBLE",
+    "input_sources_ground_truth": [
+      "socket input routine RVA 0x1121"
+    ],
+    "static_slice_ground_truth": [
+      {
+        "validation_sink_rva": 4096,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "socket input routine RVA 0x1121",
+        "first_failed_edge": "the network receive call is not recognized as an input source through its call form",
+        "ground_truth_evidence": "official solution identifies socket input and decode controller"
+      },
+      {
+        "validation_sink_rva": 4582,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "socket input routine RVA 0x1121",
+        "first_failed_edge": "the network receive call is not recognized, so no source can reach the checksum function",
+        "ground_truth_evidence": "official solution identifies the checksum function"
+      }
+    ]
+  }
+}

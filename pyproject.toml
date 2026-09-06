@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "reversehelper"
-version = "0.0.2"
-description = "A practical reverse engineering assistant for CTF analysis and learning."
+version = "0.2.0b1"
+description = "Offline-first static reverse engineering workbench for CTF competitors."
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
@@ -18,12 +18,14 @@ classifiers = [
   "Topic :: Security",
 ]
 dependencies = [
+  "capstone>=5.0.9,<6.0",
   "pefile>=2023.2.7",
   "rich>=13.7.0",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "pytest-cov>=5.0"]
+release = ["pyinstaller>=6.10,<7"]
 
 [project.scripts]
 reversehelper = "reversehelper.cli:main"

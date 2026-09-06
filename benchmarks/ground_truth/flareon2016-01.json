@@ -1,0 +1,106 @@
+{
+  "schema_version": "reversehelper-ground-truth-1",
+  "challenge_id": "flareon2016-01",
+  "ground_truth": {
+    "status": "frozen-single-review",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Public solution evidence plus independent static address verification; ReverseHelper output was not consulted.",
+    "review_limitations": [
+      "Single-review baseline; addresses with no documented end use exact start matching.",
+      "No flag or solution secret is stored."
+    ],
+    "sources": [
+      {
+        "url": "https://services.google.com/fh/files/misc/challenge1-solution.pdf",
+        "kind": "official-solution"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 5152,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "official solution main and strcmp outcome controller",
+        "source_url": "https://services.google.com/fh/files/misc/challenge1-solution.pdf"
+      },
+      {
+        "start_rva": 4704,
+        "end_rva_exclusive": null,
+        "role": "TRANSFORM",
+        "evidence": "official solution modify_password routine",
+        "source_url": "https://services.google.com/fh/files/misc/challenge1-solution.pdf"
+      }
+    ],
+    "validation_functions": [
+      {
+        "start_rva": 5152,
+        "end_rva_exclusive": null
+      }
+    ],
+    "validation_sites": [
+      {
+        "function_rva": 5152,
+        "status": "confirmed"
+      }
+    ],
+    "relevant_strings": [
+      {
+        "value": "Enter password",
+        "match": "contains",
+        "expected_priority": [
+          "HIGH",
+          "MEDIUM"
+        ]
+      },
+      {
+        "value": "Correct",
+        "match": "contains",
+        "expected_priority": [
+          "HIGH",
+          "MEDIUM"
+        ]
+      },
+      {
+        "value": "Wrong",
+        "match": "contains",
+        "expected_priority": [
+          "HIGH",
+          "MEDIUM"
+        ]
+      }
+    ],
+    "irrelevant_strings": [
+      {
+        "value": "invalid parameter",
+        "match": "contains",
+        "reason": "runtime/platform diagnostic or API text is not challenge validation evidence by itself"
+      }
+    ],
+    "techniques": [
+      "console input",
+      "string transform",
+      "strcmp"
+    ],
+    "notes": [
+      "Difficulty is intentionally not normalized from challenge order."
+    ],
+    "review_status": "SINGLE_REVIEW",
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "FULLY_VISIBLE",
+    "input_sources_ground_truth": [
+      "ReadFile writes stack input in RVA 0x1420"
+    ],
+    "static_slice_ground_truth": [
+      {
+        "validation_sink_rva": 5152,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "ReadFile writes stack input in RVA 0x1420",
+        "first_failed_edge": "the supported input trace reaches the transform callee, but the strcmp/thunk call in the controller is not emitted as a CompareSite",
+        "ground_truth_evidence": "official solution identifies main and strcmp outcome controller"
+      }
+    ]
+  }
+}

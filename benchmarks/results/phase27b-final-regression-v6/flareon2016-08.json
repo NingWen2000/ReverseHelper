@@ -1,0 +1,109 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 4096,
+      "va": 4198400,
+      "function": "FUN_401000",
+      "type": "INPUT",
+      "score": 36,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven; Structural packing indicators justify reviewing the entry point; packing is not proven.; Independent evidence families: input, packing"
+    },
+    {
+      "rva": 8312,
+      "va": 4202616,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    }
+  ],
+  "first_critical_function_rank": 1,
+  "top_1_hit": true,
+  "top_3_hit": true,
+  "top_5_hit": true,
+  "ranking_eligible": true,
+  "start_here_rva": 4096,
+  "start_here_hit": true,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 1,
+    "unadjudicated_promotions": 1
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 1,
+      "HEURISTIC": 0
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 1,
+    "unresolved": 0,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 1,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 9.03,
+  "instruction_count": 198,
+  "input_source_count": 1,
+  "static_slice_count": 0,
+  "static_flow_break_count": 1,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 24.47,
+  "challenge_id": "flareon2016-08",
+  "name": "CHIMERA",
+  "split": "development",
+  "tier": "C",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "FULLY_VISIBLE",
+  "binary_size_bytes": 2560,
+  "failure_category": null
+}
