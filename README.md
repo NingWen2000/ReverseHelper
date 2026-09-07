@@ -71,6 +71,18 @@ Open PowerShell in the extracted folder and confirm the version:
 
 The package also contains `QUICKSTART.md` and the Ghidra importer `ImportReverseHelperFindings.py`.
 
+### Previous releases
+
+Older versions remain available for reproducing earlier write-ups, testing compatibility, or comparing behavior:
+
+| Version | Download |
+|---|---|
+| `v0.1.0` | [Release page and source archives](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.1.0) |
+| `v0.0.2` | [Windows ZIP](https://github.com/NingWen2000/ReverseHelper/releases/download/v0.0.2/ReverseHelper-v0.0.2.zip) · [Release page](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.0.2) |
+| `v0.0.1` | [Windows ZIP](https://github.com/NingWen2000/ReverseHelper/releases/download/v0.0.1/ReverseHelper-v0.0.1.zip) · [Release page](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.0.1) |
+
+The complete archive is available on the [GitHub Releases page](https://github.com/NingWen2000/ReverseHelper/releases). Existing release tags and downloadable files are retained.
+
 ## Install from source
 
 Python 3.10+ is required:
