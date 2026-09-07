@@ -1,0 +1,146 @@
+{
+  "schema_version": "reversehelper-ground-truth-1",
+  "challenge_id": "flareon2018-10",
+  "ground_truth": {
+    "status": "frozen-single-review",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Public solution evidence plus independent static address verification; ReverseHelper output was not consulted.",
+    "review_limitations": [
+      "Single-review baseline; addresses with no documented end use exact start matching.",
+      "No flag or solution secret is stored."
+    ],
+    "sources": [
+      {
+        "url": "https://blog.attify.com/flare-on-5-writeup-part7/",
+        "kind": "trusted-public-writeup"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 7184,
+        "end_rva_exclusive": null,
+        "role": "INPUT",
+        "evidence": "main checks argv and length",
+        "source_url": "https://blog.attify.com/flare-on-5-writeup-part7/"
+      },
+      {
+        "start_rva": 7744,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "check_flag_part1",
+        "source_url": "https://blog.attify.com/flare-on-5-writeup-part7/"
+      },
+      {
+        "start_rva": 7968,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "check_flag_part2",
+        "source_url": "https://blog.attify.com/flare-on-5-writeup-part7/"
+      },
+      {
+        "start_rva": 8192,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "check_flag_part3",
+        "source_url": "https://blog.attify.com/flare-on-5-writeup-part7/"
+      },
+      {
+        "start_rva": 8416,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "check_flag_part4",
+        "source_url": "https://blog.attify.com/flare-on-5-writeup-part7/"
+      }
+    ],
+    "validation_functions": [
+      {
+        "start_rva": 7744,
+        "end_rva_exclusive": null
+      },
+      {
+        "start_rva": 7968,
+        "end_rva_exclusive": null
+      },
+      {
+        "start_rva": 8192,
+        "end_rva_exclusive": null
+      },
+      {
+        "start_rva": 8416,
+        "end_rva_exclusive": null
+      }
+    ],
+    "validation_sites": [
+      {
+        "function_rva": 7744,
+        "status": "confirmed"
+      },
+      {
+        "function_rva": 7968,
+        "status": "confirmed"
+      },
+      {
+        "function_rva": 8192,
+        "status": "confirmed"
+      },
+      {
+        "function_rva": 8416,
+        "status": "confirmed"
+      }
+    ],
+    "relevant_strings": [],
+    "irrelevant_strings": [
+      {
+        "value": "invalid parameter",
+        "match": "contains",
+        "reason": "runtime/platform diagnostic or API text is not challenge validation evidence by itself"
+      }
+    ],
+    "techniques": [
+      "argv input",
+      "four-part custom validation"
+    ],
+    "notes": [
+      "Difficulty is intentionally not normalized from challenge order."
+    ],
+    "review_status": "SINGLE_REVIEW",
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "FULLY_VISIBLE",
+    "input_sources_ground_truth": [
+      "argv[1] in main RVA 0x1C10"
+    ],
+    "static_slice_ground_truth": [
+      {
+        "validation_sink_rva": 7744,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "argv[1] in main RVA 0x1C10",
+        "first_failed_edge": "input reaches a call near RVA 0x1E20, but the target is not connected to the adjacent checker chunk",
+        "ground_truth_evidence": "write-up labels check_flag_part1"
+      },
+      {
+        "validation_sink_rva": 7968,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "argv[1] in main RVA 0x1C10",
+        "first_failed_edge": "input reaches the checker dispatch region but secondary function chunks are not linked",
+        "ground_truth_evidence": "write-up labels check_flag_part2"
+      },
+      {
+        "validation_sink_rva": 8192,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "argv[1] in main RVA 0x1C10",
+        "first_failed_edge": "input reaches the checker dispatch region but secondary function chunks are not linked",
+        "ground_truth_evidence": "write-up labels check_flag_part3"
+      },
+      {
+        "validation_sink_rva": 8416,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "argv[1] in main RVA 0x1C10",
+        "first_failed_edge": "input reaches the checker dispatch region but secondary function chunks are not linked",
+        "ground_truth_evidence": "write-up labels check_flag_part4"
+      }
+    ]
+  }
+}

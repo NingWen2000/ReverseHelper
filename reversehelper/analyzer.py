@@ -24,7 +24,7 @@ from .target_ranker import rank_targets
 from .version import __version__
 
 
-SCHEMA_VERSION = "1.2"
+SCHEMA_VERSION = "1.5"
 DEBUGGER_NOTICE = "Breakpoints are suggested analysis targets, not guaranteed solution points."
 INSTRUCTION_MODULES = {"antidebug", "validation", "crypto", "targets"}
 
@@ -88,6 +88,9 @@ def _empty_packing() -> dict[str, Any]:
         "overlay_offset": None,
         "overlay_size": 0,
         "indicators": [],
+        "static_visibility": "unknown",
+        "analysis_reliability": "unknown",
+        "recommended_steps": [],
         "disclaimer": "Packing analysis was unavailable; no conclusion was produced.",
     }
 
@@ -207,6 +210,11 @@ class ReverseHelperAnalyzer:
         self.maximum_strings = maximum_strings
 
     def analyze(self, path: str | Path) -> dict[str, Any]:
+        """Default analysis is the bounded P0 Quick pipeline."""
+        return self.analyze_quick(path)
+
+    def analyze_full(self, path: str | Path) -> dict[str, Any]:
+        """Legacy complete static report API, retained for existing consumers."""
         parser = self._open_parser(path)
         try:
             try:
@@ -215,11 +223,26 @@ class ReverseHelperAnalyzer:
                 raise AnalysisError(f"Analysis failed: {error}") from error
 
             warnings: list[dict[str, str]] = []
+
+            def analyze_strings() -> dict[str, Any]:
+                strings = extract_strings(
+                    parser.data,
+                    minimum=self.minimum_string_length,
+                    maximum=self.maximum_strings,
+                )
+                annotate_string_locations(
+                    strings,
+                    result["sections"],
+                    result["basic"]["image_base"],
+                    result["basic"]["size_of_headers"],
+                )
+                return strings
+
             strings = _optional(
                 "strings",
                 warnings,
                 _empty_strings(self.minimum_string_length),
-                lambda: self._analyze_strings(parser, result),
+                analyze_strings,
             )
             entry_point = _optional(
                 "entry",
@@ -304,8 +327,14 @@ class ReverseHelperAnalyzer:
             parser.close()
 
     def analyze_quick(self, path: str | Path) -> dict[str, Any]:
-        """Run structural triage without instruction-level analysis."""
-        return self._analyze_partial(path, "quick")
+        from .quick_analysis import analyze_quick
+        return analyze_quick(self, path)
+
+    def analyze_deep(self, path: str | Path) -> dict[str, Any]:
+        """Run the same analyzers as Quick with larger explicit budgets."""
+        from .analysis_budget import AnalysisBudget
+        from .quick_analysis import analyze_quick
+        return analyze_quick(self, path, AnalysisBudget.deep())
 
     def analyze_module(self, path: str | Path, module: str) -> dict[str, Any]:
         """Run one supported analysis module and its parsing prerequisites."""
@@ -320,20 +349,6 @@ class ReverseHelperAnalyzer:
         except (OSError, PEFormatError, ValueError) as error:
             raise AnalysisError(str(error)) from error
 
-    def _analyze_strings(self, parser: PEParser, result: dict[str, Any]) -> dict[str, Any]:
-        strings = extract_strings(
-            parser.data,
-            minimum=self.minimum_string_length,
-            maximum=self.maximum_strings,
-        )
-        annotate_string_locations(
-            strings,
-            result["sections"],
-            result["basic"]["image_base"],
-            result["basic"]["size_of_headers"],
-        )
-        return strings
-
     def _analyze_partial(self, path: str | Path, mode: str) -> dict[str, Any]:
         parser = self._open_parser(path)
         try:
@@ -344,11 +359,25 @@ class ReverseHelperAnalyzer:
             warnings: list[dict[str, str]] = []
 
             if mode == "strings":
+                def analyze_strings() -> dict[str, Any]:
+                    strings = extract_strings(
+                        parser.data,
+                        minimum=self.minimum_string_length,
+                        maximum=self.maximum_strings,
+                    )
+                    annotate_string_locations(
+                        strings,
+                        result["sections"],
+                        result["basic"]["image_base"],
+                        result["basic"]["size_of_headers"],
+                    )
+                    return strings
+
                 result["strings"] = _optional(
                     "strings",
                     warnings,
                     _empty_strings(self.minimum_string_length),
-                    lambda: self._analyze_strings(parser, result),
+                    analyze_strings,
                 )
             elif mode == "imports":
                 pass

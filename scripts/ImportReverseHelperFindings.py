@@ -63,6 +63,20 @@ def _finding_record(finding):
 
 
 def _records(payload):
+    annotations = payload.get("annotations", [])
+    if annotations:
+        return [{
+            "rva": item.get("rva"),
+            "category": item.get("category", "RH:NOTE"),
+            "priority": None,
+            "confidence": str(item.get("confidence", "unknown")).lower(),
+            "reason": item.get("title", "ReverseHelper annotation"),
+            "evidence": item.get("evidence", []),
+            "recommended_action": item.get("comment", ""),
+            "finding_ids": [],
+            "high_confidence": False,
+            "bookmark": item.get("category", "RH:NOTE"),
+        } for item in annotations]
     findings = payload.get("findings", [])
     findings_by_id = {item.get("id"): item for item in findings if item.get("id")}
     targets = payload.get("reverse_targets", payload.get("targets", []))
@@ -99,6 +113,38 @@ def _records(payload):
     for finding in findings:
         if finding.get("id") not in linked_ids:
             records.append(_finding_record(finding))
+    for finding in payload.get("control_flow_findings", []):
+        evidence = ["%s: %s" % (item.get("kind", "STRUCTURE"), item.get("value", ""))
+                    for item in finding.get("evidence", [])]
+        if finding.get("state_variable"):
+            evidence.append("State: %s" % finding["state_variable"])
+        if finding.get("dispatcher_block") is not None:
+            evidence.append("Dispatcher RVA: 0x%X" % finding["dispatcher_block"])
+        records.append({
+            "rva": finding.get("dispatcher_block") or finding.get("entry_block"),
+            "category": "control-flow", "priority": None,
+            "confidence": str(finding.get("confidence", "low")).lower(),
+            "reason": finding.get("kind", "CONTROL_FLOW").replace("_", " ").title(),
+            "evidence": evidence, "recommended_action": finding.get("suggested_action", ""),
+            "finding_ids": [finding.get("id", "<missing>")],
+            "high_confidence": finding.get("confidence") == "HIGH",
+            "bookmark": "RH:" + finding.get("kind", "CONTROL_FLOW"),
+        })
+    for suggestion in payload.get("decompiler_suggestions", []):
+        target = suggestion.get("target", {})
+        proposed = suggestion.get("proposed_value")
+        evidence = ["%s: %s" % (item.get("kind", "SEMANTIC"), item.get("value", ""))
+                    for item in suggestion.get("evidence", [])]
+        records.append({
+            "rva": target.get("rva") if target.get("rva") is not None else target.get("function_rva"),
+            "category": "semantic-suggestion", "priority": None,
+            "confidence": str(suggestion.get("confidence", "low")).lower(),
+            "reason": "Suggested semantic: %s" % proposed,
+            "evidence": evidence,
+            "recommended_action": "Review this suggestion before applying it; ReverseHelper does not rename automatically.",
+            "finding_ids": [suggestion.get("id", "<missing>")], "high_confidence": False,
+            "bookmark": "RH:SUGGEST_" + suggestion.get("kind", "SEMANTIC"),
+        })
     return records
 
 
@@ -151,11 +197,15 @@ def plan_import(
         comment = _comment(record)
         if operation is None:
             operations[rva] = {"rva": rva, "comment": comment, "rename": rename}
+            if record.get("bookmark"):
+                operations[rva]["bookmark"] = record["bookmark"]
         else:
             if comment not in operation["comment"]:
                 operation["comment"] += "\n\n" + comment
             if operation["rename"] is None:
                 operation["rename"] = rename
+            if operation.get("bookmark") is None:
+                operation["bookmark"] = record.get("bookmark")
 
     return [operations[rva] for rva in sorted(operations)]
 
@@ -216,6 +266,8 @@ def run_import():
         if existing and comment not in existing:
             comment = existing + "\n\n" + comment
         setPlateComment(address, comment)
+        if operation.get("bookmark"):
+            createBookmark(address, operation["bookmark"], "ReverseHelper control-flow annotation")
         imported += 1
 
         if operation["rename"]:

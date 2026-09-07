@@ -1,0 +1,269 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 62765,
+      "va": 5368771885,
+      "function": "FUN_14000F52D",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0xFBFA; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 95518,
+      "va": 5368804638,
+      "function": "FUN_14001751E",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1752B; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 96759,
+      "va": 5368805879,
+      "function": "FUN_1400179F7",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x17A07; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 98784,
+      "va": 5368807904,
+      "function": "FUN_1400181E0",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1875A; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 111872,
+      "va": 5368820992,
+      "function": "FUN_14001B500",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1B6C6; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 114416,
+      "va": 5368823536,
+      "function": "FUN_14001BEF0",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1C0B6; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 116064,
+      "va": 5368825184,
+      "function": "FUN_14001C560",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1C726; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 1271936,
+      "va": 5369981056,
+      "function": null,
+      "type": "KEY_TABLE",
+      "score": 8,
+      "confidence": "low",
+      "target_kind": "data",
+      "reason": "Known constant bytes or a direct reference; algorithm use and buffer role are unproven."
+    },
+    {
+      "rva": 30528,
+      "va": 5368739648,
+      "function": "FUN_140007740",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 31104,
+      "va": 5368740224,
+      "function": "FUN_140007980",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 31344,
+      "va": 5368740464,
+      "function": "FUN_140007A70",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 31984,
+      "va": 5368741104,
+      "function": "FUN_140007CF0",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 33056,
+      "va": 5368742176,
+      "function": "FUN_140008120",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 33296,
+      "va": 5368742416,
+      "function": "FUN_140008210",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 33536,
+      "va": 5368742656,
+      "function": "FUN_140008300",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 33904,
+      "va": 5368743024,
+      "function": "FUN_140008470",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 47296,
+      "va": 5368756416,
+      "function": "FUN_14000B8C0",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 47568,
+      "va": 5368756688,
+      "function": "FUN_14000B9D0",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 49280,
+      "va": 5368758400,
+      "function": "FUN_14000C080",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 49888,
+      "va": 5368759008,
+      "function": "FUN_14000C2E0",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    }
+  ],
+  "first_critical_function_rank": null,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "ranking_eligible": true,
+  "start_here_rva": 62765,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 0,
+    "unadjudicated_promotions": 0
+  },
+  "function_boundary": {
+    "adjudicated_starts": 2,
+    "recovered_starts": 0,
+    "missed_start_rvas": [
+      527088,
+      528640
+    ]
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0
+  },
+  "packed_predicted": false,
+  "warnings": [
+    {
+      "module": "strings",
+      "error_type": "BudgetLimit",
+      "reason": "String count or byte scan budget reached; unscanned strings remain unknown."
+    },
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 1648.01,
+  "instruction_count": 32559,
+  "input_source_count": 1,
+  "static_slice_count": 0,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 1894.74,
+  "challenge_id": "replay-level-02",
+  "name": "REplay Level 2",
+  "split": "evaluation",
+  "tier": "C",
+  "packed_expected": false,
+  "review_status": "OFFICIAL_WP_CONFIRMED",
+  "binary_size_bytes": 1439744,
+  "failure_category": "OTHER"
+}

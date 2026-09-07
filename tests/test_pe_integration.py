@@ -27,12 +27,12 @@ def test_quick_analysis_skips_expensive_modules():
     result = ReverseHelperAnalyzer(maximum_strings=250).analyze_quick(sys.executable)
 
     assert result["analysis_mode"] == "quick"
-    assert result["analysis_modules"] == ["pe", "sections", "imports", "exports", "entry", "anomaly"]
+    assert {"strings", "xrefs", "functions", "validation", "targets"} <= set(result["analysis_modules"])
     assert "entry_point_analysis" in result
     assert "packing" in result
-    assert "risk" in result
-    assert "strings" not in result
-    assert "crypto_constants" not in result
+    assert "strings" in result
+    assert "crypto_constants" in result
+    assert "dynamic-advisor" in result["skipped_modules"]
     assert "code_caves" not in result
 
 

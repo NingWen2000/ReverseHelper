@@ -1,0 +1,35 @@
+{
+  "schema_version": "reversehelper-phase28-target-audit-1",
+  "phase": "2.8",
+  "audited_fixable_fn": 14,
+  "classification_is_exclusive": true,
+  "counts": {
+    "PARAMETER_PROVENANCE": 3,
+    "RETURN_PROVENANCE": 1,
+    "INPLACE_OBJECT_PROVENANCE": 1,
+    "DERIVED_RETURN": 0,
+    "COMPARESITE_GOLF": 4,
+    "OTHER": 5
+  },
+  "records": [
+    {"challenge": "flareon2015-02", "sink_rva": "0x1000", "category": "OTHER", "result": "STILL_FIXABLE"},
+    {"challenge": "flareon2015-05", "sink_rva": "0x1100", "category": "OTHER", "result": "STILL_FIXABLE"},
+    {"challenge": "flareon2015-09", "sink_rva": "0x1495", "category": "PARAMETER_PROVENANCE", "result": "STILL_FIXABLE"},
+    {"challenge": "flareon2016-01", "sink_rva": "0x1420", "category": "RETURN_PROVENANCE", "result": "STILL_FIXABLE"},
+    {"challenge": "flareon2016-03", "sink_rva": "0x27A0", "category": "PARAMETER_PROVENANCE", "result": "STILL_FIXABLE"},
+    {"challenge": "flareon2016-04", "sink_rva": "0x2F50", "category": "OTHER", "result": "STILL_FIXABLE"},
+    {"challenge": "flareon2016-04", "sink_rva": "0x2E70", "category": "OTHER", "result": "STILL_FIXABLE"},
+    {"challenge": "flareon2017-03", "sink_rva": "0x1000", "category": "INPLACE_OBJECT_PROVENANCE", "result": "STILL_FIXABLE"},
+    {"challenge": "flareon2017-06", "sink_rva": "0x5A50", "category": "OTHER", "result": "STILL_FIXABLE"},
+    {"challenge": "flareon2018-10", "sink_rva": "0x1E40", "category": "COMPARESITE_GOLF", "result": "FIXED"},
+    {"challenge": "flareon2018-10", "sink_rva": "0x1F20", "category": "COMPARESITE_GOLF", "result": "FIXED"},
+    {"challenge": "flareon2018-10", "sink_rva": "0x2000", "category": "COMPARESITE_GOLF", "result": "FIXED"},
+    {"challenge": "flareon2018-10", "sink_rva": "0x20E0", "category": "COMPARESITE_GOLF", "result": "FIXED"},
+    {"challenge": "aviv-re-challenge-01", "sink_rva": "0x1350", "category": "PARAMETER_PROVENANCE", "result": "STILL_FIXABLE"}
+  ],
+  "final_reclassification": {
+    "fixed_this_phase": 4,
+    "still_fixable": 10,
+    "out_of_scope_after_reaudit": 0
+  }
+}

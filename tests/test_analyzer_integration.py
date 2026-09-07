@@ -15,10 +15,10 @@ pytestmark = pytest.mark.skipif(
 )
 
 
-def test_default_analysis_adds_schema_1_2_fields_without_removing_legacy_results():
-    result = ReverseHelperAnalyzer(maximum_strings=100).analyze(sys.executable)
+def test_legacy_complete_analysis_preserves_existing_results():
+    result = ReverseHelperAnalyzer(maximum_strings=100).analyze_full(sys.executable)
 
-    assert result["schema_version"] == "1.2"
+    assert result["schema_version"] == "1.5"
     for key in (
         "basic",
         "sections",
@@ -43,6 +43,8 @@ def test_default_analysis_adds_schema_1_2_fields_without_removing_legacy_results
     ):
         assert key in result
     assert result["disassembly"]["instruction_count"] > 0
+    assert result["strings"]["count"] > 0
+    assert not any(warning["module"] == "strings" for warning in result["analysis_warnings"])
     assert all(target["finding_ids"] for target in result["reverse_targets"])
 
 
@@ -52,8 +54,8 @@ def test_optional_analyzer_failure_becomes_warning_and_other_modules_continue(mo
 
     monkeypatch.setattr(analyzer_module.anti_debug_analyzer, "analyze_anti_debug", fail_anti_debug)
 
-    # The Python executable's comparator calls vary between builds. Use a fixed
-    # result to verify that later analyzers still run and their findings survive.
+    # Python executables differ across CI images, so inject one deterministic
+    # later-stage finding to verify failure isolation rather than PE contents.
     validation_finding = Finding(
         id="validation-after-failure",
         category="validation",
@@ -71,7 +73,7 @@ def test_optional_analyzer_failure_becomes_warning_and_other_modules_continue(mo
     validation = Mock(return_value=[validation_finding])
     monkeypatch.setattr(analyzer_module.validation_analyzer, "analyze_validation", validation)
 
-    result = ReverseHelperAnalyzer(maximum_strings=50).analyze(sys.executable)
+    result = ReverseHelperAnalyzer(maximum_strings=50).analyze_full(sys.executable)
 
     warning = next(item for item in result["analysis_warnings"] if item["module"] == "anti-debug")
     assert warning == {
@@ -88,20 +90,22 @@ def test_optional_analyzer_failure_becomes_warning_and_other_modules_continue(mo
 def test_new_single_module_modes_are_explicit(module):
     result = ReverseHelperAnalyzer(maximum_strings=50).analyze_module(sys.executable, module)
 
-    assert result["schema_version"] == "1.2"
+    assert result["schema_version"] == "1.5"
     assert result["analysis_mode"] == module
     assert result["analysis_modules"] == [module]
     assert "findings" in result
     assert "strings" not in result
 
 
-def test_quick_mode_skips_instruction_pipeline():
+def test_quick_mode_produces_bounded_p0_pipeline():
     result = ReverseHelperAnalyzer(maximum_strings=50).analyze_quick(sys.executable)
 
-    assert result["schema_version"] == "1.2"
-    assert "disassembly" not in result
-    assert "findings" not in result
-    assert "reverse_targets" not in result
+    assert result["schema_version"] == "1.5"
+    assert result["disassembly"]["instruction_count"] <= result["analysis_limits"]["max_instructions"]
+    assert "interesting_strings" in result
+    assert "validation_candidates" in result
+    assert "reverse_targets" in result
+    assert "challenge_summary" in result
 
 
 def test_resolved_import_call_is_not_reported_as_unresolved_control_flow():

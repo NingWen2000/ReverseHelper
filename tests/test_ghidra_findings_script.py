@@ -124,3 +124,35 @@ def test_script_rebases_rva_from_current_ghidra_image_base():
 
     assert 'image_base.addNoWrap(operation["rva"])' in source
     assert "memory.contains(address)" in source
+
+
+def test_control_flow_finding_plans_bookmark_and_explanatory_comment():
+    payload = _payload()
+    payload["control_flow_findings"] = [{
+        "id": "control-flow-dispatcher", "kind": "STATE_MACHINE", "confidence": "HIGH",
+        "entry_block": 0x1800, "dispatcher_block": 0x1810,
+        "state_variable": {"kind": "STACK", "base": "bp", "offset": -0x24},
+        "evidence": [{"kind": "BACK_TO_DISPATCH", "value": 6}],
+        "suggested_action": "Track state writes first.",
+    }]
+    operations = SCRIPT_API["plan_import"](payload, "challenge.exe", "a" * 64, [(0x1000, 0x1FFF)])
+    operation = next(item for item in operations if item["rva"] == 0x1810)
+    assert operation["bookmark"] == "RH:STATE_MACHINE"
+    assert "Dispatcher RVA: 0x1810" in operation["comment"]
+    assert "Track state writes first" in operation["comment"]
+
+
+def test_semantic_suggestion_is_comment_and_bookmark_only():
+    payload = _payload()
+    payload["decompiler_suggestions"] = [{
+        "id": "semantic-input", "kind": "FUNCTION_RENAME", "confidence": "HIGH",
+        "target": {"kind": "FUNCTION", "rva": 0x1810, "current_name": "FUN_401810"},
+        "proposed_value": "input_transform",
+        "evidence": [{"kind": "INPUT_PROVENANCE", "value": "argv[1]"}],
+    }]
+    operations = SCRIPT_API["plan_import"](payload, "challenge.exe", "a" * 64,
+                                           [(0x1000, 0x1FFF)], True)
+    operation = next(item for item in operations if item["rva"] == 0x1810)
+    assert operation["bookmark"] == "RH:SUGGEST_FUNCTION_RENAME"
+    assert operation["rename"] is None
+    assert "does not rename automatically" in operation["comment"]

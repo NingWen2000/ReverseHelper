@@ -1,0 +1,117 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 4954,
+      "va": 4199258,
+      "function": "FUN_40135A",
+      "type": "COMPARE",
+      "score": 35,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x19B0; References CTF-related text in executable code; Independent evidence families: comparison, strings"
+    },
+    {
+      "rva": 8112,
+      "va": 4202416,
+      "function": "___write_memory.part.0",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 29,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code; Sensitive API is called here; purpose is unproven.; Independent evidence families: api, strings"
+    },
+    {
+      "rva": 8016,
+      "va": 4202320,
+      "function": "___report_error",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 15,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code"
+    },
+    {
+      "rva": 4736,
+      "va": 4199040,
+      "function": "_mainCRTStartup",
+      "type": "PACKING",
+      "score": 10,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Structural packing indicators justify reviewing the entry point; packing is not proven."
+    },
+    {
+      "rva": 4832,
+      "va": 4199136,
+      "function": "___gcc_register_frame",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    }
+  ],
+  "first_critical_function_rank": null,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "ranking_eligible": true,
+  "start_here_rva": 4954,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 3,
+    "relevant_hits": 3,
+    "matched_relevant_values": [
+      "your_password",
+      "Wrong!",
+      "didn't match any saved password"
+    ],
+    "known_noise_promotions": 1,
+    "matched_noise_values": [
+      "Mingw runtime failure"
+    ],
+    "promoted_total": 19,
+    "unadjudicated_promotions": 15
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": []
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1
+  },
+  "packed_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 56.11,
+  "instruction_count": 1651,
+  "input_source_count": 0,
+  "static_slice_count": 0,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 66.51,
+  "challenge_id": "aviv-re-challenge-01",
+  "name": "Reverse Engineering Challenge 1",
+  "split": "evaluation",
+  "tier": "B",
+  "packed_expected": false,
+  "review_status": "OFFICIAL_WP_CONFIRMED",
+  "binary_size_bytes": 34569,
+  "failure_category": "OTHER"
+}

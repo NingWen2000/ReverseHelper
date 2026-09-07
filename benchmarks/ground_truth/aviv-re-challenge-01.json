@@ -1,0 +1,73 @@
+{
+  "schema_version": "reversehelper-ground-truth-2",
+  "challenge_id": "aviv-re-challenge-01",
+  "ground_truth": {
+    "review_status": "OFFICIAL_WP_CONFIRMED",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Challenge-author source and walkthrough verified against the retained _main symbol and PE image base.",
+    "sources": [
+      {
+        "url": "https://github.com/AvivShabtay/ReverseEngineering-challenge-1",
+        "kind": "author-source-and-writeup"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 4944,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "author source main hashes argv input and controls four strcmp results"
+      }
+    ],
+    "validation_functions": [
+      {
+        "start_rva": 4944,
+        "end_rva_exclusive": null
+      }
+    ],
+    "relevant_strings": [
+      {
+        "value": "your_password",
+        "match": "contains"
+      },
+      {
+        "value": "Wrong!",
+        "match": "contains"
+      },
+      {
+        "value": "didn't match any saved password",
+        "match": "contains"
+      }
+    ],
+    "irrelevant_strings": [
+      {
+        "value": "Mingw runtime failure",
+        "match": "contains",
+        "reason": "compiler runtime diagnostic"
+      }
+    ],
+    "techniques": [
+      "argv input",
+      "MD5",
+      "four strcmp decisions",
+      "hex decoding"
+    ],
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "FULLY_VISIBLE",
+    "input_sources_ground_truth": [
+      "argv password documented by author source"
+    ],
+    "static_slice_ground_truth": [
+      {
+        "validation_sink_rva": 4944,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "argv password documented by author source",
+        "first_failed_edge": "the optimized argv access is not recognized as an InputSource",
+        "ground_truth_evidence": "challenge-author source and walkthrough document argv input and four strcmp decisions"
+      }
+    ]
+  }
+}

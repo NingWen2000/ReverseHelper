@@ -1,5 +1,7 @@
 # ReverseHelper Ghidra Scripts
 
+For the product workflow, run `reversehelper challenge.exe --ghidra`, then use `ImportReverseHelperFindings.py` and select `reports\challenge.reversehelper.json`. New reports expose one tool-independent `annotations` array with `RH:START`, input/slice/validation/algorithm/control-flow/FLOW_BREAK and review-only semantic markers. The importer still accepts older findings/targets JSON.
+
 ## 安装
 
 1. 打开 Ghidra CodeBrowser。
@@ -32,4 +34,4 @@ reversehelper sample.exe --json reports\sample.json
 
 默认行为是添加包含 category、confidence、evidence 和 recommended action 的 Plate Comment。高置信 Rename 需要显式启用，且只处理脚本能够保守确认的函数入口；不要把自动名称当作已验证结论。
 
-脚本逻辑已有自动化测试覆盖身份拒绝、地址范围、RVA 重定位和默认 Comment 行为。v0.1.0 的验证环境未安装 Ghidra，因此尚未完成实际 CodeBrowser 运行验证。
+脚本逻辑已有自动化测试覆盖身份拒绝、地址范围、RVA 重定位和默认 Comment 行为。v0.1.0 发布准备环境未安装 Ghidra，因此尚未完成实际 CodeBrowser 运行验证。

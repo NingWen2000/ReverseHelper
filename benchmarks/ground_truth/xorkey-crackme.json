@@ -1,0 +1,90 @@
+{
+  "schema_version": "reversehelper-ground-truth-2",
+  "challenge_id": "xorkey-crackme",
+  "ground_truth": {
+    "review_status": "OFFICIAL_WP_CONFIRMED",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Challenge-author source and README were mapped to the retained Release PE using the image base, the fgets and strcmp call region, and independent static disassembly. The sample was never executed.",
+    "sources": [
+      {
+        "url": "https://github.com/Alon-Alush/xorkey-crackme",
+        "kind": "author-source-and-writeup"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 4160,
+        "end_rva_exclusive": 5116,
+        "role": "VALIDATION",
+        "evidence": "author source main reads UserInput with fgets, applies XOR, compares it to TheKey and controls success/failure output; static disassembly maps this body to RVA 0x1040"
+      }
+    ],
+    "validation_functions": [
+      {
+        "start_rva": 4160,
+        "end_rva_exclusive": 5116
+      }
+    ],
+    "relevant_strings": [
+      {
+        "value": "Enter the password",
+        "match": "contains"
+      }
+    ],
+    "irrelevant_strings": [
+      {
+        "value": "Made by alonalush5@gmail.com",
+        "match": "contains",
+        "reason": "author banner rather than validation evidence"
+      }
+    ],
+    "techniques": [
+      "fgets input",
+      "XOR transform",
+      "strcmp validation",
+      "CRC32 anti-patch"
+    ],
+    "reviewer_notes": [
+      "The author-published source and README establish the input and validation semantics.",
+      "Address mapping was reviewed once locally; OFFICIAL_WP_CONFIRMED reflects author evidence, not two independent human reviewers."
+    ],
+    "static_visibility": "FULLY_VISIBLE",
+    "input_sources_ground_truth": [
+      "fgets UserInput at RVA 0x129D"
+    ],
+    "static_slice_ground_truth": [
+      {
+        "validation_sink_rva": 4160,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "fgets UserInput at RVA 0x129D",
+        "first_failed_edge": "the current path-insensitive tracker loses the transformed buffer identity before the inlined comparison loop",
+        "ground_truth_evidence": "author source and static disassembly show fgets(UserInput), the XOR loop and the strcmp-controlled decision in RVA 0x1040"
+      }
+    ],
+    "algorithm_ground_truth": [
+      {
+        "algorithm": "XOR",
+        "function_rva": 4160,
+        "end_rva_exclusive": 5116,
+        "slice_relation": "ON_INPUT_VALIDATION_SLICE",
+        "evidence": "The challenge-author source implements the input XOR transform in main; the retained PE maps main to RVA 0x1040."
+      },
+      {
+        "algorithm": "CRC32",
+        "function_rva": 4160,
+        "end_rva_exclusive": 5116,
+        "slice_relation": "OFF_INPUT_VALIDATION_SLICE",
+        "evidence": "The challenge-author source identifies the anti-patch CRC32 in main; this is adjudicated separately from the password transform."
+      }
+    ],
+    "decompiler_ground_truth": [
+      {
+        "kind": "FUNCTION_ROLE",
+        "function_rva": 4160,
+        "end_rva_exclusive": 5116,
+        "role": "validation_check",
+        "evidence": "The challenge-author source shows main reading input, transforming it and controlling the final comparison outcome."
+      }
+    ]
+  }
+}

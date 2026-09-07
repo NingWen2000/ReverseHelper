@@ -1,0 +1,181 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 8688,
+      "va": 4202992,
+      "function": "FUN_4021F0",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x22C1; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 9392,
+      "va": 4203696,
+      "function": "FUN_4024B0",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x21F0; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x2579; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 10112,
+      "va": 4204416,
+      "function": "FUN_402780",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x24B0; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x2A03; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 12304,
+      "va": 4206608,
+      "function": "FUN_403010",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x2780; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x30B2; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 5216,
+      "va": 4199520,
+      "function": "FUN_401460",
+      "type": "ANTI_DEBUG",
+      "score": 29,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code; Sensitive API is called here; purpose is unproven.; Independent evidence families: api, strings"
+    },
+    {
+      "rva": 7552,
+      "va": 4201856,
+      "function": "FUN_401D80",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 29,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code; Sensitive API is called here; purpose is unproven.; Independent evidence families: api, strings"
+    },
+    {
+      "rva": 5312,
+      "va": 4199616,
+      "function": "FUN_4014C0",
+      "type": "INPUT",
+      "score": 22,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x3010; argument linkage unknown; Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 7472,
+      "va": 4201776,
+      "function": "FUN_401D30",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 15,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code"
+    },
+    {
+      "rva": 4832,
+      "va": 4199136,
+      "function": "FUN_4012E0",
+      "type": "PACKING",
+      "score": 10,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Structural packing indicators justify reviewing the entry point; packing is not proven."
+    },
+    {
+      "rva": 4928,
+      "va": 4199232,
+      "function": "FUN_401340",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 33100,
+      "va": 4227404,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    }
+  ],
+  "first_critical_function_rank": 5,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": true,
+  "ranking_eligible": true,
+  "start_here_rva": 8688,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 4,
+    "fn": 0,
+    "predicted_function_rvas": [
+      8688,
+      9392,
+      10112,
+      12304
+    ],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 2,
+    "relevant_hits": 2,
+    "matched_relevant_values": [
+      "A debugger is detected",
+      "No debugger is detected"
+    ],
+    "known_noise_promotions": 1,
+    "matched_noise_values": [
+      "Mingw runtime failure"
+    ],
+    "promoted_total": 14,
+    "unadjudicated_promotions": 11
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": []
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0
+  },
+  "packed_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 109.74,
+  "instruction_count": 3431,
+  "input_source_count": 1,
+  "static_slice_count": 0,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 125.23,
+  "challenge_id": "reverse-engineering-ctfs-05",
+  "name": "Deep Bug Gert",
+  "split": "evaluation",
+  "tier": "C",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "binary_size_bytes": 40988,
+  "failure_category": null
+}

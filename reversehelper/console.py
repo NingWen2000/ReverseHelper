@@ -263,42 +263,16 @@ def print_analysis(result: dict[str, Any], console: Console | None = None) -> No
 
 
 def print_quick_analysis(result: dict[str, Any], console: Console | None = None) -> None:
+    from .challenge_summary import summary_lines
     console = console or Console()
-    basic = result["basic"]
-    packing = result["packing"]
-    risk = result["risk"]
-
-    console.print(
-        Panel.fit(
-            f"[bold cyan]ReverseHelper[/bold cyan] [dim]v{__version__}[/dim]\n"
-            "[dim]Quick structural PE triage - strings, crypto and code caves skipped[/dim]",
-            border_style="cyan",
-        )
-    )
-    overview = Table(title="Quick analysis", show_header=False, border_style="blue")
-    overview.add_column("Field", style="bold")
-    overview.add_column("Value")
-    overview.add_row("File", f"{basic['file_name']} ({basic['file_size']} bytes)")
-    overview.add_row("Type", basic["file_type"])
-    overview.add_row("Architecture", basic["architecture"])
-    overview.add_row("EntryPoint", f"RVA {_hex(basic['entry_point_rva'])} / VA {_hex(basic['entry_point_va'])}")
-    overview.add_row("Sections", str(len(result["sections"])))
-    overview.add_row("Imports / Exports", f"{result['import_count']} / {result['export_count']}")
-    overview.add_row("Packing verdict", packing["verdict"])
-    overview.add_row("Structural risk", f"{risk['score']}/10 {risk['level']}")
-    overview.add_row("SHA-256", result["hashes"]["sha256"])
-    console.print(overview)
-
-    if packing["indicators"]:
-        indicators = Table(title="Packing/anomaly indicators", border_style="yellow")
-        indicators.add_column("Severity")
-        indicators.add_column("Type")
-        indicators.add_column("Evidence", overflow="fold")
-        for item in packing["indicators"]:
-            indicators.add_row(item["severity"], item["type"], item["evidence"])
-        console.print(indicators)
-    else:
-        console.print("[green]No obvious packing indicators detected.[/green]")
+    lines = summary_lines(result)
+    for line in lines:
+        if line in {"START HERE", "START WITH THESE"}:
+            console.print(Panel(Text(line, style="bold cyan"), border_style="cyan"))
+        elif line in {"ReverseHelper Quick Analysis", "Challenge Summary", "Interesting Strings", "Validation Candidates", "Top Reverse Targets", "Suggested Static Path", "Analysis Warnings"}:
+            console.print(Text(line, style="bold cyan"))
+        else:
+            console.print(Text(line))
 
 
 def print_module_analysis(result: dict[str, Any], module: str, console: Console | None = None) -> None:

@@ -1,0 +1,848 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 18528,
+      "va": 4212832,
+      "function": "FUN_404860",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x4692; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 49248,
+      "va": 4243552,
+      "function": "FUN_40C060",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 49888,
+      "va": 4244192,
+      "function": "FUN_40C2E0",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 109867,
+      "va": 4304171,
+      "function": "FUN_41AD2B",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1AD8A; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 119674,
+      "va": 4313978,
+      "function": "FUN_41D37A",
+      "type": "COMPARE",
+      "score": 12,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1D3A9"
+    },
+    {
+      "rva": 155508,
+      "va": 4349812,
+      "function": null,
+      "type": "PACKING",
+      "score": 10,
+      "confidence": "low",
+      "target_kind": "code_location",
+      "reason": "Structural packing indicators justify reviewing the entry point; packing is not proven."
+    },
+    {
+      "rva": 785776,
+      "va": 4980080,
+      "function": null,
+      "type": "KEY_TABLE",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "data",
+      "reason": "Known constant bytes or a direct reference; algorithm use and buffer role are unproven."
+    },
+    {
+      "rva": 15641,
+      "va": 4209945,
+      "function": "FUN_403D19",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 17142,
+      "va": 4211446,
+      "function": "FUN_4042F6",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 17227,
+      "va": 4211531,
+      "function": "FUN_40434B",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 17877,
+      "va": 4212181,
+      "function": "FUN_4045D5",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x4860; argument linkage unknown"
+    },
+    {
+      "rva": 109557,
+      "va": 4303861,
+      "function": "FUN_41ABF5",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x1AD2B; argument linkage unknown"
+    },
+    {
+      "rva": 119646,
+      "va": 4313950,
+      "function": "FUN_41D35E",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x1D37A; argument linkage unknown"
+    },
+    {
+      "rva": 577996,
+      "va": 4772300,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    },
+    {
+      "rva": 578396,
+      "va": 4772700,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    },
+    {
+      "rva": 578480,
+      "va": 4772784,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    },
+    {
+      "rva": 579376,
+      "va": 4773680,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    }
+  ],
+  "first_critical_function_rank": null,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "ranking_eligible": true,
+  "start_here_rva": null,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 0,
+    "unadjudicated_promotions": 0
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 0,
+    "missed_start_rvas": [
+      155508
+    ],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 379,
+      "HEURISTIC": 41
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 3,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 0,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "strings",
+      "error_type": "BudgetLimit",
+      "reason": "String count or byte scan budget reached; unscanned strings remain unknown."
+    },
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    },
+    {
+      "module": "algorithm-recognition",
+      "error_type": "BudgetLimit",
+      "reason": "Algorithm analysis truncated; unexamined functions or instructions remain unknown."
+    },
+    {
+      "module": "control-flow-understanding",
+      "error_type": "BudgetLimit",
+      "reason": "Control-flow analysis truncated; unexamined functions, blocks or targets remain unknown."
+    },
+    {
+      "module": "decompiler-assistance",
+      "error_type": "BudgetLimit",
+      "reason": "Semantic suggestions truncated; lower-ranked suggestions remain outside the Quick output limits."
+    }
+  ],
+  "quick_elapsed_ms": 2362.69,
+  "analysis_elapsed_ms": 2362.69,
+  "instruction_count": 32761,
+  "input_source_count": 2,
+  "static_slice_count": 0,
+  "static_flow_break_count": 0,
+  "algorithms": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 66,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "per_algorithm": {},
+    "predictions": [
+      {
+        "id": "algorithm-00006F07-rc4",
+        "algorithm": "RC4",
+        "function_rva": 28423,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00009B60-rc4",
+        "algorithm": "RC4",
+        "function_rva": 39776,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000F110-rc4",
+        "algorithm": "RC4",
+        "function_rva": 61712,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00012D70-rc4",
+        "algorithm": "RC4",
+        "function_rva": 77168,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00013B70-rc4",
+        "algorithm": "RC4",
+        "function_rva": 80752,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001D459-rc4",
+        "algorithm": "RC4",
+        "function_rva": 119897,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001605-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 5637,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001C08-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 7176,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001CDE-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 7390,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001F21-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 7969,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003093-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 12435,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003093-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 12435,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003B12-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 15122,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00004380-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 17280,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00004DD9-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 19929,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000054D6-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 21718,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00005798-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 22424,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00005928-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 22824,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00006009-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 24585,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000064CF-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 25807,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000066D1-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 26321,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00006BC4-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 27588,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00006F07-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 28423,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00007474-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 29812,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000077B0-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 30640,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000077B0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 30640,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00008B8E-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 35726,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000908C-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 37004,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000096C0-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 38592,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000096C0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 38592,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00009B60-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 39776,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000AF50-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 44880,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000AF50-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 44880,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000B470-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 46192,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000B470-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 46192,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000BD30-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 48432,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000C060-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 49248,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000C060-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 49248,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000C413-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 50195,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000C833-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 51251,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000E3B0-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 58288,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000E3B0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 58288,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000E8D0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 59600,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000F110-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 61712,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000FE30-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 65072,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000FE30-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 65072,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00011820-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 71712,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00011B90-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 72592,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000129D0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 76240,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00012B40-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 76608,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00012D70-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 77168,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00013200-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 78336,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00013200-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 78336,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00013B70-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 80752,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00014300-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 82688,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000145E0-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 83424,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000145E0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 83424,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001AD2B-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 109867,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001AE78-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 110200,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001B73E-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 112446,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001B73E-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 112446,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001BECB-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 114379,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001C050-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 114768,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001C451-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 115793,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001D459-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 119897,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001D71E-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 120606,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      }
+    ]
+  },
+  "control_flow": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "unadjudicated_predictions": 5,
+    "dispatcher_correct": 0,
+    "dispatcher_total": 0,
+    "state_exact": 0,
+    "state_same_base": 0,
+    "state_wrong": 0,
+    "state_unknown": 0,
+    "per_kind": {},
+    "predictions": [
+      {
+        "id": "control-flow-00008B8E-jump-table-00008DCD",
+        "kind": "SWITCH",
+        "function_rva": 35726,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-0000FE30-jump-table-000102B9",
+        "kind": "SWITCH",
+        "function_rva": 65072,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      },
+      {
+        "id": "control-flow-00011820-jump-table-00011A69",
+        "kind": "SWITCH",
+        "function_rva": 71712,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "c"
+        }
+      },
+      {
+        "id": "control-flow-00011820-jump-table-00011A9D",
+        "kind": "SWITCH",
+        "function_rva": 71712,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "c"
+        }
+      },
+      {
+        "id": "control-flow-00011D10-jump-table-00011D7C",
+        "kind": "SWITCH",
+        "function_rva": 72976,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "a"
+        }
+      }
+    ]
+  },
+  "decompiler_assistance": {
+    "adjudicated": false,
+    "role_tp": 0,
+    "role_fp": 0,
+    "role_fn": 0,
+    "rename_tp": 0,
+    "rename_fp": 0,
+    "type": {
+      "EXACT": 0,
+      "COMPATIBLE": 0,
+      "WRONG": 0,
+      "UNKNOWN": 0
+    },
+    "unadjudicated_predictions": 20
+  },
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 2624.08,
+  "challenge_id": "flareon2015-10",
+  "name": "loader",
+  "split": "development",
+  "tier": "C",
+  "packed_expected": true,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "PACKED_OR_TRANSFORMED",
+  "binary_size_bytes": 3523584,
+  "failure_category": "PACKED"
+}

@@ -48,11 +48,13 @@ def test_high_confidence_validation_precedes_import_only_finding():
 
     targets = rank_targets([imported, validation])
 
-    assert [target.priority for target in targets] == ["high", "low"]
+    assert targets[0].score > targets[1].score
+    assert targets[0].score <= 30
+    assert targets[0].target_type == "COMPARE"
     assert targets[0].finding_ids == ("validation-branch",)
 
 
-def test_low_severity_does_not_prevent_high_reverse_priority():
+def test_finding_confidence_does_not_imply_high_reverse_priority():
     finding = _finding(
         "validation-low-severity",
         "validation",
@@ -65,7 +67,8 @@ def test_low_severity_does_not_prevent_high_reverse_priority():
     target = rank_targets([finding])[0]
 
     assert finding.severity == "low"
-    assert target.priority == "high"
+    assert target.priority == "low"
+    assert target.score <= 30
 
 
 def test_nearby_generic_indirect_calls_do_not_become_high_priority_by_count():
@@ -82,7 +85,7 @@ def test_nearby_generic_indirect_calls_do_not_become_high_priority_by_count():
 
     target = rank_targets(findings)[0]
 
-    assert target.priority == "medium"
+    assert target.priority == "low"
 
 
 def test_pe_structure_comparator_does_not_rank_as_high_validation_target():
@@ -109,7 +112,7 @@ def test_pe_structure_comparator_does_not_rank_as_high_validation_target():
 
     target = rank_targets([branch, call])[0]
 
-    assert target.priority == "medium"
+    assert target.priority == "low"
 
 
 def test_ranked_list_caps_generic_control_flow_noise():
@@ -140,13 +143,13 @@ def test_same_rva_findings_merge_and_keep_traceability():
     targets = rank_targets(findings)
 
     assert len(targets) == 1
-    assert targets[0].category == "validation"
-    assert targets[0].priority == "high"
+    assert targets[0].target_type == "COMPARE"
+    assert targets[0].score <= 40  # no established function ownership
     assert targets[0].finding_ids == ("anti", "input", "validation")
-    assert "anti-debug, input, validation" in targets[0].reason
+    assert set(targets[0].evidence_sources) == {"api", "comparison", "input"}
 
 
-def test_nearby_input_and_validation_findings_merge_conservatively():
+def test_nearby_input_and_validation_do_not_merge_without_function_evidence():
     findings = [
         _finding("input", "input", "Input Candidate: fgets call site", 0x1818),
         _finding("validation", "validation", "Possible Validation Site", 0x1820, confidence="high"),
@@ -154,9 +157,10 @@ def test_nearby_input_and_validation_findings_merge_conservatively():
 
     targets = rank_targets(findings)
 
-    assert len(targets) == 1
+    assert len(targets) == 2
     assert targets[0].rva == 0x1820
-    assert targets[0].finding_ids == ("input", "validation")
+    assert targets[0].finding_ids == ("validation",)
+    assert targets[1].finding_ids == ("input",)
 
 
 def test_finding_without_static_location_does_not_create_target():

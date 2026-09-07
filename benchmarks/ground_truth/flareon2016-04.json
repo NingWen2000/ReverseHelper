@@ -1,0 +1,102 @@
+{
+  "schema_version": "reversehelper-ground-truth-1",
+  "challenge_id": "flareon2016-04",
+  "ground_truth": {
+    "status": "frozen-single-review",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Public solution evidence plus independent static address verification; ReverseHelper output was not consulted.",
+    "review_limitations": [
+      "Single-review baseline; addresses with no documented end use exact start matching.",
+      "No flag or solution secret is stored."
+    ],
+    "sources": [
+      {
+        "url": "https://services.google.com/fh/files/misc/challenge4-solution.pdf",
+        "kind": "official-solution"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 9104,
+        "end_rva_exclusive": null,
+        "role": "TRANSFORM",
+        "evidence": "ordinal 48 is the official first-stage export",
+        "source_url": "https://services.google.com/fh/files/misc/challenge4-solution.pdf"
+      },
+      {
+        "start_rva": 12112,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "ordinal 50 critical crypto/validation export",
+        "source_url": "https://services.google.com/fh/files/misc/challenge4-solution.pdf"
+      },
+      {
+        "start_rva": 11888,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "ordinal 51 critical crypto/validation export",
+        "source_url": "https://services.google.com/fh/files/misc/challenge4-solution.pdf"
+      }
+    ],
+    "validation_functions": [
+      {
+        "start_rva": 12112,
+        "end_rva_exclusive": null
+      },
+      {
+        "start_rva": 11888,
+        "end_rva_exclusive": null
+      }
+    ],
+    "validation_sites": [
+      {
+        "function_rva": 12112,
+        "status": "confirmed"
+      },
+      {
+        "function_rva": 11888,
+        "status": "confirmed"
+      }
+    ],
+    "relevant_strings": [],
+    "irrelevant_strings": [
+      {
+        "value": "DllMain",
+        "match": "contains",
+        "reason": "runtime/platform diagnostic or API text is not challenge validation evidence by itself"
+      }
+    ],
+    "techniques": [
+      "ordinal exports",
+      "crypto pipeline"
+    ],
+    "notes": [
+      "Difficulty is intentionally not normalized from challenge order."
+    ],
+    "review_status": "SINGLE_REVIEW",
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "FULLY_VISIBLE",
+    "input_sources_ground_truth": [
+      "export argument supplied by an external caller"
+    ],
+    "static_slice_ground_truth": [
+      {
+        "validation_sink_rva": 12112,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "export argument supplied by an external caller",
+        "first_failed_edge": "exported function arguments are not modeled as module-boundary input sources",
+        "ground_truth_evidence": "official solution identifies ordinal 50 as a critical crypto/validation export"
+      },
+      {
+        "validation_sink_rva": 11888,
+        "static_visibility": "FULLY_VISIBLE",
+        "input_source": "export argument supplied by an external caller",
+        "first_failed_edge": "exported function arguments are not modeled as module-boundary input sources",
+        "ground_truth_evidence": "official solution identifies ordinal 51 as a critical crypto/validation export"
+      }
+    ]
+  }
+}

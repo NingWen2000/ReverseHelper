@@ -1,0 +1,1 @@
+participant_id,challenge_id,condition,order,elapsed_seconds,success,submitted_rva,ground_truth_match,tool_version,interrupted,notes

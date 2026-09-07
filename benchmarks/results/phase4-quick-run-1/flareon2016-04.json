@@ -1,0 +1,217 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 13141,
+      "va": 268448597,
+      "function": "FUN_10003355",
+      "type": "PACKING",
+      "score": 10,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Structural packing indicators justify reviewing the entry point; packing is not proven."
+    },
+    {
+      "rva": 13178,
+      "va": 268448634,
+      "function": "FUN_1000337A",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 14208,
+      "va": 268449664,
+      "function": "FUN_10003780",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    }
+  ],
+  "first_critical_function_rank": null,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "ranking_eligible": true,
+  "start_here_rva": null,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 2,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 1,
+    "unadjudicated_promotions": 1
+  },
+  "function_boundary": {
+    "adjudicated_starts": 3,
+    "recovered_starts": 3,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 79,
+      "HEURISTIC": 8
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 2,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 0,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 0,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [],
+  "quick_elapsed_ms": 198.72,
+  "analysis_elapsed_ms": 198.72,
+  "instruction_count": 3465,
+  "input_source_count": 2,
+  "static_slice_count": 0,
+  "static_flow_break_count": 0,
+  "algorithms": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 5,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "per_algorithm": {},
+    "predictions": [
+      {
+        "id": "algorithm-00001000-custom_word_transform",
+        "algorithm": "CUSTOM_WORD_TRANSFORM",
+        "function_rva": 4096,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001000-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 4096,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001530-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 5424,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001530-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 5424,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000035D2-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 13778,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      }
+    ]
+  },
+  "control_flow": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "unadjudicated_predictions": 2,
+    "dispatcher_correct": 0,
+    "dispatcher_total": 0,
+    "state_exact": 0,
+    "state_same_base": 0,
+    "state_wrong": 0,
+    "state_unknown": 0,
+    "per_kind": {},
+    "predictions": [
+      {
+        "id": "control-flow-00001530-state-machine-000018F5",
+        "kind": "STATE_MACHINE",
+        "function_rva": 5424,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": 6389,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "b"
+        }
+      },
+      {
+        "id": "control-flow-00001530-jump-table-0000190E",
+        "kind": "SWITCH",
+        "function_rva": 5424,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE",
+        "dispatcher_block": null,
+        "state_variable": {
+          "kind": "REGISTER",
+          "name": "b"
+        }
+      }
+    ]
+  },
+  "decompiler_assistance": {
+    "adjudicated": false,
+    "role_tp": 0,
+    "role_fp": 0,
+    "role_fn": 0,
+    "rename_tp": 0,
+    "rename_fp": 0,
+    "type": {
+      "EXACT": 0,
+      "COMPATIBLE": 0,
+      "WRONG": 0,
+      "UNKNOWN": 0
+    },
+    "unadjudicated_predictions": 13
+  },
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 223.21,
+  "challenge_id": "flareon2016-04",
+  "name": "flareon2016challenge.dll",
+  "split": "development",
+  "tier": "B",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "FULLY_VISIBLE",
+  "binary_size_bytes": 30720,
+  "failure_category": "NO_STRING_SIGNAL"
+}

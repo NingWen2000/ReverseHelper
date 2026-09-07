@@ -1,0 +1,97 @@
+{
+  "schema_version": "reversehelper-ground-truth-1",
+  "challenge_id": "flareon2015-09",
+  "ground_truth": {
+    "status": "frozen-single-review",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Public solution evidence plus independent static address verification; ReverseHelper output was not consulted.",
+    "review_limitations": [
+      "Single-review baseline; addresses with no documented end use exact start matching.",
+      "No flag or solution secret is stored."
+    ],
+    "sources": [
+      {
+        "url": "https://xakep.ru/2015/10/19/flare-on-challenge/",
+        "kind": "trusted-public-writeup"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 4097,
+        "end_rva_exclusive": null,
+        "role": "INPUT",
+        "evidence": "main input and outcome controller",
+        "source_url": "https://xakep.ru/2015/10/19/flare-on-challenge/"
+      },
+      {
+        "start_rva": 5269,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "custom validation routine called by main",
+        "source_url": "https://xakep.ru/2015/10/19/flare-on-challenge/"
+      }
+    ],
+    "validation_functions": [
+      {
+        "start_rva": 5269,
+        "end_rva_exclusive": null
+      }
+    ],
+    "validation_sites": [
+      {
+        "function_rva": 5269,
+        "status": "confirmed"
+      }
+    ],
+    "relevant_strings": [
+      {
+        "value": "good",
+        "match": "contains",
+        "expected_priority": [
+          "HIGH",
+          "MEDIUM"
+        ]
+      },
+      {
+        "value": "wrong",
+        "match": "contains",
+        "expected_priority": [
+          "HIGH",
+          "MEDIUM"
+        ]
+      }
+    ],
+    "irrelevant_strings": [
+      {
+        "value": "GetProcAddress",
+        "match": "contains",
+        "reason": "runtime/platform diagnostic or API text is not challenge validation evidence by itself"
+      }
+    ],
+    "techniques": [
+      "obfuscation",
+      "custom comparison"
+    ],
+    "notes": [
+      "Difficulty is intentionally not normalized from challenge order."
+    ],
+    "review_status": "SINGLE_REVIEW",
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "PARTIALLY_VISIBLE",
+    "input_sources_ground_truth": [
+      "ReadFile global buffer at RVA 0x1001"
+    ],
+    "static_slice_ground_truth": [
+      {
+        "validation_sink_rva": 5269,
+        "static_visibility": "PARTIALLY_VISIBLE",
+        "input_source": "ReadFile global buffer at RVA 0x1001",
+        "first_failed_edge": "direct argument reaches 0x1495 but its custom compare is not recognized",
+        "ground_truth_evidence": "public solution identifies custom validation routine called by main"
+      }
+    ]
+  }
+}

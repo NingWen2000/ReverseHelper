@@ -1,0 +1,247 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 9928,
+      "va": 4204232,
+      "function": "FUN_4026C8",
+      "type": "PACKING",
+      "score": 10,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Structural packing indicators justify reviewing the entry point; packing is not proven."
+    },
+    {
+      "rva": 4096,
+      "va": 4198400,
+      "function": "FUN_401000",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 5472,
+      "va": 4199776,
+      "function": "FUN_401560",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 10861,
+      "va": 4205165,
+      "function": "FUN_402A6D",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 11136,
+      "va": 4205440,
+      "function": "FUN_402B80",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    }
+  ],
+  "first_critical_function_rank": 2,
+  "top_1_hit": false,
+  "top_3_hit": true,
+  "top_5_hit": true,
+  "ranking_eligible": true,
+  "start_here_rva": null,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 10,
+    "unadjudicated_promotions": 10
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 78,
+      "HEURISTIC": 10
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 0,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 0,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [],
+  "quick_elapsed_ms": 160.58,
+  "analysis_elapsed_ms": 160.58,
+  "instruction_count": 3068,
+  "input_source_count": 0,
+  "static_slice_count": 0,
+  "static_flow_break_count": 0,
+  "algorithms": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 10,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "per_algorithm": {},
+    "predictions": [
+      {
+        "id": "algorithm-00002430-rc4",
+        "algorithm": "RC4",
+        "function_rva": 9264,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001000-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 4096,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000012A0-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 4768,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000012A0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 4768,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001850-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 6224,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001940-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 6464,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001B30-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 6960,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001D40-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 7488,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000023B0-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 9136,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00002430-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 9264,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      }
+    ]
+  },
+  "control_flow": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "unadjudicated_predictions": 0,
+    "dispatcher_correct": 0,
+    "dispatcher_total": 0,
+    "state_exact": 0,
+    "state_same_base": 0,
+    "state_wrong": 0,
+    "state_unknown": 0,
+    "per_kind": {},
+    "predictions": []
+  },
+  "decompiler_assistance": {
+    "adjudicated": false,
+    "role_tp": 0,
+    "role_fp": 0,
+    "role_fn": 0,
+    "rename_tp": 0,
+    "rename_fp": 0,
+    "type": {
+      "EXACT": 0,
+      "COMPATIBLE": 0,
+      "WRONG": 0,
+      "UNKNOWN": 0
+    },
+    "unadjudicated_predictions": 15
+  },
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 183.45,
+  "challenge_id": "flareon2018-09",
+  "name": "leet_editr",
+  "split": "evaluation",
+  "tier": "C",
+  "packed_expected": true,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "PACKED_OR_TRANSFORMED",
+  "binary_size_bytes": 59392,
+  "failure_category": null
+}

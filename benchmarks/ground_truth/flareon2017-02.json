@@ -1,0 +1,88 @@
+{
+  "schema_version": "reversehelper-ground-truth-1",
+  "challenge_id": "flareon2017-02",
+  "ground_truth": {
+    "status": "frozen-single-review",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Public solution evidence plus independent static address verification; ReverseHelper output was not consulted.",
+    "review_limitations": [
+      "Single-review baseline; addresses with no documented end use exact start matching.",
+      "No flag or solution secret is stored."
+    ],
+    "sources": [
+      {
+        "url": "https://meltedinhex.com/posts/flare-on-challenge-2017-writeup/",
+        "kind": "trusted-public-writeup"
+      }
+    ],
+    "critical_functions": [
+      {
+        "start_rva": 4336,
+        "end_rva_exclusive": null,
+        "role": "INPUT",
+        "evidence": "ReadFile input wrapper",
+        "source_url": "https://meltedinhex.com/posts/flare-on-challenge-2017-writeup/"
+      },
+      {
+        "start_rva": 4176,
+        "end_rva_exclusive": null,
+        "role": "VALIDATION",
+        "evidence": "documented XOR loop and validation function",
+        "source_url": "https://meltedinhex.com/posts/flare-on-challenge-2017-writeup/"
+      }
+    ],
+    "validation_functions": [
+      {
+        "start_rva": 4176,
+        "end_rva_exclusive": null
+      }
+    ],
+    "validation_sites": [
+      {
+        "function_rva": 4176,
+        "status": "confirmed"
+      }
+    ],
+    "relevant_strings": [
+      {
+        "value": "G1v3",
+        "match": "contains",
+        "expected_priority": [
+          "HIGH",
+          "MEDIUM"
+        ]
+      },
+      {
+        "value": "K3y",
+        "match": "contains",
+        "expected_priority": [
+          "HIGH",
+          "MEDIUM"
+        ]
+      }
+    ],
+    "irrelevant_strings": [
+      {
+        "value": "GetStdHandle",
+        "match": "contains",
+        "reason": "runtime/platform diagnostic or API text is not challenge validation evidence by itself"
+      }
+    ],
+    "techniques": [
+      "console input",
+      "XOR loop",
+      "custom comparison"
+    ],
+    "notes": [
+      "Difficulty is intentionally not normalized from challenge order."
+    ],
+    "review_status": "SINGLE_REVIEW",
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "FULLY_VISIBLE",
+    "input_sources_ground_truth": [],
+    "static_slice_ground_truth": []
+  }
+}

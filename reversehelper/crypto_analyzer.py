@@ -10,7 +10,6 @@ from capstone.x86 import X86_OP_IMM, X86_OP_MEM, X86_REG_INVALID
 from .addressing import file_offset_to_location
 from .disassembler import iter_instruction_details
 from .findings import Finding, Instruction
-from .instruction_context import follows as _follows, section_name as _section_name
 
 
 AES_SBOX = bytes.fromhex(
@@ -74,6 +73,21 @@ def find_crypto_constants(data: bytes) -> list[dict[str, Any]]:
 
 def _immediate_values(decoded: Any) -> set[int]:
     return {int(operand.imm) for operand in decoded.operands if operand.type == X86_OP_IMM}
+
+
+def _section_name(rva: int, sections: list[dict[str, Any]]) -> str | None:
+    for section in sections:
+        start = int(section["virtual_address"])
+        if start <= rva < start + int(section["raw_size"]):
+            return str(section["name"])
+    return None
+
+
+def _follows(previous: Instruction, current: Instruction) -> bool:
+    return (
+        current.address == previous.address + previous.size
+        and current.file_offset == previous.file_offset + previous.size
+    )
 
 
 def _nearby_records(

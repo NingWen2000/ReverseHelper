@@ -1,0 +1,45 @@
+{
+  "status": "ok",
+  "ordered_targets": [],
+  "first_critical_function_rank": null,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "start_here_rva": null,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 0,
+    "unadjudicated_promotions": 0
+  },
+  "warnings": [
+    {
+      "module": "strings",
+      "error_type": "BudgetLimit",
+      "reason": "String count or byte scan budget reached; unscanned strings remain unknown."
+    },
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 988.49,
+  "instruction_count": 32768,
+  "wall_elapsed_ms": 1159.63,
+  "challenge_id": "flareon2015-08",
+  "name": "gdssagh",
+  "split": "development",
+  "failure_category": "PACKED"
+}

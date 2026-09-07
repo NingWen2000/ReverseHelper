@@ -1,0 +1,156 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 5216,
+      "va": 4199520,
+      "function": "_main",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 24,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Retained symbol identifies _main as a program-level entry controller"
+    },
+    {
+      "rva": 5456,
+      "va": 4199760,
+      "function": "__setargv",
+      "type": "INPUT",
+      "score": 22,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x30A0; argument linkage unknown; Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 9536,
+      "va": 4203840,
+      "function": "FUN_402540",
+      "type": "COMPARE",
+      "score": 20,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x2280; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x2609; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 10256,
+      "va": 4204560,
+      "function": "FUN_402810",
+      "type": "COMPARE",
+      "score": 20,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x2540; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x2A93; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 8832,
+      "va": 4203136,
+      "function": "FUN_402280",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x2351; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 7696,
+      "va": 4202000,
+      "function": "FUN_401E10",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 33100,
+      "va": 4227404,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    }
+  ],
+  "first_critical_function_rank": 1,
+  "top_1_hit": true,
+  "top_3_hit": true,
+  "top_5_hit": true,
+  "ranking_eligible": true,
+  "start_here_rva": null,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 6,
+    "unadjudicated_promotions": 6
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 78,
+      "LIKELY": 14,
+      "HEURISTIC": 1
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 12,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    }
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 247.65,
+  "instruction_count": 3844,
+  "input_source_count": 1,
+  "static_slice_count": 0,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 275.32,
+  "challenge_id": "reverse-engineering-ctfs-00",
+  "name": "Let it cook",
+  "split": "evaluation",
+  "tier": "A",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "FULLY_VISIBLE",
+  "binary_size_bytes": 51355,
+  "failure_category": null
+}

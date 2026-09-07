@@ -30,6 +30,8 @@ reports/*
 !reports/.gitkeep
 samples/*
 !samples/README.md
+benchmarks/samples/
+benchmarks/.tools/
 *.exe
 *.dll
 *.sys

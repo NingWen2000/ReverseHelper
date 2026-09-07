@@ -62,4 +62,4 @@ The full path is intentionally heavier because it disassembles executable raw se
 
 ## Release gate
 
-Code, tests, sample analysis, reports, package metadata and documentation are complete for v0.1.0. Live Ghidra import and x64dbg/x32dbg script loading remain explicitly documented external-tool validation limitations rather than unfinished source work.
+Code, tests, sample analysis, reports, package metadata and documentation are complete for the local v0.1.0 product. Live Ghidra import and x64dbg/x32dbg script loading remain explicitly documented environment limitations rather than unfinished source work. No commit, push, tag or release was performed during this phase.

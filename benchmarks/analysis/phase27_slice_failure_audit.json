@@ -1,0 +1,170 @@
+{
+  "schema_version": "reversehelper-phase27a-slice-failure-audit-1",
+  "dataset": "public-ctf-v0.3-phase-2.6-final",
+  "baseline_result": "benchmarks/results/phase26-final/summary.json",
+  "audited_at": "2026-09-05",
+  "unit": "one unresolved actionable-slice ground-truth validation sink",
+  "method": "Current Phase 2.6 output was compared sink-by-sink with frozen ground truth, current function boundaries, input traces, CompareSite, DecisionSite, ValidationCandidate, StaticFlowBreak and START HERE. The already-actionable flareon2017-03 sink at RVA 0x11E6 is excluded.",
+  "ground_truth_ambiguous_count": 0,
+  "limitations": [
+    "Seventeen of the nineteen sink records still depend on a single-maintainer address review even where an official solution is cited.",
+    "Counts are sink-level: flareon2018-10 contributes four validation sinks and flareon2016-04 and flareon2015-02 contribute two each.",
+    "real_flow_edges_found counts only edges judged relevant to the audited ground-truth path, not every trace edge emitted for the binary.",
+    "No sample was executed and no runtime-unpacked image was analyzed."
+  ],
+  "flow_break_near_rule": "NEAR means the emitted break is in the same ground-truth logical function or at an immediately adjacent critical call, but does not identify the exact first broken edge. WRONG means it follows a different input/object path or points outside that neighborhood.",
+  "records": [
+    {
+      "challenge": "flareon2015-02", "sink_rva": "0x1000", "tier": "A", "architecture": "x86", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "ReadFile at RVA 0x1046 writes global buffer RVA 0x2159", "transform_chain": ["controller consumes the global buffer"], "validation_sink": "controller RVA 0x1000", "critical_functions": ["0x1000", "0x1084"]},
+      "reversehelper": {"input_detected": true, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 2, "publication_block_reason": "NO_COMPARE_OR_VALIDATION_SINK", "flow_break_quality": "NONE", "start_here_useful": true, "function_boundary": {"exists": true, "correct": false, "chunk_complete": false, "runtime_likelihood_correct": false, "eligible_for_ranking": false}},
+      "first_broken_edge": {"from": "ground-truth controller entry 0x1000", "to": "input-owning body 0x1001", "instruction": "entry byte at RVA 0x1000 followed by the recovered body at 0x1001", "reason": "FunctionIndex splits the one-byte entry from the input-owning body, so controller identity is lost before validation semantics are considered."},
+      "primary_failure_category": "FUNCTION_BOUNDARY", "secondary_failure_categories": ["STATIC_LINKED_COMPARE"], "repairability": "MEDIUM", "estimated_complexity": "M", "expected_product_value": "MEDIUM", "failure_funnel_stage": "B",
+      "notes": "START HERE 0x1001 is manually useful despite failing the frozen exact-start match."
+    },
+    {
+      "challenge": "flareon2015-02", "sink_rva": "0x1084", "tier": "A", "architecture": "x86", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "ReadFile global buffer from controller RVA 0x1001", "transform_chain": ["global buffer passed as direct-call argument 1"], "validation_sink": "custom comparison helper RVA 0x1084", "critical_functions": ["0x1000", "0x1084"]},
+      "reversehelper": {"input_detected": true, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 2, "publication_block_reason": "COMPARE_SITE_NOT_EMITTED", "flow_break_quality": "NONE", "start_here_useful": true, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "direct argument arriving at helper 0x1084", "to": "helper comparison result", "instruction": "CMP observed at RVA 0x1093", "reason": "The source-reachable custom/static-linked comparator is present, but no supported CompareSite is emitted."},
+      "primary_failure_category": "STATIC_LINKED_COMPARE", "secondary_failure_categories": ["ARGUMENT_MAPPING"], "repairability": "HIGH", "estimated_complexity": "M", "expected_product_value": "HIGH", "failure_funnel_stage": "C",
+      "notes": "The input trace already visits 0x1084; adding broader propagation before comparator recognition would not address the first break."
+    },
+    {
+      "challenge": "flareon2015-04", "sink_rva": "0x1442", "tier": "C", "architecture": "x86", "static_visibility": "PACKED_OR_TRANSFORMED",
+      "ground_truth": {"input_source": "input becomes recoverable only after runtime unpacking", "transform_chain": ["runtime unpacking"], "validation_sink": "unpacked password check RVA 0x1442", "critical_functions": ["packed stub 0xB440", "unpacked 0x1442"]},
+      "reversehelper": {"input_detected": false, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 0, "publication_block_reason": "VALIDATION_CODE_ABSENT_FROM_STATIC_IMAGE", "flow_break_quality": "NONE", "start_here_useful": true, "function_boundary": {"exists": false, "correct": false, "chunk_complete": false, "runtime_likelihood_correct": false, "eligible_for_ranking": false}},
+      "first_broken_edge": {"from": "packed on-disk image", "to": "runtime-unpacked input/validation code", "instruction": "runtime unpack transition; no stable on-disk instruction at RVA 0x1442", "reason": "The ground-truth validation implementation is not reliably present in the original static surface."},
+      "primary_failure_category": "STATIC_NOT_VISIBLE", "secondary_failure_categories": [], "repairability": "OUT_OF_SCOPE", "estimated_complexity": "XL", "expected_product_value": "LOW", "failure_funnel_stage": "G",
+      "notes": "The packed-stub START HERE is useful, but a static slice to unpacked code would be fabricated."
+    },
+    {
+      "challenge": "flareon2015-05", "sink_rva": "0x1100", "tier": "B", "architecture": "x86", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "ReadFile writes stack input in controller RVA 0x1100", "transform_chain": ["transform 0x1250", "hash/encoding 0x12A0", "optimized constraints"], "validation_sink": "constraint controller RVA 0x1100", "critical_functions": ["0x1100", "0x1250", "0x12A0"]},
+      "reversehelper": {"input_detected": true, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 2, "publication_block_reason": "COMPARE_SITE_NOT_EMITTED", "flow_break_quality": "NONE", "start_here_useful": true, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "source-reachable optimized constraint operands in 0x1100", "to": "semantic validation compare", "instruction": "six raw CMP/TEST observations in the 0x1100 trace", "reason": "Raw comparisons are observed in the correct function but none meets supported optimized CompareSite semantics."},
+      "primary_failure_category": "OPTIMIZED_COMPARE", "secondary_failure_categories": ["OPTIMIZATION_ARTIFACT"], "repairability": "MEDIUM", "estimated_complexity": "L", "expected_product_value": "HIGH", "failure_funnel_stage": "C",
+      "notes": "The loss is before publication; lowering a threshold cannot create the missing CompareSite."
+    },
+    {
+      "challenge": "flareon2015-09", "sink_rva": "0x1495", "tier": "B", "architecture": "x86", "static_visibility": "PARTIALLY_VISIBLE",
+      "ground_truth": {"input_source": "ReadFile global buffer at RVA 0x1001", "transform_chain": ["global buffer passed directly to custom checker"], "validation_sink": "custom validation RVA 0x1495", "critical_functions": ["0x1001", "0x1495"]},
+      "reversehelper": {"input_detected": true, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 1, "publication_block_reason": "COMPARE_SITE_NOT_EMITTED", "flow_break_quality": "NONE", "start_here_useful": true, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "direct source argument entering 0x1495", "to": "custom comparison result", "instruction": "raw comparison observed inside function 0x1495", "reason": "The input reaches the confirmed checker, but its static-linked/custom comparison is not recognized as a CompareSite."},
+      "primary_failure_category": "STATIC_LINKED_COMPARE", "secondary_failure_categories": ["GLOBAL_FLOW", "OPTIMIZATION_ARTIFACT"], "repairability": "HIGH", "estimated_complexity": "M", "expected_product_value": "HIGH", "failure_funnel_stage": "C",
+      "notes": "Partial visibility adds uncertainty after this point, but it is not the first break."
+    },
+    {
+      "challenge": "flareon2016-01", "sink_rva": "0x1420", "tier": "A", "architecture": "x86", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "ReadFile writes stack input in main RVA 0x1420", "transform_chain": ["modify_password RVA 0x1260", "transformed return consumed by main"], "validation_sink": "strcmp outcome controller RVA 0x1420", "critical_functions": ["0x1260", "0x1420"]},
+      "reversehelper": {"input_detected": true, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 8, "publication_block_reason": "COMPARATOR_THUNK_NOT_RESOLVED_AS_COMPARE", "flow_break_quality": "NONE", "start_here_useful": true, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "transformed password in main 0x1420", "to": "strcmp result/branch", "instruction": "strcmp/static thunk call in controller 0x1420", "reason": "The trace reaches the transform and controller, but the comparator thunk is not converted into a CompareSite."},
+      "primary_failure_category": "STATIC_LINKED_COMPARE", "secondary_failure_categories": ["THUNK_CHAIN", "RETURN_FLOW"], "repairability": "HIGH", "estimated_complexity": "M", "expected_product_value": "HIGH", "failure_funnel_stage": "C",
+      "notes": "Seven raw comparisons do not substitute for recognizing the ground-truth strcmp outcome."
+    },
+    {
+      "challenge": "flareon2016-03", "sink_rva": "0x27A0", "tier": "B", "architecture": "x86", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "command-line password consumed by challenge main RVA 0x27A0", "transform_chain": ["password hash", "byte comparison loops at 0x2A10 and 0x2A8A"], "validation_sink": "hash controller RVA 0x27A0", "critical_functions": ["0x27A0"]},
+      "reversehelper": {"input_detected": false, "compare_detected": true, "decision_detected": true, "validation_detected": true, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 0, "publication_block_reason": "GROUND_TRUTH_INPUT_PROVENANCE_MISSING", "flow_break_quality": "NONE", "start_here_useful": false, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "process command-line/argv object", "to": "password value in main 0x27A0", "instruction": "optimized argv access at the CRT-to-main boundary", "reason": "Only unrelated ReadConsole/ReadFile sources in 0x5C78 are emitted; the actual password input object is absent."},
+      "primary_failure_category": "INPUT_SOURCE_MISSED", "secondary_failure_categories": ["ARGUMENT_MAPPING", "OPTIMIZATION_ARTIFACT"], "repairability": "HIGH", "estimated_complexity": "S", "expected_product_value": "HIGH", "failure_funnel_stage": "A",
+      "notes": "This is one of two audited sinks where validation is correctly promoted but cannot be linked to input."
+    },
+    {
+      "challenge": "flareon2016-04", "sink_rva": "0x2F50", "tier": "B", "architecture": "x86", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "argument supplied by an external caller to ordinal 50", "transform_chain": ["ordinal-export crypto pipeline", "stage seeded by ordinal 48"] , "validation_sink": "ordinal 50 export RVA 0x2F50", "critical_functions": ["0x2390", "0x2F50"]},
+      "reversehelper": {"input_detected": false, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 0, "publication_block_reason": "NO_MODULE_BOUNDARY_INPUT_SOURCE", "flow_break_quality": "NONE", "start_here_useful": false, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "external caller", "to": "ordinal 50 parameter at 0x2F50", "instruction": "module-boundary parameter at export RVA 0x2F50", "reason": "Exported function arguments are not modeled as input sources."},
+      "primary_failure_category": "INPUT_SOURCE_MISSED", "secondary_failure_categories": ["ARGUMENT_MAPPING", "RETURN_FLOW"], "repairability": "HIGH", "estimated_complexity": "S", "expected_product_value": "HIGH", "failure_funnel_stage": "A",
+      "notes": "The function boundary exists; propagation cannot begin without a source seed."
+    },
+    {
+      "challenge": "flareon2016-04", "sink_rva": "0x2E70", "tier": "B", "architecture": "x86", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "argument supplied by an external caller to ordinal 51", "transform_chain": ["ordinal-export crypto pipeline", "stage seeded by ordinal 48"], "validation_sink": "ordinal 51 export RVA 0x2E70", "critical_functions": ["0x2390", "0x2E70"]},
+      "reversehelper": {"input_detected": false, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 0, "publication_block_reason": "NO_MODULE_BOUNDARY_INPUT_SOURCE", "flow_break_quality": "NONE", "start_here_useful": false, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "external caller", "to": "ordinal 51 parameter at 0x2E70", "instruction": "module-boundary parameter at export RVA 0x2E70", "reason": "Exported function arguments are not modeled as input sources."},
+      "primary_failure_category": "INPUT_SOURCE_MISSED", "secondary_failure_categories": ["ARGUMENT_MAPPING", "RETURN_FLOW"], "repairability": "HIGH", "estimated_complexity": "S", "expected_product_value": "HIGH", "failure_funnel_stage": "A",
+      "notes": "This shares one engineering cause with the ordinal 50 sink but remains a distinct FN sink."
+    },
+    {
+      "challenge": "flareon2016-05", "sink_rva": "0x2F30", "tier": "C", "architecture": "x86", "static_visibility": "PARTIALLY_VISIBLE",
+      "ground_truth": {"input_source": "argv[1] in main RVA 0x2F30", "transform_chain": ["VM stage 0x1610", "MD5", "RC4"], "validation_sink": "VM/validation controller RVA 0x2F30", "critical_functions": ["0x1610", "0x2F30"]},
+      "reversehelper": {"input_detected": true, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 4, "publication_block_reason": "NO_SUPPORTED_VM_OR_OPTIMIZED_COMPARE", "flow_break_quality": "NONE", "start_here_useful": false, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "source-reachable VM/helper arguments", "to": "validation compare in controller 0x2F30", "instruction": "optimized/VM comparison sequence in 0x2F30", "reason": "Input reaches helper arguments, but VM/optimized value semantics do not yield a CompareSite."},
+      "primary_failure_category": "OPTIMIZED_COMPARE", "secondary_failure_categories": ["POINTER_ALIAS", "OPTIMIZATION_ARTIFACT"], "repairability": "LOW", "estimated_complexity": "XL", "expected_product_value": "LOW", "failure_funnel_stage": "C",
+      "notes": "This is not a suitable generic optimized-compare starter case because VM semantics dominate the cost and false-positive risk."
+    },
+    {
+      "challenge": "flareon2017-03", "sink_rva": "0x1000", "tier": "B", "architecture": "x86", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "recv in socket routine RVA 0x1121", "transform_chain": ["stack argument into controller body 0x1008", "XOR at 0x103B", "ADD at 0x103D", "store at 0x1040"], "validation_sink": "decode/branch controller RVA 0x1000", "critical_functions": ["0x1000", "0x1121", "0x11E6"]},
+      "reversehelper": {"input_detected": true, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": "emitted at 0x1040 toward checksum 0x11E6", "real_flow_edges_found": 4, "publication_block_reason": "CONTROLLER_IDENTITY_SPLIT_AND_NO_COMPARE", "flow_break_quality": "NEAR", "start_here_useful": true, "function_boundary": {"exists": true, "correct": false, "chunk_complete": false, "runtime_likelihood_correct": false, "eligible_for_ranking": false}},
+      "first_broken_edge": {"from": "entry/controller 0x1000", "to": "logical controller body 0x1008", "instruction": "entry range 0x1000-0x1007 followed by separately indexed body 0x1008", "reason": "The ground-truth controller is split before the correctly recovered transform chain can be attributed to sink 0x1000."},
+      "primary_failure_category": "FUNCTION_BOUNDARY", "secondary_failure_categories": ["STACK_ALIAS", "COMPARE_NOT_DETECTED"], "repairability": "MEDIUM", "estimated_complexity": "M", "expected_product_value": "MEDIUM", "failure_funnel_stage": "B",
+      "notes": "The emitted break is NEAR for this sink because it is inside the logical controller and at the adjacent checksum call, but it is not the first controller-identity break. The 0x11E6 sink itself is already actionable and is excluded from this audit."
+    },
+    {
+      "challenge": "flareon2017-04", "sink_rva": "0x14E20", "tier": "B", "architecture": "x86", "static_visibility": "PARTIALLY_VISIBLE",
+      "ground_truth": {"input_source": "filename/window/file objects from GUI and ReadFile helpers", "transform_chain": ["file/global object", "derived registry-key routine 0x14BAC"], "validation_sink": "filename scanning/check loop RVA 0x14E20", "critical_functions": ["0x13C0C", "0x14BAC", "0x14E20"]},
+      "reversehelper": {"input_detected": true, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": "emitted at unrelated GUI-path indirect call RVA 0x234F", "real_flow_edges_found": 2, "publication_block_reason": "DISTANT_GLOBAL_OBJECT_NOT_PROPAGATED", "flow_break_quality": "WRONG", "start_here_useful": false, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "source-reachable file/global object", "to": "consumer/checker RVA 0x14E20", "instruction": "cross-function global/object handoff into the distant checker", "reason": "The checker exists, but the relevant global/file identity is not carried to its consumer."},
+      "primary_failure_category": "GLOBAL_FLOW", "secondary_failure_categories": ["INDIRECT_CALL", "POINTER_ALIAS"], "repairability": "LOW", "estimated_complexity": "XL", "expected_product_value": "MEDIUM", "failure_funnel_stage": "B",
+      "notes": "The emitted 0x234F break proves a different GUI buffer path and is therefore WRONG for this ground-truth sink."
+    },
+    {
+      "challenge": "flareon2017-06", "sink_rva": "0x5A50", "tier": "C", "architecture": "x86", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "date-derived object at RVA 0x4710", "transform_chain": ["setup/decryption 0x5D30", "XOR routine 0x5C40"], "validation_sink": "exported challenge logic RVA 0x5A50", "critical_functions": ["0x4710", "0x5A50", "0x5C40", "0x5D30"]},
+      "reversehelper": {"input_detected": false, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 0, "publication_block_reason": "DATE_DERIVED_INPUT_NOT_MODELED", "flow_break_quality": "NONE", "start_here_useful": false, "function_boundary": {"exists": false, "correct": false, "chunk_complete": false, "runtime_likelihood_correct": false, "eligible_for_ranking": false}},
+      "first_broken_edge": {"from": "system date/time API result", "to": "date-derived challenge value in RVA 0x4710", "instruction": "date-object construction in input routine 0x4710", "reason": "Only unrelated GetCommandLine sources at 0xAC3C are emitted; the semantic date input is not seeded."},
+      "primary_failure_category": "INPUT_SOURCE_MISSED", "secondary_failure_categories": ["RETURN_FLOW", "FUNCTION_BOUNDARY"], "repairability": "MEDIUM", "estimated_complexity": "M", "expected_product_value": "MEDIUM", "failure_funnel_stage": "A",
+      "notes": "The validation code is static-visible; this is not a packed-code excuse."
+    },
+    {
+      "challenge": "flareon2018-10", "sink_rva": "0x1E40", "tier": "B", "architecture": "x86-64", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "argv[1] loaded in main before checker calls", "transform_chain": ["direct call at 0x1D3A"], "validation_sink": "check_flag_part1 RVA 0x1E40", "critical_functions": ["0x1C10", "0x1E40"]},
+      "reversehelper": {"input_detected": false, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 0, "publication_block_reason": "ONLY_POST_CHECKER_ARGV_LOAD_DETECTED", "flow_break_quality": "NONE", "start_here_useful": false, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "early argv[1] load in main", "to": "argument of direct CALL 0x1D3A to 0x1E40", "instruction": "direct CALL RVA 0x1D3A -> 0x1E40", "reason": "ReverseHelper recognizes only a later argv[1] load at 0x1E15, after all four checker calls, so no provenance reaches this already-resolved direct edge."},
+      "primary_failure_category": "INPUT_SOURCE_MISSED", "secondary_failure_categories": ["X64_REGISTER_ARGUMENT", "COMPARE_NOT_DETECTED"], "repairability": "HIGH", "estimated_complexity": "S", "expected_product_value": "HIGH", "failure_funnel_stage": "A",
+      "notes": "Current PE exception boundaries and the direct call relation are correct; the old FUNCTION_CHUNK label is rejected."
+    },
+    {
+      "challenge": "flareon2018-10", "sink_rva": "0x1F20", "tier": "B", "architecture": "x86-64", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "argv[1] loaded in main before checker calls", "transform_chain": ["direct call at 0x1D5B"], "validation_sink": "check_flag_part2 RVA 0x1F20", "critical_functions": ["0x1C10", "0x1F20"]},
+      "reversehelper": {"input_detected": false, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 0, "publication_block_reason": "ONLY_POST_CHECKER_ARGV_LOAD_DETECTED", "flow_break_quality": "NONE", "start_here_useful": false, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "early argv[1] load in main", "to": "argument of direct CALL 0x1D5B to 0x1F20", "instruction": "direct CALL RVA 0x1D5B -> 0x1F20", "reason": "The only detected argv source is the later 0x1E15 load and cannot seed the earlier call."},
+      "primary_failure_category": "INPUT_SOURCE_MISSED", "secondary_failure_categories": ["X64_REGISTER_ARGUMENT", "COMPARE_NOT_DETECTED"], "repairability": "HIGH", "estimated_complexity": "S", "expected_product_value": "HIGH", "failure_funnel_stage": "A",
+      "notes": "The checker has a confirmed 0x1F20-0x1FEF runtime-function boundary."
+    },
+    {
+      "challenge": "flareon2018-10", "sink_rva": "0x2000", "tier": "B", "architecture": "x86-64", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "argv[1] loaded in main before checker calls", "transform_chain": ["direct call at 0x1D7C"], "validation_sink": "check_flag_part3 RVA 0x2000", "critical_functions": ["0x1C10", "0x2000"]},
+      "reversehelper": {"input_detected": false, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 0, "publication_block_reason": "ONLY_POST_CHECKER_ARGV_LOAD_DETECTED", "flow_break_quality": "NONE", "start_here_useful": false, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "early argv[1] load in main", "to": "argument of direct CALL 0x1D7C to 0x2000", "instruction": "direct CALL RVA 0x1D7C -> 0x2000", "reason": "The only detected argv source is the later 0x1E15 load and cannot seed the earlier call."},
+      "primary_failure_category": "INPUT_SOURCE_MISSED", "secondary_failure_categories": ["X64_REGISTER_ARGUMENT", "COMPARE_NOT_DETECTED"], "repairability": "HIGH", "estimated_complexity": "S", "expected_product_value": "HIGH", "failure_funnel_stage": "A",
+      "notes": "The checker has a confirmed 0x2000-0x20CF runtime-function boundary."
+    },
+    {
+      "challenge": "flareon2018-10", "sink_rva": "0x20E0", "tier": "B", "architecture": "x86-64", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "argv[1] loaded in main before checker calls", "transform_chain": ["direct call at 0x1D9D"], "validation_sink": "check_flag_part4 RVA 0x20E0", "critical_functions": ["0x1C10", "0x20E0"]},
+      "reversehelper": {"input_detected": false, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 0, "publication_block_reason": "ONLY_POST_CHECKER_ARGV_LOAD_DETECTED", "flow_break_quality": "NONE", "start_here_useful": false, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "early argv[1] load in main", "to": "argument of direct CALL 0x1D9D to 0x20E0", "instruction": "direct CALL RVA 0x1D9D -> 0x20E0", "reason": "The only detected argv source is the later 0x1E15 load and cannot seed the earlier call."},
+      "primary_failure_category": "INPUT_SOURCE_MISSED", "secondary_failure_categories": ["X64_REGISTER_ARGUMENT", "COMPARE_NOT_DETECTED"], "repairability": "HIGH", "estimated_complexity": "S", "expected_product_value": "HIGH", "failure_funnel_stage": "A",
+      "notes": "The checker has a confirmed 0x20E0-0x21AF runtime-function boundary."
+    },
+    {
+      "challenge": "aviv-re-challenge-01", "sink_rva": "0x1350", "tier": "B", "architecture": "x86", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "argv password documented by author source", "transform_chain": ["MD5", "hex decoding", "four strcmp decisions"], "validation_sink": "_main RVA 0x1350", "critical_functions": ["0x1350"]},
+      "reversehelper": {"input_detected": false, "compare_detected": true, "decision_detected": true, "validation_detected": true, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 0, "publication_block_reason": "GROUND_TRUTH_INPUT_PROVENANCE_MISSING", "flow_break_quality": "NONE", "start_here_useful": false, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "CRT argv parameter", "to": "password object in _main 0x1350", "instruction": "optimized argv access in author-confirmed _main", "reason": "Four validation candidates are correctly promoted, but no InputSource is emitted for the optimized argv access."},
+      "primary_failure_category": "INPUT_SOURCE_MISSED", "secondary_failure_categories": ["ARGUMENT_MAPPING", "OPTIMIZATION_ARTIFACT"], "repairability": "HIGH", "estimated_complexity": "S", "expected_product_value": "HIGH", "failure_funnel_stage": "A",
+      "notes": "This is the cleanest source-side case because validation recognition is already complete and author source confirms the chain."
+    },
+    {
+      "challenge": "replay-level-01", "sink_rva": "0x1E260", "tier": "B", "architecture": "x86-64", "static_visibility": "FULLY_VISIBLE",
+      "ground_truth": {"input_source": "GUI/license input", "transform_chain": ["GUI wrapper/callback path", "integer license authentication"], "validation_sink": "authentication RVA 0x1E260", "critical_functions": ["0x1E260"]},
+      "reversehelper": {"input_detected": false, "compare_detected": false, "decision_detected": false, "validation_detected": false, "slice_status": "UNRESOLVED", "flow_break": null, "real_flow_edges_found": 0, "publication_block_reason": "REAL_GUI_SOURCE_AND_WRAPPER_PATH_NOT_RECOVERED", "flow_break_quality": "NONE", "start_here_useful": false, "function_boundary": {"exists": true, "correct": true, "chunk_complete": true, "runtime_likelihood_correct": true, "eligible_for_ranking": true}},
+      "first_broken_edge": {"from": "GUI control/callback input", "to": "application license value", "instruction": "GUI input wrapper before the indirect path to 0x1E260", "reason": "The only detected source is unrelated argv at 0x60D0; the real GUI source/wrapper is absent before indirect-call resolution can matter."},
+      "primary_failure_category": "INPUT_WRAPPER_MISSED", "secondary_failure_categories": ["INDIRECT_CALL", "BUDGET_LIMIT", "X64_REGISTER_ARGUMENT"], "repairability": "LOW", "estimated_complexity": "XL", "expected_product_value": "MEDIUM", "failure_funnel_stage": "A",
+      "notes": "The old INDIRECT_CALL primary is demoted: resolving a downstream call still would not seed the real input object."
+    }
+  ]
+}

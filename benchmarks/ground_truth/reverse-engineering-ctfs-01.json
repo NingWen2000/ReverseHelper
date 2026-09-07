@@ -1,0 +1,32 @@
+{
+  "schema_version": "reversehelper-ground-truth-2",
+  "challenge_id": "reverse-engineering-ctfs-01",
+  "ground_truth": {
+    "review_status": "SINGLE_REVIEW",
+    "reviewed_at": "2026-09-04",
+    "review_method": "Repository challenge brief and independent header inspection.",
+    "sources": [
+      {
+        "url": "https://github.com/InfectedCapstone/Reverse_Engineering_CTFs",
+        "kind": "challenge-repository"
+      }
+    ],
+    "critical_functions": [],
+    "validation_functions": [],
+    "relevant_strings": [],
+    "irrelevant_strings": [],
+    "techniques": [
+      "corrupted file signature"
+    ],
+    "notes": [
+      "The sample begins with PZ instead of MZ and is retained as a parser-boundary case."
+    ],
+    "reviewer_notes": [
+      "Phase 2.6 metadata review checked critical_functions, validation_functions, input evidence and static visibility against the retained source citations.",
+      "No second independent human reviewer was available; SINGLE_REVIEW records remain SINGLE_REVIEW."
+    ],
+    "static_visibility": "UNKNOWN",
+    "input_sources_ground_truth": [],
+    "static_slice_ground_truth": []
+  }
+}

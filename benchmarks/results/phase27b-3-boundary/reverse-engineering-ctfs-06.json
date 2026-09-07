@@ -1,0 +1,114 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 251856,
+      "va": 5368960976,
+      "function": "FUN_14003D7D0",
+      "type": "PACKING",
+      "score": 30,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "Strong packing indicators make the entry stub the first static review target"
+    },
+    {
+      "rva": 251968,
+      "va": 5368961088,
+      "function": "FUN_14003D840",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    }
+  ],
+  "first_critical_function_rank": 1,
+  "top_1_hit": true,
+  "top_3_hit": true,
+  "top_5_hit": true,
+  "ranking_eligible": true,
+  "start_here_rva": 251856,
+  "start_here_hit": true,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 0,
+    "unadjudicated_promotions": 0
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 4,
+      "HEURISTIC": 3
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 0,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 0,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": true,
+  "limited_visibility_predicted": true,
+  "warnings": [
+    {
+      "module": "strings",
+      "error_type": "BudgetLimit",
+      "reason": "String count or byte scan budget reached; unscanned strings remain unknown."
+    },
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 981.83,
+  "instruction_count": 26724,
+  "input_source_count": 0,
+  "static_slice_count": 0,
+  "static_flow_break_count": 0,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 1196.25,
+  "challenge_id": "reverse-engineering-ctfs-06",
+  "name": "Mr. UPX and Fuzzy",
+  "split": "evaluation",
+  "tier": "C",
+  "packed_expected": true,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "PACKED_OR_TRANSFORMED",
+  "binary_size_bytes": 123199,
+  "failure_category": null
+}

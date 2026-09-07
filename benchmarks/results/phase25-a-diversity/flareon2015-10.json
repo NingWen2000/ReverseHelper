@@ -1,0 +1,242 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 18528,
+      "va": 4212832,
+      "function": "FUN_404860",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x4879; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 109867,
+      "va": 4304171,
+      "function": "FUN_41AD2B",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1AD8A; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 119674,
+      "va": 4313978,
+      "function": "FUN_41D37A",
+      "type": "COMPARE",
+      "score": 24,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1D3A9"
+    },
+    {
+      "rva": 49248,
+      "va": 4243552,
+      "function": "FUN_40C060",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 49888,
+      "va": 4244192,
+      "function": "FUN_40C2E0",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 155508,
+      "va": 4349812,
+      "function": null,
+      "type": "PACKING",
+      "score": 10,
+      "confidence": "low",
+      "target_kind": "code_location",
+      "reason": "Structural packing indicators justify reviewing the entry point; packing is not proven."
+    },
+    {
+      "rva": 785776,
+      "va": 4980080,
+      "function": null,
+      "type": "KEY_TABLE",
+      "score": 8,
+      "confidence": "low",
+      "target_kind": "data",
+      "reason": "Known constant bytes or a direct reference; algorithm use and buffer role are unproven."
+    },
+    {
+      "rva": 15641,
+      "va": 4209945,
+      "function": "FUN_403D19",
+      "type": "ANTI_DEBUG",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 17142,
+      "va": 4211446,
+      "function": "FUN_4042F6",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 17227,
+      "va": 4211531,
+      "function": "FUN_40434B",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 17877,
+      "va": 4212181,
+      "function": "FUN_4045D5",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x4860; argument linkage unknown"
+    },
+    {
+      "rva": 109557,
+      "va": 4303861,
+      "function": "FUN_41ABF5",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x1AD2B; argument linkage unknown"
+    },
+    {
+      "rva": 119646,
+      "va": 4313950,
+      "function": "FUN_41D35E",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x1D37A; argument linkage unknown"
+    },
+    {
+      "rva": 577996,
+      "va": 4772300,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    },
+    {
+      "rva": 578396,
+      "va": 4772700,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    },
+    {
+      "rva": 578480,
+      "va": 4772784,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    },
+    {
+      "rva": 579376,
+      "va": 4773680,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    }
+  ],
+  "first_critical_function_rank": null,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "ranking_eligible": true,
+  "start_here_rva": 18528,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 3,
+    "fn": 0,
+    "predicted_function_rvas": [
+      18528,
+      109867,
+      119674
+    ],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 0,
+    "unadjudicated_promotions": 0
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 0,
+    "missed_start_rvas": [
+      155508
+    ]
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0
+  },
+  "packed_predicted": false,
+  "warnings": [
+    {
+      "module": "strings",
+      "error_type": "BudgetLimit",
+      "reason": "String count or byte scan budget reached; unscanned strings remain unknown."
+    },
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 1560.76,
+  "instruction_count": 32761,
+  "input_source_count": 10,
+  "static_slice_count": 0,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 1773.76,
+  "challenge_id": "flareon2015-10",
+  "name": "loader",
+  "split": "development",
+  "tier": "C",
+  "packed_expected": true,
+  "review_status": "SINGLE_REVIEW",
+  "binary_size_bytes": 3523584,
+  "failure_category": "PACKED"
+}

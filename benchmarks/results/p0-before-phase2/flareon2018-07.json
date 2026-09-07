@@ -1,0 +1,103 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 6754,
+      "va": 16783970,
+      "function": "FUN_1001A62",
+      "type": "COMPARE",
+      "score": 30,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x1BF5; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 6418,
+      "va": 16783634,
+      "function": "FUN_1001912",
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 5874,
+      "va": 16783090,
+      "function": "FUN_10016F2",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 6098,
+      "va": 16783314,
+      "function": "FUN_10017D2",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 8675,
+      "va": 16785891,
+      "function": "FUN_10021E3",
+      "type": "ANTI_DEBUG",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 4124,
+      "va": 16781340,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    }
+  ],
+  "first_critical_function_rank": null,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "start_here_rva": 6754,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 1,
+    "fn": 0,
+    "predicted_function_rvas": [
+      6754
+    ],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 6,
+    "unadjudicated_promotions": 6
+  },
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 115.44,
+  "instruction_count": 2574,
+  "wall_elapsed_ms": 142.21,
+  "challenge_id": "flareon2018-07",
+  "name": "WorldOfWarcraft",
+  "split": "evaluation",
+  "failure_category": "PACKED"
+}

@@ -52,6 +52,9 @@ class Disassembler:
         sections: list[dict[str, Any]],
         start_rva: int,
         size: int,
+        *,
+        maximum_instructions: int = 0,
+        skip_invalid: bool = False,
     ) -> list[Instruction]:
         if start_rva < 0:
             raise DisassemblyError("Start RVA cannot be negative")
@@ -81,7 +84,10 @@ class Disassembler:
         start_address = self.image_base + start_rva
         instructions: list[Instruction] = []
         try:
-            for decoded in self._engine.disasm(code, start_address):
+            self._engine.skipdata = skip_invalid
+            for decoded in self._engine.disasm(code, start_address, count=maximum_instructions):
+                if decoded.id == 0:
+                    continue
                 delta = int(decoded.address) - start_address
                 instructions.append(
                     Instruction(

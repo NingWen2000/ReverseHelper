@@ -2,9 +2,33 @@
 
 ## 目标与边界
 
-ReverseHelper 负责 PE 文件的静态初筛，目的是把人工逆向前最常查的一组信息统一提取出来，并明确展示规则为什么触发。工具不会加载或执行目标，不尝试自动脱壳，也不把启发式结果包装成确定结论。
+ReverseHelper — Offline-first static reverse engineering workbench for CTF competitors.
 
-## 数据流
+以[产品目标](product-goals.md)为准：面向离线、无 AI、限时的 CTF Reverse 场景，首先缩短 Time To First Critical Function（TTCF）。核心决策围绕 FAST、ACCURATE、OFFLINE、ACTIONABLE；不以检测数量或替代现有反汇编器为目标。
+
+核心不能依赖联网、云端服务、API Key、登录、上传、LLM 或必需遥测。依赖在赛前本地备妥；未来 AI 插件只能是可选扩展。工具不执行目标，动态闭环由 TraceInfer 承担。
+
+本文的数据流和模块清单描述当前 v0.1.0；下面的目标架构为待落实约束，状态与验收见[路线图](roadmap.md)。
+
+## 目标分析架构（待实现）
+
+默认 Quick 应先完成有预算的 Binary Triage、Interesting Strings、Imports、Input Sources、Validation Candidates、基本算法指纹、目标排序和建议静态路径。扫描预算、截断及未运行模块必须进入结果元数据；不能把未扫描范围写成“未发现”。对于普通小于 10 MB 的题目，单独测量启动时间与首次有用结果时间，预算由实测确定。
+
+Deep 由用户主动请求，追加跨函数数据流、CFG、表使用关系、算法结构匹配、验证追踪与调用图分析；不能阻塞或替换已经产生的 Quick 首批结果。已有完整分析管线不自动等于新 Deep Mode。
+
+首屏为 Challenge Summary，按 Binary、Packing、Input、Likely Goal、Top Reverse Targets、Possible Algorithm、Static Flow 和 START HERE 组织。Sections、Imports 明细、Entropy、Resources 和风险评分进入详情。每条建议静态路径说明位置、重要性、证据和下一步检查动作。
+
+## 证据与静态切片约束（待实现）
+
+- 排序以函数或数据对象为目标；仅有调用点地址时明确标注 call site，不能伪造 FUN 名称或边界。按函数归并后再计算 Top-K，避免同一函数多个地址占满榜单。
+- 分数表示分析优先级，置信度表示证据强度，均不自动等于统计概率。展示每项评分贡献、扣分和 finding_ids；单个算法常量不能升级为已确认算法。
+- 输入到验证的边必须注明证据来源，区分数据依赖、控制依赖、调用关系和未证实关联。第一版实现受限、可靠的跨函数简化切片，不要求完整符号执行；别名、间接调用或预算不足时保留断点与未知。
+- Validation 候选逐步补齐 Input、Target、Compare Length、Transform Function、Success Branch、Failure Branch；不能仅按 Jcc 的方向猜成功/失败语义。
+- 字符串智能围绕 flag、correct、wrong、success、failed、password、input、key、invalid、congratulations，建立 String → XREF → Function → Branch → Reverse Target 的证据链。
+- Ghidra 深度集成以 RH_INPUT、RH_VALIDATION、RH_TRANSFORM、RH_CRYPTO、RH_KEY_TABLE、RH_TOP_TARGET 的 Bookmark / Comment / Label 为目标，保留哈希身份检查、RVA 重定位和用户已有标注；需实机验证。
+
+## 当前实现数据流
+
 
 ```text
 目标文件
@@ -63,8 +87,6 @@ ReverseHelper 负责 PE 文件的静态初筛，目的是把人工逆向前最�
 
 分级阈值为 `LOW < 3`、`MEDIUM < 6`、`HIGH < 8`、其余为 `CRITICAL`。这些阈值服务于演示和分析排序，不能用于生产阻断策略。
 
-Target Priority 与风险分数分开计算。`target_ranker.py` 还会读取 Finding 的标题、理由和证据中的关键词，因此修改这些输出文案也可能改变目标评分和排序，不能按纯展示文字处理。
-
 ## 地址与容错
 
 RVA 是静态位置的核心标识。Preferred VA 只用于静态显示，不能当作 ASLR 后的运行时地址；x64 RIP-relative 间接转移解析到的是 pointer slot，不等于最终函数地址。反汇编长度始终受 Section `RawSize` 和文件长度约束，`VirtualSize > RawSize` 的虚拟尾部不会被当作文件字节。
@@ -81,4 +103,4 @@ PE 结构解析失败属于整体失败。字符串、入口、反汇编、控�
 
 ## 扩展方式
 
-新增检测规则时，优先返回规则标识和可复查证据。v0.1.0 不计划引入完整 CFG、SSA、污点或符号执行；需要跨函数语义时，把问题留在 `unresolved_questions`，交给 Ghidra/x64dbg 人工验证。
+新增功能先说明其 TTCF 收益，再提供规则标识、证据和适用范围。当前 v0.1.0 没有完整 CFG、SSA、污点或符号执行，未能证明的问题保留在 `unresolved_questions`。后续受限跨函数切片属于 P0，支撑 Deep 的必要 CFG/调用图可按需引入；独立 Control Flow Assistant、Decompiler Cleanup、Solver Skeleton、ELF、插件框架与高级脱壳/去混淆属于 P2/P3，不能挤占核心交付。

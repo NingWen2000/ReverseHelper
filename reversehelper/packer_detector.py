@@ -139,6 +139,13 @@ def detect_packing(
     else:
         verdict = "no-obvious-indicators"
 
+    limited_visibility = verdict in {"likely-packed", "suspicious"}
+    recommended_steps = [
+        "Inspect the entry stub and identify the transition to the original entry point (OEP).",
+        "Record the unpacked image layout and rebuild or verify imports after the OEP transition.",
+        "Dump the unpacked image in an isolated debugger, then run ReverseHelper again on that dump.",
+    ] if limited_visibility else []
+
     return {
         "verdict": verdict,
         "possible_packers": sorted(packers),
@@ -147,5 +154,8 @@ def detect_packing(
         "overlay_offset": overlay_offset,
         "overlay_size": overlay_size,
         "indicators": indicators,
+        "static_visibility": "limited" if limited_visibility else "normal",
+        "analysis_reliability": "reduced" if limited_visibility else "normal",
+        "recommended_steps": recommended_steps,
         "disclaimer": "Heuristic result only; indicators are not proof that a file is packed or malicious.",
     }

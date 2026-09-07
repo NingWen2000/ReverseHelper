@@ -1,0 +1,1536 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 381888,
+      "va": 5369091008,
+      "function": "FUN_14005D3C0",
+      "type": "COMPARE",
+      "score": 20,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x5BEB0; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x5D587; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 47421,
+      "va": 5368756541,
+      "function": "FUN_14000B93D",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0xC00A; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 79806,
+      "va": 5368788926,
+      "function": "FUN_1400137BE",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x137CB; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 81047,
+      "va": 5368790167,
+      "function": "FUN_140013C97",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x13CA7; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 83072,
+      "va": 5368792192,
+      "function": "FUN_140014480",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x149FA; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 96160,
+      "va": 5368805280,
+      "function": "FUN_1400177A0",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x17966; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 98704,
+      "va": 5368807824,
+      "function": "FUN_140018190",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x18356; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 100352,
+      "va": 5368809472,
+      "function": "FUN_140018800",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x189C6; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 248976,
+      "va": 5368958096,
+      "function": "FUN_14003CC90",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x3CDA5; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 327027,
+      "va": 5369036147,
+      "function": "FUN_14004FD73",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x4FDD9; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 328044,
+      "va": 5369037164,
+      "function": "FUN_14005016C",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x5023D; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 328531,
+      "va": 5369037651,
+      "function": "FUN_140050353",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x503C5; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 348976,
+      "va": 5369058096,
+      "function": "FUN_140055330",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x55345; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 376496,
+      "va": 5369085616,
+      "function": "FUN_14005BEB0",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x5BEDA; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 381632,
+      "va": 5369090752,
+      "function": "FUN_14005D2C0",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x5D30C; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 407867,
+      "va": 5369116987,
+      "function": "FUN_14006393B",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x640D5; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 450112,
+      "va": 5369159232,
+      "function": "FUN_14006DE40",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x6DF4B; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 450432,
+      "va": 5369159552,
+      "function": "FUN_14006DF80",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x6E08B; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 450752,
+      "va": 5369159872,
+      "function": "FUN_14006E0C0",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x6E1CB; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 451072,
+      "va": 5369160192,
+      "function": "FUN_14006E200",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x6E30B; Byte comparison loop has a back edge and iterator progress"
+    }
+  ],
+  "first_critical_function_rank": null,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "ranking_eligible": true,
+  "start_here_rva": null,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 3,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 0,
+    "unadjudicated_promotions": 0
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 1678,
+      "LIKELY": 41,
+      "HEURISTIC": 0
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 34,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 0,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "strings",
+      "error_type": "BudgetLimit",
+      "reason": "String count or byte scan budget reached; unscanned strings remain unknown."
+    },
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    },
+    {
+      "module": "algorithm-recognition",
+      "error_type": "BudgetLimit",
+      "reason": "Algorithm analysis truncated; unexamined functions or instructions remain unknown."
+    },
+    {
+      "module": "control-flow-understanding",
+      "error_type": "BudgetLimit",
+      "reason": "Control-flow analysis truncated; unexamined functions, blocks or targets remain unknown."
+    },
+    {
+      "module": "decompiler-assistance",
+      "error_type": "BudgetLimit",
+      "reason": "Semantic suggestions truncated; lower-ranked suggestions remain outside the Deep output limits."
+    }
+  ],
+  "quick_elapsed_ms": 9754.87,
+  "analysis_elapsed_ms": 9754.87,
+  "instruction_count": 130197,
+  "input_source_count": 0,
+  "static_slice_count": 0,
+  "static_flow_break_count": 0,
+  "algorithms": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 169,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "per_algorithm": {},
+    "predictions": [
+      {
+        "id": "algorithm-0000FE80-rc4",
+        "algorithm": "RC4",
+        "function_rva": 65152,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001C3B0-rc4",
+        "algorithm": "RC4",
+        "function_rva": 115632,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000231D0-rc4",
+        "algorithm": "RC4",
+        "function_rva": 143824,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00030743-rc4",
+        "algorithm": "RC4",
+        "function_rva": 198467,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003D4A0-rc4",
+        "algorithm": "RC4",
+        "function_rva": 251040,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00041EB0-rc4",
+        "algorithm": "RC4",
+        "function_rva": 270000,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000430C0-rc4",
+        "algorithm": "RC4",
+        "function_rva": 274624,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00044EFC-rc4",
+        "algorithm": "RC4",
+        "function_rva": 282364,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004D1B0-rc4",
+        "algorithm": "RC4",
+        "function_rva": 315824,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005FF50-rc4",
+        "algorithm": "RC4",
+        "function_rva": 393040,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0006393B-rc4",
+        "algorithm": "RC4",
+        "function_rva": 407867,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000649D8-rc4",
+        "algorithm": "RC4",
+        "function_rva": 412120,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0006A7F0-rc4",
+        "algorithm": "RC4",
+        "function_rva": 436208,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0006EA40-rc4",
+        "algorithm": "RC4",
+        "function_rva": 453184,
+        "confidence": "HIGH",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00001C70-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 7280,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000039C0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 14784,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00003F70-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 16240,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00005190-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 20880,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00006A62-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 27234,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00009500-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 38144,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000B93D-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 47421,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000C120-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 49440,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000C6A0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 50848,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000E380-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 58240,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000F1A0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 61856,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000F570-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 62832,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000FBD0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 64464,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0000FE80-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 65152,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000107E0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 67552,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00011070-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 69744,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00013D60-custom_word_transform",
+        "algorithm": "CUSTOM_WORD_TRANSFORM",
+        "function_rva": 81248,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00013D60-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 81248,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00013F40-rc4_ksa_candidate",
+        "algorithm": "RC4_KSA_CANDIDATE",
+        "function_rva": 81728,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00013F40-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 81728,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00014480-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 83072,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00014E50-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 85584,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001538C-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 86924,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00015D6A-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 89450,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000172F0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 94960,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000177A0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 96160,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00017E10-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 97808,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00018190-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 98704,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00018800-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 100352,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00019480-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 103552,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00019910-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 104720,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00019C70-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 105584,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001A110-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 106768,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001A360-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 107360,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001A7F0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 108528,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001ACA0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 109728,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001AEF0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 110320,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001B380-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 111488,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001B7D0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 112592,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001BFA0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 114592,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001C3B0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 115632,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001D070-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 118896,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001DED0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 122576,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001E4A0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 124064,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001E940-table_transform",
+        "algorithm": "TABLE_TRANSFORM",
+        "function_rva": 125248,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0001E940-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 125248,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00022300-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 140032,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000228E0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 141536,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000231D0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 143824,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00027293-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 160403,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00027BA5-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 162725,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00028190-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 164240,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00028610-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 165392,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00028F00-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 167680,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00029510-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 169232,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002A5A0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 173472,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002A9E7-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 174567,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002AE9E-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 175774,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002B693-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 177811,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002C59F-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 181663,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002C9EA-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 182762,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002D0B0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 184496,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002DB10-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 187152,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002E62E-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 189998,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002F89B-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 194715,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0002FB20-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 195360,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003005F-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 196703,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00030743-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 198467,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000324E0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 206048,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000331E0-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 209376,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00033A20-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 211488,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00034F70-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 216944,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00037420-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 226336,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00038DF0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 232944,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003AB70-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 240496,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003C480-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 246912,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003C7B0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 247728,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003CC90-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 248976,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003D4A0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 251040,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0003DA50-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 252496,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00040210-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 262672,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00040AE0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 264928,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00041070-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 266352,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00041EB0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 270000,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00042EF0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 274160,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000430C0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 274624,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00044849-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 280649,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00044EFC-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 282364,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000453BF-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 283583,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00046080-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 286848,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00046A9A-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 289434,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00046D4D-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 290125,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004714F-rc4_ksa_candidate",
+        "algorithm": "RC4_KSA_CANDIDATE",
+        "function_rva": 291151,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004714F-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 291151,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004894E-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 297294,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004959B-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 300443,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00049815-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 301077,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004B8A8-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 309416,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004C240-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 311872,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004C5B0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 312752,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004CFC0-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 315328,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004D1B0-custom_word_transform",
+        "algorithm": "CUSTOM_WORD_TRANSFORM",
+        "function_rva": 315824,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004D1B0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 315824,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004E7B0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 321456,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004E9F0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 322032,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0004F300-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 324352,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00050353-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 328531,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00051EE3-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 335587,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00052390-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 336784,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00052670-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 337520,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005556B-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 349547,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000558E0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 350432,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00055E00-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 351744,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000560D0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 352464,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00056BFB-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 355323,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000597E0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 366560,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00059E90-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 368272,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005AFAF-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 372655,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005B330-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 373552,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005B59A-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 374170,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005BB16-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 375574,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005C420-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 377888,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005CF05-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 380677,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005D3C0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 381888,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005DF70-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 384880,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005EA03-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 387587,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005F67A-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 390778,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005FBD0-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 392144,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0005FF50-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 393040,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0006393B-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 407867,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000649D8-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 412120,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00067F2F-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 425775,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-000682FE-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 426750,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00068864-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 428132,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00069536-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 431414,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0006985D-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 432221,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0006A7F0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 436208,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0006AF6D-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 438125,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0006E700-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 452352,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0006EA40-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 453184,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0006F660-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 456288,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0006F800-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 456704,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00070330-repeating_key_xor",
+        "algorithm": "REPEATING_KEY_XOR",
+        "function_rva": 459568,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00071420-rolling_xor",
+        "algorithm": "ROLLING_XOR",
+        "function_rva": 463904,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00079850-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 497744,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00079A80-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 498304,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00079CA0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 498848,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-00079EA0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 499360,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0007A0A0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 499872,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0007A2A0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 500384,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0007A4B0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 500912,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0007A860-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 501856,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0007AED0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 503504,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0007C217-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 508439,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      },
+      {
+        "id": "algorithm-0007D0F0-xor_chain",
+        "algorithm": "XOR_CHAIN",
+        "function_rva": 512240,
+        "confidence": "MEDIUM",
+        "slice_relation": "OFF_SLICE"
+      }
+    ]
+  },
+  "control_flow": {
+    "adjudicated": false,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "on_slice_tp": 0,
+    "on_slice_fp": 0,
+    "unadjudicated_predictions": 0,
+    "dispatcher_correct": 0,
+    "dispatcher_total": 0,
+    "state_exact": 0,
+    "state_same_base": 0,
+    "state_wrong": 0,
+    "state_unknown": 0,
+    "per_kind": {},
+    "predictions": []
+  },
+  "decompiler_assistance": {
+    "adjudicated": false,
+    "role_tp": 0,
+    "role_fp": 0,
+    "role_fn": 0,
+    "rename_tp": 0,
+    "rename_fp": 0,
+    "type": {
+      "EXACT": 0,
+      "COMPATIBLE": 0,
+      "WRONG": 0,
+      "UNKNOWN": 0
+    },
+    "unadjudicated_predictions": 60
+  },
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 10733.14,
+  "challenge_id": "replay-level-01",
+  "name": "REplay Level 1",
+  "split": "evaluation",
+  "tier": "B",
+  "packed_expected": false,
+  "review_status": "OFFICIAL_WP_CONFIRMED",
+  "static_visibility": "FULLY_VISIBLE",
+  "binary_size_bytes": 1351168,
+  "failure_category": "OTHER"
+}

@@ -11,19 +11,19 @@ def test_help_describes_target_and_examples(capsys):
 
     assert exc_info.value.code == 0
     output = capsys.readouterr().out
-    assert "Static Windows PE triage" in output
+    assert "Offline CTF Quick Analysis" in output
     assert "target" in output
     assert "reversehelper sample.exe" in output
     assert "--quick" in output
     assert "--only anomaly" in output
 
 
-def test_version_is_v0_1_0(capsys):
+def test_version_is_v0_2_0_beta_1(capsys):
     with pytest.raises(SystemExit) as exc_info:
         cli.main(["--version"])
 
     assert exc_info.value.code == 0
-    assert capsys.readouterr().out.strip() == "ReverseHelper 0.1.0"
+    assert capsys.readouterr().out.strip() == "ReverseHelper 0.2.0b1"
 
 
 def test_missing_target_shows_usage_without_traceback(capsys):
@@ -36,7 +36,7 @@ def test_missing_target_shows_usage_without_traceback(capsys):
     assert "Traceback" not in error
 
 
-def test_default_command_runs_complete_analyzer_for_path_with_spaces(tmp_path, monkeypatch):
+def test_default_command_runs_quick_analyzer_for_path_with_spaces(tmp_path, monkeypatch):
     target = tmp_path / "path with spaces" / "sample.exe"
     target.parent.mkdir()
     target.write_bytes(b"MZ")
@@ -48,13 +48,13 @@ def test_default_command_runs_complete_analyzer_for_path_with_spaces(tmp_path, m
 
         def analyze(self, path):
             calls.append(path)
-            return {"complete": True}
+            return {"analysis_mode": "quick"}
 
     monkeypatch.setattr(cli, "ReverseHelperAnalyzer", RecordingAnalyzer)
-    monkeypatch.setattr(cli, "print_analysis", lambda result: calls.append(result))
+    monkeypatch.setattr(cli, "print_quick_analysis", lambda result: calls.append(result))
 
     assert cli.main([str(target)]) == 0
-    assert calls == [(4, 2000), Path(target), {"complete": True}]
+    assert calls == [(4, 2000), Path(target), {"analysis_mode": "quick"}]
 
 
 @pytest.mark.parametrize(
@@ -107,13 +107,13 @@ def test_quick_and_only_are_mutually_exclusive(capsys):
     assert "not allowed with argument" in capsys.readouterr().err
 
 
-@pytest.mark.parametrize("mode", [["--quick"], ["--only", "imports"]])
+@pytest.mark.parametrize("mode", [["--only", "imports"]])
 def test_partial_modes_reject_full_report_options(mode, capsys):
     with pytest.raises(SystemExit) as exc_info:
         cli.main(["sample.exe", *mode, "--report"])
 
     assert exc_info.value.code == 2
-    assert "report options require the default full analysis mode" in capsys.readouterr().err
+    assert "report options require Quick Analysis" in capsys.readouterr().err
 
 
 @pytest.mark.parametrize(
@@ -198,7 +198,7 @@ def test_x64dbg_export_uses_ranked_targets_and_module_rva(tmp_path, monkeypatch)
 
 def test_x64dbg_export_rejects_incompatible_modes_and_suffix(capsys):
     with pytest.raises(SystemExit) as quick_error:
-        cli.main(["sample.exe", "--quick", "--x64dbg-script", "breakpoints.txt"])
+        cli.main(["sample.exe", "--only", "strings", "--x64dbg-script", "breakpoints.txt"])
     assert quick_error.value.code == 2
     assert "requires default analysis or --only targets" in capsys.readouterr().err
 

@@ -1,0 +1,16 @@
+{
+  "status": "error",
+  "failure_category": "PARSER_FAILURE",
+  "error_type": "AnalysisError",
+  "error": "Input is not a PE file: missing MZ signature",
+  "wall_elapsed_ms": 2.37,
+  "challenge_id": "reverse-engineering-ctfs-01",
+  "name": "Magic",
+  "split": "evaluation",
+  "tier": "A",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "UNKNOWN",
+  "ranking_eligible": false,
+  "binary_size_bytes": 232929
+}

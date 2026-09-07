@@ -1,0 +1,78 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 4096,
+      "va": 4198400,
+      "function": null,
+      "type": "PACKING",
+      "score": 10,
+      "confidence": "low",
+      "target_kind": "code_location",
+      "reason": "Structural packing indicators justify reviewing the entry point; packing is not proven."
+    }
+  ],
+  "first_critical_function_rank": null,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "ranking_eligible": true,
+  "start_here_rva": null,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 2,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 0,
+    "unadjudicated_promotions": 0
+  },
+  "function_boundary": {
+    "adjudicated_starts": 3,
+    "recovered_starts": 0,
+    "missed_start_rvas": [
+      4096,
+      4385,
+      4582
+    ],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 0,
+      "HEURISTIC": 0
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 2,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 0
+  },
+  "packed_predicted": false,
+  "warnings": [],
+  "quick_elapsed_ms": 2.5,
+  "instruction_count": 0,
+  "input_source_count": 0,
+  "static_slice_count": 0,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 7.55,
+  "challenge_id": "flareon2017-03",
+  "name": "greek_to_me",
+  "split": "evaluation",
+  "tier": "B",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "binary_size_bytes": 2048,
+  "failure_category": "OPTIMIZED_COMPARE"
+}

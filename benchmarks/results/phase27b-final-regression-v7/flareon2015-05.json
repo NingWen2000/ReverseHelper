@@ -1,0 +1,289 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 4352,
+      "va": 4198656,
+      "function": "FUN_401100",
+      "type": "INPUT",
+      "score": 40,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code; Contains an input-related API call; user input linkage remains unproven; Independent evidence families: input, strings"
+    },
+    {
+      "rva": 4096,
+      "va": 4198400,
+      "function": "FUN_401000",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 26,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code; Sensitive API is called here; purpose is unproven.; Independent evidence families: api, strings"
+    },
+    {
+      "rva": 5571,
+      "va": 4199875,
+      "function": null,
+      "type": "INPUT",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "code_location",
+      "reason": "Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 14063,
+      "va": 4208367,
+      "function": "FUN_4036EF",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x3791; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 25877,
+      "va": 4220181,
+      "function": "FUN_406515",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x69D0; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 38196,
+      "va": 4232500,
+      "function": "FUN_409534",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x95A0; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 40323,
+      "va": 4234627,
+      "function": "FUN_409D83",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x9FB7; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 42457,
+      "va": 4236761,
+      "function": "FUN_40A5D9",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0xA62B; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 45815,
+      "va": 4240119,
+      "function": "FUN_40B2F7",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0xB380; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 46684,
+      "va": 4240988,
+      "function": "FUN_40B65C",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0xBFB0; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 5808,
+      "va": 4200112,
+      "function": "FUN_4016B0",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 6378,
+      "va": 4200682,
+      "function": "FUN_4018EA",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 12402,
+      "va": 4206706,
+      "function": "FUN_403072",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 12686,
+      "va": 4206990,
+      "function": "FUN_40318E",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 13884,
+      "va": 4208188,
+      "function": "FUN_40363C",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x36EF; argument linkage unknown"
+    },
+    {
+      "rva": 15283,
+      "va": 4209587,
+      "function": "FUN_403BB3",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 24115,
+      "va": 4218419,
+      "function": "FUN_405E33",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 25638,
+      "va": 4219942,
+      "function": "FUN_406426",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x6515; argument linkage unknown"
+    },
+    {
+      "rva": 34898,
+      "va": 4229202,
+      "function": "FUN_408852",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x9534; argument linkage unknown"
+    },
+    {
+      "rva": 35062,
+      "va": 4229366,
+      "function": "FUN_4088F6",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x9534; argument linkage unknown"
+    }
+  ],
+  "first_critical_function_rank": 1,
+  "top_1_hit": true,
+  "top_3_hit": true,
+  "top_5_hit": true,
+  "ranking_eligible": true,
+  "start_here_rva": 4352,
+  "start_here_hit": true,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 0,
+    "relevant_hits": 0,
+    "matched_relevant_values": [],
+    "known_noise_promotions": 0,
+    "matched_noise_values": [],
+    "promoted_total": 62,
+    "unadjudicated_promotions": 62
+  },
+  "function_boundary": {
+    "adjudicated_starts": 3,
+    "recovered_starts": 3,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 249,
+      "HEURISTIC": 16
+    }
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "confirmed": 0,
+    "likely": 0,
+    "partial": 0,
+    "unresolved": 9,
+    "complete": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "matched_truth_rvas": []
+    },
+    "actionable": {
+      "predicted": 0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "matched_truth_rvas": []
+    },
+    "flow_breaks": 0,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 647.52,
+  "instruction_count": 16419,
+  "input_source_count": 1,
+  "static_slice_count": 0,
+  "static_flow_break_count": 0,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 749.53,
+  "challenge_id": "flareon2015-05",
+  "name": "sender",
+  "split": "development",
+  "tier": "B",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "static_visibility": "FULLY_VISIBLE",
+  "binary_size_bytes": 75264,
+  "failure_category": null
+}

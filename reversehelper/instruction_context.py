@@ -193,43 +193,9 @@ def find_import_calls(
         if imported is None and not transfer["direct"]:
             record_index = detail_indexes.get(transfer["source_address"])
             if record_index is not None:
-                _, call = records[record_index]
-                if call.operands and call.operands[0].type == X86_OP_REG:
-                    call_register = register_family(call.reg_name(call.operands[0].reg))
-                    for previous_index in range(record_index - 1, -1, -1):
-                        previous, decoded = records[previous_index]
-                        following = records[previous_index + 1][0]
-                        if not follows(previous, following):
-                            break
-                        if (
-                            decoded.group(CS_GRP_CALL)
-                            or decoded.group(CS_GRP_JUMP)
-                            or decoded.group(CS_GRP_RET)
-                        ):
-                            break
-                        _, written = register_access(decoded)
-                        if call_register not in written:
-                            continue
-                        if decoded.mnemonic != "mov" or len(decoded.operands) < 2:
-                            break
-                        destination, source = decoded.operands[:2]
-                        if (
-                            destination.type != X86_OP_REG
-                            or register_family(decoded.reg_name(destination.reg)) != call_register
-                            or source.type != X86_OP_MEM
-                        ):
-                            break
-                        if source.mem.base == X86_REG_RIP:
-                            loaded_slot = decoded.address + decoded.size + source.mem.disp
-                        elif (
-                            source.mem.base == X86_REG_INVALID
-                            and source.mem.index == X86_REG_INVALID
-                        ):
-                            loaded_slot = source.mem.disp
-                        else:
-                            break
-                        imported = import_slots.get(int(loaded_slot))
-                        break
+                from .indirect_resolver import resolve_indirect_call
+                resolution = resolve_indirect_call(records, record_index, image_base)
+                imported = import_slots.get(int(resolution.storage_address)) if resolution.storage_address is not None else None
         if imported is not None:
             calls.append((transfer, imported[0], imported[1]))
     return calls

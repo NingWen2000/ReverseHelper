@@ -1,0 +1,151 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 4160,
+      "va": 4198464,
+      "function": "FUN_401040",
+      "type": "VALIDATION",
+      "score": 100,
+      "confidence": "high",
+      "target_kind": "function",
+      "reason": "Known constant bytes or a direct reference; algorithm use and buffer role are unproven.; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x136B; References CTF-related text in executable code; SUB transform lies on an input-to-validation slice; Contains an input-related API call; user input linkage remains unproven; Likely user-input flow reaches this validation site; Likely bounded input-to-validation slice reaches this site; Byte comparison loop has a back edge and iterator progress; Independent evidence families: algorithm, comparison, dataflow, input, strings"
+    },
+    {
+      "rva": 6606,
+      "va": 4200910,
+      "function": "FUN_4019CE",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 6881,
+      "va": 4201185,
+      "function": "FUN_401AE1",
+      "type": "ANTI_DEBUG",
+      "score": 4,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 12288,
+      "va": 4206592,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    },
+    {
+      "rva": 12492,
+      "va": 4206796,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    }
+  ],
+  "first_critical_function_rank": 1,
+  "top_1_hit": true,
+  "top_3_hit": true,
+  "top_5_hit": true,
+  "ranking_eligible": true,
+  "start_here_rva": 4160,
+  "start_here_hit": true,
+  "validation": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "predicted_function_rvas": [
+      4160
+    ],
+    "matched_truth_rvas": [
+      4160
+    ]
+  },
+  "strings": {
+    "ground_truth_relevant": 1,
+    "relevant_hits": 1,
+    "matched_relevant_values": [
+      "Enter the password"
+    ],
+    "known_noise_promotions": 1,
+    "matched_noise_values": [
+      "Made by alonalush5@gmail.com"
+    ],
+    "promoted_total": 8,
+    "unadjudicated_promotions": 6
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": [],
+    "distribution": {
+      "CONFIRMED": 0,
+      "LIKELY": 68,
+      "HEURISTIC": 4
+    }
+  },
+  "static_slice": {
+    "predicted": 1,
+    "tp": 1,
+    "fp": 0,
+    "fn": 0,
+    "confirmed": 0,
+    "likely": 2,
+    "partial": 0,
+    "unresolved": 0,
+    "complete": {
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": [
+        4160
+      ]
+    },
+    "actionable": {
+      "predicted": 1,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "matched_truth_rvas": [
+        4160
+      ]
+    },
+    "flow_breaks": 0,
+    "flow_break_target_rvas": []
+  },
+  "packed_predicted": false,
+  "limited_visibility_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 71.74,
+  "instruction_count": 1554,
+  "input_source_count": 2,
+  "static_slice_count": 2,
+  "static_flow_break_count": 0,
+  "flow_linked_validation_count": 2,
+  "wall_elapsed_ms": 116.21,
+  "challenge_id": "xorkey-crackme",
+  "name": "xorkey-crackme",
+  "split": "evaluation",
+  "tier": "A",
+  "packed_expected": false,
+  "review_status": "OFFICIAL_WP_CONFIRMED",
+  "static_visibility": "FULLY_VISIBLE",
+  "binary_size_bytes": 12288,
+  "failure_category": null
+}

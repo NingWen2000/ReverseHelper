@@ -1,0 +1,166 @@
+{
+  "status": "ok",
+  "ordered_targets": [
+    {
+      "rva": 7536,
+      "va": 4201840,
+      "function": "FUN_401D70",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 29,
+      "confidence": "medium",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code; Sensitive API is called here; purpose is unproven.; Independent evidence families: api, strings"
+    },
+    {
+      "rva": 5296,
+      "va": 4199600,
+      "function": "__setargv",
+      "type": "INPUT",
+      "score": 22,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x3000; argument linkage unknown; Contains an input-related API call; user input linkage remains unproven"
+    },
+    {
+      "rva": 9376,
+      "va": 4203680,
+      "function": "FUN_4024A0",
+      "type": "COMPARE",
+      "score": 22,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x21E0; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x2569; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 10096,
+      "va": 4204400,
+      "function": "FUN_402770",
+      "type": "COMPARE",
+      "score": 22,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Directly calls comparison candidate RVA 0x24A0; argument linkage unknown; Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x29F3; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 8672,
+      "va": 4202976,
+      "function": "FUN_4021E0",
+      "type": "COMPARE",
+      "score": 18,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x22B1; Byte comparison loop has a back edge and iterator progress"
+    },
+    {
+      "rva": 5216,
+      "va": 4199520,
+      "function": "_main",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 15,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code"
+    },
+    {
+      "rva": 7456,
+      "va": 4201760,
+      "function": "FUN_401D20",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 15,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "References CTF-related text in executable code"
+    },
+    {
+      "rva": 4832,
+      "va": 4199136,
+      "function": "_mainCRTStartup",
+      "type": "PACKING",
+      "score": 10,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Structural packing indicators justify reviewing the entry point; packing is not proven."
+    },
+    {
+      "rva": 4928,
+      "va": 4199232,
+      "function": "___gcc_register_frame",
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 6,
+      "confidence": "low",
+      "target_kind": "function",
+      "reason": "Sensitive API is called here; purpose is unproven."
+    },
+    {
+      "rva": 33096,
+      "va": 4227400,
+      "function": null,
+      "type": "SUSPICIOUS_FUNCTION",
+      "score": 3,
+      "confidence": "low",
+      "target_kind": "import",
+      "reason": "The import shows input capability, but no call site or input buffer is established."
+    }
+  ],
+  "first_critical_function_rank": 6,
+  "top_1_hit": false,
+  "top_3_hit": false,
+  "top_5_hit": false,
+  "ranking_eligible": true,
+  "start_here_rva": 7536,
+  "start_here_hit": false,
+  "validation": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "predicted_function_rvas": [],
+    "matched_truth_rvas": []
+  },
+  "strings": {
+    "ground_truth_relevant": 2,
+    "relevant_hits": 2,
+    "matched_relevant_values": [
+      "FLAG{ghidra_is_useful}",
+      "There is no flag here"
+    ],
+    "known_noise_promotions": 1,
+    "matched_noise_values": [
+      "Mingw runtime failure"
+    ],
+    "promoted_total": 13,
+    "unadjudicated_promotions": 10
+  },
+  "function_boundary": {
+    "adjudicated_starts": 1,
+    "recovered_starts": 1,
+    "missed_start_rvas": []
+  },
+  "static_slice": {
+    "predicted": 0,
+    "tp": 0,
+    "fp": 0,
+    "fn": 0
+  },
+  "packed_predicted": false,
+  "warnings": [
+    {
+      "module": "disassembler",
+      "error_type": "PartialCoverage",
+      "reason": "Some executable bytes were skipped, undecodable or outside Quick budgets; absence of findings is not absence of logic."
+    }
+  ],
+  "quick_elapsed_ms": 125.2,
+  "instruction_count": 3438,
+  "input_source_count": 1,
+  "static_slice_count": 0,
+  "flow_linked_validation_count": 0,
+  "wall_elapsed_ms": 141.46,
+  "challenge_id": "reverse-engineering-ctfs-03",
+  "name": "NSA_hid_dragon",
+  "split": "evaluation",
+  "tier": "A",
+  "packed_expected": false,
+  "review_status": "SINGLE_REVIEW",
+  "binary_size_bytes": 40850,
+  "failure_category": "OTHER"
+}
