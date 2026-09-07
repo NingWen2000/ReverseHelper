@@ -1,5 +1,7 @@
 """Deterministic instruction fixtures; no compiler or target execution needed."""
 
+import os
+import shutil
 import struct
 
 from reversehelper.addressing import annotate_string_locations
@@ -10,6 +12,13 @@ from reversehelper.string_analyzer import extract_strings
 from reversehelper.string_intelligence import analyze_interesting_strings
 from reversehelper.validation_analyzer import discover_validation, find_input_candidates
 from reversehelper.target_ranker import rank_targets
+
+
+def find_mingw_gcc():
+    """Return a compiler that emits Windows PE files, never a native Unix GCC."""
+    candidates = ["gcc"] if os.name == "nt" else []
+    candidates.extend(("x86_64-w64-mingw32-gcc", "i686-w64-mingw32-gcc"))
+    return next((compiler for name in candidates if (compiler := shutil.which(name))), None)
 
 
 class Code:
