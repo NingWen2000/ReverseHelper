@@ -27,10 +27,10 @@ def _target_confidence(result: dict[str, Any], target: dict[str, Any]) -> str:
     return max(confidence, key=order.get) if confidence else "unknown"
 
 
-def markdown_report(result: dict[str, Any]) -> str:
+def markdown_report(result: dict[str, Any], *, lang="en") -> str:
     if result.get("analysis_mode") in {"quick", "deep"}:
         from .challenge_summary import markdown_summary
-        return markdown_summary(result)
+        return markdown_summary(result, lang=lang)
     basic = result["basic"]
     risk = result["risk"]
     lines = [
@@ -301,10 +301,10 @@ def markdown_report(result: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
-def html_report(result: dict[str, Any]) -> str:
+def html_report(result: dict[str, Any], *, lang="en") -> str:
     if result.get("analysis_mode") in {"quick", "deep"}:
         from .challenge_summary import html_summary
-        return html_summary(result)
+        return html_summary(result, lang=lang)
     basic = result["basic"]
     risk = result["risk"]
     markdown = markdown_report(result)
@@ -383,28 +383,29 @@ def write_json(result: dict[str, Any], path: str | Path) -> Path:
     return target.resolve()
 
 
-def write_markdown(result: dict[str, Any], path: str | Path) -> Path:
+def write_markdown(result: dict[str, Any], path: str | Path, *, lang="en") -> Path:
     target = Path(path)
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(markdown_report(result), encoding="utf-8")
+    target.write_text(markdown_report(result) if lang == "en" else markdown_report(result, lang=lang), encoding="utf-8")
     return target.resolve()
 
 
-def write_html(result: dict[str, Any], path: str | Path) -> Path:
+def write_html(result: dict[str, Any], path: str | Path, *, lang="en") -> Path:
     target = Path(path)
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(html_report(result), encoding="utf-8")
+    target.write_text(html_report(result) if lang == "en" else html_report(result, lang=lang), encoding="utf-8")
     return target.resolve()
 
 
-def write_report_bundle(result: dict[str, Any], directory: str | Path) -> list[Path]:
+def write_report_bundle(result: dict[str, Any], directory: str | Path, *, lang="en") -> list[Path]:
     output = Path(directory)
     stem = Path(result["basic"]["file_name"]).stem + "_report"
     written = []
     # JSON last preserves warnings from failed text/HTML renderers.
     for writer, suffix in ((write_markdown, ".md"), (write_html, ".html"), (write_json, ".json")):
         try:
-            written.append(writer(result, output / (stem + suffix)))
+            options = {"lang": lang} if lang != "en" and suffix != ".json" else {}
+            written.append(writer(result, output / (stem + suffix), **options))
         except Exception as error:
             result.setdefault("analysis_warnings", []).append({"module": "report" + suffix,
                 "error_type": type(error).__name__, "reason": " ".join(str(error).split())[:240]})

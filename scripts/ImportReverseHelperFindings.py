@@ -76,6 +76,7 @@ def _records(payload):
             "finding_ids": [],
             "high_confidence": False,
             "bookmark": item.get("category", "RH:NOTE"),
+            "formatted_comment": item.get("comment", "").startswith("[ReverseHelper]\n"),
         } for item in annotations]
     findings = payload.get("findings", [])
     findings_by_id = {item.get("id"): item for item in findings if item.get("id")}
@@ -149,6 +150,8 @@ def _records(payload):
 
 
 def _comment(record):
+    if record.get("formatted_comment"):
+        return record["recommended_action"]
     lines = [
         "ReverseHelper",
         "Category: %s" % record["category"],

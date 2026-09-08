@@ -1,0 +1,112 @@
+{
+  "matrix": [
+    {
+      "architecture": "x86",
+      "mode": "quick",
+      "language": "en",
+      "portable_source_equal": true,
+      "reports": true,
+      "ghidra": true,
+      "json": true
+    },
+    {
+      "architecture": "x86",
+      "mode": "quick",
+      "language": "zh-CN",
+      "portable_source_equal": true,
+      "reports": true,
+      "ghidra": true,
+      "json": true
+    },
+    {
+      "architecture": "x86",
+      "mode": "deep",
+      "language": "en",
+      "portable_source_equal": true,
+      "reports": true,
+      "ghidra": true,
+      "json": true
+    },
+    {
+      "architecture": "x86",
+      "mode": "deep",
+      "language": "zh-CN",
+      "portable_source_equal": true,
+      "reports": true,
+      "ghidra": true,
+      "json": true
+    },
+    {
+      "architecture": "x64",
+      "mode": "quick",
+      "language": "en",
+      "portable_source_equal": true,
+      "reports": true,
+      "ghidra": true,
+      "json": true
+    },
+    {
+      "architecture": "x64",
+      "mode": "quick",
+      "language": "zh-CN",
+      "portable_source_equal": true,
+      "reports": true,
+      "ghidra": true,
+      "json": true
+    },
+    {
+      "architecture": "x64",
+      "mode": "deep",
+      "language": "en",
+      "portable_source_equal": true,
+      "reports": true,
+      "ghidra": true,
+      "json": true
+    },
+    {
+      "architecture": "x64",
+      "mode": "deep",
+      "language": "zh-CN",
+      "portable_source_equal": true,
+      "reports": true,
+      "ghidra": true,
+      "json": true
+    }
+  ],
+  "shells": [
+    {
+      "shell": "cmd.exe",
+      "exit_code": 0,
+      "readable_encodings": [
+        "utf-8"
+      ],
+      "status": "passed"
+    },
+    {
+      "shell": "pwsh.exe",
+      "exit_code": 0,
+      "readable_encodings": [
+        "utf-8"
+      ],
+      "status": "passed"
+    },
+    {
+      "shell": "powershell.exe",
+      "exit_code": 0,
+      "readable_encodings": [
+        "utf-8"
+      ],
+      "status": "passed"
+    }
+  ],
+  "render_median_ms": {
+    "en": 0.0483,
+    "zh-CN": 0.1141
+  },
+  "measurement": "7 batches of 300 rich-summary renders per language; median per-render time",
+  "boundaries": [
+    "Current Windows host only; no independent clean machine",
+    "No interactive Windows Terminal visual check",
+    "Ghidra importer planning tested, real Ghidra UI not exercised"
+  ]
+}

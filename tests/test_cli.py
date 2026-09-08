@@ -23,7 +23,7 @@ def test_version_is_v0_2_0_beta_1(capsys):
         cli.main(["--version"])
 
     assert exc_info.value.code == 0
-    assert capsys.readouterr().out.strip() == "ReverseHelper 0.2.0b1"
+    assert capsys.readouterr().out.strip() == "ReverseHelper 0.2.0b2"
 
 
 def test_missing_target_shows_usage_without_traceback(capsys):

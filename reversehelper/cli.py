@@ -19,11 +19,13 @@ from .console import (
     print_x64dbg_script,
 )
 from .findings import ReverseTarget
+from .localization import Language, message
+from .localized_annotations import annotation_export
 from .reporting import write_html, write_json, write_markdown, write_report_bundle
 from .x64dbg_exporter import write_x64dbg_script
 
 
-def build_parser() -> argparse.ArgumentParser:
+def build_parser(lang=Language.EN) -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="reversehelper",
         description="Offline CTF Quick Analysis: find interesting strings, validation candidates and where to start.",
@@ -87,12 +89,29 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--quiet", action="store_true", help="Suppress console tables")
     parser.add_argument("-v", "--verbose", action="store_true", help="Show budget and coverage details")
     parser.add_argument("--version", action="version", version=f"ReverseHelper {__version__}")
+    parser.add_argument("--lang", choices=[value.value for value in Language], default="en", help=message("help.language", lang))
+    if Language(lang) == Language.ZH_CN:
+        from .localization_cli import localize_parser
+        localize_parser(parser)
     return parser
 
 
 def main(argv: Sequence[str] | None = None) -> int:
-    parser = build_parser()
+    argv = list(sys.argv[1:] if argv is None else argv)
+    language_parser = argparse.ArgumentParser(add_help=False)
+    language_parser.add_argument("--lang", default="en")
+    selected, _ = language_parser.parse_known_args(argv)
+    if selected.lang not in {value.value for value in Language}:
+        from .localization_cli import prepare_streams
+        prepare_streams()
+        language_parser.error(message("error.language", Language.ZH_CN, selected.lang))
+    lang = Language(selected.lang)
+    if lang == Language.ZH_CN:
+        from .localization_cli import prepare_streams
+        prepare_streams()
+    parser = build_parser(lang)
     args = parser.parse_args(argv)
+    localized = {"lang": lang} if lang != Language.EN else {}
     console = Console(stderr=True)
 
     if args.min_string_length < 3:
@@ -118,7 +137,13 @@ def main(argv: Sequence[str] | None = None) -> int:
         else:
             result = analyzer.analyze(args.target)
     except AnalysisError as exc:
-        console.print(f"[bold red]Analysis failed:[/bold red] {exc}")
+        if lang == Language.EN:
+            console.print(f"[bold red]Analysis failed:[/bold red] {exc}")
+        else:
+            from .localization_cli import analysis_error
+            console.print(analysis_error(exc), markup=False)
+            if args.verbose:
+                console.print(str(exc), markup=False)
         return 2
 
     if not args.quiet:
@@ -126,7 +151,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             if args.only:
                 print_module_analysis(result, args.only)
             else:
-                print_quick_analysis(result)
+                print_quick_analysis(result, **localized)
                 if args.verbose:
                     console.print("\nAnalysis profile:", result.get("analysis_mode", "quick"), markup=False)
                     console.print("Limits:", str(result.get("analysis_limits", {})), markup=False)
@@ -135,22 +160,22 @@ def main(argv: Sequence[str] | None = None) -> int:
             warning = {"module": "report-console", "error_type": type(exc).__name__,
                        "reason": " ".join(str(exc).split())[:240]}
             result.setdefault("analysis_warnings", []).append(warning)
-            console.print("Warning: console summary failed; analysis results remain available for file export.", markup=False)
+            console.print(message("warning.console", lang), markup=False)
 
     written = []
     jobs = []
     if args.report:
-        jobs.append(("bundle", lambda: write_report_bundle(result, args.report)))
+        jobs.append(("bundle", lambda: write_report_bundle(result, args.report, **localized)))
     if args.html_path:
-        jobs.append(("html", lambda: [write_html(result, args.html_path)]))
+        jobs.append(("html", lambda: [write_html(result, args.html_path, **localized)]))
     if args.markdown_path:
-        jobs.append(("markdown", lambda: [write_markdown(result, args.markdown_path)]))
+        jobs.append(("markdown", lambda: [write_markdown(result, args.markdown_path, **localized)]))
     if args.json_path:
         jobs.append(("json", lambda: [write_json(result, args.json_path)]))
     if args.ghidra:
         ghidra_path = (Path("reports") / (args.target.stem + ".reversehelper.json")
                        if args.ghidra == "__AUTO__" else Path(args.ghidra))
-        jobs.append(("ghidra", lambda: [write_json(result, ghidra_path)]))
+        jobs.append(("ghidra", lambda: [write_json(annotation_export(result, lang), ghidra_path)]))
     report_failed = False
     for name, job in jobs:
         try:
@@ -160,11 +185,22 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "error_type": type(exc).__name__, "reason": " ".join(str(exc).split())[:240]})
     for warning in result.get("analysis_warnings", []):
         if warning["module"].startswith("report"):
-            console.print(f"Warning: {warning['module']}: {warning['reason']}", markup=False)
+            if lang == Language.EN:
+                console.print(f"Warning: {warning['module']}: {warning['reason']}", markup=False)
+            else:
+                key = "error.ghidra" if warning["module"] == "report-ghidra" else "error.report"
+                console.print(message(key, lang) + "（" + warning["module"] + "）。", markup=False)
+                if args.verbose:
+                    console.print(warning["reason"], markup=False)
             report_failed = True
 
     if written:
-        print_written_reports(written)
+        if lang == Language.EN:
+            print_written_reports(written)
+        else:
+            console.print(message("output.written", lang), markup=False)
+            for path in written:
+                console.print(str(path), markup=False)
     if args.x64dbg_script:
         try:
             targets = [

@@ -1,0 +1,65 @@
+ReverseHelper Quick Analysis
+Challenge Summary
+
+Target: challenge.exe
+Binary: PE32 / x86
+Packing: No strong packing evidence
+Static visibility: NORMAL
+
+START WITH THESE
+No single target has enough confidence and separation for a definitive START HERE.
+1. FUN_401000  |  83/100  |  Confidence: HIGH
+   Reason: Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x101A; Contains an input-related API call; user input linkage remains unproven; Separate comparison successors reference success/failure text; References both success- and failure-related strings; Independent evidence families: comparison, input, strings
+2. FUN_401100  |  80/100  |  Confidence: HIGH
+   Reason: Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x101A; Contains an input-related API call; user input linkage remains unproven; Separate comparison successors reference success/failure text; References both success- and failure-related strings; Independent evidence families: comparison, input, strings
+
+Input Flow
+argv[1] -> stack[-0x20]  (CONFIRMED)
+
+Static Slice
+argv[1] -> FUN_401000 -> XTEA -> State Machine
+Warning: Interprocedural edge budget reached
+
+FLOW BREAK
+indirect call target is ambiguous; propagation stops at the proven call argument
+Next unresolved target: FUN_401100 via call RVA 0x1030
+Evidence: 3 source-reachable edges recovered
+
+Likely Validation
+FUN_401000 @ RVA 0x1012  MEMCMP  HIGH
+
+Semantic Suggestions
+local_20 -> TRANSFORMED_INPUT  HIGH
+local_30 -> uint8_t*  HIGH
+
+Control Flow
+HIGH  State Machine  FUN_401000  (On Slice)
+  Dispatcher: RVA 0x1010
+  Suggested: Track state assignments first, then group case blocks by the state values that reach the dispatcher.
+
+Algorithms
+HIGH  XTEA  FUN_401000  (On Slice)
+
+Interesting Strings
+HIGH FAILURE 'Wrong flag!'  -> FUN_401000 (1 XREFs)
+HIGH SUCCESS 'Correct! Congratulations!'  -> FUN_401000 (1 XREFs)
+LOW FILE 'msvcrt.dll'  -> function unknown (0 XREFs)
+
+Validation Candidates
+FUN_401000 @ RVA 0x1012  MEMCMP  HIGH (candidate)
+
+Top Reverse Targets
+#1  83/100  FUN_401000  VALIDATION  HIGH
+#2   3/100  IAT_402008  SUSPICIOUS_FUNCTION  LOW
+
+Suggested Static Path
+1. Open FUN_401000 in Ghidra/IDA; inspect the comparison arguments, cited strings and both branch successors.
+
+Scores rank review priority, not probability. Static flow is bounded and path-insensitive; only unique simple indirect targets are propagated, and POSSIBLE segments are not asserted as facts.
+
+Analysis Warnings
+static-flow: Interprocedural edge budget reached
+
+Coverage
+Truncated: static-flow
+Run again with --deep when broader static coverage is worth the extra time.
