@@ -2,6 +2,14 @@
 
 ReverseHelper 仍处于早期开发期。版本号用于区分可下载、可复现的功能快照；默认分析仍然只读取目标 PE，不会执行它。
 
+## 0.2.0b2 — Post-release localization（2026-09-08，Beta 预发布）
+
+- Added Simplified Chinese localization：新增 Quick/Deep 摘要、帮助、报告和 Ghidra 注释的简体中文展示。
+- Added `--lang en / zh-CN`：默认英文，不随系统语言自动切换。
+- Added Chinese documentation：README、QUICKSTART、workflow、limitations 和统一术语表。
+- No analysis/ranking behavior changes：分析器、Ranking 2.2、Schema 1.5、JSON 字段和枚举均保持兼容；仅 Ghidra 导出的 annotation 标题及注释跟随语言。
+- 新增英文 golden 回归、跨语言事实等价及 Windows Unicode 输出测试；portable 使用独立 b2 文件名，不覆盖 b1 发布包。
+
 ## 0.2.0b1 — Phase 4 Competition-Grade Integration（2026-09-06）
 
 - 默认单命令 Quick 工作流完成产品化；摘要增加目标名、静态可见度、直接 validation、截断说明和按需 Deep 提示。

@@ -1,13 +1,17 @@
 # ReverseHelper
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
+**0.2.0b2 Beta** adds Simplified Chinese localization. Use `--lang zh-CN` for Chinese or `--lang en` for English (the unchanged default). Quick/Deep analysis, Ranking 2.2 and Schema 1.5 remain shared. JSON analysis facts stay language-independent; `--ghidra` localizes annotation prose only. Developer diagnostics may remain English. See the [release notes](docs/releases/v0.2.0b2.md) and [localization validation report](docs/simplified-chinese-localization-report.md).
+
 > Offline-first static reverse-engineering workbench for CTF competitors.
 
 [![Tests](https://github.com/NingWen2000/ReverseHelper/actions/workflows/tests.yml/badge.svg)](https://github.com/NingWen2000/ReverseHelper/actions/workflows/tests.yml)
-[![Version](https://img.shields.io/badge/version-0.2.0b1-blue.svg)](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.2.0b1)
+[![Version](https://img.shields.io/badge/version-0.2.0b2-blue.svg)](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.2.0b2)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Current release: **0.2.0b1 (Beta)**. Phase 1–4 are complete and closed; Phase 5 is not required to use this version.
+Current release: **0.2.0b2 (Beta)**. Phase 1–4 are complete and closed; Phase 5 is not required to use this version.
 
 ReverseHelper turns an unknown Windows PE into an actionable first-pass map: where input enters, where it may be transformed or validated, what algorithm/control-flow evidence exists, and where to start in Ghidra or IDA. It reads the target locally and never executes or uploads it.
 
@@ -60,7 +64,7 @@ These are static candidates, not solved challenges. Missing output is not proof 
 
 ## Windows x64 portable package
 
-Download `ReverseHelper-0.2.0b1-win-x64.zip` from the [v0.2.0b1 release](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.2.0b1), verify the published SHA-256 when practical, and extract the ZIP to a writable folder. No Python installation is required.
+Download `ReverseHelper-0.2.0b2-win-x64.zip` from the [v0.2.0b2 release](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.2.0b2), verify the published SHA-256 when practical, and extract the ZIP to a writable folder. No Python installation is required.
 
 Open PowerShell in the extracted folder and confirm the version:
 
@@ -69,7 +73,19 @@ Open PowerShell in the extracted folder and confirm the version:
 .\ReverseHelper.exe "C:\CTF\Challenges\challenge.exe"
 ```
 
-The package also contains `QUICKSTART.md` and the Ghidra importer `ImportReverseHelperFindings.py`.
+The package also contains English/Chinese quick starts and documentation, and the Ghidra importer `ImportReverseHelperFindings.py`. Add `--lang zh-CN` to use Chinese.
+
+### Previous releases
+
+Older versions remain available for reproducing earlier write-ups, testing compatibility, or comparing behavior:
+
+| Version | Download |
+|---|---|
+| `v0.2.0b1` | [Windows ZIP](https://github.com/NingWen2000/ReverseHelper/releases/download/v0.2.0b1/ReverseHelper-0.2.0b1-win-x64.zip) · [Release page](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.2.0b1) |
+| `v0.0.2` | [Windows ZIP](https://github.com/NingWen2000/ReverseHelper/releases/download/v0.0.2/ReverseHelper-v0.0.2.zip) · [Release page](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.0.2) |
+| `v0.0.1` | [Windows ZIP](https://github.com/NingWen2000/ReverseHelper/releases/download/v0.0.1/ReverseHelper-v0.0.1.zip) · [Release page](https://github.com/NingWen2000/ReverseHelper/releases/tag/v0.0.1) |
+
+The complete archive is available on the [GitHub Releases page](https://github.com/NingWen2000/ReverseHelper/releases). Existing release tags and downloadable files are retained.
 
 ### Previous releases
 
@@ -123,7 +139,7 @@ Algorithm/control-flow/semantic denominators are too small for broad accuracy cl
 
 Core analysis is offline and static. ReverseHelper does not unpack, emulate, symbolically execute, auto-solve, patch, or replace the reverser. Dynamic observation belongs to TraceInfer. IDA-specific deep integration and solver generation are deliberately deferred until evidence shows they reduce TTCF without misleading users.
 
-Development status: **v0.2.0b1 Beta**. Phase 1–4 are complete and closed. This is a usable beta, not a 1.0 claim; independent clean-Windows validation, real Ghidra UI re-import validation and human TTCF measurements remain evidence to collect.
+Development status: **v0.2.0b2 Beta**. Phase 1–4 are complete and closed. This is a usable beta, not a 1.0 claim; independent clean-Windows validation, real Ghidra UI re-import validation and human TTCF measurements remain evidence to collect.
 
 ## Development
 

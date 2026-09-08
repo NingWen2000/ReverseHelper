@@ -2,6 +2,8 @@
 
 import html
 
+from .localization import Language, display_enum, message, prose
+
 
 def target_label(target):
     return target.get("function") or {"data": "DAT_", "import": "IAT_"}.get(target.get("target_kind"), "SITE_") + f"{target['va']:X}"
@@ -155,29 +157,36 @@ def build_summary(result):
     }
 
 
-def summary_lines(result, *, detailed=False):
+def summary_lines(result, *, detailed=False, lang=Language.EN):
+    lang = Language(lang)
+    def t(key, *args):
+        return message(key, lang, *args)
+    def p(value):
+        return prose(value, lang)
+    def e(value):
+        return display_enum(value, lang)
     summary = result.get("challenge_summary") or build_summary(result)
-    heading = "START HERE" if summary["start_here"] or not summary.get("starting_points") else "START WITH THESE"
+    heading = t('summary.start_here') if summary["start_here"] or not summary.get("starting_points") else t('summary.start_with_these')
     mode = result.get("analysis_mode", "quick").title()
-    lines = [f"ReverseHelper {mode} Analysis", "Challenge Summary", "",
-             f"Target: {result.get('basic', {}).get('file_name', 'unknown')}",
-             f"Binary: {summary['binary']}", f"Packing: {summary['packing']}",
-             f"Static visibility: {summary.get('static_visibility', 'unknown').upper()}", "", heading]
+    lines = [t('summary.title', mode), t('summary.challenge'), "",
+             t('summary.target', result.get('basic', {}).get('file_name', 'unknown')),
+             t('summary.binary', summary['binary']), t('summary.packing', p(summary['packing'])),
+             t('summary.visibility', e(summary.get('static_visibility', 'unknown').upper())), "", heading]
     start = summary["start_here"]
     if start:
-        lines.extend([f"{start['label']}  |  {start['score']}/100  |  Confidence: {start['confidence'].upper()}",
-                      f"Reason: {start['reason']}", f"Next: {start['action']}"])
+        lines.extend([t('summary.confidence', start['label'], start['score'], e(start['confidence'].upper())),
+                      t('summary.reason', p(start['reason'])), t('summary.next', p(start['action']))])
     elif summary.get("starting_points"):
-        lines.append("No single target has enough confidence and separation for a definitive START HERE.")
+        lines.append(t('summary.ambiguous_start'))
         for index, target in enumerate(summary["starting_points"], 1):
-            lines.extend([f"{index}. {target['label']}  |  {target['score']}/100  |  Confidence: {target['confidence'].upper()}",
-                          f"   Reason: {target['reason']}"])
+            lines.extend([t('summary.start_candidate', index, target['label'], target['score'], e(target['confidence'].upper())),
+                          t('summary.indented_reason', p(target['reason']))])
     else:
-        lines.append(summary["fallback"])
+        lines.append(p(summary["fallback"]))
     if summary.get("packing_guidance"):
-        lines += ["", "Post-Unpack Guidance"]
-        lines.extend(f"{index + 1}. {step}" for index, step in enumerate(summary["packing_guidance"]))
-    lines += ["", "Input Flow"]
+        lines += ["", t('summary.unpack')]
+        lines.extend(f"{index + 1}. {p(step)}" for index, step in enumerate(summary["packing_guidance"]))
+    lines += ["", t('summary.input')]
     input_flow = summary.get("input_flow")
     if input_flow:
         destination = input_flow["destination"]
@@ -187,125 +196,135 @@ def summary_lines(result, *, detailed=False):
             rendered = destination.get("name", "register").upper()
         else:
             rendered = destination.get("kind", "unknown")
-        lines.append(f"{input_flow['source_type']} -> {rendered}  ({input_flow['confidence']})")
+        lines.append(f"{input_flow['source_type']} -> {e(rendered)}  ({e(input_flow['confidence'])})")
     else:
-        lines.append("No supported input destination was recovered.")
+        lines.append(t('summary.no_input'))
     static = summary.get("static_slice")
     flow_break = summary.get("static_flow_break")
-    lines += ["", static["label"] if static else "Possible Static Path"]
+    lines += ["", prose_heading(static["label"], lang) if static else t('summary.possible_path')]
     if static:
         separator = " -> " if static["confidence"] == "CONFIRMED" else " -?-> "
-        lines.append(separator.join(node["label"] for node in static["path"]))
-        lines.extend(f"Warning: {warning}" for warning in static.get("warnings", []))
+        lines.append(separator.join(e(p(node["label"])) for node in static["path"]))
+        lines.extend(t('summary.warning', p(warning)) for warning in static.get("warnings", []))
     else:
-        lines.append("No input-to-validation slice was established within the Quick budgets.")
+        lines.append(t('summary.no_slice'))
     if flow_break:
-        lines += ["", "FLOW BREAK", flow_break["reason"]]
+        lines += ["", t('summary.flow_break'), p(flow_break["reason"])]
         target = flow_break.get("next_unresolved_target") or {}
         if target.get("function_rva") is not None:
-            lines.append(f"Next unresolved target: FUN_{result['basic']['image_base'] + target['function_rva']:X} via call RVA 0x{target['callsite_rva']:X}")
-        lines.extend(f"Evidence: {item}" for item in flow_break.get("evidence", []))
+            lines.append(t('summary.next_unresolved', result['basic']['image_base'] + target['function_rva'], target['callsite_rva']))
+        lines.extend(t('summary.evidence', item) for item in flow_break.get("evidence", []))
     direct_validation = next((item for item in result.get("validation_candidates", [])
                               if not item.get("context_only") and item.get("confidence") in {"high", "medium"}), None)
     if direct_validation:
-        lines += ["", "Likely Validation",
+        lines += ["", t('summary.validation'),
                   f"{direct_validation.get('function') or 'site'} @ RVA 0x{direct_validation['rva']:X}  "
-                  f"{direct_validation['validation_type']}  {direct_validation['confidence'].upper()}"]
-    lines += ["", "Semantic Suggestions"]
+                  f"{direct_validation['validation_type']}  {e(direct_validation['confidence'].upper())}"]
+    lines += ["", t('summary.suggestions')]
     for item in summary.get("semantic_suggestions", []):
         target = item.get("target", {})
         label = target.get("current_name") or (f"RVA 0x{target['rva']:X}" if target.get("rva") is not None else target.get("kind", "object"))
         proposed = item.get("proposed_value")
         if isinstance(proposed, dict):
-            proposed = proposed.get("name") or proposed.get("role") or proposed.get("status")
-        lines.append(f"{label} -> {proposed}  {item['confidence']}")
+            proposed = proposed.get("name") or e(proposed.get("role") or proposed.get("status"))
+        elif item.get("kind") == "OBJECT_ROLE":
+            proposed = e(proposed)
+        lines.append(f"{label} -> {proposed}  {e(item['confidence'])}")
     if not summary.get("semantic_suggestions"):
-        lines.append("No high-confidence semantic suggestion.")
-    lines += ["", "Control Flow"]
+        lines.append(t('summary.no_semantic'))
+    lines += ["", t('summary.control_flow')]
     for item in summary.get("control_flow", []):
         relation = item.get("slice_relation", "OFF_SLICE").replace("_", " ").title()
-        lines.append(f"{item['confidence']}  {item['kind'].replace('_', ' ').title()}  {item['function']}  ({relation})")
+        lines.append(f"{e(item['confidence'])}  {e(item['kind'].replace('_', ' ').title())}  {item['function']}  ({e(relation)})")
         if item.get("dispatcher_block") is not None:
-            lines.append(f"  Dispatcher: RVA 0x{item['dispatcher_block']:X}")
-        lines.append(f"  Suggested: {item['suggested_action']}")
+            lines.append(t('summary.dispatcher', item['dispatcher_block']))
+        lines.append(t('summary.suggested', p(item['suggested_action'])))
     if not summary.get("control_flow"):
-        lines.append("No high or strong on-slice control-flow structure.")
-    lines += ["", "Algorithms"]
+        lines.append(t('summary.no_control'))
+    lines += ["", t('summary.algorithms')]
     for item in summary.get("algorithms", []):
         relation = item.get("slice_relation", "OFF_SLICE").replace("_", " ").title()
-        lines.append(f"{item['confidence']}  {item['algorithm']}  {item['function']}  ({relation})")
+        lines.append(f"{e(item['confidence'])}  {item['algorithm']}  {item['function']}  ({e(relation)})")
         if detailed:
             lines.extend(f"  {evidence['kind']}: {evidence['value']}" for evidence in item.get("evidence", []))
     if not summary.get("algorithms"):
-        lines.append("No high or strong on-slice algorithm candidate.")
-    lines += ["", "Interesting Strings"]
+        lines.append(t('summary.no_algorithm'))
+    lines += ["", t('summary.strings')]
     function_scores = {target.get("function"): target.get("score", 0) for target in result.get("reverse_targets", []) if target.get("function")}
     strings = [s for s in result.get("interesting_strings", []) if s["category"] != "GENERIC"]
     strings.sort(key=lambda s: (-max((function_scores.get(fn, 0) for fn in s["xref_functions"]), default=0), -s["score"], s["id"]))
     for item in strings[:20 if detailed else 6]:
-        functions = ", ".join(item["xref_functions"]) or "function unknown"
-        lines.append(f"{item['priority']} {item['category']} {item['value'][:160]!r}  -> {functions} ({item['xref_count']} XREFs)")
+        functions = ", ".join(item["xref_functions"]) or t('summary.unknown_function')
+        lines.append(f"{e(item['priority'])} {e(item['category'])} {item['value'][:160]!r}  -> {functions} ({item['xref_count']} XREFs)")
         if detailed:
-            lines.extend([f"  {item['id']} / RVA {item['rva']} / {item['encoding']}", "  Reasons: " + "; ".join(item["reasons"])])
+            lines.extend([f"  {item['id']} / RVA {item['rva']} / {item['encoding']}", t('summary.reasons') + "; ".join(p(reason) for reason in item["reasons"])])
     if not strings:
-        lines.append("No classified strings available; check warnings and scan coverage.")
+        lines.append(t('summary.no_strings'))
     elif len(strings) > (20 if detailed else 6):
-        lines.append(f"Showing {20 if detailed else 6} of {len(strings)} classified strings; JSON retains all available records.")
-    lines += ["", "Validation Candidates"]
+        lines.append(t('summary.string_count', 20 if detailed else 6, len(strings)))
+    lines += ["", t('summary.candidates')]
     candidates = sorted((item for item in result.get("validation_candidates", [])
                          if not item.get("context_only") and item.get("confidence") in {"high", "medium"}),
                         key=lambda item: (-function_scores.get(item.get("function"), 0), item["rva"]))
     for item in candidates[:20 if detailed else 5]:
         label = item.get("function") or f"SITE_{item['address']:X}"
-        status = "context only" if item.get("context_only") else "candidate"
-        lines.append(f"{label} @ RVA 0x{item['rva']:X}  {item['validation_type']}  {item['confidence'].upper()} ({status})")
+        status = t('summary.context_only') if item.get("context_only") else t('summary.candidate')
+        lines.append(f"{label} @ RVA 0x{item['rva']:X}  {item['validation_type']}  {e(item['confidence'].upper())} ({status})")
         if detailed:
-            lines.extend(["  " + text for text in item["evidence"]])
+            lines.extend(["  " + p(text) for text in item["evidence"]])
             for field in ("input_flow_to_validation", "input_source", "compare_target", "compare_length", "success_branch", "failure_branch"):
-                lines.append(f"  {field}: {item.get(field) if item.get(field) is not None else 'unknown'}")
+                lines.append(f"  {e(field)}: {item.get(field) if item.get(field) is not None else e('unknown')}")
     if not candidates:
         compare_count = len(result.get("compare_sites", []))
-        lines.append(f"No actionable validation candidate; {compare_count} comparison observations remain in JSON for review.")
+        lines.append(t('summary.no_validation', compare_count))
     elif len(candidates) > (20 if detailed else 5):
-        lines.append(f"Showing {20 if detailed else 5} of {len(candidates)} validation candidates; JSON retains all available records.")
-    lines += ["", "Top Reverse Targets"]
+        lines.append(t('summary.validation_count', 20 if detailed else 5, len(candidates)))
+    lines += ["", t('summary.targets')]
     for i, target in enumerate(result.get("reverse_targets", [])[:20 if detailed else 5]):
-        lines.append(f"#{i + 1} {target['score']:3}/100  {target_label(target)}  {target['type']}  {target['confidence'].upper()}")
+        lines.append(f"#{i + 1} {target['score']:3}/100  {target_label(target)}  {e(target['type'])}  {e(target['confidence'].upper())}")
         if detailed:
-            lines.extend(f"  {part['points']:+}: {part['reason']}" for part in target["score_breakdown"])
-            lines.append("  Evidence: " + ", ".join(target["finding_ids"]))
+            lines.extend(f"  {part['points']:+}: {p(part['reason'])}" for part in target["score_breakdown"])
+            lines.append(t('summary.evidence_prefix') + ", ".join(target["finding_ids"]))
     if not result.get("reverse_targets"):
-        lines.append("No ranked targets available.")
-    lines += ["", "Suggested Static Path"]
+        lines.append(t('summary.no_targets'))
+    lines += ["", t('summary.static_path')]
     for step in summary["suggested_static_path"][:3]:
-        lines.append(f"{step['step']}. {step['action']}")
-    lines += ["", summary["notice"]]
+        lines.append(f"{step['step']}. {p(step['action'])}")
+    lines += ["", p(summary["notice"])]
     if result.get("analysis_warnings"):
-        lines += ["", "Analysis Warnings"]
-        lines.extend(f"{w['module']}: {w['reason']}" for w in result["analysis_warnings"])
+        lines += ["", t('summary.warnings')]
+        lines.extend(t('warning.module', w['module'], p(w['reason'])) for w in result["analysis_warnings"])
     truncated = result.get("truncated_modules", [])
     if truncated:
-        lines += ["", "Coverage", "Truncated: " + ", ".join(truncated)]
+        lines += ["", t('summary.coverage'), t('summary.truncated') + ", ".join(truncated)]
         if result.get("analysis_mode") == "quick":
-            lines.append("Run again with --deep when broader static coverage is worth the extra time.")
+            lines.append(t('summary.deep_hint'))
     return lines
 
 
-def markdown_summary(result):
+def markdown_summary(result, *, lang=Language.EN):
     # Escape arbitrary sample content, including HTML/backticks and table delimiters.
     def escape(line):
         return html.escape(line).replace("\\", "\\\\").replace("`", "\\`").replace("*", "\\*").replace("_", "\\_").replace("|", "\\|").replace("[", "\\[")
-    lines = summary_lines(result, detailed=True)
+    lines = summary_lines(result, detailed=True, lang=lang)
     headings = {"Challenge Summary", "START HERE", "START WITH THESE", "Post-Unpack Guidance", "Input Flow", "Static Slice", "Likely Static Path", "Partial Input Flow", "Possible Static Path", "FLOW BREAK", "Likely Validation", "Semantic Suggestions", "Control Flow", "Algorithms", "Interesting Strings", "Validation Candidates", "Top Reverse Targets", "Suggested Static Path", "Analysis Warnings", "Coverage"}
+    headings = {prose_heading(heading, lang) for heading in headings}
     return "\n\n".join("# " + line if i == 0 else "## " + line if line in headings else escape(line)
                        for i, line in enumerate(lines) if line) + "\n"
 
 
-def html_summary(result):
-    lines = summary_lines(result, detailed=True)
+def html_summary(result, *, lang=Language.EN):
+    lines = summary_lines(result, detailed=True, lang=lang)
     headings = {"Challenge Summary", "START HERE", "START WITH THESE", "Post-Unpack Guidance", "Input Flow", "Static Slice", "Likely Static Path", "Partial Input Flow", "Possible Static Path", "FLOW BREAK", "Likely Validation", "Semantic Suggestions", "Control Flow", "Algorithms", "Interesting Strings", "Validation Candidates", "Top Reverse Targets", "Suggested Static Path", "Analysis Warnings", "Coverage"}
+    headings = {prose_heading(heading, lang) for heading in headings}
     body = []
     for i, line in enumerate(lines):
         tag = "h1" if i == 0 else "h2" if line in headings else "p"
         body.append(f"<{tag}>{html.escape(line)}</{tag}>")
-    return '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ReverseHelper Challenge Summary</title><style>body{max-width:1000px;margin:40px auto;padding:0 24px;font:16px/1.6 system-ui;background:#101723;color:#e4edf7}h1,h2{color:#79d4ff}p{white-space:pre-wrap;overflow-wrap:anywhere}h2{margin-top:32px}</style><body>' + "\n".join(body) + "</body></html>"
+    return '<!doctype html><html lang="' + Language(lang).value + '"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ReverseHelper Challenge Summary</title><style>body{max-width:1000px;margin:40px auto;padding:0 24px;font:16px/1.6 system-ui;background:#101723;color:#e4edf7}h1,h2{color:#79d4ff}p{white-space:pre-wrap;overflow-wrap:anywhere}h2{margin-top:32px}</style><body>' + "\n".join(body) + "</body></html>"
+
+
+def prose_heading(heading, lang):
+    from .localization import MESSAGES
+    key = next((key for key, pair in MESSAGES.items() if pair[0] == heading), None)
+    return message(key, lang) if key else heading

@@ -1,0 +1,4 @@
+include README.zh-CN.md QUICKSTART.md QUICKSTART.zh-CN.md CHANGELOG.md
+recursive-include docs *.md *.json
+recursive-include scripts *.py *.ps1 *.md
+recursive-include tests *.py *.c *.json *.txt

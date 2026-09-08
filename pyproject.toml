@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "reversehelper"
-version = "0.2.0b1"
+version = "0.2.0b2"
 description = "Offline-first static reverse engineering workbench for CTF competitors."
 readme = "README.md"
 requires-python = ">=3.10"

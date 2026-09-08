@@ -1,0 +1,747 @@
+{
+  "basic": {
+    "file_name": "challenge.exe",
+    "file_size": 4096,
+    "file_type": "EXE",
+    "architecture": "x86",
+    "machine": 332,
+    "compile_timestamp": 0,
+    "compile_time_utc": null,
+    "image_base": 4194304,
+    "entry_point_rva": 4096,
+    "entry_point_va": 4198400,
+    "entry_point_offset": 512,
+    "number_of_sections": 3,
+    "section_alignment": 4096,
+    "file_alignment": 512,
+    "size_of_image": 16384,
+    "size_of_headers": 512,
+    "subsystem": "Windows Console",
+    "checksum": 0,
+    "dll_characteristics": 0,
+    "is_64_bit": false
+  },
+  "hashes": {
+    "md5": "f5a1f9a6c01dbd0eff48c93dbb08e0e7",
+    "sha1": "46ae600f205aab790d4b379bc1d1cf1eedac9966",
+    "sha256": "f51b8e06af97592230bade78bb7e32b157053490a1e38d10dde5d9f30ff520a7"
+  },
+  "analysis_mode": "quick",
+  "analysis_warnings": [
+    {
+      "module": "data-flow",
+      "error_type": "TypeError",
+      "reason": "object of type 'NoneType' has no len()"
+    }
+  ],
+  "interesting_strings": [
+    {
+      "id": "S-00000800-ASCII",
+      "address": 4206592,
+      "rva": 12288,
+      "file_offset": 2048,
+      "value": "Wrong flag!",
+      "encoding": "ASCII",
+      "category": "FAILURE",
+      "categories": [
+        "FAILURE",
+        "FLAG"
+      ],
+      "score": 60,
+      "priority": "HIGH",
+      "confidence": "medium",
+      "runtime_noise": false,
+      "xref_count": 1,
+      "xref_functions": [
+        "FUN_401000"
+      ],
+      "xrefs": [
+        {
+          "rva": 4136,
+          "address": 4198440,
+          "function": "FUN_401000",
+          "function_rva": 4096,
+          "reference_address": 4206592,
+          "string_offset": 0,
+          "nearby_branches": [
+            4122
+          ],
+          "kind": "direct_operand"
+        }
+      ],
+      "reasons": [
+        "failure-related text",
+        "Referenced by executable code through a direct operand",
+        "Reference belongs to a bounded function candidate",
+        "Nearby conditional control flow (proximity, not proven dependence)"
+      ],
+      "outcome": "FAILURE"
+    },
+    {
+      "id": "S-00000820-ASCII",
+      "address": 4206624,
+      "rva": 12320,
+      "file_offset": 2080,
+      "value": "Correct! Congratulations!",
+      "encoding": "ASCII",
+      "category": "SUCCESS",
+      "categories": [
+        "SUCCESS"
+      ],
+      "score": 60,
+      "priority": "HIGH",
+      "confidence": "medium",
+      "runtime_noise": false,
+      "xref_count": 1,
+      "xref_functions": [
+        "FUN_401000"
+      ],
+      "xrefs": [
+        {
+          "rva": 4124,
+          "address": 4198428,
+          "function": "FUN_401000",
+          "function_rva": 4096,
+          "reference_address": 4206624,
+          "string_offset": 0,
+          "nearby_branches": [
+            4122
+          ],
+          "kind": "direct_operand"
+        }
+      ],
+      "reasons": [
+        "success-related text",
+        "Referenced by executable code through a direct operand",
+        "Reference belongs to a bounded function candidate",
+        "Nearby conditional control flow (proximity, not proven dependence)"
+      ],
+      "outcome": "SUCCESS"
+    },
+    {
+      "id": "S-00000860-ASCII",
+      "address": 4206688,
+      "rva": 12384,
+      "file_offset": 2144,
+      "value": "RHdemo",
+      "encoding": "ASCII",
+      "category": "GENERIC",
+      "categories": [
+        "GENERIC"
+      ],
+      "score": 40,
+      "priority": "MEDIUM",
+      "confidence": "medium",
+      "runtime_noise": false,
+      "xref_count": 1,
+      "xref_functions": [
+        "FUN_401000"
+      ],
+      "xrefs": [
+        {
+          "rva": 4104,
+          "address": 4198408,
+          "function": "FUN_401000",
+          "function_rva": 4096,
+          "reference_address": 4206688,
+          "string_offset": 0,
+          "nearby_branches": [
+            4122
+          ],
+          "kind": "direct_operand"
+        }
+      ],
+      "reasons": [
+        "No CTF keyword matched",
+        "Referenced by executable code through a direct operand",
+        "Reference belongs to a bounded function candidate",
+        "Nearby conditional control flow (proximity, not proven dependence)"
+      ],
+      "outcome": null
+    },
+    {
+      "id": "S-000009F0-ASCII",
+      "address": 4207088,
+      "rva": 12784,
+      "file_offset": 2544,
+      "value": "msvcrt.dll",
+      "encoding": "ASCII",
+      "category": "FILE",
+      "categories": [
+        "FILE"
+      ],
+      "score": 5,
+      "priority": "LOW",
+      "confidence": "low",
+      "runtime_noise": false,
+      "xref_count": 0,
+      "xref_functions": [],
+      "xrefs": [],
+      "reasons": [
+        "file-related text"
+      ],
+      "outcome": null
+    },
+    {
+      "id": "S-00000178-ASCII",
+      "address": 4194680,
+      "rva": 376,
+      "file_offset": 376,
+      "value": ".text",
+      "encoding": "ASCII",
+      "category": "GENERIC",
+      "categories": [
+        "GENERIC"
+      ],
+      "score": 0,
+      "priority": "LOW",
+      "confidence": "low",
+      "runtime_noise": false,
+      "xref_count": 0,
+      "xref_functions": [],
+      "xrefs": [],
+      "reasons": [
+        "No CTF keyword matched"
+      ],
+      "outcome": null
+    },
+    {
+      "id": "S-0000019F-ASCII",
+      "address": 4194719,
+      "rva": 415,
+      "file_offset": 415,
+      "value": "`.idata",
+      "encoding": "ASCII",
+      "category": "GENERIC",
+      "categories": [
+        "GENERIC"
+      ],
+      "score": 0,
+      "priority": "LOW",
+      "confidence": "low",
+      "runtime_noise": false,
+      "xref_count": 0,
+      "xref_functions": [],
+      "xrefs": [],
+      "reasons": [
+        "No CTF keyword matched"
+      ],
+      "outcome": null
+    },
+    {
+      "id": "S-000001C8-ASCII",
+      "address": 4194760,
+      "rva": 456,
+      "file_offset": 456,
+      "value": ".rdata",
+      "encoding": "ASCII",
+      "category": "GENERIC",
+      "categories": [
+        "GENERIC"
+      ],
+      "score": 0,
+      "priority": "LOW",
+      "confidence": "low",
+      "runtime_noise": false,
+      "xref_count": 0,
+      "xref_functions": [],
+      "xrefs": [],
+      "reasons": [
+        "No CTF keyword matched"
+      ],
+      "outcome": null
+    },
+    {
+      "id": "S-00000208-ASCII",
+      "address": 4198408,
+      "rva": 4104,
+      "file_offset": 520,
+      "value": "h`0@",
+      "encoding": "ASCII",
+      "category": "GENERIC",
+      "categories": [
+        "GENERIC"
+      ],
+      "score": 0,
+      "priority": "LOW",
+      "confidence": "low",
+      "runtime_noise": false,
+      "xref_count": 0,
+      "xref_functions": [],
+      "xrefs": [],
+      "reasons": [
+        "No CTF keyword matched"
+      ],
+      "outcome": null
+    },
+    {
+      "id": "S-0000021C-ASCII",
+      "address": 4198428,
+      "rva": 4124,
+      "file_offset": 540,
+      "value": "h 0@",
+      "encoding": "ASCII",
+      "category": "GENERIC",
+      "categories": [
+        "GENERIC"
+      ],
+      "score": 0,
+      "priority": "LOW",
+      "confidence": "low",
+      "runtime_noise": false,
+      "xref_count": 0,
+      "xref_functions": [],
+      "xrefs": [],
+      "reasons": [
+        "No CTF keyword matched"
+      ],
+      "outcome": null
+    },
+    {
+      "id": "S-00000902-ASCII",
+      "address": 4206850,
+      "rva": 12546,
+      "file_offset": 2306,
+      "value": "memcmp",
+      "encoding": "ASCII",
+      "category": "GENERIC",
+      "categories": [
+        "GENERIC"
+      ],
+      "score": 0,
+      "priority": "LOW",
+      "confidence": "low",
+      "runtime_noise": false,
+      "xref_count": 0,
+      "xref_functions": [],
+      "xrefs": [],
+      "reasons": [
+        "No CTF keyword matched"
+      ],
+      "outcome": null
+    },
+    {
+      "id": "S-00000922-ASCII",
+      "address": 4206882,
+      "rva": 12578,
+      "file_offset": 2338,
+      "value": "fgets",
+      "encoding": "ASCII",
+      "category": "GENERIC",
+      "categories": [
+        "GENERIC"
+      ],
+      "score": 0,
+      "priority": "LOW",
+      "confidence": "low",
+      "runtime_noise": false,
+      "xref_count": 0,
+      "xref_functions": [],
+      "xrefs": [],
+      "reasons": [
+        "No CTF keyword matched"
+      ],
+      "outcome": null
+    },
+    {
+      "id": "S-00000942-ASCII",
+      "address": 4206914,
+      "rva": 12610,
+      "file_offset": 2370,
+      "value": "puts",
+      "encoding": "ASCII",
+      "category": "GENERIC",
+      "categories": [
+        "GENERIC"
+      ],
+      "score": 0,
+      "priority": "LOW",
+      "confidence": "low",
+      "runtime_noise": false,
+      "xref_count": 0,
+      "xref_functions": [],
+      "xrefs": [],
+      "reasons": [
+        "No CTF keyword matched"
+      ],
+      "outcome": null
+    },
+    {
+      "id": "S-00000962-ASCII",
+      "address": 4206946,
+      "rva": 12642,
+      "file_offset": 2402,
+      "value": "strlen",
+      "encoding": "ASCII",
+      "category": "GENERIC",
+      "categories": [
+        "GENERIC"
+      ],
+      "score": 0,
+      "priority": "LOW",
+      "confidence": "low",
+      "runtime_noise": false,
+      "xref_count": 0,
+      "xref_functions": [],
+      "xrefs": [],
+      "reasons": [
+        "No CTF keyword matched"
+      ],
+      "outcome": null
+    }
+  ],
+  "compare_sites": [
+    {
+      "id": "compare-V-00001012",
+      "function": "FUN_401000",
+      "function_rva": 4096,
+      "address": 4198418,
+      "rva": 4114,
+      "compare_type": "MEMCMP",
+      "operands": [
+        {
+          "role": "input",
+          "value": {
+            "api": "fgets",
+            "call_rva": 4096,
+            "input_source_id": "input-fgets-00001000",
+            "relation": "structured input source in same function; exact buffer linkage pending flow analysis"
+          }
+        },
+        {
+          "role": "target",
+          "value": {
+            "address": 4206688,
+            "rva": 12384,
+            "file_offset": 2144,
+            "basis": "Constant second comparator argument; operand role unproven",
+            "bytes_hex": "52 48 64 65 6d 6f"
+          }
+        }
+      ],
+      "length": 6,
+      "confidence": "high",
+      "evidence": [
+        "memcmp at RVA 0x1012",
+        "Comparison flags reach conditional branch at RVA 0x101A",
+        "Same function contains input API fgets at RVA 0x1000; input buffer linkage unproven",
+        "Bounded branch successors reference outcome-related text; this is not proof of flag validation"
+      ],
+      "runtime_noise": false,
+      "compare_origin": null,
+      "comparator_function": null,
+      "thunk_chain": []
+    }
+  ],
+  "validation_candidates": [
+    {
+      "id": "V-00001012",
+      "function": "FUN_401000",
+      "function_rva": 4096,
+      "address": 4198418,
+      "rva": 4114,
+      "validation_type": "MEMCMP",
+      "input_source": {
+        "api": "fgets",
+        "call_rva": 4096,
+        "input_source_id": "input-fgets-00001000",
+        "relation": "structured input source in same function; exact buffer linkage pending flow analysis"
+      },
+      "compare_target": {
+        "address": 4206688,
+        "rva": 12384,
+        "file_offset": 2144,
+        "basis": "Constant second comparator argument; operand role unproven",
+        "bytes_hex": "52 48 64 65 6d 6f"
+      },
+      "compare_length": 6,
+      "success_branch": {
+        "branch_rva": 4122,
+        "successor_rva": 4124,
+        "string_ids": [
+          "S-00000820-ASCII"
+        ],
+        "basis": "Exclusive successor path references outcome-related text; actual outcome remains a candidate"
+      },
+      "failure_branch": {
+        "branch_rva": 4122,
+        "successor_rva": 4136,
+        "string_ids": [
+          "S-00000800-ASCII"
+        ],
+        "basis": "Exclusive successor path references outcome-related text; actual outcome remains a candidate"
+      },
+      "confidence": "high",
+      "evidence": [
+        "memcmp at RVA 0x1012",
+        "Comparison flags reach conditional branch at RVA 0x101A",
+        "Same function contains input API fgets at RVA 0x1000; input buffer linkage unproven",
+        "Bounded branch successors reference outcome-related text; this is not proof of flag validation"
+      ],
+      "branch_rva": 4122,
+      "loop": false,
+      "length_check": null,
+      "context_only": false,
+      "input_flow_to_validation": "NONE",
+      "decision_type": "conditional_branch",
+      "branch_polarity": "nonzero/not-equal condition selects the taken or assigned outcome",
+      "runtime_noise": false,
+      "unknown_fields": [],
+      "compare_origin": null,
+      "comparator_function": null,
+      "thunk_chain": []
+    }
+  ],
+  "reverse_targets": [
+    {
+      "category": "validation",
+      "rva": 4096,
+      "va": 4198400,
+      "file_offset": 512,
+      "section": ".text",
+      "priority": "high",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x101A; Contains an input-related API call; user input linkage remains unproven; Separate comparison successors reference success/failure text; References both success- and failure-related strings; Independent evidence families: comparison, input, strings",
+      "recommended_action": "Open FUN_401000 in Ghidra/IDA; inspect the comparison arguments, cited strings and both branch successors.",
+      "finding_ids": [
+        "S-00000800-ASCII",
+        "S-00000820-ASCII",
+        "V-00001012",
+        "input-call-fgets-00001000"
+      ],
+      "score": 83,
+      "confidence": "high",
+      "type": "VALIDATION",
+      "function": "FUN_401000",
+      "score_breakdown": [
+        {
+          "rule": "comparison",
+          "points": 16,
+          "source": "comparison",
+          "reason": "Contains a comparator call or comparison loop",
+          "evidence_ids": [
+            "V-00001012"
+          ],
+          "rvas": [
+            4114
+          ]
+        },
+        {
+          "rule": "conditional_branch",
+          "points": 8,
+          "source": "comparison",
+          "reason": "Comparison reaches branch RVA 0x101A",
+          "evidence_ids": [
+            "V-00001012"
+          ],
+          "rvas": [
+            4114
+          ]
+        },
+        {
+          "rule": "input_call",
+          "points": 18,
+          "source": "input",
+          "reason": "Contains an input-related API call; user input linkage remains unproven",
+          "evidence_ids": [
+            "input-call-fgets-00001000"
+          ],
+          "rvas": [
+            4096
+          ]
+        },
+        {
+          "rule": "outcome_branch",
+          "points": 16,
+          "source": "comparison",
+          "reason": "Separate comparison successors reference success/failure text",
+          "evidence_ids": [
+            "V-00001012"
+          ],
+          "rvas": [
+            4114
+          ]
+        },
+        {
+          "rule": "outcome_pair",
+          "points": 22,
+          "source": "strings",
+          "reason": "References both success- and failure-related strings",
+          "evidence_ids": [
+            "S-00000800-ASCII",
+            "S-00000820-ASCII"
+          ],
+          "rvas": [
+            4124,
+            4136
+          ]
+        },
+        {
+          "rule": "unlinked_input_comparison",
+          "points": -15,
+          "source": "penalty",
+          "reason": "Input and comparison share a function but bounded flow does not connect them",
+          "evidence_ids": [
+            "V-00001012"
+          ],
+          "rvas": [
+            4114
+          ]
+        },
+        {
+          "rule": "corroboration",
+          "points": 18,
+          "source": "corroboration",
+          "reason": "Independent evidence families: comparison, input, strings",
+          "evidence_ids": [],
+          "rvas": []
+        }
+      ],
+      "evidence_sources": [
+        "comparison",
+        "input",
+        "strings"
+      ],
+      "target_kind": "function"
+    },
+    {
+      "category": "control-flow",
+      "rva": 8200,
+      "va": 4202504,
+      "file_offset": 1544,
+      "section": ".idata",
+      "priority": "low",
+      "reason": "The import shows input capability, but no call site or input buffer is established.",
+      "recommended_action": "Open RVA 0x2008 in Ghidra/IDA; inspect the cited string references and local callers.",
+      "finding_ids": [
+        "input-import-fgets-00002008"
+      ],
+      "score": 3,
+      "confidence": "low",
+      "type": "SUSPICIOUS_FUNCTION",
+      "function": null,
+      "score_breakdown": [
+        {
+          "rule": "import_only",
+          "points": 3,
+          "source": "imports",
+          "reason": "The import shows input capability, but no call site or input buffer is established.",
+          "evidence_ids": [
+            "input-import-fgets-00002008"
+          ],
+          "rvas": [
+            8200
+          ]
+        }
+      ],
+      "evidence_sources": [],
+      "target_kind": "import"
+    }
+  ],
+  "challenge_summary": {
+    "binary": "PE32 / x86",
+    "packing": "No strong packing evidence",
+    "packing_guidance": [],
+    "static_visibility": "normal",
+    "start_here": {
+      "label": "FUN_401000",
+      "rva": 4096,
+      "score": 83,
+      "confidence": "high",
+      "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x101A; Contains an input-related API call; user input linkage remains unproven; Separate comparison successors reference success/failure text; References both success- and failure-related strings; Independent evidence families: comparison, input, strings",
+      "action": "Open FUN_401000 in Ghidra/IDA; inspect the comparison arguments, cited strings and both branch successors."
+    },
+    "starting_points": [],
+    "start_selection": {
+      "decisive": true,
+      "top_score_gap": 83,
+      "reason": "single target has sufficient confidence and separation"
+    },
+    "fallback": "No supported critical-function candidate yet. Inspect entry RVA 0x1000 and retained string references in Ghidra/IDA.",
+    "suggested_static_path": [
+      {
+        "step": 1,
+        "label": "FUN_401000",
+        "rva": 4096,
+        "reason": "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x101A; Contains an input-related API call; user input linkage remains unproven; Separate comparison successors reference success/failure text; References both success- and failure-related strings; Independent evidence families: comparison, input, strings",
+        "action": "Open FUN_401000 in Ghidra/IDA; inspect the comparison arguments, cited strings and both branch successors."
+      }
+    ],
+    "input_flow": {
+      "source_type": "fgets",
+      "destination": {
+        "description": "x86 argument 0 unresolved",
+        "kind": "UNKNOWN"
+      },
+      "confidence": "POSSIBLE"
+    },
+    "static_slice": null,
+    "static_flow_break": null,
+    "algorithms": [],
+    "control_flow": [],
+    "semantic_suggestions": [],
+    "notice": "Scores rank review priority, not probability. Static flow is bounded and path-insensitive; only unique simple indirect targets are propagated, and POSSIBLE segments are not asserted as facts."
+  },
+  "annotations": [
+    {
+      "rva": 4096,
+      "category": "RH:INPUT",
+      "title": "fgets",
+      "comment": "Input source candidate: fgets",
+      "confidence": "possible",
+      "evidence": [
+        "CALL msvcrt.dll!fgets at RVA 0x1000",
+        "documented destination argument 0 recovered as UNKNOWN"
+      ],
+      "fact_status": "candidate"
+    },
+    {
+      "rva": 4096,
+      "category": "RH:START",
+      "title": "START HERE",
+      "comment": "START HERE\nReason: Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x101A; Contains an input-related API call; user input linkage remains unproven; Separate comparison successors reference success/failure text; References both success- and failure-related strings; Independent evidence families: comparison, input, strings\nSuggested next: Open FUN_401000 in Ghidra/IDA; inspect the comparison arguments, cited strings and both branch successors.",
+      "confidence": "high",
+      "evidence": [
+        "Contains a comparator call or comparison loop; Comparison reaches branch RVA 0x101A; Contains an input-related API call; user input linkage remains unproven; Separate comparison successors reference success/failure text; References both success- and failure-related strings; Independent evidence families: comparison, input, strings"
+      ],
+      "fact_status": "candidate"
+    },
+    {
+      "rva": 4096,
+      "category": "RH:SUGGEST_FUNCTION_RENAME",
+      "title": "Semantic suggestion",
+      "comment": "Suggested semantic: possible_validation_check\nReview before applying; no rename is automatic.",
+      "confidence": "medium",
+      "evidence": [
+        "VALIDATION_OPERAND: MEMCMP"
+      ],
+      "fact_status": "candidate"
+    },
+    {
+      "rva": 4096,
+      "category": "RH:SUGGEST_OBJECT_ROLE",
+      "title": "Semantic suggestion",
+      "comment": "Suggested semantic: {'name': 'input_buf', 'role': 'INPUT', 'type_hint': 'uint8_t *', 'pointer': True}\nReview before applying; no rename is automatic.",
+      "confidence": "medium",
+      "evidence": [
+        "INPUT_PROVENANCE: fgets",
+        "LOAD_WIDTH: 8"
+      ],
+      "fact_status": "candidate"
+    },
+    {
+      "rva": 4114,
+      "category": "RH:VALIDATION",
+      "title": "MEMCMP",
+      "comment": "Validation candidate. Review operands and both branch outcomes.",
+      "confidence": "high",
+      "evidence": [
+        "memcmp at RVA 0x1012",
+        "Comparison flags reach conditional branch at RVA 0x101A",
+        "Same function contains input API fgets at RVA 0x1000; input buffer linkage unproven",
+        "Bounded branch successors reference outcome-related text; this is not proof of flag validation"
+      ],
+      "fact_status": "candidate"
+    }
+  ],
+  "truncated_modules": []
+}

@@ -262,14 +262,14 @@ def print_analysis(result: dict[str, Any], console: Console | None = None) -> No
     console.print(Panel(summary, border_style=risk_color.split()[-1]))
 
 
-def print_quick_analysis(result: dict[str, Any], console: Console | None = None) -> None:
-    from .challenge_summary import summary_lines
+def print_quick_analysis(result: dict[str, Any], console: Console | None = None, *, lang="en") -> None:
+    from .challenge_summary import prose_heading, summary_lines
     console = console or Console()
-    lines = summary_lines(result)
+    lines = summary_lines(result, lang=lang)
     for line in lines:
-        if line in {"START HERE", "START WITH THESE"}:
+        if line in {prose_heading(value, lang) for value in ("START HERE", "START WITH THESE")}:
             console.print(Panel(Text(line, style="bold cyan"), border_style="cyan"))
-        elif line in {"ReverseHelper Quick Analysis", "Challenge Summary", "Interesting Strings", "Validation Candidates", "Top Reverse Targets", "Suggested Static Path", "Analysis Warnings"}:
+        elif line in {prose_heading(value, lang) for value in ("ReverseHelper Quick Analysis", "Challenge Summary", "Interesting Strings", "Validation Candidates", "Top Reverse Targets", "Suggested Static Path", "Analysis Warnings")}:
             console.print(Text(line, style="bold cyan"))
         else:
             console.print(Text(line))
